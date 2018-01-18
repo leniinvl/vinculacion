@@ -25,3 +25,13 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Route::resource('asociacions', 'AsociacionController');
+
+Route::resource('propietarios', 'PropietarioController');
+
+Route::resource('recirculacionAires', 'RecirculacionAireController');
+
+Route::resource('religions', 'ReligionController');
+
+Route::resource('ruidos', 'RuidoController');
+
+Route::resource('tallers', 'TallerController');
