@@ -35,3 +35,11 @@ Route::resource('religions', 'ReligionController');
 Route::resource('ruidos', 'RuidoController');
 
 Route::resource('tallers', 'TallerController');
+
+Route::resource('unidadproduccions', 'unidadproduccionController');
+
+Route::resource('tradicions', 'tradicionController');
+
+Route::resource('trabajadores', 'trabajadoresController');
+
+Route::resource('topologias', 'topologiaController');
