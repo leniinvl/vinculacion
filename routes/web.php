@@ -25,3 +25,13 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Route::resource('asociacions', 'AsociacionController');
+
+Route::resource('productos', 'ProductoController');
+
+Route::resource('precipitaciones', 'PrecipitacionesController');
+
+Route::resource('planRiesgosHasTipoAlimentos', 'PlanRiesgos_Has_TipoAlimentosController');
+
+Route::resource('planRiesgosHasTipoAnimales', 'PlanRiesgos_Has_TipoAnimalesController');
+
+Route::resource('planRiesgosHasTipoCultivos', 'PlanRiesgos_Has_TipoCultivosController');
