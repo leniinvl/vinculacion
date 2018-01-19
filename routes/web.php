@@ -26,6 +26,14 @@ Route::get('/home', 'HomeController@index');
 
 Route::resource('asociacions', 'AsociacionController');
 
+Route::resource('tallerHasTipoDesechos', 'Taller_Has_TipoDesechoController');
+
+Route::resource('tallerHasTipoRiesgos', 'Taller_Has_TipoRiesgosController');
+
+Route::resource('tendenciaTierras', 'TendenciaTierraController');
+
+Route::resource('tipoAbonos', 'TipoAbonoController');
+
 Route::resource('propietarios', 'PropietarioController');
 
 Route::resource('recirculacionAires', 'RecirculacionAireController');
