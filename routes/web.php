@@ -51,3 +51,14 @@ Route::resource('tradicions', 'tradicionController');
 Route::resource('trabajadores', 'trabajadoresController');
 
 Route::resource('topologias', 'topologiaController');
+
+
+Route::resource('organizacionSocials', 'OrganizacionSocialController');
+
+Route::resource('planRiesgosHasOrigenIngresos', 'PlanRiesgos_Has_OrigenIngresosController');
+
+Route::resource('paisajes', 'PaisajeController');
+
+Route::resource('peligros', 'PeligrosController');
+
+Route::resource('permeabilidadSuelos', 'PermeabilidadSueloController');
