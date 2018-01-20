@@ -3,9 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\topologia;
+use App\Models\Topologia;
 
-class UpdatetopologiaRequest extends FormRequest
+class UpdateTopologiaRequest extends FormRequest
 {
 
     /**
@@ -25,6 +25,6 @@ class UpdatetopologiaRequest extends FormRequest
      */
     public function rules()
     {
-        return topologia::$rules;
+        return Topologia::$rules;
     }
 }

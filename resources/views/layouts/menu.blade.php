@@ -54,3 +54,19 @@
     <a href="{!! route('topologias.index') !!}"><i class="fa fa-edit"></i><span>Topologias</span></a>
 </li>
 
+<li class="{{ Request::is('tipoFuentes*') ? 'active' : '' }}">
+    <a href="{!! route('tipoFuentes.index') !!}"><i class="fa fa-edit"></i><span>Tipo Fuentes</span></a>
+</li>
+
+<li class="{{ Request::is('tipoVegetals*') ? 'active' : '' }}">
+    <a href="{!! route('tipoVegetals.index') !!}"><i class="fa fa-edit"></i><span>Tipo Vegetals</span></a>
+</li>
+
+<li class="{{ Request::is('topologias*') ? 'active' : '' }}">
+    <a href="{!! route('topologias.index') !!}"><i class="fa fa-edit"></i><span>Topologias</span></a>
+</li>
+
+<li class="{{ Request::is('tradicions*') ? 'active' : '' }}">
+    <a href="{!! route('tradicions.index') !!}"><i class="fa fa-edit"></i><span>Tradicions</span></a>
+</li>
+

@@ -6,9 +6,9 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class Topologia
+ * Class TipoFuentes
  * @package App\Models
- * @version January 20, 2018, 4:29 am UTC
+ * @version January 20, 2018, 4:26 am UTC
  *
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasLenguaje
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasPeligros
@@ -32,11 +32,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \Illuminate\Database\Eloquent\Collection usosvegetacionHasAreainfluenciaHasTipovegetal
  * @property string nombre
  */
-class Topologia extends Model
+class TipoFuentes extends Model
 {
     use SoftDeletes;
 
-    public $table = 'topologia';
+    public $table = 'tipofuentes';
     
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
@@ -73,6 +73,6 @@ class Topologia extends Model
      **/
     public function areainfluencia()
     {
-        return $this->belongsToMany(\App\Models\Areainfluencium::class, 'areainfluencia_has_topologia');
+        return $this->belongsToMany(\App\Models\Areainfluencium::class, 'areainfluencia_has_tipofuentes');
     }
 }
