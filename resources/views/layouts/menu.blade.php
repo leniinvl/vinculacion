@@ -74,3 +74,23 @@
     <a href="{!! route('topologias.index') !!}"><i class="fa fa-edit"></i><span>Topologias</span></a>
 </li>
 
+<li class="{{ Request::is('organizacionSocials*') ? 'active' : '' }}">
+    <a href="{!! route('organizacionSocials.index') !!}"><i class="fa fa-edit"></i><span>Organizacion Socials</span></a>
+</li>
+
+<li class="{{ Request::is('planRiesgosHasOrigenIngresos*') ? 'active' : '' }}">
+    <a href="{!! route('planRiesgosHasOrigenIngresos.index') !!}"><i class="fa fa-edit"></i><span>Plan Riesgos  Has  Origen Ingresos</span></a>
+</li>
+
+<li class="{{ Request::is('paisajes*') ? 'active' : '' }}">
+    <a href="{!! route('paisajes.index') !!}"><i class="fa fa-edit"></i><span>Paisajes</span></a>
+</li>
+
+<li class="{{ Request::is('peligros*') ? 'active' : '' }}">
+    <a href="{!! route('peligros.index') !!}"><i class="fa fa-edit"></i><span>Peligros</span></a>
+</li>
+
+<li class="{{ Request::is('permeabilidadSuelos*') ? 'active' : '' }}">
+    <a href="{!! route('permeabilidadSuelos.index') !!}"><i class="fa fa-edit"></i><span>Permeabilidad Suelos</span></a>
+</li>
+
