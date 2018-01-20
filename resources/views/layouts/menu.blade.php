@@ -94,3 +94,23 @@
     <a href="{!! route('permeabilidadSuelos.index') !!}"><i class="fa fa-edit"></i><span>Permeabilidad Suelos</span></a>
 </li>
 
+<li class="{{ Request::is('abastecimientoaguas*') ? 'active' : '' }}">
+    <a href="{!! route('abastecimientoaguas.index') !!}"><i class="fa fa-edit"></i><span>Abastecimientoaguas</span></a>
+</li>
+
+<li class="{{ Request::is('areainfluencias*') ? 'active' : '' }}">
+    <a href="{!! route('areainfluencias.index') !!}"><i class="fa fa-edit"></i><span>Areainfluencias</span></a>
+</li>
+
+<li class="{{ Request::is('areainfluenciaHasLenguajes*') ? 'active' : '' }}">
+    <a href="{!! route('areainfluenciaHasLenguajes.index') !!}"><i class="fa fa-edit"></i><span>Areainfluencia Has Lenguajes</span></a>
+</li>
+
+<li class="{{ Request::is('areainfluenciaHasPeligros*') ? 'active' : '' }}">
+    <a href="{!! route('areainfluenciaHasPeligros.index') !!}"><i class="fa fa-edit"></i><span>Areainfluencia Has Peligros</span></a>
+</li>
+
+<li class="{{ Request::is('areainfluenciaHasReligions*') ? 'active' : '' }}">
+    <a href="{!! route('areainfluenciaHasReligions.index') !!}"><i class="fa fa-edit"></i><span>Areainfluencia Has Religions</span></a>
+</li>
+
