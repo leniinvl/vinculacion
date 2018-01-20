@@ -72,3 +72,13 @@ Route::resource('paisajes', 'PaisajeController');
 Route::resource('peligros', 'PeligrosController');
 
 Route::resource('permeabilidadSuelos', 'PermeabilidadSueloController');
+
+Route::resource('abastecimientoaguas', 'AbastecimientoaguaController');
+
+Route::resource('areainfluencias', 'AreainfluenciaController');
+
+Route::resource('areainfluenciaHasLenguajes', 'Areainfluencia_has_lenguajeController');
+
+Route::resource('areainfluenciaHasPeligros', 'Areainfluencia_has_peligrosController');
+
+Route::resource('areainfluenciaHasReligions', 'Areainfluencia_has_religionController');
