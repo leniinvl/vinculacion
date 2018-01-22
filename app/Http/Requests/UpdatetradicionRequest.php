@@ -3,9 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\tradicion;
+use App\Models\Tradicion;
 
-class UpdatetradicionRequest extends FormRequest
+class UpdateTradicionRequest extends FormRequest
 {
 
     /**
@@ -25,6 +25,6 @@ class UpdatetradicionRequest extends FormRequest
      */
     public function rules()
     {
-        return tradicion::$rules;
+        return Tradicion::$rules;
     }
 }

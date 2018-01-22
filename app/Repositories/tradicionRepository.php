@@ -2,19 +2,19 @@
 
 namespace App\Repositories;
 
-use App\Models\tradicion;
+use App\Models\Tradicion;
 use InfyOm\Generator\Common\BaseRepository;
 
 /**
- * Class tradicionRepository
+ * Class TradicionRepository
  * @package App\Repositories
- * @version January 18, 2018, 11:30 pm UTC
+ * @version January 20, 2018, 4:31 am UTC
  *
- * @method tradicion findWithoutFail($id, $columns = ['*'])
- * @method tradicion find($id, $columns = ['*'])
- * @method tradicion first($columns = ['*'])
+ * @method Tradicion findWithoutFail($id, $columns = ['*'])
+ * @method Tradicion find($id, $columns = ['*'])
+ * @method Tradicion first($columns = ['*'])
 */
-class tradicionRepository extends BaseRepository
+class TradicionRepository extends BaseRepository
 {
     /**
      * @var array
@@ -28,6 +28,6 @@ class tradicionRepository extends BaseRepository
      **/
     public function model()
     {
-        return tradicion::class;
+        return Tradicion::class;
     }
 }

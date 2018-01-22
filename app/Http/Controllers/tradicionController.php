@@ -2,27 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreatetradicionRequest;
-use App\Http\Requests\UpdatetradicionRequest;
-use App\Repositories\tradicionRepository;
+use App\Http\Requests\CreateTradicionRequest;
+use App\Http\Requests\UpdateTradicionRequest;
+use App\Repositories\TradicionRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
-class tradicionController extends AppBaseController
+class TradicionController extends AppBaseController
 {
-    /** @var  tradicionRepository */
+    /** @var  TradicionRepository */
     private $tradicionRepository;
 
-    public function __construct(tradicionRepository $tradicionRepo)
+    public function __construct(TradicionRepository $tradicionRepo)
     {
         $this->tradicionRepository = $tradicionRepo;
     }
 
     /**
-     * Display a listing of the tradicion.
+     * Display a listing of the Tradicion.
      *
      * @param Request $request
      * @return Response
@@ -37,7 +37,7 @@ class tradicionController extends AppBaseController
     }
 
     /**
-     * Show the form for creating a new tradicion.
+     * Show the form for creating a new Tradicion.
      *
      * @return Response
      */
@@ -47,13 +47,13 @@ class tradicionController extends AppBaseController
     }
 
     /**
-     * Store a newly created tradicion in storage.
+     * Store a newly created Tradicion in storage.
      *
-     * @param CreatetradicionRequest $request
+     * @param CreateTradicionRequest $request
      *
      * @return Response
      */
-    public function store(CreatetradicionRequest $request)
+    public function store(CreateTradicionRequest $request)
     {
         $input = $request->all();
 
@@ -65,7 +65,7 @@ class tradicionController extends AppBaseController
     }
 
     /**
-     * Display the specified tradicion.
+     * Display the specified Tradicion.
      *
      * @param  int $id
      *
@@ -85,7 +85,7 @@ class tradicionController extends AppBaseController
     }
 
     /**
-     * Show the form for editing the specified tradicion.
+     * Show the form for editing the specified Tradicion.
      *
      * @param  int $id
      *
@@ -105,14 +105,14 @@ class tradicionController extends AppBaseController
     }
 
     /**
-     * Update the specified tradicion in storage.
+     * Update the specified Tradicion in storage.
      *
      * @param  int              $id
-     * @param UpdatetradicionRequest $request
+     * @param UpdateTradicionRequest $request
      *
      * @return Response
      */
-    public function update($id, UpdatetradicionRequest $request)
+    public function update($id, UpdateTradicionRequest $request)
     {
         $tradicion = $this->tradicionRepository->findWithoutFail($id);
 
@@ -130,7 +130,7 @@ class tradicionController extends AppBaseController
     }
 
     /**
-     * Remove the specified tradicion from storage.
+     * Remove the specified Tradicion from storage.
      *
      * @param  int $id
      *
