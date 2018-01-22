@@ -2,19 +2,19 @@
 
 namespace App\Repositories;
 
-use App\Models\topologia;
+use App\Models\Topologia;
 use InfyOm\Generator\Common\BaseRepository;
 
 /**
- * Class topologiaRepository
+ * Class TopologiaRepository
  * @package App\Repositories
- * @version January 18, 2018, 11:32 pm UTC
+ * @version January 20, 2018, 4:29 am UTC
  *
- * @method topologia findWithoutFail($id, $columns = ['*'])
- * @method topologia find($id, $columns = ['*'])
- * @method topologia first($columns = ['*'])
+ * @method Topologia findWithoutFail($id, $columns = ['*'])
+ * @method Topologia find($id, $columns = ['*'])
+ * @method Topologia first($columns = ['*'])
 */
-class topologiaRepository extends BaseRepository
+class TopologiaRepository extends BaseRepository
 {
     /**
      * @var array
@@ -28,6 +28,6 @@ class topologiaRepository extends BaseRepository
      **/
     public function model()
     {
-        return topologia::class;
+        return Topologia::class;
     }
 }

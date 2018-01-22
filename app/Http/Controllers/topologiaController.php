@@ -2,27 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreatetopologiaRequest;
-use App\Http\Requests\UpdatetopologiaRequest;
-use App\Repositories\topologiaRepository;
+use App\Http\Requests\CreateTopologiaRequest;
+use App\Http\Requests\UpdateTopologiaRequest;
+use App\Repositories\TopologiaRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
-class topologiaController extends AppBaseController
+class TopologiaController extends AppBaseController
 {
-    /** @var  topologiaRepository */
+    /** @var  TopologiaRepository */
     private $topologiaRepository;
 
-    public function __construct(topologiaRepository $topologiaRepo)
+    public function __construct(TopologiaRepository $topologiaRepo)
     {
         $this->topologiaRepository = $topologiaRepo;
     }
 
     /**
-     * Display a listing of the topologia.
+     * Display a listing of the Topologia.
      *
      * @param Request $request
      * @return Response
@@ -37,7 +37,7 @@ class topologiaController extends AppBaseController
     }
 
     /**
-     * Show the form for creating a new topologia.
+     * Show the form for creating a new Topologia.
      *
      * @return Response
      */
@@ -47,13 +47,13 @@ class topologiaController extends AppBaseController
     }
 
     /**
-     * Store a newly created topologia in storage.
+     * Store a newly created Topologia in storage.
      *
-     * @param CreatetopologiaRequest $request
+     * @param CreateTopologiaRequest $request
      *
      * @return Response
      */
-    public function store(CreatetopologiaRequest $request)
+    public function store(CreateTopologiaRequest $request)
     {
         $input = $request->all();
 
@@ -65,7 +65,7 @@ class topologiaController extends AppBaseController
     }
 
     /**
-     * Display the specified topologia.
+     * Display the specified Topologia.
      *
      * @param  int $id
      *
@@ -85,7 +85,7 @@ class topologiaController extends AppBaseController
     }
 
     /**
-     * Show the form for editing the specified topologia.
+     * Show the form for editing the specified Topologia.
      *
      * @param  int $id
      *
@@ -105,14 +105,14 @@ class topologiaController extends AppBaseController
     }
 
     /**
-     * Update the specified topologia in storage.
+     * Update the specified Topologia in storage.
      *
      * @param  int              $id
-     * @param UpdatetopologiaRequest $request
+     * @param UpdateTopologiaRequest $request
      *
      * @return Response
      */
-    public function update($id, UpdatetopologiaRequest $request)
+    public function update($id, UpdateTopologiaRequest $request)
     {
         $topologia = $this->topologiaRepository->findWithoutFail($id);
 
@@ -130,7 +130,7 @@ class topologiaController extends AppBaseController
     }
 
     /**
-     * Remove the specified topologia from storage.
+     * Remove the specified Topologia from storage.
      *
      * @param  int $id
      *

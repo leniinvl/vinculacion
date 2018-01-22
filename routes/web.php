@@ -26,6 +26,16 @@ Route::get('/home', 'HomeController@index');
 
 Route::resource('asociacions', 'AsociacionController');
 
+Route::resource('evacuacionAguaLluvias', 'EvacuacionAguaLluviaController');
+
+Route::resource('grupoAlimentosProductos', 'GrupoAlimentosProductosController');
+
+Route::resource('lenguajes', 'LenguajeController');
+
+Route::resource('manejoAmbientals', 'ManejoAmbientalController');
+
+Route::resource('nivelDeTraficos', 'NivelDeTraficoController');
+
 Route::resource('productos', 'ProductoController');
 
 Route::resource('precipitaciones', 'PrecipitacionesController');
@@ -62,6 +72,13 @@ Route::resource('trabajadores', 'trabajadoresController');
 
 Route::resource('topologias', 'topologiaController');
 
+Route::resource('tipoFuentes', 'TipoFuentesController');
+
+Route::resource('tipoVegetals', 'TipoVegetalController');
+
+Route::resource('topologias', 'TopologiaController');
+
+Route::resource('tradicions', 'TradicionController');
 
 Route::resource('organizacionSocials', 'OrganizacionSocialController');
 

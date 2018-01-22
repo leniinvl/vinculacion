@@ -2,6 +2,26 @@
     <a href="{!! route('asociacions.index') !!}"><i class="fa fa-edit"></i><span>Asociacions</span></a>
 </li>
 
+<li class="{{ Request::is('evacuacionAguaLluvias*') ? 'active' : '' }}">
+    <a href="{!! route('evacuacionAguaLluvias.index') !!}"><i class="fa fa-edit"></i><span>Evacuacion Agua Lluvias</span></a>
+</li>
+
+<li class="{{ Request::is('grupoAlimentosProductos*') ? 'active' : '' }}">
+    <a href="{!! route('grupoAlimentosProductos.index') !!}"><i class="fa fa-edit"></i><span>Grupo Alimentos Productos</span></a>
+</li>
+
+<li class="{{ Request::is('lenguajes*') ? 'active' : '' }}">
+    <a href="{!! route('lenguajes.index') !!}"><i class="fa fa-edit"></i><span>Lenguajes</span></a>
+</li>
+
+<li class="{{ Request::is('manejoAmbientals*') ? 'active' : '' }}">
+    <a href="{!! route('manejoAmbientals.index') !!}"><i class="fa fa-edit"></i><span>Manejo Ambientals</span></a>
+</li>
+
+<li class="{{ Request::is('nivelDeTraficos*') ? 'active' : '' }}">
+    <a href="{!! route('nivelDeTraficos.index') !!}"><i class="fa fa-edit"></i><span>Nivel De Traficos</span></a>
+</li>
+
 <li class="{{ Request::is('productos*') ? 'active' : '' }}">
     <a href="{!! route('productos.index') !!}"><i class="fa fa-edit"></i><span>Productos</span></a>
 </li>
@@ -74,6 +94,22 @@
     <a href="{!! route('topologias.index') !!}"><i class="fa fa-edit"></i><span>Topologias</span></a>
 </li>
 
+<li class="{{ Request::is('tipoFuentes*') ? 'active' : '' }}">
+    <a href="{!! route('tipoFuentes.index') !!}"><i class="fa fa-edit"></i><span>Tipo Fuentes</span></a>
+</li>
+
+<li class="{{ Request::is('tipoVegetals*') ? 'active' : '' }}">
+    <a href="{!! route('tipoVegetals.index') !!}"><i class="fa fa-edit"></i><span>Tipo Vegetals</span></a>
+</li>
+
+<li class="{{ Request::is('topologias*') ? 'active' : '' }}">
+    <a href="{!! route('topologias.index') !!}"><i class="fa fa-edit"></i><span>Topologias</span></a>
+</li>
+
+<li class="{{ Request::is('tradicions*') ? 'active' : '' }}">
+    <a href="{!! route('tradicions.index') !!}"><i class="fa fa-edit"></i><span>Tradicions</span></a>
+</li>
+
 <li class="{{ Request::is('organizacionSocials*') ? 'active' : '' }}">
     <a href="{!! route('organizacionSocials.index') !!}"><i class="fa fa-edit"></i><span>Organizacion Socials</span></a>
 </li>
@@ -133,4 +169,3 @@
 <li class="{{ Request::is('unidadProduccionHasPropietarios*') ? 'active' : '' }}">
     <a href="{!! route('unidadProduccionHasPropietarios.index') !!}"><i class="fa fa-edit"></i><span>Unidad Produccion  Has  Propietarios</span></a>
 </li>
-
