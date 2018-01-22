@@ -6,12 +6,12 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class PlanRiesgos_Has_TipoAlimentos
+ * Class PlanRiesgos_Has_GrupoAlimentosProductos
  * @package App\Models
- * @version January 22, 2018, 5:10 pm UTC
+ * @version January 22, 2018, 5:00 pm UTC
  *
+ * @property \App\Models\Grupoalimentosproducto grupoalimentosproducto
  * @property \App\Models\Planriesgo planriesgo
- * @property \App\Models\Tipoalimento tipoalimento
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasLenguaje
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasPeligros
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasReligion
@@ -20,9 +20,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasTopologia
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasTradicion
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasUsotierra
- * @property \Illuminate\Database\Eloquent\Collection planriesgosHasGrupoalimentosproductos
  * @property \Illuminate\Database\Eloquent\Collection planriesgosHasOrigeningresos
  * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipoagricultura
+ * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipoalimentos
  * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipoalimentosconsumo
  * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipoanimales
  * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipocultivos
@@ -31,13 +31,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \Illuminate\Database\Eloquent\Collection unidadproduccion
  * @property \Illuminate\Database\Eloquent\Collection unidadproduccionHasPropietario
  * @property \Illuminate\Database\Eloquent\Collection usosvegetacionHasAreainfluenciaHasTipovegetal
- * @property integer TipoAlimentos_id
+ * @property integer GrupoAlimentosProductos_id
  */
-class PlanRiesgos_Has_TipoAlimentos extends Model
+class PlanRiesgos_Has_GrupoAlimentosProductos extends Model
 {
     use SoftDeletes;
 
-    public $table = 'planriesgos_has_tipoalimentos';
+    public $table = 'planriesgos_has_grupoalimentosproductos';
     
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
@@ -47,7 +47,7 @@ class PlanRiesgos_Has_TipoAlimentos extends Model
 
 
     public $fillable = [
-        'TipoAlimentos_id'
+        'GrupoAlimentosProductos_id'
     ];
 
     /**
@@ -57,7 +57,7 @@ class PlanRiesgos_Has_TipoAlimentos extends Model
      */
     protected $casts = [
         'PlanRiesgos_id' => 'integer',
-        'TipoAlimentos_id' => 'integer'
+        'GrupoAlimentosProductos_id' => 'integer'
     ];
 
     /**
@@ -72,16 +72,16 @@ class PlanRiesgos_Has_TipoAlimentos extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function planriesgo()
+    public function grupoalimentosproducto()
     {
-        return $this->belongsTo(\App\Models\Planriesgo::class);
+        return $this->belongsTo(\App\Models\Grupoalimentosproducto::class);
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function tipoalimento()
+    public function planriesgo()
     {
-        return $this->belongsTo(\App\Models\Tipoalimento::class);
+        return $this->belongsTo(\App\Models\Planriesgo::class);
     }
 }

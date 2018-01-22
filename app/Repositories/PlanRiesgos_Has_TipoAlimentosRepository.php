@@ -8,7 +8,7 @@ use InfyOm\Generator\Common\BaseRepository;
 /**
  * Class PlanRiesgos_Has_TipoAlimentosRepository
  * @package App\Repositories
- * @version January 19, 2018, 9:21 pm UTC
+ * @version January 22, 2018, 5:10 pm UTC
  *
  * @method PlanRiesgos_Has_TipoAlimentos findWithoutFail($id, $columns = ['*'])
  * @method PlanRiesgos_Has_TipoAlimentos find($id, $columns = ['*'])

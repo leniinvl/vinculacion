@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class PlanRiesgos_Has_OrigenIngresos
  * @package App\Models
- * @version January 19, 2018, 10:04 pm UTC
+ * @version January 22, 2018, 5:08 pm UTC
  *
  * @property \App\Models\Origeningreso origeningreso
  * @property \App\Models\Planriesgo planriesgo
