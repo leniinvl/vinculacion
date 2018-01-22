@@ -26,6 +26,16 @@ Route::get('/home', 'HomeController@index');
 
 Route::resource('asociacions', 'AsociacionController');
 
+Route::resource('evacuacionAguaLluvias', 'EvacuacionAguaLluviaController');
+
+Route::resource('grupoAlimentosProductos', 'GrupoAlimentosProductosController');
+
+Route::resource('lenguajes', 'LenguajeController');
+
+Route::resource('manejoAmbientals', 'ManejoAmbientalController');
+
+Route::resource('nivelDeTraficos', 'NivelDeTraficoController');
+
 Route::resource('productos', 'ProductoController');
 
 Route::resource('precipitaciones', 'PrecipitacionesController');
