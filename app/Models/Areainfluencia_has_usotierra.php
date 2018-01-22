@@ -6,11 +6,12 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class Asociacion
+ * Class Areainfluencia_has_usotierra
  * @package App\Models
- * @version January 19, 2018, 7:23 pm UTC
+ * @version January 19, 2018, 7:30 pm UTC
  *
- * @property \App\Models\Tipoasociacion tipoasociacion
+ * @property \App\Models\Areainfluencium areainfluencium
+ * @property \App\Models\Usotierra usotierra
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasLenguaje
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasPeligros
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasReligion
@@ -18,7 +19,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasTipovegetal
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasTopologia
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasTradicion
- * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasUsotierra
  * @property \Illuminate\Database\Eloquent\Collection planriesgosHasGrupoalimentosproductos
  * @property \Illuminate\Database\Eloquent\Collection planriesgosHasOrigeningresos
  * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipoagricultura
@@ -28,18 +28,16 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipocultivos
  * @property \Illuminate\Database\Eloquent\Collection tallerHasTipodesecho
  * @property \Illuminate\Database\Eloquent\Collection tallerHasTiporiesgos
- * @property \Illuminate\Database\Eloquent\Collection Unidadproduccion
+ * @property \Illuminate\Database\Eloquent\Collection unidadproduccion
  * @property \Illuminate\Database\Eloquent\Collection unidadproduccionHasPropietario
  * @property \Illuminate\Database\Eloquent\Collection usosvegetacionHasAreainfluenciaHasTipovegetal
- * @property string nombre
- * @property string personaEncargada
- * @property integer TipoAsociacion_id
+ * @property integer UsoTierra_id
  */
-class Asociacion extends Model
+class Areainfluencia_has_usotierra extends Model
 {
     use SoftDeletes;
 
-    public $table = 'asociacion';
+    public $table = 'areainfluencia_has_usotierra';
     
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
@@ -49,9 +47,7 @@ class Asociacion extends Model
 
 
     public $fillable = [
-        'nombre',
-        'personaEncargada',
-        'TipoAsociacion_id'
+        'UsoTierra_id'
     ];
 
     /**
@@ -60,10 +56,8 @@ class Asociacion extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
-        'nombre' => 'string',
-        'personaEncargada' => 'string',
-        'TipoAsociacion_id' => 'integer'
+        'AreaInfluencia_id' => 'integer',
+        'UsoTierra_id' => 'integer'
     ];
 
     /**
@@ -78,16 +72,16 @@ class Asociacion extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function tipoasociacion()
+    public function areainfluencium()
     {
-        return $this->belongsTo(\App\Models\Tipoasociacion::class);
+        return $this->belongsTo(\App\Models\Areainfluencium::class);
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function unidadproduccions()
+    public function usotierra()
     {
-        return $this->hasMany(\App\Models\Unidadproduccion::class);
+        return $this->belongsTo(\App\Models\Usotierra::class);
     }
 }

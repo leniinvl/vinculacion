@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Asociación
+            Calidad Suelo
         </h1>
    </section>
    <div class="content">
@@ -11,9 +11,9 @@
        <div class="box box-primary">
            <div class="box-body">
                <div class="row">
-                   {!! Form::model($asociacion, ['route' => ['asociacions.update', $asociacion->id], 'method' => 'patch']) !!}
+                   {!! Form::model($calidadSuelo, ['route' => ['calidadSuelos.update', $calidadSuelo->id], 'method' => 'patch']) !!}
 
-                        @include('asociacions.fields')
+                        @include('calidad_suelos.fields')
 
                    {!! Form::close() !!}
                </div>
