@@ -2,6 +2,26 @@
     <a href="{!! route('asociacions.index') !!}"><i class="fa fa-edit"></i><span>Asociacions</span></a>
 </li>
 
+<li class="{{ Request::is('productos*') ? 'active' : '' }}">
+    <a href="{!! route('productos.index') !!}"><i class="fa fa-edit"></i><span>Productos</span></a>
+</li>
+
+<li class="{{ Request::is('precipitaciones*') ? 'active' : '' }}">
+    <a href="{!! route('precipitaciones.index') !!}"><i class="fa fa-edit"></i><span>Precipitaciones</span></a>
+</li>
+
+<li class="{{ Request::is('planRiesgosHasTipoAlimentos*') ? 'active' : '' }}">
+    <a href="{!! route('planRiesgosHasTipoAlimentos.index') !!}"><i class="fa fa-edit"></i><span>Plan Riesgos  Has  Tipo Alimentos</span></a>
+</li>
+
+<li class="{{ Request::is('planRiesgosHasTipoAnimales*') ? 'active' : '' }}">
+    <a href="{!! route('planRiesgosHasTipoAnimales.index') !!}"><i class="fa fa-edit"></i><span>Plan Riesgos  Has  Tipo Animales</span></a>
+</li>
+
+<li class="{{ Request::is('planRiesgosHasTipoCultivos*') ? 'active' : '' }}">
+    <a href="{!! route('planRiesgosHasTipoCultivos.index') !!}"><i class="fa fa-edit"></i><span>Plan Riesgos  Has  Tipo Cultivos</span></a>
+</li>
+
 <li class="{{ Request::is('tallerHasTipoDesechos*') ? 'active' : '' }}">
     <a href="{!! route('tallerHasTipoDesechos.index') !!}"><i class="fa fa-edit"></i><span>Taller  Has  Tipo Desechos</span></a>
 </li>
@@ -68,5 +88,45 @@
 
 <li class="{{ Request::is('tradicions*') ? 'active' : '' }}">
     <a href="{!! route('tradicions.index') !!}"><i class="fa fa-edit"></i><span>Tradicions</span></a>
+</li>
+
+<li class="{{ Request::is('organizacionSocials*') ? 'active' : '' }}">
+    <a href="{!! route('organizacionSocials.index') !!}"><i class="fa fa-edit"></i><span>Organizacion Socials</span></a>
+</li>
+
+<li class="{{ Request::is('planRiesgosHasOrigenIngresos*') ? 'active' : '' }}">
+    <a href="{!! route('planRiesgosHasOrigenIngresos.index') !!}"><i class="fa fa-edit"></i><span>Plan Riesgos  Has  Origen Ingresos</span></a>
+</li>
+
+<li class="{{ Request::is('paisajes*') ? 'active' : '' }}">
+    <a href="{!! route('paisajes.index') !!}"><i class="fa fa-edit"></i><span>Paisajes</span></a>
+</li>
+
+<li class="{{ Request::is('peligros*') ? 'active' : '' }}">
+    <a href="{!! route('peligros.index') !!}"><i class="fa fa-edit"></i><span>Peligros</span></a>
+</li>
+
+<li class="{{ Request::is('permeabilidadSuelos*') ? 'active' : '' }}">
+    <a href="{!! route('permeabilidadSuelos.index') !!}"><i class="fa fa-edit"></i><span>Permeabilidad Suelos</span></a>
+</li>
+
+<li class="{{ Request::is('abastecimientoaguas*') ? 'active' : '' }}">
+    <a href="{!! route('abastecimientoaguas.index') !!}"><i class="fa fa-edit"></i><span>Abastecimientoaguas</span></a>
+</li>
+
+<li class="{{ Request::is('areainfluencias*') ? 'active' : '' }}">
+    <a href="{!! route('areainfluencias.index') !!}"><i class="fa fa-edit"></i><span>Areainfluencias</span></a>
+</li>
+
+<li class="{{ Request::is('areainfluenciaHasLenguajes*') ? 'active' : '' }}">
+    <a href="{!! route('areainfluenciaHasLenguajes.index') !!}"><i class="fa fa-edit"></i><span>Areainfluencia Has Lenguajes</span></a>
+</li>
+
+<li class="{{ Request::is('areainfluenciaHasPeligros*') ? 'active' : '' }}">
+    <a href="{!! route('areainfluenciaHasPeligros.index') !!}"><i class="fa fa-edit"></i><span>Areainfluencia Has Peligros</span></a>
+</li>
+
+<li class="{{ Request::is('areainfluenciaHasReligions*') ? 'active' : '' }}">
+    <a href="{!! route('areainfluenciaHasReligions.index') !!}"><i class="fa fa-edit"></i><span>Areainfluencia Has Religions</span></a>
 </li>
 
