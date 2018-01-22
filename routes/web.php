@@ -25,3 +25,11 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Route::resource('asociacions', 'AsociacionController');
+
+Route::resource('asociacions', 'AsociacionController');
+
+Route::resource('biodigestors', 'BiodigestorController');
+
+Route::resource('areaInfluencias', 'AreaInfluenciaController');
+
+Route::resource('areainfluenciaHasUsotierras', 'Areainfluencia_has_usotierraController');

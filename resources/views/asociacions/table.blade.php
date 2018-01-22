@@ -2,9 +2,9 @@
     <thead>
         <tr>
             <th>Nombre</th>
-        <th>Personaencargada</th>
-        <th>Tipoasociacion Id</th>
-            <th colspan="3">Action</th>
+        <th>Persona encargada</th>
+        <th>Tipo de asociación</th>
+            <th colspan="3">Acciones</th>
         </tr>
     </thead>
     <tbody>
