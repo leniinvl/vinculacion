@@ -62,6 +62,13 @@ Route::resource('trabajadores', 'trabajadoresController');
 
 Route::resource('topologias', 'topologiaController');
 
+Route::resource('tipoFuentes', 'TipoFuentesController');
+
+Route::resource('tipoVegetals', 'TipoVegetalController');
+
+Route::resource('topologias', 'TopologiaController');
+
+Route::resource('tradicions', 'TradicionController');
 
 Route::resource('organizacionSocials', 'OrganizacionSocialController');
 
