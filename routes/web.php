@@ -25,3 +25,13 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Route::resource('asociacions', 'AsociacionController');
+
+Route::resource('planRiesgos', 'PlanRiesgosController');
+
+Route::resource('planRiesgosHasGrupoAlimentosProductos', 'PlanRiesgos_Has_GrupoAlimentosProductosController');
+
+Route::resource('planRiesgosHasOrigenIngresos', 'PlanRiesgos_Has_OrigenIngresosController');
+
+Route::resource('planRiesgosHasTipoAgriculturas', 'PlanRiesgos_Has_TipoAgriculturaController');
+
+Route::resource('planRiesgosHasTipoAlimentos', 'PlanRiesgos_Has_TipoAlimentosController');

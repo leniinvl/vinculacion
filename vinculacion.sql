@@ -31,7 +31,7 @@ CREATE TABLE `abastecimientoagua` (
   `nombre` varchar(50) DEFAULT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -69,7 +69,7 @@ CREATE TABLE `areainfluencia` (
   `EvacuacionAguasServidas_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL,
+  `deleted_at` timestamp NULL,
   `lat` varchar(45) DEFAULT NULL,
   `long` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -85,7 +85,7 @@ CREATE TABLE `areainfluencia_has_lenguaje` (
   `Lenguaje_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -99,7 +99,7 @@ CREATE TABLE `areainfluencia_has_peligros` (
   `Peligros_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -113,7 +113,7 @@ CREATE TABLE `areainfluencia_has_religion` (
   `Religion_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -127,7 +127,7 @@ CREATE TABLE `areainfluencia_has_tipofuentes` (
   `TipoFuentes_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -141,7 +141,7 @@ CREATE TABLE `areainfluencia_has_tipovegetal` (
   `TipoVegetal_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -155,7 +155,7 @@ CREATE TABLE `areainfluencia_has_topologia` (
   `Topologia_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -169,7 +169,7 @@ CREATE TABLE `areainfluencia_has_tradicion` (
   `Tradicion_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -183,7 +183,7 @@ CREATE TABLE `areainfluencia_has_usotierra` (
   `UsoTierra_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -199,7 +199,7 @@ CREATE TABLE `asociacion` (
   `TipoAsociacion_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -216,7 +216,7 @@ CREATE TABLE `biodigestor` (
   `UnidadProduccion_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -230,7 +230,7 @@ CREATE TABLE `calidadaire` (
   `nombre` varchar(50) DEFAULT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -244,7 +244,7 @@ CREATE TABLE `calidadsuelo` (
   `nombre` varchar(50) DEFAULT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -258,7 +258,7 @@ CREATE TABLE `caracteristicasetnicas` (
   `nombre` varchar(50) DEFAULT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -272,7 +272,7 @@ CREATE TABLE `categoriaproyecto` (
   `nombre` varchar(50) DEFAULT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -287,7 +287,7 @@ CREATE TABLE `clima` (
   `mnsm` varchar(50) DEFAULT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -302,7 +302,7 @@ CREATE TABLE `condicionesdrenaje` (
   `descripcion` varchar(500) DEFAULT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -316,7 +316,7 @@ CREATE TABLE `consolidacionareainfluencia` (
   `nombre` varchar(50) DEFAULT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -330,7 +330,7 @@ CREATE TABLE `ecosistema` (
   `nombre` varchar(50) DEFAULT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -344,7 +344,7 @@ CREATE TABLE `evacuacionaguasservidas` (
   `nombre` varchar(50) DEFAULT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -358,7 +358,7 @@ CREATE TABLE `evacuacoinagualluvia` (
   `nombre` varchar(50) DEFAULT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -372,7 +372,7 @@ CREATE TABLE `grupoalimentosproductos` (
   ` nombre` varchar(50) DEFAULT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -386,7 +386,7 @@ CREATE TABLE `lenguaje` (
   `nombre` varchar(50) DEFAULT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -404,7 +404,7 @@ CREATE TABLE `manejoambiental` (
   `UnidadProduccion_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='									';
 
 -- --------------------------------------------------------
@@ -438,7 +438,7 @@ CREATE TABLE `nivelfratico` (
   `nombre` varchar(50) DEFAULT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -452,7 +452,7 @@ CREATE TABLE `organizacionsocial` (
   `nombre` varchar(50) DEFAULT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -466,7 +466,7 @@ CREATE TABLE `origeningresos` (
   `nombre` varchar(50) DEFAULT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -482,7 +482,7 @@ CREATE TABLE `paisaje` (
   `AreaInfluencia_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -508,7 +508,7 @@ CREATE TABLE `peligros` (
   `nombre` varchar(50) DEFAULT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -523,7 +523,7 @@ CREATE TABLE `permeabilidadsuelo` (
   `descripcion` varchar(500) DEFAULT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -544,7 +544,7 @@ CREATE TABLE `planriesgos` (
   `UnidadProduccion_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -558,7 +558,7 @@ CREATE TABLE `planriesgos_has_grupoalimentosproductos` (
   `GrupoAlimentosProductos_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -572,7 +572,7 @@ CREATE TABLE `planriesgos_has_origeningresos` (
   `OrigenIngresos_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -586,7 +586,7 @@ CREATE TABLE `planriesgos_has_tipoagricultura` (
   `TipoAgricultura_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -600,7 +600,7 @@ CREATE TABLE `planriesgos_has_tipoalimentos` (
   `TipoAlimentos_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -614,7 +614,7 @@ CREATE TABLE `planriesgos_has_tipoalimentosconsumo` (
   `TipoAlimentosConsumo_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -628,7 +628,7 @@ CREATE TABLE `planriesgos_has_tipoanimales` (
   `TipoAnimales_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -642,7 +642,7 @@ CREATE TABLE `planriesgos_has_tipocultivos` (
   `TipoCultivos_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -656,7 +656,7 @@ CREATE TABLE `precipitaciones` (
   `nombre` varchar(50) DEFAULT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -671,7 +671,7 @@ CREATE TABLE `producto` (
   `TipoProducto_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='	';
 
 -- --------------------------------------------------------
@@ -691,7 +691,7 @@ CREATE TABLE `propietario` (
   `genero` char(1) DEFAULT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -705,7 +705,7 @@ CREATE TABLE `recirculacionaire` (
   `nombre` varchar(50) DEFAULT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -719,7 +719,7 @@ CREATE TABLE `religion` (
   `nombre` varchar(50) DEFAULT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -733,7 +733,7 @@ CREATE TABLE `ruido` (
   `nombre` varchar(45) DEFAULT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -749,7 +749,7 @@ CREATE TABLE `taller` (
   `UnidadProduccion_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -763,7 +763,7 @@ CREATE TABLE `taller_has_tipodesecho` (
   `TipoDesecho_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -777,7 +777,7 @@ CREATE TABLE `taller_has_tiporiesgos` (
   `TipoRiesgos_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -791,7 +791,7 @@ CREATE TABLE `tendenciatierra` (
   `nombre` varchar(50) DEFAULT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -805,7 +805,7 @@ CREATE TABLE `tipoabono` (
   `nombre` varchar(50) DEFAULT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -819,7 +819,7 @@ CREATE TABLE `tipoagricultura` (
   `nombre` varchar(50) DEFAULT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -833,7 +833,7 @@ CREATE TABLE `tipoalimentos` (
   `nombre` varchar(50) DEFAULT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -847,7 +847,7 @@ CREATE TABLE `tipoalimentosconsumo` (
   `nombre` varchar(50) DEFAULT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -862,7 +862,7 @@ CREATE TABLE `tipoanimales` (
   `losCria` char(1) DEFAULT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -876,7 +876,7 @@ CREATE TABLE `tipoasociacion` (
   `nombre` varchar(50) DEFAULT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -890,7 +890,7 @@ CREATE TABLE `tipocontrolplaga` (
   `nombre` varchar(50) DEFAULT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -904,7 +904,7 @@ CREATE TABLE `tipocultivos` (
   `nombre` varchar(50) DEFAULT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -918,7 +918,7 @@ CREATE TABLE `tipodesecho` (
   `nombre` varchar(50) DEFAULT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -932,7 +932,7 @@ CREATE TABLE `tipofuentes` (
   `nombre` varchar(50) DEFAULT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -946,7 +946,7 @@ CREATE TABLE `tipoproducto` (
   `nombre` varchar(45) NOT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -960,7 +960,7 @@ CREATE TABLE `tipoproyecto` (
   `nombre` varchar(50) DEFAULT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='			';
 
 -- --------------------------------------------------------
@@ -974,7 +974,7 @@ CREATE TABLE `tiporiesgos` (
   `nombre` varchar(50) DEFAULT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -988,7 +988,7 @@ CREATE TABLE `tiposuelo` (
   `nombre` varchar(50) DEFAULT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -1002,7 +1002,7 @@ CREATE TABLE `tipoterreno` (
   `nombre` varchar(50) DEFAULT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -1016,7 +1016,7 @@ CREATE TABLE `tipovegetal` (
   `nombre` varchar(50) DEFAULT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -1030,7 +1030,7 @@ CREATE TABLE `topologia` (
   `nombre` varchar(50) DEFAULT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -1048,7 +1048,7 @@ CREATE TABLE `trabajadores` (
   `PlanRiesgos_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -1062,7 +1062,7 @@ CREATE TABLE `tradicion` (
   `nombre` varchar(50) DEFAULT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -1081,7 +1081,7 @@ CREATE TABLE `unidadproduccion` (
   `Producto_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -1095,7 +1095,7 @@ CREATE TABLE `unidadproduccion_has_propietario` (
   `Propietario_ci` int(11) NOT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -1132,7 +1132,7 @@ CREATE TABLE `usosvegetacion` (
   `nombre` varchar(50) DEFAULT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -1147,7 +1147,7 @@ CREATE TABLE `usosvegetacion_has_areainfluencia_has_tipovegetal` (
   `AreaInfluencia_has_TipoVegetal_TipoVegetal_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -1161,7 +1161,7 @@ CREATE TABLE `usotierra` (
   `nombre` varchar(50) DEFAULT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL
+  `deleted_at` timestamp NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
