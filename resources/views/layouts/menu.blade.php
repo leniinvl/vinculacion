@@ -149,3 +149,23 @@
 <li class="{{ Request::is('areainfluenciaHasReligions*') ? 'active' : '' }}">
     <a href="{!! route('areainfluenciaHasReligions.index') !!}"><i class="fa fa-edit"></i><span>Areainfluencia Has Religions</span></a>
 </li>
+
+<li class="{{ Request::is('usoTierras*') ? 'active' : '' }}">
+    <a href="{!! route('usoTierras.index') !!}"><i class="fa fa-edit"></i><span>Uso Tierras</span></a>
+</li>
+
+<li class="{{ Request::is('usosVegetacionHasAreaInfluenciaHasTipovegetals*') ? 'active' : '' }}">
+    <a href="{!! route('usosVegetacionHasAreaInfluenciaHasTipovegetals.index') !!}"><i class="fa fa-edit"></i><span>Usos Vegetacion  Has  Area Influencia  Has  Tipovegetals</span></a>
+</li>
+
+<li class="{{ Request::is('usosVegetacions*') ? 'active' : '' }}">
+    <a href="{!! route('usosVegetacions.index') !!}"><i class="fa fa-edit"></i><span>Usos Vegetacions</span></a>
+</li>
+
+<li class="{{ Request::is('usosVegetacions*') ? 'active' : '' }}">
+    <a href="{!! route('usosVegetacions.index') !!}"><i class="fa fa-edit"></i><span>Usos Vegetacions</span></a>
+</li>
+
+<li class="{{ Request::is('unidadProduccionHasPropietarios*') ? 'active' : '' }}">
+    <a href="{!! route('unidadProduccionHasPropietarios.index') !!}"><i class="fa fa-edit"></i><span>Unidad Produccion  Has  Propietarios</span></a>
+</li>
