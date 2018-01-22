@@ -82,3 +82,13 @@ Route::resource('areainfluenciaHasLenguajes', 'Areainfluencia_has_lenguajeContro
 Route::resource('areainfluenciaHasPeligros', 'Areainfluencia_has_peligrosController');
 
 Route::resource('areainfluenciaHasReligions', 'Areainfluencia_has_religionController');
+
+Route::resource('usoTierras', 'UsoTierraController');
+
+Route::resource('usosVegetacionHasAreaInfluenciaHasTipovegetals', 'UsosVegetacion_Has_AreaInfluencia_Has_TipovegetalController');
+
+Route::resource('usosVegetacions', 'UsosVegetacionController');
+
+Route::resource('usosVegetacions', 'UsosVegetacionController');
+
+Route::resource('unidadProduccionHasPropietarios', 'UnidadProduccion_Has_PropietarioController');
