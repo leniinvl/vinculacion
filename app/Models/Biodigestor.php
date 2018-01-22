@@ -6,11 +6,11 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class Asociacion
+ * Class Biodigestor
  * @package App\Models
- * @version January 19, 2018, 7:23 pm UTC
+ * @version January 19, 2018, 7:25 pm UTC
  *
- * @property \App\Models\Tipoasociacion tipoasociacion
+ * @property \App\Models\Unidadproduccion unidadproduccion
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasLenguaje
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasPeligros
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasReligion
@@ -28,18 +28,19 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipocultivos
  * @property \Illuminate\Database\Eloquent\Collection tallerHasTipodesecho
  * @property \Illuminate\Database\Eloquent\Collection tallerHasTiporiesgos
- * @property \Illuminate\Database\Eloquent\Collection Unidadproduccion
+ * @property \Illuminate\Database\Eloquent\Collection unidadproduccion
  * @property \Illuminate\Database\Eloquent\Collection unidadproduccionHasPropietario
  * @property \Illuminate\Database\Eloquent\Collection usosvegetacionHasAreainfluenciaHasTipovegetal
- * @property string nombre
- * @property string personaEncargada
- * @property integer TipoAsociacion_id
+ * @property string ubicacion
+ * @property float tamañoPropiedad
+ * @property float cantidadDesechos
+ * @property integer UnidadProduccion_id
  */
-class Asociacion extends Model
+class Biodigestor extends Model
 {
     use SoftDeletes;
 
-    public $table = 'asociacion';
+    public $table = 'biodigestor';
     
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
@@ -49,9 +50,10 @@ class Asociacion extends Model
 
 
     public $fillable = [
-        'nombre',
-        'personaEncargada',
-        'TipoAsociacion_id'
+        'ubicacion',
+        'tamañoPropiedad',
+        'cantidadDesechos',
+        'UnidadProduccion_id'
     ];
 
     /**
@@ -61,9 +63,10 @@ class Asociacion extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'nombre' => 'string',
-        'personaEncargada' => 'string',
-        'TipoAsociacion_id' => 'integer'
+        'ubicacion' => 'string',
+        'tamañoPropiedad' => 'float',
+        'cantidadDesechos' => 'float',
+        'UnidadProduccion_id' => 'integer'
     ];
 
     /**
@@ -78,16 +81,8 @@ class Asociacion extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function tipoasociacion()
+    public function unidadproduccion()
     {
-        return $this->belongsTo(\App\Models\Tipoasociacion::class);
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     **/
-    public function unidadproduccions()
-    {
-        return $this->hasMany(\App\Models\Unidadproduccion::class);
+        return $this->belongsTo(\App\Models\Unidadproduccion::class);
     }
 }

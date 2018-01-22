@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Asociación
+            Area de influencia (Usotierra)
         </h1>
     </section>
     <div class="content">
@@ -12,9 +12,9 @@
 
             <div class="box-body">
                 <div class="row">
-                    {!! Form::open(['route' => 'asociacions.store']) !!}
+                    {!! Form::open(['route' => 'areainfluenciaHasUsotierras.store']) !!}
 
-                        @include('asociacions.fields')
+                        @include('areainfluencia_has_usotierras.fields')
 
                     {!! Form::close() !!}
                 </div>

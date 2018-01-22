@@ -59,14 +59,14 @@ class AsociacionController extends AppBaseController
 
         $asociacion = $this->asociacionRepository->create($input);
 
-        Flash::success('Asociacion saved successfully.');
+        Flash::success('Asociación guardada exitosamente.');
 
         return redirect(route('asociacions.index'));
     }
 
     /**
      * Display the specified Asociacion.
-     *
+     *web
      * @param  int $id
      *
      * @return Response
@@ -76,7 +76,7 @@ class AsociacionController extends AppBaseController
         $asociacion = $this->asociacionRepository->findWithoutFail($id);
 
         if (empty($asociacion)) {
-            Flash::error('Asociacion not found');
+            Flash::error('Asociacion no encontrada');
 
             return redirect(route('asociacions.index'));
         }
@@ -96,7 +96,7 @@ class AsociacionController extends AppBaseController
         $asociacion = $this->asociacionRepository->findWithoutFail($id);
 
         if (empty($asociacion)) {
-            Flash::error('Asociacion not found');
+            Flash::error('Asociacion no encontrada');
 
             return redirect(route('asociacions.index'));
         }

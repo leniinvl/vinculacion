@@ -6,11 +6,11 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class Asociacion
+ * Class CalidadSuelo
  * @package App\Models
- * @version January 19, 2018, 7:23 pm UTC
+ * @version January 18, 2018, 7:43 pm UTC
  *
- * @property \App\Models\Tipoasociacion tipoasociacion
+ * @property \Illuminate\Database\Eloquent\Collection Areainfluencium
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasLenguaje
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasPeligros
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasReligion
@@ -28,18 +28,16 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipocultivos
  * @property \Illuminate\Database\Eloquent\Collection tallerHasTipodesecho
  * @property \Illuminate\Database\Eloquent\Collection tallerHasTiporiesgos
- * @property \Illuminate\Database\Eloquent\Collection Unidadproduccion
+ * @property \Illuminate\Database\Eloquent\Collection unidadproduccion
  * @property \Illuminate\Database\Eloquent\Collection unidadproduccionHasPropietario
  * @property \Illuminate\Database\Eloquent\Collection usosvegetacionHasAreainfluenciaHasTipovegetal
  * @property string nombre
- * @property string personaEncargada
- * @property integer TipoAsociacion_id
  */
-class Asociacion extends Model
+class CalidadSuelo extends Model
 {
     use SoftDeletes;
 
-    public $table = 'asociacion';
+    public $table = 'calidadsuelo';
     
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
@@ -49,9 +47,7 @@ class Asociacion extends Model
 
 
     public $fillable = [
-        'nombre',
-        'personaEncargada',
-        'TipoAsociacion_id'
+        'nombre'
     ];
 
     /**
@@ -61,9 +57,7 @@ class Asociacion extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'nombre' => 'string',
-        'personaEncargada' => 'string',
-        'TipoAsociacion_id' => 'integer'
+        'nombre' => 'string'
     ];
 
     /**
@@ -76,18 +70,10 @@ class Asociacion extends Model
     ];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     **/
-    public function tipoasociacion()
-    {
-        return $this->belongsTo(\App\Models\Tipoasociacion::class);
-    }
-
-    /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      **/
-    public function unidadproduccions()
+    public function areainfluencia()
     {
-        return $this->hasMany(\App\Models\Unidadproduccion::class);
+        return $this->hasMany(\App\Models\Areainfluencium::class);
     }
 }
