@@ -123,3 +123,6 @@ Route::resource('unidadProduccionHasPropietarios', 'UnidadProduccion_Has_Propiet
 Route::resource('biodigestors', 'BiodigestorController');
 
 Route::resource('areainfluenciaHasUsotierras', 'Areainfluencia_has_usotierraController');
+
+
+Route::resource('tipoAsociacions', 'TipoAsociacionController');

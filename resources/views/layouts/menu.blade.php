@@ -197,3 +197,7 @@
 <li class="{{ Request::is('unidadProduccionHasPropietarios*') ? 'active' : '' }}">
     <a href="{!! route('unidadProduccionHasPropietarios.index') !!}"><i class="fa fa-edit"></i><span>Unidad Produccion  Has  Propietarios</span></a>
 </li> --}}
+<li class="{{ Request::is('tipoAsociacions*') ? 'active' : '' }}">
+    <a href="{!! route('tipoAsociacions.index') !!}"><i class="fa fa-edit"></i><span>Tipo Asociacions</span></a>
+</li>
+

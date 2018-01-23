@@ -1,4 +1,4 @@
-<table class="table table-striped table-responsive" id="tipoAsociacions-table">
+<table class="table table-responsive" id="tipoAsociacions-table">
     <thead>
         <tr>
             <th>Nombre</th>

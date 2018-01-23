@@ -30,7 +30,7 @@ class TipoAsociacionController extends AppBaseController
     public function index(Request $request)
     {
         $this->tipoAsociacionRepository->pushCriteria(new RequestCriteria($request));
-        $tipoAsociacions = $this->tipoAsociacionRepository->paginate(10);
+        $tipoAsociacions = $this->tipoAsociacionRepository->all();
 
         return view('tipo_asociacions.index')
             ->with('tipoAsociacions', $tipoAsociacions);

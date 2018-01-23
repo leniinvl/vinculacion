@@ -8,7 +8,7 @@ use InfyOm\Generator\Common\BaseRepository;
 /**
  * Class TipoAsociacionRepository
  * @package App\Repositories
- * @version January 18, 2018, 5:56 am UTC
+ * @version January 23, 2018, 12:54 am UTC
  *
  * @method TipoAsociacion findWithoutFail($id, $columns = ['*'])
  * @method TipoAsociacion find($id, $columns = ['*'])

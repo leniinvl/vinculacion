@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class TipoAsociacion
  * @package App\Models
- * @version January 18, 2018, 5:56 am UTC
+ * @version January 23, 2018, 12:54 am UTC
  *
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasLenguaje
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasPeligros
