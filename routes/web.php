@@ -112,13 +112,13 @@ Route::resource('areainfluenciaHasReligions', 'Areainfluencia_has_religionContro
 
 Route::resource('usoTierras', 'UsoTierraController');
 
-Route::resource('usosVegetacionHasAreaInfluenciaHasTipovegetals', 'UsosVegetacion_Has_AreaInfluencia_Has_TipovegetalController');
+// Route::resource('usosVegetacionHasAreaInfluenciaHasTipovegetals', 'UsosVegetacion_Has_AreaInfluencia_Has_TipovegetalController');
 
 Route::resource('usosVegetacions', 'UsosVegetacionController');
 
 Route::resource('usosVegetacions', 'UsosVegetacionController');
 
-Route::resource('unidadProduccionHasPropietarios', 'UnidadProduccion_Has_PropietarioController');
+// Route::resource('unidadProduccionHasPropietarios', 'UnidadProduccion_Has_PropietarioController');
 
 Route::resource('biodigestors', 'BiodigestorController');
 
@@ -126,3 +126,54 @@ Route::resource('areainfluenciaHasUsotierras', 'Areainfluencia_has_usotierraCont
 
 
 Route::resource('tipoAsociacions', 'TipoAsociacionController');
+
+
+Route::resource('areaInfluenciaHasTipoFuentes', 'AreaInfluenciaHasTipoFuentesController');
+
+Route::resource('areaInfluenciaHasTipoVegetals', 'AreaInfluenciaHasTipoVegetalController');
+
+Route::resource('areaInfluenciaHasTopologias', 'AreaInfluenciaHasTopologiaController');
+
+Route::resource('areaInfluenciaHasTradicions', 'AreaInfluenciaHasTradicionController');
+
+Route::resource('calidadAires', 'CalidadAireController');
+
+Route::resource('caracteristicasEtnicas', 'CaracteristicasEtnicasController');
+
+Route::resource('categoriaProyectos', 'CategoriaProyectoController');
+
+Route::resource('climas', 'ClimaController');
+
+Route::resource('condicionesDrenajes', 'CondicionesDrenajeController');
+
+Route::resource('consolidacionAreaInfluencias', 'ConsolidacionAreaInfluenciaController');
+
+Route::resource('ecosistemas', 'EcosistemaController');
+
+Route::resource('evacuacionAguasServidas', 'EvacuacionAguasServidasController');
+
+Route::resource('origenIngresos', 'OrigenIngresosController');
+
+Route::resource('tipoAgriculturas', 'TipoAgriculturaController');
+
+Route::resource('tipoAlimentos', 'TipoAlimentosController');
+
+Route::resource('tipoAlimentosConsumos', 'TipoAlimentosConsumoController');
+
+Route::resource('tipoAnimales', 'TipoAnimalesController');
+
+Route::resource('tipoControlPlagas', 'TipoControlPlagaController');
+
+Route::resource('tipoCultivos', 'TipoCultivosController');
+
+Route::resource('tipoDesechos', 'TipoDesechoController');
+
+Route::resource('tipoProductos', 'TipoProductoController');
+
+Route::resource('tipoProyectos', 'TipoProyectoController');
+
+Route::resource('tipoRiesgos', 'TipoRiesgosController');
+
+Route::resource('tipoSuelos', 'TipoSueloController');
+
+Route::resource('tipoTerrenos', 'TipoTerrenoController');

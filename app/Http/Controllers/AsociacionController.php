@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Models\TipoAsociacion;
 
 class AsociacionController extends AppBaseController
 {
@@ -43,7 +44,10 @@ class AsociacionController extends AppBaseController
      */
     public function create()
     {
-        return view('asociacions.create');
+        $tiposasociacion = TipoAsociacion::all()->pluck('nombre', 'id');
+        return view('asociacions.create', [
+            'tiposasociacion' => $tiposasociacion
+        ]);
     }
 
     /**
@@ -94,6 +98,7 @@ class AsociacionController extends AppBaseController
     public function edit($id)
     {
         $asociacion = $this->asociacionRepository->findWithoutFail($id);
+        $tiposasociacion = TipoAsociacion::all()->pluck('nombre', 'id');
 
         if (empty($asociacion)) {
             Flash::error('Asociacion no encontrada');
@@ -101,7 +106,8 @@ class AsociacionController extends AppBaseController
             return redirect(route('asociacions.index'));
         }
 
-        return view('asociacions.edit')->with('asociacion', $asociacion);
+        return view('asociacions.edit')->with('asociacion', $asociacion)
+            ->with('tiposasociacion', $tiposasociacion);
     }
 
     /**

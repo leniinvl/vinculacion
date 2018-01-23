@@ -201,3 +201,103 @@
     <a href="{!! route('tipoAsociacions.index') !!}"><i class="fa fa-edit"></i><span>Tipo Asociacions</span></a>
 </li>
 
+<li class="{{ Request::is('areaInfluenciaHasTipoFuentes*') ? 'active' : '' }}">
+    <a href="{!! route('areaInfluenciaHasTipoFuentes.index') !!}"><i class="fa fa-edit"></i><span>Area Influencia Has Tipo Fuentes</span></a>
+</li>
+
+<li class="{{ Request::is('areaInfluenciaHasTipoVegetals*') ? 'active' : '' }}">
+    <a href="{!! route('areaInfluenciaHasTipoVegetals.index') !!}"><i class="fa fa-edit"></i><span>Area Influencia Has Tipo Vegetals</span></a>
+</li>
+
+<li class="{{ Request::is('areaInfluenciaHasTopologias*') ? 'active' : '' }}">
+    <a href="{!! route('areaInfluenciaHasTopologias.index') !!}"><i class="fa fa-edit"></i><span>Area Influencia Has Topologias</span></a>
+</li>
+
+<li class="{{ Request::is('areaInfluenciaHasTradicions*') ? 'active' : '' }}">
+    <a href="{!! route('areaInfluenciaHasTradicions.index') !!}"><i class="fa fa-edit"></i><span>Area Influencia Has Tradicions</span></a>
+</li>
+
+<li class="{{ Request::is('calidadAires*') ? 'active' : '' }}">
+    <a href="{!! route('calidadAires.index') !!}"><i class="fa fa-edit"></i><span>Calidad Aires</span></a>
+</li>
+
+<li class="{{ Request::is('caracteristicasEtnicas*') ? 'active' : '' }}">
+    <a href="{!! route('caracteristicasEtnicas.index') !!}"><i class="fa fa-edit"></i><span>Caracteristicas Etnicas</span></a>
+</li>
+
+<li class="{{ Request::is('categoriaProyectos*') ? 'active' : '' }}">
+    <a href="{!! route('categoriaProyectos.index') !!}"><i class="fa fa-edit"></i><span>Categoria Proyectos</span></a>
+</li>
+
+<li class="{{ Request::is('climas*') ? 'active' : '' }}">
+    <a href="{!! route('climas.index') !!}"><i class="fa fa-edit"></i><span>Climas</span></a>
+</li>
+
+<li class="{{ Request::is('condicionesDrenajes*') ? 'active' : '' }}">
+    <a href="{!! route('condicionesDrenajes.index') !!}"><i class="fa fa-edit"></i><span>Condiciones Drenajes</span></a>
+</li>
+
+<li class="{{ Request::is('consolidacionAreaInfluencias*') ? 'active' : '' }}">
+    <a href="{!! route('consolidacionAreaInfluencias.index') !!}"><i class="fa fa-edit"></i><span>Consolidacion Area Influencias</span></a>
+</li>
+
+<li class="{{ Request::is('ecosistemas*') ? 'active' : '' }}">
+    <a href="{!! route('ecosistemas.index') !!}"><i class="fa fa-edit"></i><span>Ecosistemas</span></a>
+</li>
+
+<li class="{{ Request::is('evacuacionAguasServidas*') ? 'active' : '' }}">
+    <a href="{!! route('evacuacionAguasServidas.index') !!}"><i class="fa fa-edit"></i><span>Evacuacion Aguas Servidas</span></a>
+</li>
+
+<li class="{{ Request::is('origenIngresos*') ? 'active' : '' }}">
+    <a href="{!! route('origenIngresos.index') !!}"><i class="fa fa-edit"></i><span>Origen Ingresos</span></a>
+</li>
+
+<li class="{{ Request::is('tipoAgriculturas*') ? 'active' : '' }}">
+    <a href="{!! route('tipoAgriculturas.index') !!}"><i class="fa fa-edit"></i><span>Tipo Agriculturas</span></a>
+</li>
+
+<li class="{{ Request::is('tipoAlimentos*') ? 'active' : '' }}">
+    <a href="{!! route('tipoAlimentos.index') !!}"><i class="fa fa-edit"></i><span>Tipo Alimentos</span></a>
+</li>
+
+<li class="{{ Request::is('tipoAlimentosConsumos*') ? 'active' : '' }}">
+    <a href="{!! route('tipoAlimentosConsumos.index') !!}"><i class="fa fa-edit"></i><span>Tipo Alimentos Consumos</span></a>
+</li>
+
+<li class="{{ Request::is('tipoAnimales*') ? 'active' : '' }}">
+    <a href="{!! route('tipoAnimales.index') !!}"><i class="fa fa-edit"></i><span>Tipo Animales</span></a>
+</li>
+
+<li class="{{ Request::is('tipoControlPlagas*') ? 'active' : '' }}">
+    <a href="{!! route('tipoControlPlagas.index') !!}"><i class="fa fa-edit"></i><span>Tipo Control Plagas</span></a>
+</li>
+
+<li class="{{ Request::is('tipoCultivos*') ? 'active' : '' }}">
+    <a href="{!! route('tipoCultivos.index') !!}"><i class="fa fa-edit"></i><span>Tipo Cultivos</span></a>
+</li>
+
+<li class="{{ Request::is('tipoDesechos*') ? 'active' : '' }}">
+    <a href="{!! route('tipoDesechos.index') !!}"><i class="fa fa-edit"></i><span>Tipo Desechos</span></a>
+</li>
+
+<li class="{{ Request::is('tipoProductos*') ? 'active' : '' }}">
+    <a href="{!! route('tipoProductos.index') !!}"><i class="fa fa-edit"></i><span>Tipo Productos</span></a>
+</li>
+
+<li class="{{ Request::is('tipoProyectos*') ? 'active' : '' }}">
+    <a href="{!! route('tipoProyectos.index') !!}"><i class="fa fa-edit"></i><span>Tipo Proyectos</span></a>
+</li>
+
+<li class="{{ Request::is('tipoRiesgos*') ? 'active' : '' }}">
+    <a href="{!! route('tipoRiesgos.index') !!}"><i class="fa fa-edit"></i><span>Tipo Riesgos</span></a>
+</li>
+
+<li class="{{ Request::is('tipoSuelos*') ? 'active' : '' }}">
+    <a href="{!! route('tipoSuelos.index') !!}"><i class="fa fa-edit"></i><span>Tipo Suelos</span></a>
+</li>
+
+<li class="{{ Request::is('tipoTerrenos*') ? 'active' : '' }}">
+    <a href="{!! route('tipoTerrenos.index') !!}"><i class="fa fa-edit"></i><span>Tipo Terrenos</span></a>
+</li>
+

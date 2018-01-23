@@ -13,7 +13,7 @@
 <!-- Tipoasociacion Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('TipoAsociacion_id', 'Tipo asociacion:') !!}
-    {!! Form::select('TipoAsociacion_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('TipoAsociacion_id', $tiposasociacion, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->

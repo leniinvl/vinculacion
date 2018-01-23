@@ -12,7 +12,7 @@
         <tr>
             <td>{!! $asociacion->nombre !!}</td>
             <td>{!! $asociacion->personaEncargada !!}</td>
-            <td>{!! $asociacion->TipoAsociacion_id !!}</td>
+            <td>{!! $asociacion->tipoasociacion->nombre !!}</td>
             <td>
                 {!! Form::open(['route' => ['asociacions.destroy', $asociacion->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>

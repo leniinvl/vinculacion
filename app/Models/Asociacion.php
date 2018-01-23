@@ -40,7 +40,7 @@ class Asociacion extends Model
     use SoftDeletes;
 
     public $table = 'asociacion';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -72,7 +72,7 @@ class Asociacion extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**
@@ -80,7 +80,7 @@ class Asociacion extends Model
      **/
     public function tipoasociacion()
     {
-        return $this->belongsTo(\App\Models\Tipoasociacion::class);
+        return $this->belongsTo(\App\Models\Tipoasociacion::class, 'TipoAsociacion_id');
     }
 
     /**
