@@ -28,7 +28,7 @@ Route::resource('asociacions', 'AsociacionController');
 
 Route::resource('planRiesgos', 'PlanRiesgosController');
 
-Route::resource('planRiesgosHasGrupoAlimentosProductos', 'PlanRiesgos_Has_GrupoAlimentosProductosController');
+// Route::resource('planRiesgosHasGrupoAlimentosProductos', 'PlanRiesgos_Has_GrupoAlimentosProductosController');
 
 Route::resource('planRiesgosHasOrigenIngresos', 'PlanRiesgos_Has_OrigenIngresosController');
 
@@ -102,7 +102,7 @@ Route::resource('permeabilidadSuelos', 'PermeabilidadSueloController');
 
 Route::resource('abastecimientoaguas', 'AbastecimientoaguaController');
 
-Route::resource('areainfluencias', 'AreainfluenciaController');
+// Route::resource('areainfluencias', 'AreainfluenciaController');
 
 Route::resource('areainfluenciaHasLenguajes', 'Areainfluencia_has_lenguajeController');
 
