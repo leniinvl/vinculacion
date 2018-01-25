@@ -114,7 +114,7 @@ class PlanRiesgos extends Model
      **/
     public function unidadproduccion()
     {
-        return $this->belongsTo(\App\Models\Unidadproduccion::class);
+        return $this->belongsTo(\App\Models\Unidadproduccion::class,'UnidadProduccion_id');
     }
 
     /**
