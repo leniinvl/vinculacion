@@ -12,6 +12,8 @@ use Flash;
 use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Models\TendenciaTierra;
+use App\Models\Abastecimientoagua;
 use App\Models\TipoTerreno;
 use App\Models\CalidadAire;
 use App\Models\Clima;
@@ -19,7 +21,7 @@ use App\Models\PermeabilidadSuelo;
 use App\Models\TipoSuelo;
 use App\Models\CalidadSuelo;
 
-class areainfluenciaController extends AppBaseController
+class AreainfluenciaController extends AppBaseController
 {
     /** @var  areainfluenciaRepository */
     private $areainfluenciaRepository;
@@ -52,6 +54,8 @@ class areainfluenciaController extends AppBaseController
     //cambio 1
     public function create()
     {
+        $abastecimientoagua = Abastecimientoagua::all()->pluck('nombre','id');
+        $tendenciatierra= TendenciaTierra::all()->pluck('nombre','id');
         $tipoterreno = TipoTerreno::all()->pluck('nombre','id');
         $calidadaire = CalidadAire::all()->pluck('nombre','id');
         $climas = Clima::all()->pluck('nombre','id');
@@ -62,14 +66,16 @@ class areainfluenciaController extends AppBaseController
         $recirculacionaires = RecirculacionAire::all()->pluck('nombre', 'id');
       
         return view('areainfluencias.create', [
-            'ruidos'             => $ruidos,
+            'ruidos' => $ruidos,
             'recirculacionaires' => $recirculacionaires,
             'tiposuelo' => $tiposuelo,
             'calidadsuelo' => $calidadsuelo,
             'climas' => $climas,
             'permeabilidadsuelos' => $permeabilidadsuelos,
-            'tipoterreno'=>$tipoterreno,
-            'calidadaire'=>$calidadaire
+            'tipoterreno' => $tipoterreno,
+            'calidadaire' => $calidadaire,
+            'abastecimientoagua' => $abastecimientoagua,
+            'tendenciatierra' => $tendenciatierra
         ]);
     }
 
@@ -122,6 +128,8 @@ class areainfluenciaController extends AppBaseController
     public function edit($id)
     {
         $areainfluencia = $this->areainfluenciaRepository->findWithoutFail($id);
+        $abastecimientoagua= Abastecimientoagua::all()->pluck('nombre','id');
+        $tendenciatierra= TendenciaTierra::all()->pluck('nombre','id');
         $tipoterreno = TipoTerreno::all()->pluck('nombre','id');
         $calidadaire = CalidadAire::all()->pluck('nombre','id');
         $ruidos = Ruido::all()->pluck('nombre', 'id');
@@ -139,14 +147,16 @@ class areainfluenciaController extends AppBaseController
 
         return view('areainfluencias.edit')
           ->with('areainfluencia', $areainfluencia)
-          ->with('tiposuelo',$tiposuelo)
-          ->with('calidadsuelo',$calidadsuelo)
-          ->with('climas',$climas)
-          ->with('permeabilidadsuelos',$permeabilidadsuelos)
+          ->with('tiposuelo', $tiposuelo)
+          ->with('calidadsuelo', $calidadsuelo)
+          ->with('climas', $climas)
+          ->with('permeabilidadsuelos', $permeabilidadsuelos)
           ->with('ruidos', $ruidos)
           ->with('recirculacionaires', $recirculacionaires)
-          ->with('tipoterreno',$tipoterreno)
-          ->with('calidadaire',$calidadaire);
+          ->with('tipoterreno', $tipoterreno)
+          ->with('calidadaire', $calidadaire)
+          ->with('abastecimientoagua', $abastecimientoagua)
+          ->with('tendenciatierra', $tendenciatierra);
     }
 
     /**

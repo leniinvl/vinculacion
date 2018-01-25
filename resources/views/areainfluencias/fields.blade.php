@@ -115,13 +115,13 @@
 <!-- Tendenciatierra Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('TendenciaTierra_id', 'Tendenciatierra Id:') !!}
-    {!! Form::number('TendenciaTierra_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('TendenciaTierra_id', $tendenciatierra, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Abastecimientoagua Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('AbastecimientoAgua_id', 'Abastecimientoagua Id:') !!}
-    {!! Form::number('AbastecimientoAgua_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('AbastecimientoAgua_id', $abastecimientoagua ,null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Evacuacoinagualluvia Id Field -->
