@@ -178,7 +178,7 @@ class areainfluencia extends Model
      **/
     public function calidadaire()
     {
-        return $this->belongsTo(\App\Models\Calidadaire::class);
+        return $this->belongsTo(\App\Models\Calidadaire::class,'CalidadAire_id');
     }
 
     /**
@@ -323,7 +323,7 @@ class areainfluencia extends Model
      **/
     public function tipoterreno()
     {
-        return $this->belongsTo(\App\Models\Tipoterreno::class);
+        return $this->belongsTo(\App\Models\Tipoterreno::class,'TipoTerreno_id');
     }
 
     /**

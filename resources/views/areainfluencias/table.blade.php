@@ -40,10 +40,10 @@
             <td>{!! $areainfluencia->detalleRuido !!}</td>
             <td>{!! $areainfluencia->observacionesEcosistema !!}</td>
             <td>{!! $areainfluencia->ManejoAmbiental_id !!}</td>
+            <td>{!! $areainfluencia->TipoSuelo_id !!}</td>
+            <td>{!! $areainfluencia->CalidadSuelo_id !!}</td>
             <td>{!! $areainfluencia->CalidadAire_id !!}</td>
             <td>{!! $areainfluencia->TipoTerreno_id !!}</td>
-            <td>{!! $areainfluencia->tiposuelo->nombre !!}</td>
-            <td>{!! $areainfluencia->calidadsuelo->nombre !!}</td>
             <td>{!! $areainfluencia->Precipitaciones_id !!}</td>
             <td>{!! $areainfluencia->NivelFratico_id !!}</td>
             <td>{!! $areainfluencia->PermeabilidadSuelo_id !!}</td>

@@ -12,6 +12,8 @@ use Flash;
 use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Models\TipoTerreno;
+use App\Models\CalidadAire;
 use App\Models\Clima;
 use App\Models\PermeabilidadSuelo;
 use App\Models\TipoSuelo;
@@ -50,19 +52,24 @@ class areainfluenciaController extends AppBaseController
     //cambio 1
     public function create()
     {
+        $tipoterreno = TipoTerreno::all()->pluck('nombre','id');
+        $calidadaire = CalidadAire::all()->pluck('nombre','id');
         $climas = Clima::all()->pluck('nombre','id');
         $permeabilidadsuelos = PermeabilidadSuelo::all()->pluck('nombre','id');
-        $tiposuelo=TipoSuelo::all()->pluck('nombre','id');
-        $calidadsuelo=CalidadSuelo::all()->pluck('nombre','id');
-        $ruidos             = Ruido::all()->pluck('nombre', 'id');
+        $tiposuelo = TipoSuelo::all()->pluck('nombre','id');
+        $calidadsuelo = CalidadSuelo::all()->pluck('nombre','id');
+        $ruidos = Ruido::all()->pluck('nombre', 'id');
         $recirculacionaires = RecirculacionAire::all()->pluck('nombre', 'id');
+      
         return view('areainfluencias.create', [
             'ruidos'             => $ruidos,
             'recirculacionaires' => $recirculacionaires,
             'tiposuelo' => $tiposuelo,
             'calidadsuelo' => $calidadsuelo,
             'climas' => $climas,
-            'permeabilidadsuelos' => $permeabilidadsuelos
+            'permeabilidadsuelos' => $permeabilidadsuelos,
+            'tipoterreno'=>$tipoterreno,
+            'calidadaire'=>$calidadaire
         ]);
     }
 
@@ -114,20 +121,22 @@ class areainfluenciaController extends AppBaseController
     //2
     public function edit($id)
     {
-        $areainfluencia     = $this->areainfluenciaRepository->findWithoutFail($id);
-        $ruidos             = Ruido::all()->pluck('nombre', 'id');
+        $areainfluencia = $this->areainfluenciaRepository->findWithoutFail($id);
+        $tipoterreno = TipoTerreno::all()->pluck('nombre','id');
+        $calidadaire = CalidadAire::all()->pluck('nombre','id');
+        $ruidos = Ruido::all()->pluck('nombre', 'id');
         $recirculacionaires = RecirculacionAire::all()->pluck('nombre', 'id');
         $climas = Clima::all()->pluck('nombre','id');
         $permeabilidadsuelos = PermeabilidadSuelo::all()->pluck('nombre','id');
-        $tiposuelo=TipoSuelo::all()->pluck('nombre','id');
-        $calidadsuelo=CalidadSuelo::all()->pluck('nombre','id');
+        $tiposuelo = TipoSuelo::all()->pluck('nombre','id');
+        $calidadsuelo = CalidadSuelo::all()->pluck('nombre','id');
 
         if (empty($areainfluencia)) {
             Flash::error('Areainfluencia not found');
 
             return redirect(route('areainfluencias.index'));
         }
-  
+
         return view('areainfluencias.edit')
           ->with('areainfluencia', $areainfluencia)
           ->with('tiposuelo',$tiposuelo)
@@ -135,7 +144,9 @@ class areainfluenciaController extends AppBaseController
           ->with('climas',$climas)
           ->with('permeabilidadsuelos',$permeabilidadsuelos)
           ->with('ruidos', $ruidos)
-          ->with('recirculacionaires', $recirculacionaires);
+          ->with('recirculacionaires', $recirculacionaires)
+          ->with('tipoterreno',$tipoterreno)
+          ->with('calidadaire',$calidadaire);
     }
 
     /**
