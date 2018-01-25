@@ -2,27 +2,29 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateAreainfluenciaRequest;
-use App\Http\Requests\UpdateAreainfluenciaRequest;
-use App\Repositories\AreainfluenciaRepository;
 use App\Http\Controllers\AppBaseController;
-use Illuminate\Http\Request;
+use App\Http\Requests\CreateareainfluenciaRequest;
+use App\Http\Requests\UpdateareainfluenciaRequest;
+use App\Models\RecirculacionAire;
+use App\Models\Ruido;
+use App\Repositories\areainfluenciaRepository;
 use Flash;
+use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
-class AreainfluenciaController extends AppBaseController
+class areainfluenciaController extends AppBaseController
 {
-    /** @var  AreainfluenciaRepository */
+    /** @var  areainfluenciaRepository */
     private $areainfluenciaRepository;
 
-    public function __construct(AreainfluenciaRepository $areainfluenciaRepo)
+    public function __construct(areainfluenciaRepository $areainfluenciaRepo)
     {
         $this->areainfluenciaRepository = $areainfluenciaRepo;
     }
 
     /**
-     * Display a listing of the Areainfluencia.
+     * Display a listing of the areainfluencia.
      *
      * @param Request $request
      * @return Response
@@ -37,23 +39,29 @@ class AreainfluenciaController extends AppBaseController
     }
 
     /**
-     * Show the form for creating a new Areainfluencia.
+     * Show the form for creating a new areainfluencia.
      *
      * @return Response
      */
     public function create()
     {
-        return view('areainfluencias.create');
+        $ruidos             = Ruido::all()->pluck('nombre', 'id');
+        $recirculacionaires = RecirculacionAire::all()->pluck('nombre', 'id');
+        return view('areainfluencias.create', [
+            'ruidos'             => $ruidos,
+            'recirculacionaires' => $recirculacionaires,
+        ]);
+
     }
 
     /**
-     * Store a newly created Areainfluencia in storage.
+     * Store a newly created areainfluencia in storage.
      *
-     * @param CreateAreainfluenciaRequest $request
+     * @param CreateareainfluenciaRequest $request
      *
      * @return Response
      */
-    public function store(CreateAreainfluenciaRequest $request)
+    public function store(CreateareainfluenciaRequest $request)
     {
         $input = $request->all();
 
@@ -65,7 +73,7 @@ class AreainfluenciaController extends AppBaseController
     }
 
     /**
-     * Display the specified Areainfluencia.
+     * Display the specified areainfluencia.
      *
      * @param  int $id
      *
@@ -85,7 +93,7 @@ class AreainfluenciaController extends AppBaseController
     }
 
     /**
-     * Show the form for editing the specified Areainfluencia.
+     * Show the form for editing the specified areainfluencia.
      *
      * @param  int $id
      *
@@ -105,14 +113,14 @@ class AreainfluenciaController extends AppBaseController
     }
 
     /**
-     * Update the specified Areainfluencia in storage.
+     * Update the specified areainfluencia in storage.
      *
      * @param  int              $id
-     * @param UpdateAreainfluenciaRequest $request
+     * @param UpdateareainfluenciaRequest $request
      *
      * @return Response
      */
-    public function update($id, UpdateAreainfluenciaRequest $request)
+    public function update($id, UpdateareainfluenciaRequest $request)
     {
         $areainfluencia = $this->areainfluenciaRepository->findWithoutFail($id);
 
@@ -130,7 +138,7 @@ class AreainfluenciaController extends AppBaseController
     }
 
     /**
-     * Remove the specified Areainfluencia from storage.
+     * Remove the specified areainfluencia from storage.
      *
      * @param  int $id
      *

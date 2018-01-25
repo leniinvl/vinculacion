@@ -6,9 +6,9 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class Areainfluencia
+ * Class areainfluencia
  * @package App\Models
- * @version January 25, 2018, 12:24 am UTC
+ * @version January 24, 2018, 4:47 am UTC
  *
  * @property \App\Models\Abastecimientoagua abastecimientoagua
  * @property \App\Models\Calidadaire calidadaire
@@ -79,18 +79,16 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string lat
  * @property string long
  */
-class Areainfluencia extends Model
+class areainfluencia extends Model
 {
     use SoftDeletes;
 
     public $table = 'areainfluencia';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-
     protected $dates = ['deleted_at'];
-
 
     public $fillable = [
         'altitud',
@@ -119,7 +117,7 @@ class Areainfluencia extends Model
         'ConsolidacionAreaInfluencia_id',
         'EvacuacionAguasServidas_id',
         'lat',
-        'long'
+        'long',
     ];
 
     /**
@@ -128,34 +126,34 @@ class Areainfluencia extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
-        'altitud' => 'float',
-        'tipoTerrenoDescripcion' => 'string',
-        'detalleCalidadAire' => 'string',
-        'detalleRuido' => 'string',
-        'observacionesEcosistema' => 'string',
-        'ManejoAmbiental_id' => 'integer',
-        'CalidadAire_id' => 'integer',
-        'TipoTerreno_id' => 'integer',
-        'TipoSuelo_id' => 'integer',
-        'CalidadSuelo_id' => 'integer',
-        'Precipitaciones_id' => 'integer',
-        'NivelFratico_id' => 'integer',
-        'PermeabilidadSuelo_id' => 'integer',
-        'Clima_id' => 'integer',
-        'CondicionesDrenaje_id' => 'integer',
-        'Ruido_id' => 'integer',
-        'RecirculacionAire_id' => 'integer',
-        'Ecosistema_id' => 'integer',
-        'OrganizacionSocial_id' => 'integer',
-        'TendenciaTierra_id' => 'integer',
-        'AbastecimientoAgua_id' => 'integer',
-        'EvacuacoinAguaLluvia_id' => 'integer',
-        'CaracteristicasEtnicas_id' => 'integer',
+        'id'                             => 'integer',
+        'altitud'                        => 'float',
+        'tipoTerrenoDescripcion'         => 'string',
+        'detalleCalidadAire'             => 'string',
+        'detalleRuido'                   => 'string',
+        'observacionesEcosistema'        => 'string',
+        'ManejoAmbiental_id'             => 'integer',
+        'CalidadAire_id'                 => 'integer',
+        'TipoTerreno_id'                 => 'integer',
+        'TipoSuelo_id'                   => 'integer',
+        'CalidadSuelo_id'                => 'integer',
+        'Precipitaciones_id'             => 'integer',
+        'NivelFratico_id'                => 'integer',
+        'PermeabilidadSuelo_id'          => 'integer',
+        'Clima_id'                       => 'integer',
+        'CondicionesDrenaje_id'          => 'integer',
+        'Ruido_id'                       => 'integer',
+        'RecirculacionAire_id'           => 'integer',
+        'Ecosistema_id'                  => 'integer',
+        'OrganizacionSocial_id'          => 'integer',
+        'TendenciaTierra_id'             => 'integer',
+        'AbastecimientoAgua_id'          => 'integer',
+        'EvacuacoinAguaLluvia_id'        => 'integer',
+        'CaracteristicasEtnicas_id'      => 'integer',
         'ConsolidacionAreaInfluencia_id' => 'integer',
-        'EvacuacionAguasServidas_id' => 'integer',
-        'lat' => 'string',
-        'long' => 'string'
+        'EvacuacionAguasServidas_id'     => 'integer',
+        'lat'                            => 'string',
+        'long'                           => 'string',
     ];
 
     /**
@@ -164,7 +162,7 @@ class Areainfluencia extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**
@@ -292,7 +290,7 @@ class Areainfluencia extends Model
      **/
     public function recirculacionaire()
     {
-        return $this->belongsTo(\App\Models\Recirculacionaire::class);
+        return $this->belongsTo(\App\Models\Recirculacionaire::class, 'RecirculacionAire_id');
     }
 
     /**
@@ -300,7 +298,8 @@ class Areainfluencia extends Model
      **/
     public function ruido()
     {
-        return $this->belongsTo(\App\Models\Ruido::class);
+        return $this->belongsTo(\App\Models\Ruido::class
+            , 'Ruido_id');
     }
 
     /**

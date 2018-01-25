@@ -90,14 +90,14 @@
 
 <!-- Ruido Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('Ruido_id', 'Ruido Id:') !!}
-    {!! Form::number('Ruido_id', null, ['class' => 'form-control']) !!}
+    {!! Form::label('Ruido_id', 'Ruidos:') !!}
+    {!! Form::select('Ruido_id',$ruidos, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Recirculacionaire Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('RecirculacionAire_id', 'Recirculacionaire Id:') !!}
-    {!! Form::number('RecirculacionAire_id', null, ['class' => 'form-control']) !!}
+    {!! Form::label('RecirculacionAire_id', 'Recirculacion de aire:') !!}
+    {!! Form::select('RecirculacionAire_id', $recirculacionaires,null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Ecosistema Id Field -->
