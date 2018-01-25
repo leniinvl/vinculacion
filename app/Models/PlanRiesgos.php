@@ -98,7 +98,7 @@ class PlanRiesgos extends Model
      **/
     public function tipoabono()
     {
-        return $this->belongsTo(\App\Models\Tipoabono::class);
+        return $this->belongsTo(\App\Models\Tipoabono::class,'TipoAbono_id');
     }
 
     /**
@@ -106,7 +106,7 @@ class PlanRiesgos extends Model
      **/
     public function tipocontrolplaga()
     {
-        return $this->belongsTo(\App\Models\Tipocontrolplaga::class);
+        return $this->belongsTo(\App\Models\Tipocontrolplaga::class,'TipoControlPlaga_id');
     }
 
     /**
