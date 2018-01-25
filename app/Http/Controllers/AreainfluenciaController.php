@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Models\Clima;
+use App\Models\PermeabilidadSuelo;
 
 class AreainfluenciaController extends AppBaseController
 {
@@ -41,9 +43,15 @@ class AreainfluenciaController extends AppBaseController
      *
      * @return Response
      */
+    //cambio 1
     public function create()
     {
-        return view('areainfluencias.create');
+        $climas = Clima::all()->pluck('nombre','id');
+        $permeabilidadsuelos = PermeabilidadSuelo::all()->pluck('nombre','id');
+        return view ('areainfluencias.create',[
+            'climas' => $climas,
+            'permeabilidadsuelos' => $permeabilidadsuelos
+        ]);
     }
 
     /**
@@ -91,9 +99,12 @@ class AreainfluenciaController extends AppBaseController
      *
      * @return Response
      */
+    //2
     public function edit($id)
     {
         $areainfluencia = $this->areainfluenciaRepository->findWithoutFail($id);
+        $climas = Clima::all()->pluck('nombre','id');
+        $permeabilidadsuelos = PermeabilidadSuelo::all()->pluck('nombre','id');
 
         if (empty($areainfluencia)) {
             Flash::error('Areainfluencia not found');
@@ -101,7 +112,7 @@ class AreainfluenciaController extends AppBaseController
             return redirect(route('areainfluencias.index'));
         }
 
-        return view('areainfluencias.edit')->with('areainfluencia', $areainfluencia);
+        return view('areainfluencias.edit')->with('areainfluencia', $areainfluencia)->with('climas',$climas)->with('permeabilidadsuelos',$permeabilidadsuelos);
     }
 
     /**
