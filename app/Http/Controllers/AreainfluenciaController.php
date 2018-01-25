@@ -12,8 +12,10 @@ use Flash;
 use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Models\Clima;
+use App\Models\PermeabilidadSuelo;
 use App\Models\TipoSuelo;
-use App\Models\CalidadSuelo;    
+use App\Models\CalidadSuelo;
 
 class areainfluenciaController extends AppBaseController
 {
@@ -45,8 +47,11 @@ class areainfluenciaController extends AppBaseController
      *
      * @return Response
      */
+    //cambio 1
     public function create()
     {
+        $climas = Clima::all()->pluck('nombre','id');
+        $permeabilidadsuelos = PermeabilidadSuelo::all()->pluck('nombre','id');
         $tiposuelo=TipoSuelo::all()->pluck('nombre','id');
         $calidadsuelo=CalidadSuelo::all()->pluck('nombre','id');
         $ruidos             = Ruido::all()->pluck('nombre', 'id');
@@ -56,6 +61,8 @@ class areainfluenciaController extends AppBaseController
             'recirculacionaires' => $recirculacionaires,
             'tiposuelo' => $tiposuelo,
             'calidadsuelo' => $calidadsuelo,
+            'climas' => $climas,
+            'permeabilidadsuelos' => $permeabilidadsuelos
         ]);
     }
 
@@ -104,9 +111,12 @@ class areainfluenciaController extends AppBaseController
      *
      * @return Response
      */
+    //2
     public function edit($id)
     {
         $areainfluencia = $this->areainfluenciaRepository->findWithoutFail($id);
+        $climas = Clima::all()->pluck('nombre','id');
+        $permeabilidadsuelos = PermeabilidadSuelo::all()->pluck('nombre','id');
         $tiposuelo=TipoSuelo::all()->pluck('nombre','id');
         $calidadsuelo=CalidadSuelo::all()->pluck('nombre','id');
 
@@ -116,7 +126,13 @@ class areainfluenciaController extends AppBaseController
             return redirect(route('areainfluencias.index'));
         }
 
-        return view('areainfluencias.edit')->with('areainfluencia', $areainfluencia)->with('tiposuelo',$tiposuelo)->with('calidadsuelo',$calidadsuelo);
+        return view('areainfluencias.edit')
+          ->with('areainfluencia', $areainfluencia)
+          ->with('tiposuelo',$tiposuelo)
+          ->with('calidadsuelo',$calidadsuelo)
+          ->with('climas',$climas)
+          ->with('permeabilidadsuelos',$permeabilidadsuelos);
+
     }
 
     /**

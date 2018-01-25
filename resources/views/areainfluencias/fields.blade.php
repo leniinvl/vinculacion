@@ -73,13 +73,13 @@
 <!-- Permeabilidadsuelo Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('PermeabilidadSuelo_id', 'Permeabilidadsuelo Id:') !!}
-    {!! Form::number('PermeabilidadSuelo_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('PermeabilidadSuelo_id',$permeabilidadsuelos, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Clima Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('Clima_id', 'Clima Id:') !!}
-    {!! Form::number('Clima_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('Clima_id',$climas ,null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Condicionesdrenaje Id Field -->
