@@ -47,7 +47,10 @@ class AreainfluenciaController extends AppBaseController
     {
         $tipoterreno=TipoTerreno::all()->pluck('nombre','id');
         $calidadaire=CalidadAire::all()->pluck('nombre','id');
-        return view('areainfluencias.create',['tipoterreno'=>$tipoterreno],['calidadaire'=>$calidadaire]);
+        return view('areainfluencias.create',[
+            'tipoterreno'=>$tipoterreno,
+            'calidadaire'=>$calidadaire
+        ]);
     }
 
     /**

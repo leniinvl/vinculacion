@@ -37,13 +37,13 @@
 <!-- Calidadaire Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('CalidadAire_id', 'Calidadaire Id:') !!}
-    {!! Form::number('CalidadAire_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('CalidadAire_id', $calidadaire, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Tipoterreno Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('TipoTerreno_id', 'Tipoterreno Id:') !!}
-    {!! Form::number('TipoTerreno_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('TipoTerreno_id', $tipoterreno, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Tiposuelo Id Field -->
