@@ -185,3 +185,5 @@ Route::resource('tipoTerrenos', 'TipoTerrenoController');
 
 
 Route::resource('areainfluencias', 'AreainfluenciaController');
+
+Route::resource('calidadSuelos', 'CalidadSueloController');

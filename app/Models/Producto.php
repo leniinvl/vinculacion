@@ -77,7 +77,7 @@ class Producto extends Model
      **/
     public function tipoproducto()
     {
-        return $this->belongsTo(\App\Models\Tipoproducto::class);
+        return $this->belongsTo(\App\Models\Tipoproducto::class,'TipoProducto_id');
     }
 
     /**
