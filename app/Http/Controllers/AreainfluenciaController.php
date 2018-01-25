@@ -101,7 +101,9 @@ class areainfluenciaController extends AppBaseController
      */
     public function edit($id)
     {
-        $areainfluencia = $this->areainfluenciaRepository->findWithoutFail($id);
+        $areainfluencia     = $this->areainfluenciaRepository->findWithoutFail($id);
+        $ruidos             = Ruido::all()->pluck('nombre', 'id');
+        $recirculacionaires = RecirculacionAire::all()->pluck('nombre', 'id');
 
         if (empty($areainfluencia)) {
             Flash::error('Areainfluencia not found');
@@ -109,7 +111,8 @@ class areainfluenciaController extends AppBaseController
             return redirect(route('areainfluencias.index'));
         }
 
-        return view('areainfluencias.edit')->with('areainfluencia', $areainfluencia);
+        return view('areainfluencias.edit')->with('areainfluencia', $areainfluencia)
+            ->with('ruidos', $ruidos)->with('recirculacionaires', $recirculacionaires);
     }
 
     /**
