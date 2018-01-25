@@ -114,7 +114,9 @@ class areainfluenciaController extends AppBaseController
     //2
     public function edit($id)
     {
-        $areainfluencia = $this->areainfluenciaRepository->findWithoutFail($id);
+        $areainfluencia     = $this->areainfluenciaRepository->findWithoutFail($id);
+        $ruidos             = Ruido::all()->pluck('nombre', 'id');
+        $recirculacionaires = RecirculacionAire::all()->pluck('nombre', 'id');
         $climas = Clima::all()->pluck('nombre','id');
         $permeabilidadsuelos = PermeabilidadSuelo::all()->pluck('nombre','id');
         $tiposuelo=TipoSuelo::all()->pluck('nombre','id');
@@ -125,14 +127,15 @@ class areainfluenciaController extends AppBaseController
 
             return redirect(route('areainfluencias.index'));
         }
-
+  
         return view('areainfluencias.edit')
           ->with('areainfluencia', $areainfluencia)
           ->with('tiposuelo',$tiposuelo)
           ->with('calidadsuelo',$calidadsuelo)
           ->with('climas',$climas)
-          ->with('permeabilidadsuelos',$permeabilidadsuelos);
-
+          ->with('permeabilidadsuelos',$permeabilidadsuelos)
+          ->with('ruidos', $ruidos)
+          ->with('recirculacionaires', $recirculacionaires);
     }
 
     /**
