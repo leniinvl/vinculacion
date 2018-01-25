@@ -10,7 +10,8 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
-
+use App\Models\TendenciaTierra;
+use App\Models\Abastecimientoagua;
 class AreainfluenciaController extends AppBaseController
 {
     /** @var  AreainfluenciaRepository */
@@ -43,7 +44,12 @@ class AreainfluenciaController extends AppBaseController
      */
     public function create()
     {
-        return view('areainfluencias.create');
+        $abastecimientoagua= Abastecimientoagua::all()->pluck('nombre','id');
+        $tendenciatierra= TendenciaTierra::all()->pluck('nombre','id');
+        return view('areainfluencias.create',[
+            'abastecimientoagua'=>$abastecimientoagua,
+            'tendenciatierra'=>$tendenciatierra
+        ]);
     }
 
     /**
@@ -94,14 +100,15 @@ class AreainfluenciaController extends AppBaseController
     public function edit($id)
     {
         $areainfluencia = $this->areainfluenciaRepository->findWithoutFail($id);
-
+        $abastecimientoagua= Abastecimientoagua::all()->pluck('nombre','id');
+        $tendenciatierra= TendenciaTierra::all()->pluck('nombre','id');
         if (empty($areainfluencia)) {
             Flash::error('Areainfluencia not found');
 
             return redirect(route('areainfluencias.index'));
         }
 
-        return view('areainfluencias.edit')->with('areainfluencia', $areainfluencia);
+        return view('areainfluencias.edit')->with('areainfluencia', $areainfluencia)->with('abastecimientoagua',$abastecimientoagua)->with('tendenciatierra',$tendenciatierra);
     }
 
     /**
