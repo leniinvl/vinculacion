@@ -19,7 +19,7 @@
 <!-- Unidadproduccion Id Field -->
 <div class="form-group">
     {!! Form::label('UnidadProduccion_id', 'Unidadproduccion Id:') !!}
-    <p>{!! $taller->UnidadProduccion_id !!}</p>
+    <p>{!! $taller->UnidadProduccion->nombre !!}</p>
 </div>
 
 <!-- Created At Field -->
@@ -39,4 +39,3 @@
     {!! Form::label('deleted_at', 'Deleted At:') !!}
     <p>{!! $taller->deleted_at !!}</p>
 </div>
-

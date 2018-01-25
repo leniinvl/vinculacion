@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Models\Unidadproduccion;
 
 class TallerController extends AppBaseController
 {
@@ -43,7 +44,10 @@ class TallerController extends AppBaseController
      */
     public function create()
     {
-        return view('tallers.create');
+      $unidadproduccion = Unidadproduccion::all()->pluck('nombre', 'id');
+      return view('tallers.create', [
+          'unidadproduccion' => $unidadproduccion
+      ]);
     }
 
     /**
@@ -94,6 +98,7 @@ class TallerController extends AppBaseController
     public function edit($id)
     {
         $taller = $this->tallerRepository->findWithoutFail($id);
+        $unidadproduccion = Unidadproduccion::all()->pluck('nombre', 'id');
 
         if (empty($taller)) {
             Flash::error('Taller not found');
@@ -101,7 +106,8 @@ class TallerController extends AppBaseController
             return redirect(route('tallers.index'));
         }
 
-        return view('tallers.edit')->with('taller', $taller);
+        return view('tallers.edit')->with('taller', $taller)
+        ->with('unidadproduccion', $unidadproduccion);
     }
 
     /**

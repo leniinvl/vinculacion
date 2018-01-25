@@ -12,7 +12,7 @@
         <tr>
             <td>{!! $taller->nombre !!}</td>
             <td>{!! $taller->descripcion !!}</td>
-            <td>{!! $taller->UnidadProduccion_id !!}</td>
+            <td>{!! $taller->UnidadProduccion->nombre !!}</td>
             <td>
                 {!! Form::open(['route' => ['tallers.destroy', $taller->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
