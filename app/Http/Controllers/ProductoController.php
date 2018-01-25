@@ -45,7 +45,9 @@ class ProductoController extends AppBaseController
     public function create()
     {
         $tiposproducto=TipoProducto::all()->pluck('nombre','id');
-        return view('productos.create',['tiposproducto' => $tiposproducto]);
+        return view('productos.create',[
+            'tiposproducto' => $tiposproducto
+        ]);
     }
 
     /**
