@@ -49,13 +49,13 @@
 <!-- Tiposuelo Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('TipoSuelo_id', 'Tiposuelo Id:') !!}
-    {!! Form::number('TipoSuelo_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('TipoSuelo_id',$tiposuelo,null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Calidadsuelo Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('CalidadSuelo_id', 'Calidadsuelo Id:') !!}
-    {!! Form::number('CalidadSuelo_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('CalidadSuelo_id',$calidadsuelo,null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Precipitaciones Id Field -->
@@ -73,13 +73,13 @@
 <!-- Permeabilidadsuelo Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('PermeabilidadSuelo_id', 'Permeabilidadsuelo Id:') !!}
-    {!! Form::number('PermeabilidadSuelo_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('PermeabilidadSuelo_id',$permeabilidadsuelos, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Clima Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('Clima_id', 'Clima Id:') !!}
-    {!! Form::number('Clima_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('Clima_id',$climas ,null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Condicionesdrenaje Id Field -->
@@ -90,14 +90,14 @@
 
 <!-- Ruido Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('Ruido_id', 'Ruido Id:') !!}
-    {!! Form::number('Ruido_id', null, ['class' => 'form-control']) !!}
+    {!! Form::label('Ruido_id', 'Ruidos:') !!}
+    {!! Form::select('Ruido_id',$ruidos, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Recirculacionaire Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('RecirculacionAire_id', 'Recirculacionaire Id:') !!}
-    {!! Form::number('RecirculacionAire_id', null, ['class' => 'form-control']) !!}
+    {!! Form::label('RecirculacionAire_id', 'Recirculacion de aire:') !!}
+    {!! Form::select('RecirculacionAire_id', $recirculacionaires,null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Ecosistema Id Field -->

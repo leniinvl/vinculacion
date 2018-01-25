@@ -8,7 +8,7 @@ use InfyOm\Generator\Common\BaseRepository;
 /**
  * Class CalidadSueloRepository
  * @package App\Repositories
- * @version January 18, 2018, 7:43 pm UTC
+ * @version January 25, 2018, 1:05 am UTC
  *
  * @method CalidadSuelo findWithoutFail($id, $columns = ['*'])
  * @method CalidadSuelo find($id, $columns = ['*'])

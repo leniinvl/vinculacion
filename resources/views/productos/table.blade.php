@@ -10,7 +10,7 @@
     @foreach($productos as $producto)
         <tr>
             <td>{!! $producto->nombre !!}</td>
-            <td>{!! $producto->TipoProducto_id !!}</td>
+            <td>{!! $producto->tipoproducto->nombre !!}</td>
             <td>
                 {!! Form::open(['route' => ['productos.destroy', $producto->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
