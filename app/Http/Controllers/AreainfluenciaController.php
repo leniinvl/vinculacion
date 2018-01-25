@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Models\TipoTerreno;
+use App\Models\CalidadAire;
 
 class AreainfluenciaController extends AppBaseController
 {
@@ -43,7 +45,9 @@ class AreainfluenciaController extends AppBaseController
      */
     public function create()
     {
-        return view('areainfluencias.create');
+        $tipoterreno=TipoTerreno::all()->pluck('nombre','id');
+        $calidadaire=CalidadAire::all()->pluck('nombre','id');
+        return view('areainfluencias.create',['tipoterreno'=>$tipoterreno],['calidadaire'=>$calidadaire]);
     }
 
     /**
@@ -93,6 +97,8 @@ class AreainfluenciaController extends AppBaseController
      */
     public function edit($id)
     {
+        $tipoterreno=TipoTerreno::all()->pluck('nombre','id');
+        $calidadaire=CalidadAire::all()->pluck('nombre','id');
         $areainfluencia = $this->areainfluenciaRepository->findWithoutFail($id);
 
         if (empty($areainfluencia)) {
@@ -101,7 +107,7 @@ class AreainfluenciaController extends AppBaseController
             return redirect(route('areainfluencias.index'));
         }
 
-        return view('areainfluencias.edit')->with('areainfluencia', $areainfluencia);
+        return view('areainfluencias.edit')->with('areainfluencia', $areainfluencia)->with('tipoterreno',$tipoterreno)->with('calidadaire',$calidadaire);
     }
 
     /**
