@@ -5,7 +5,7 @@
 <li class="{{ Request::is('biodigestors*') ? 'active' : '' }}">
     <a href="{!! route('biodigestors.index') !!}"><i class="fa fa-edit"></i><span>Biodigestores</span></a>
 </li>
-{{--
+{{-- 
 <li class="{{ Request::is('areaInfluencias*') ? 'active' : '' }}">
     <a href="{!! route('areaInfluencias.index') !!}"><i class="fa fa-edit"></i><span>Area de influencia</span></a>
 </li> --}}
@@ -193,7 +193,7 @@
 <li class="{{ Request::is('usosVegetacions*') ? 'active' : '' }}">
     <a href="{!! route('usosVegetacions.index') !!}"><i class="fa fa-edit"></i><span>Usos Vegetacions</span></a>
 </li>
-{{-- 
+{{--
 <li class="{{ Request::is('unidadProduccionHasPropietarios*') ? 'active' : '' }}">
     <a href="{!! route('unidadProduccionHasPropietarios.index') !!}"><i class="fa fa-edit"></i><span>Unidad Produccion  Has  Propietarios</span></a>
 </li> --}}
@@ -299,5 +299,11 @@
 
 <li class="{{ Request::is('tipoTerrenos*') ? 'active' : '' }}">
     <a href="{!! route('tipoTerrenos.index') !!}"><i class="fa fa-edit"></i><span>Tipo Terrenos</span></a>
+</li>
+
+
+
+<li class="{{ Request::is('areainfluencias*') ? 'active' : '' }}">
+    <a href="{!! route('areainfluencias.index') !!}"><i class="fa fa-edit"></i><span>Areainfluencias</span></a>
 </li>
 

@@ -8,7 +8,7 @@ use InfyOm\Generator\Common\BaseRepository;
 /**
  * Class AreainfluenciaRepository
  * @package App\Repositories
- * @version January 20, 2018, 9:28 pm UTC
+ * @version January 25, 2018, 12:24 am UTC
  *
  * @method Areainfluencia findWithoutFail($id, $columns = ['*'])
  * @method Areainfluencia find($id, $columns = ['*'])

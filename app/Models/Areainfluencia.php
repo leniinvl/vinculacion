@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class Areainfluencia
  * @package App\Models
- * @version January 20, 2018, 9:28 pm UTC
+ * @version January 25, 2018, 12:24 am UTC
  *
  * @property \App\Models\Abastecimientoagua abastecimientoagua
  * @property \App\Models\Calidadaire calidadaire

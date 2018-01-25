@@ -177,3 +177,11 @@ Route::resource('tipoRiesgos', 'TipoRiesgosController');
 Route::resource('tipoSuelos', 'TipoSueloController');
 
 Route::resource('tipoTerrenos', 'TipoTerrenoController');
+
+
+
+
+
+
+
+Route::resource('areainfluencias', 'AreainfluenciaController');
