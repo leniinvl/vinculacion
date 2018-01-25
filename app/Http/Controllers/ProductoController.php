@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Models\TipoProducto;
 
 class ProductoController extends AppBaseController
 {
@@ -43,7 +44,8 @@ class ProductoController extends AppBaseController
      */
     public function create()
     {
-        return view('productos.create');
+        $tiposproducto=TipoProducto::all()->pluck('nombre','id');
+        return view('productos.create',['tiposproducto' => $tiposproducto]);
     }
 
     /**
@@ -93,6 +95,7 @@ class ProductoController extends AppBaseController
      */
     public function edit($id)
     {
+        $tiposproducto=TipoProducto::all()->pluck('nombre','id');
         $producto = $this->productoRepository->findWithoutFail($id);
 
         if (empty($producto)) {
@@ -101,7 +104,7 @@ class ProductoController extends AppBaseController
             return redirect(route('productos.index'));
         }
 
-        return view('productos.edit')->with('producto', $producto);
+        return view('productos.edit')->with('producto', $producto)->with('tiposproducto',$tiposproducto);
     }
 
     /**
