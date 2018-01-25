@@ -188,7 +188,7 @@ class Areainfluencia extends Model
      **/
     public function calidadsuelo()
     {
-        return $this->belongsTo(\App\Models\Calidadsuelo::class);
+        return $this->belongsTo(\App\Models\Calidadsuelo::class,'CalidadSuelo_id');
     }
 
     /**
@@ -316,7 +316,7 @@ class Areainfluencia extends Model
      **/
     public function tiposuelo()
     {
-        return $this->belongsTo(\App\Models\Tiposuelo::class);
+        return $this->belongsTo(\App\Models\Tiposuelo::class,'TipoSuelo_id');
     }
 
     /**
