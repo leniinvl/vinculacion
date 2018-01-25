@@ -13,19 +13,19 @@
 <!-- Tipoproyecto Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('TipoProyecto_id', 'Tipoproyecto Id:') !!}
-    {!! Form::number('TipoProyecto_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('TipoProyecto_id',$tipoproyecto,null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Categoriaproyecto Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('CategoriaProyecto_id', 'Categoriaproyecto Id:') !!}
-    {!! Form::number('CategoriaProyecto_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('CategoriaProyecto_id',$categoriaproyecto,null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Unidadproduccion Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('UnidadProduccion_id', 'Unidadproduccion Id:') !!}
-    {!! Form::number('UnidadProduccion_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('UnidadProduccion_id',$unidadproduccion,null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->
