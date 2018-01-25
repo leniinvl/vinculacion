@@ -93,7 +93,7 @@ class unidadproduccion extends Model
      **/
     public function asociacion()
     {
-        return $this->belongsTo(\App\Models\Asociacion::class);
+        return $this->belongsTo(\App\Models\Asociacion::class,'Asociacion_id');
     }
 
     /**
@@ -101,7 +101,7 @@ class unidadproduccion extends Model
      **/
     public function producto()
     {
-        return $this->belongsTo(\App\Models\Producto::class);
+        return $this->belongsTo(\App\Models\Producto::class,'Producto_id');
     }
 
     /**

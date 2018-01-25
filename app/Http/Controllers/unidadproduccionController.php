@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Models\Asociacion;
+use App\Models\Producto;
 
 class unidadproduccionController extends AppBaseController
 {
@@ -43,7 +45,12 @@ class unidadproduccionController extends AppBaseController
      */
     public function create()
     {
-        return view('unidadproduccions.create');
+        $asociacion=Asociacion::all()->pluck('nombre','id');
+        $producto=Producto::all()->pluck('nombre','id');
+        return view('unidadproduccions.create',[
+            'asociacion'=>$asociacion,
+            'producto'=>$producto
+        ]);
     }
 
     /**
@@ -93,6 +100,8 @@ class unidadproduccionController extends AppBaseController
      */
     public function edit($id)
     {
+        $asociacion=Asociacion::all()->pluck('nombre','id');
+        $producto=Producto::all()->pluck('nombre','id');
         $unidadproduccion = $this->unidadproduccionRepository->findWithoutFail($id);
 
         if (empty($unidadproduccion)) {
@@ -101,7 +110,7 @@ class unidadproduccionController extends AppBaseController
             return redirect(route('unidadproduccions.index'));
         }
 
-        return view('unidadproduccions.edit')->with('unidadproduccion', $unidadproduccion);
+        return view('unidadproduccions.edit')->with('unidadproduccion', $unidadproduccion)->with('asociacion',$asociacion)->with('producto',$producto);
     }
 
     /**

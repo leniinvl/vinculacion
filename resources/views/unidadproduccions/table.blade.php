@@ -17,8 +17,8 @@
             <td>{!! $unidadproduccion->lat !!}</td>
             <td>{!! $unidadproduccion->lng !!}</td>
             <td>{!! $unidadproduccion->observaciones !!}</td>
-            <td>{!! $unidadproduccion->Asociacion_id !!}</td>
-            <td>{!! $unidadproduccion->Producto_id !!}</td>
+            <td>{!! $unidadproduccion->asociacion->nombre !!}</td>
+            <td>{!! $unidadproduccion->producto->nombre !!}</td>
             <td>
                 {!! Form::open(['route' => ['unidadproduccions.destroy', $unidadproduccion->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
