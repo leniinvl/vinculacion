@@ -40,7 +40,7 @@ class Taller extends Model
     use SoftDeletes;
 
     public $table = 'taller';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -72,7 +72,7 @@ class Taller extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**
@@ -80,7 +80,7 @@ class Taller extends Model
      **/
     public function unidadproduccion()
     {
-        return $this->belongsTo(\App\Models\Unidadproduccion::class);
+        return $this->belongsTo(\App\Models\Unidadproduccion::class, 'UnidadProduccion_id');
     }
 
     /**
