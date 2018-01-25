@@ -12,6 +12,8 @@ use Flash;
 use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Models\TipoSuelo;
+use App\Models\CalidadSuelo;    
 
 class areainfluenciaController extends AppBaseController
 {
@@ -45,13 +47,16 @@ class areainfluenciaController extends AppBaseController
      */
     public function create()
     {
+        $tiposuelo=TipoSuelo::all()->pluck('nombre','id');
+        $calidadsuelo=CalidadSuelo::all()->pluck('nombre','id');
         $ruidos             = Ruido::all()->pluck('nombre', 'id');
         $recirculacionaires = RecirculacionAire::all()->pluck('nombre', 'id');
         return view('areainfluencias.create', [
             'ruidos'             => $ruidos,
             'recirculacionaires' => $recirculacionaires,
+            'tiposuelo' => $tiposuelo,
+            'calidadsuelo' => $calidadsuelo,
         ]);
-
     }
 
     /**
@@ -102,6 +107,8 @@ class areainfluenciaController extends AppBaseController
     public function edit($id)
     {
         $areainfluencia = $this->areainfluenciaRepository->findWithoutFail($id);
+        $tiposuelo=TipoSuelo::all()->pluck('nombre','id');
+        $calidadsuelo=CalidadSuelo::all()->pluck('nombre','id');
 
         if (empty($areainfluencia)) {
             Flash::error('Areainfluencia not found');
@@ -109,7 +116,7 @@ class areainfluenciaController extends AppBaseController
             return redirect(route('areainfluencias.index'));
         }
 
-        return view('areainfluencias.edit')->with('areainfluencia', $areainfluencia);
+        return view('areainfluencias.edit')->with('areainfluencia', $areainfluencia)->with('tiposuelo',$tiposuelo)->with('calidadsuelo',$calidadsuelo);
     }
 
     /**

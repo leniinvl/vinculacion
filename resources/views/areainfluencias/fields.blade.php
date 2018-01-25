@@ -49,13 +49,13 @@
 <!-- Tiposuelo Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('TipoSuelo_id', 'Tiposuelo Id:') !!}
-    {!! Form::number('TipoSuelo_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('TipoSuelo_id',$tiposuelo,null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Calidadsuelo Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('CalidadSuelo_id', 'Calidadsuelo Id:') !!}
-    {!! Form::number('CalidadSuelo_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('CalidadSuelo_id',$calidadsuelo,null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Precipitaciones Id Field -->
