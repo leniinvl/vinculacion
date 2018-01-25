@@ -12,6 +12,10 @@ use Flash;
 use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Models\Clima;
+use App\Models\PermeabilidadSuelo;
+use App\Models\TipoSuelo;
+use App\Models\CalidadSuelo;
 
 class areainfluenciaController extends AppBaseController
 {
@@ -43,15 +47,23 @@ class areainfluenciaController extends AppBaseController
      *
      * @return Response
      */
+    //cambio 1
     public function create()
     {
+        $climas = Clima::all()->pluck('nombre','id');
+        $permeabilidadsuelos = PermeabilidadSuelo::all()->pluck('nombre','id');
+        $tiposuelo=TipoSuelo::all()->pluck('nombre','id');
+        $calidadsuelo=CalidadSuelo::all()->pluck('nombre','id');
         $ruidos             = Ruido::all()->pluck('nombre', 'id');
         $recirculacionaires = RecirculacionAire::all()->pluck('nombre', 'id');
         return view('areainfluencias.create', [
             'ruidos'             => $ruidos,
             'recirculacionaires' => $recirculacionaires,
+            'tiposuelo' => $tiposuelo,
+            'calidadsuelo' => $calidadsuelo,
+            'climas' => $climas,
+            'permeabilidadsuelos' => $permeabilidadsuelos
         ]);
-
     }
 
     /**
@@ -99,20 +111,31 @@ class areainfluenciaController extends AppBaseController
      *
      * @return Response
      */
+    //2
     public function edit($id)
     {
         $areainfluencia     = $this->areainfluenciaRepository->findWithoutFail($id);
         $ruidos             = Ruido::all()->pluck('nombre', 'id');
         $recirculacionaires = RecirculacionAire::all()->pluck('nombre', 'id');
+        $climas = Clima::all()->pluck('nombre','id');
+        $permeabilidadsuelos = PermeabilidadSuelo::all()->pluck('nombre','id');
+        $tiposuelo=TipoSuelo::all()->pluck('nombre','id');
+        $calidadsuelo=CalidadSuelo::all()->pluck('nombre','id');
 
         if (empty($areainfluencia)) {
             Flash::error('Areainfluencia not found');
 
             return redirect(route('areainfluencias.index'));
         }
-
-        return view('areainfluencias.edit')->with('areainfluencia', $areainfluencia)
-            ->with('ruidos', $ruidos)->with('recirculacionaires', $recirculacionaires);
+  
+        return view('areainfluencias.edit')
+          ->with('areainfluencia', $areainfluencia)
+          ->with('tiposuelo',$tiposuelo)
+          ->with('calidadsuelo',$calidadsuelo)
+          ->with('climas',$climas)
+          ->with('permeabilidadsuelos',$permeabilidadsuelos)
+          ->with('ruidos', $ruidos)
+          ->with('recirculacionaires', $recirculacionaires);
     }
 
     /**
