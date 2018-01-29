@@ -1,3 +1,4 @@
+<div style="overflow-x:auto;">
 <table class="table table-responsive" id="areainfluencias-table">
     <thead>
         <tr>
@@ -39,26 +40,26 @@
             <td>{!! $areainfluencia->detalleCalidadAire !!}</td>
             <td>{!! $areainfluencia->detalleRuido !!}</td>
             <td>{!! $areainfluencia->observacionesEcosistema !!}</td>
-            <td>{!! $areainfluencia->ManejoAmbiental_id !!}</td>
-            <td>{!! $areainfluencia->CalidadAire_id !!}</td>
-            <td>{!! $areainfluencia->TipoTerreno_id !!}</td>
-            <td>{!! $areainfluencia->TipoSuelo_id !!}</td>
-            <td>{!! $areainfluencia->CalidadSuelo_id !!}</td>
-            <td>{!! $areainfluencia->Precipitaciones_id !!}</td>
-            <td>{!! $areainfluencia->NivelFratico_id !!}</td>
-            <td>{!! $areainfluencia->PermeabilidadSuelo_id !!}</td>
-            <td>{!! $areainfluencia->Clima_id !!}</td>
-            <td>{!! $areainfluencia->CondicionesDrenaje_id !!}</td>
-            <td>{!! $areainfluencia->Ruido_id !!}</td>
-            <td>{!! $areainfluencia->RecirculacionAire_id !!}</td>
-            <td>{!! $areainfluencia->Ecosistema_id !!}</td>
-            <td>{!! $areainfluencia->OrganizacionSocial_id !!}</td>
-            <td>{!! $areainfluencia->TendenciaTierra_id !!}</td>
-            <td>{!! $areainfluencia->AbastecimientoAgua_id !!}</td>
-            <td>{!! $areainfluencia->EvacuacoinAguaLluvia_id !!}</td>
-            <td>{!! $areainfluencia->CaracteristicasEtnicas_id !!}</td>
-            <td>{!! $areainfluencia->ConsolidacionAreaInfluencia_id !!}</td>
-            <td>{!! $areainfluencia->EvacuacionAguasServidas_id !!}</td>
+            <td>{!! $areainfluencia->ManejoAmbiental->nombre !!}</td>
+            <td>{!! $areainfluencia->CalidadAire->nombre !!}</td>
+            <td>{!! $areainfluencia->TipoTerreno->nombre !!}</td>
+            <td>{!! $areainfluencia->TipoSuelo->nombre !!}</td>
+            <td>{!! $areainfluencia->CalidadSuelo->nombre !!}</td>
+            <td>{!! $areainfluencia->Precipitaciones->nombre !!}</td>
+            <td>{!! $areainfluencia->NivelFratico->nombre !!}</td>
+            <td>{!! $areainfluencia->PermeabilidadSuelo->nombre !!}</td>
+            <td>{!! $areainfluencia->Clima->nombre !!}</td>
+            <td>{!! $areainfluencia->CondicionesDrenaje->nombre !!}</td>
+            <td>{!! $areainfluencia->Ruido->nombre !!}</td>
+            <td>{!! $areainfluencia->RecirculacionAire->nombre !!}</td>
+            <td>{!! $areainfluencia->Ecosistema->nombre !!}</td>
+            <td>{!! $areainfluencia->OrganizacionSocial->nombre !!}</td>
+            <td>{!! $areainfluencia->TendenciaTierra->nombre !!}</td>
+            <td>{!! $areainfluencia->AbastecimientoAgua->nombre !!}</td>
+            <td>{!! $areainfluencia->EvacuacionAguaLluvia->nombre !!}</td>
+            <td>{!! $areainfluencia->CaracteristicasEtnicas->nombre !!}</td>
+            <td>{!! $areainfluencia->ConsolidacionAreaInfluencia->nombre !!}</td>
+            <td>{!! $areainfluencia->EvacuacionAguasServidas->nombre !!}</td>
             <td>{!! $areainfluencia->lat !!}</td>
             <td>{!! $areainfluencia->long !!}</td>
             <td>
@@ -74,3 +75,4 @@
     @endforeach
     </tbody>
 </table>
+</div>

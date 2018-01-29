@@ -12,6 +12,25 @@ use Flash;
 use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Models\ManejoAmbiental;
+use App\Models\TipoTerreno;
+use App\Models\Calidadsuelo;
+use App\Models\NivelDeTrafico;
+use App\Models\Clima;
+use App\Models\Ecosistema;
+use App\Models\TendenciaTierra;
+use App\Models\EvacuacionAguaLluvia;
+use App\Models\ConsolidacionAreaInfluencia;
+use App\Models\CalidadAire;
+use App\Models\TipoSuelo;
+use App\Models\Precipitaciones;
+use App\Models\PermeabilidadSuelo;
+use App\Models\CondicionesDrenaje;
+use App\Models\OrganizacionSocial;
+use App\Models\Abastecimientoagua;
+use App\Models\CaracteristicasEtnicas;
+use App\Models\EvacuacionAguasServidas;
+
 
 class areainfluenciaController extends AppBaseController
 {
@@ -47,11 +66,48 @@ class areainfluenciaController extends AppBaseController
     {
         $ruidos             = Ruido::all()->pluck('nombre', 'id');
         $recirculacionaires = RecirculacionAire::all()->pluck('nombre', 'id');
-        return view('areainfluencias.create', [
-            'ruidos'             => $ruidos,
-            'recirculacionaires' => $recirculacionaires,
-        ]);
 
+        $manejoambiental = ManejoAmbiental::all()->pluck('nombre', 'id');
+        $tipoterreno = TipoTerreno::all()->pluck('nombre', 'id');
+        $calidadsuelo = Calidadsuelo::all()->pluck('nombre', 'id');
+        $nivelfratico = NivelDeTrafico::all()->pluck('nombre', 'id');
+        $clima = Clima::all()->pluck('nombre', 'id');
+        $ecosistema = Ecosistema::all()->pluck('nombre', 'id');
+        $tendenciatierra = TendenciaTierra::all()->pluck('nombre', 'id');
+        $evacuacionagualluvia = EvacuacionAguaLluvia::all()->pluck('nombre', 'id');
+        $consolidacionareainfluencia = ConsolidacionAreaInfluencia::all()->pluck('nombre', 'id');
+        $calidadaire = CalidadAire::all()->pluck('nombre', 'id');
+        $tiposuelo = TipoSuelo::all()->pluck('nombre', 'id');
+        $precipitaciones = Precipitaciones::all()->pluck('nombre', 'id');
+        $permeabilidadsuelo = PermeabilidadSuelo::all()->pluck('nombre', 'id');
+        $condicionesdrenaje = CondicionesDrenaje::all()->pluck('nombre', 'id');
+        $organizacionsocial = OrganizacionSocial::all()->pluck('nombre', 'id');
+        $abastecimientoagua = Abastecimientoagua::all()->pluck('nombre', 'id');
+        $caracteristicasetnicas = CaracteristicasEtnicas::all()->pluck('nombre', 'id');
+        $evacuacionaguasservidas = EvacuacionAguasServidas::all()->pluck('nombre', 'id');
+
+        return view('areainfluencias.create', [
+            'ruidos' => $ruidos,
+            'recirculacionaires' => $recirculacionaires,
+            'manejoambiental' => $manejoambiental,
+            'tipoterreno' => $tipoterreno,
+            'calidadsuelo' => $calidadsuelo,
+            'nivelfratico' => $nivelfratico,
+            'clima' => $clima,
+            'ecosistema' => $ecosistema,
+            'tendenciatierra' => $tendenciatierra,
+            'evacuacionagualluvia' => $evacuacionagualluvia,
+            'consolidacionareainfluencia' => $consolidacionareainfluencia,
+            'calidadaire' => $calidadaire,
+            'tiposuelo' => $tiposuelo,
+            'precipitaciones' => $precipitaciones,
+            'permeabilidadsuelo' => $permeabilidadsuelo,
+            'condicionesdrenaje' => $condicionesdrenaje,
+            'organizacionsocial' => $organizacionsocial,
+            'abastecimientoagua' => $abastecimientoagua,
+            'caracteristicasetnicas' => $caracteristicasetnicas,
+            'evacuacionaguasservidas' => $evacuacionaguasservidas
+        ]);
     }
 
     /**
@@ -102,6 +158,26 @@ class areainfluenciaController extends AppBaseController
     public function edit($id)
     {
         $areainfluencia = $this->areainfluenciaRepository->findWithoutFail($id);
+        $ruidos             = Ruido::all()->pluck('nombre', 'id');
+        $recirculacionaires = RecirculacionAire::all()->pluck('nombre', 'id');
+        $manejoambiental = ManejoAmbiental::all()->pluck('nombre', 'id');
+        $tipoterreno = TipoTerreno::all()->pluck('nombre', 'id');
+        $calidadsuelo = Calidadsuelo::all()->pluck('nombre', 'id');
+        $nivelfratico = NivelDeTrafico::all()->pluck('nombre', 'id');
+        $clima = Clima::all()->pluck('nombre', 'id');
+        $ecosistema = Ecosistema::all()->pluck('nombre', 'id');
+        $tendenciatierra = TendenciaTierra::all()->pluck('nombre', 'id');
+        $evacuacionagualluvia = EvacuacionAguaLluvia::all()->pluck('nombre', 'id');
+        $consolidacionareainfluencia = ConsolidacionAreaInfluencia::all()->pluck('nombre', 'id');
+        $calidadaire = CalidadAire::all()->pluck('nombre', 'id');
+        $tiposuelo = TipoSuelo::all()->pluck('nombre', 'id');
+        $precipitaciones = Precipitaciones::all()->pluck('nombre', 'id');
+        $permeabilidadsuelo = PermeabilidadSuelo::all()->pluck('nombre', 'id');
+        $condicionesdrenaje = CondicionesDrenaje::all()->pluck('nombre', 'id');
+        $organizacionsocial = OrganizacionSocial::all()->pluck('nombre', 'id');
+        $abastecimientoagua = Abastecimientoagua::all()->pluck('nombre', 'id');
+        $caracteristicasetnicas = CaracteristicasEtnicas::all()->pluck('nombre', 'id');
+        $evacuacionaguasservidas = EvacuacionAguasServidas::all()->pluck('nombre', 'id');
 
         if (empty($areainfluencia)) {
             Flash::error('Areainfluencia not found');
@@ -109,7 +185,27 @@ class areainfluenciaController extends AppBaseController
             return redirect(route('areainfluencias.index'));
         }
 
-        return view('areainfluencias.edit')->with('areainfluencia', $areainfluencia);
+        return view('areainfluencias.edit')->with('areainfluencia', $areainfluencia)
+          ->with('ruidos', $ruidos)
+          ->with('recirculacionaires', $recirculacionaires)
+          ->with('manejoambiental', $manejoambiental)
+          ->with('tipoterreno', $tipoterreno)
+          ->with('calidadsuelo', $calidadsuelo)
+          ->with('nivelfratico', $nivelfratico)
+          ->with('clima', $clima)
+          ->with('ecosistema', $ecosistema)
+          ->with('tendenciatierra', $tendenciatierra)
+          ->with('evacuacionagualluvia', $evacuacionagualluvia)
+          ->with('consolidacionareainfluencia', $consolidacionareainfluencia)
+          ->with('calidadaire', $calidadaire)
+          ->with('tiposuelo', $tiposuelo)
+          ->with('precipitaciones', $precipitaciones)
+          ->with('permeabilidadsuelo', $permeabilidadsuelo)
+          ->with('condicionesdrenaje', $condicionesdrenaje)
+          ->with('organizacionsocial', $organizacionsocial)
+          ->with('abastecimientoagua', $abastecimientoagua)
+          ->with('caracteristicasetnicas', $caracteristicasetnicas)
+          ->with('evacuacionaguasservidas', $evacuacionaguasservidas);
     }
 
     /**
