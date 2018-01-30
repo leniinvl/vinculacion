@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Models\unidadproduccion;
 
 class BiodigestorController extends AppBaseController
 {
@@ -43,7 +44,10 @@ class BiodigestorController extends AppBaseController
      */
     public function create()
     {
-        return view('biodigestors.create');
+        $unidades = unidadproduccion::all()->pluck('nombre', 'id');
+        return view('biodigestors.create', [
+            'unidades' => $unidades
+        ]);
     }
 
     /**
