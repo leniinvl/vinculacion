@@ -16,15 +16,15 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \App\Models\Caracteristicasetnica caracteristicasetnica
  * @property \App\Models\Clima clima
  * @property \App\Models\Condicionesdrenaje condicionesdrenaje
- * @property \App\Models\Consolidacionareainfluencium consolidacionareainfluencium
+ * @property \App\Models\Consolidacionareainfluencia consolidacionareainfluencium
  * @property \App\Models\Ecosistema ecosistema
  * @property \App\Models\Evacuacionaguasservida evacuacionaguasservida
- * @property \App\Models\Evacuacoinagualluvium evacuacoinagualluvium
+ * @property \App\Models\Evacuacionagualluvia evacuacoinagualluvium
  * @property \App\Models\Manejoambiental manejoambiental
  * @property \App\Models\Nivelfratico nivelfratico
  * @property \App\Models\Organizacionsocial organizacionsocial
  * @property \App\Models\Permeabilidadsuelo permeabilidadsuelo
- * @property \App\Models\Precipitacione precipitacione
+ * @property \App\Models\Precipitaciones precipitacione
  * @property \App\Models\Recirculacionaire recirculacionaire
  * @property \App\Models\Ruido ruido
  * @property \App\Models\Tendenciatierra tendenciatierra
@@ -170,7 +170,7 @@ class areainfluencia extends Model
      **/
     public function abastecimientoagua()
     {
-        return $this->belongsTo(\App\Models\Abastecimientoagua::class);
+        return $this->belongsTo(\App\Models\Abastecimientoagua::class, 'AbastecimientoAgua_id');
     }
 
     /**
@@ -178,7 +178,7 @@ class areainfluencia extends Model
      **/
     public function calidadaire()
     {
-        return $this->belongsTo(\App\Models\Calidadaire::class,'CalidadAire_id');
+        return $this->belongsTo(\App\Models\Calidadaire::class, 'CalidadAire_id');
     }
 
     /**
@@ -186,15 +186,15 @@ class areainfluencia extends Model
      **/
     public function calidadsuelo()
     {
-        return $this->belongsTo(\App\Models\Calidadsuelo::class,'CalidadSuelo_id');
+        return $this->belongsTo(\App\Models\Calidadsuelo::class, 'CalidadSuelo_id');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function caracteristicasetnica()
+    public function caracteristicasetnicas()
     {
-        return $this->belongsTo(\App\Models\Caracteristicasetnica::class);
+        return $this->belongsTo(\App\Models\Caracteristicasetnicas::class, 'CaracteristicasEtnicas_id');
     }
 
     /**
@@ -202,7 +202,7 @@ class areainfluencia extends Model
      **/
     public function clima()
     {
-        return $this->belongsTo(\App\Models\Clima::class);
+        return $this->belongsTo(\App\Models\Clima::class, 'Clima_id');
     }
 
     /**
@@ -210,15 +210,15 @@ class areainfluencia extends Model
      **/
     public function condicionesdrenaje()
     {
-        return $this->belongsTo(\App\Models\Condicionesdrenaje::class);
+        return $this->belongsTo(\App\Models\Condicionesdrenaje::class, 'CondicionesDrenaje_id');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function consolidacionareainfluencium()
+    public function consolidacionareainfluencia()
     {
-        return $this->belongsTo(\App\Models\Consolidacionareainfluencium::class);
+        return $this->belongsTo(\App\Models\Consolidacionareainfluencia::class, 'ConsolidacionAreaInfluencia_id');
     }
 
     /**
@@ -226,23 +226,23 @@ class areainfluencia extends Model
      **/
     public function ecosistema()
     {
-        return $this->belongsTo(\App\Models\Ecosistema::class);
+        return $this->belongsTo(\App\Models\Ecosistema::class, 'Ecosistema_id');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function evacuacionaguasservida()
+    public function evacuacionaguasservidas()
     {
-        return $this->belongsTo(\App\Models\Evacuacionaguasservida::class);
+        return $this->belongsTo(\App\Models\Evacuacionaguasservidas::class, 'EvacuacionAguasServidas_id');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function evacuacoinagualluvium()
+    public function evacuacionagualluvia()
     {
-        return $this->belongsTo(\App\Models\Evacuacoinagualluvium::class);
+        return $this->belongsTo(\App\Models\Evacuacionagualluvia::class, 'EvacuacoinAguaLluvia_id');
     }
 
     /**
@@ -250,7 +250,7 @@ class areainfluencia extends Model
      **/
     public function manejoambiental()
     {
-        return $this->belongsTo(\App\Models\Manejoambiental::class);
+        return $this->belongsTo(\App\Models\Manejoambiental::class, 'ManejoAmbiental_id');
     }
 
     /**
@@ -258,7 +258,7 @@ class areainfluencia extends Model
      **/
     public function nivelfratico()
     {
-        return $this->belongsTo(\App\Models\Nivelfratico::class);
+        return $this->belongsTo(\App\Models\NivelDeTrafico::class, 'NivelFratico_id');
     }
 
     /**
@@ -266,7 +266,7 @@ class areainfluencia extends Model
      **/
     public function organizacionsocial()
     {
-        return $this->belongsTo(\App\Models\Organizacionsocial::class);
+        return $this->belongsTo(\App\Models\Organizacionsocial::class, 'OrganizacionSocial_id');
     }
 
     /**
@@ -274,15 +274,15 @@ class areainfluencia extends Model
      **/
     public function permeabilidadsuelo()
     {
-        return $this->belongsTo(\App\Models\Permeabilidadsuelo::class);
+        return $this->belongsTo(\App\Models\Permeabilidadsuelo::class, 'PermeabilidadSuelo_id');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function precipitacione()
+    public function precipitaciones()
     {
-        return $this->belongsTo(\App\Models\Precipitacione::class);
+        return $this->belongsTo(\App\Models\Precipitaciones::class, 'Precipitaciones_id');
     }
 
     /**
@@ -307,7 +307,7 @@ class areainfluencia extends Model
      **/
     public function tendenciatierra()
     {
-        return $this->belongsTo(\App\Models\Tendenciatierra::class);
+        return $this->belongsTo(\App\Models\Tendenciatierra::class, 'TendenciaTierra_id');
     }
 
     /**
@@ -315,7 +315,7 @@ class areainfluencia extends Model
      **/
     public function tiposuelo()
     {
-        return $this->belongsTo(\App\Models\Tiposuelo::class,'TipoSuelo_id');
+        return $this->belongsTo(\App\Models\Tiposuelo::class, 'TipoSuelo_id');
     }
 
     /**
@@ -323,7 +323,7 @@ class areainfluencia extends Model
      **/
     public function tipoterreno()
     {
-        return $this->belongsTo(\App\Models\Tipoterreno::class,'TipoTerreno_id');
+        return $this->belongsTo(\App\Models\Tipoterreno::class, 'TipoTerreno_id');
     }
 
     /**

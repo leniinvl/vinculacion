@@ -31,7 +31,7 @@
 <!-- Manejoambiental Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('ManejoAmbiental_id', 'Manejoambiental Id:') !!}
-    {!! Form::number('ManejoAmbiental_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('ManejoAmbiental_id', $manejoambiental, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Calidadaire Id Field -->
@@ -49,67 +49,67 @@
 <!-- Tiposuelo Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('TipoSuelo_id', 'Tiposuelo Id:') !!}
-    {!! Form::select('TipoSuelo_id',$tiposuelo,null, ['class' => 'form-control']) !!}
+    {!! Form::select('TipoSuelo_id', $tiposuelo, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Calidadsuelo Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('CalidadSuelo_id', 'Calidadsuelo Id:') !!}
-    {!! Form::select('CalidadSuelo_id',$calidadsuelo,null, ['class' => 'form-control']) !!}
+    {!! Form::select('CalidadSuelo_id', $calidadsuelo, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Precipitaciones Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('Precipitaciones_id', 'Precipitaciones Id:') !!}
-    {!! Form::number('Precipitaciones_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('Precipitaciones_id', $precipitaciones, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Nivelfratico Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('NivelFratico_id', 'Nivelfratico Id:') !!}
-    {!! Form::number('NivelFratico_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('NivelFratico_id', $nivelfratico, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Permeabilidadsuelo Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('PermeabilidadSuelo_id', 'Permeabilidadsuelo Id:') !!}
-    {!! Form::select('PermeabilidadSuelo_id',$permeabilidadsuelos, null, ['class' => 'form-control']) !!}
+    {!! Form::select('PermeabilidadSuelo_id', $permeabilidadsuelo, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Clima Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('Clima_id', 'Clima Id:') !!}
-    {!! Form::select('Clima_id',$climas ,null, ['class' => 'form-control']) !!}
+    {!! Form::select('Clima_id', $clima, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Condicionesdrenaje Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('CondicionesDrenaje_id', 'Condicionesdrenaje Id:') !!}
-    {!! Form::number('CondicionesDrenaje_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('CondicionesDrenaje_id', $condicionesdrenaje, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Ruido Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('Ruido_id', 'Ruidos:') !!}
-    {!! Form::select('Ruido_id',$ruidos, null, ['class' => 'form-control']) !!}
+    {!! Form::select('Ruido_id', $ruidos, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Recirculacionaire Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('RecirculacionAire_id', 'Recirculacion de aire:') !!}
-    {!! Form::select('RecirculacionAire_id', $recirculacionaires,null, ['class' => 'form-control']) !!}
+    {!! Form::select('RecirculacionAire_id', $recirculacionaires, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Ecosistema Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('Ecosistema_id', 'Ecosistema Id:') !!}
-    {!! Form::number('Ecosistema_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('Ecosistema_id', $ecosistema, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Organizacionsocial Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('OrganizacionSocial_id', 'Organizacionsocial Id:') !!}
-    {!! Form::number('OrganizacionSocial_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('OrganizacionSocial_id', $organizacionsocial, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Tendenciatierra Id Field -->
@@ -121,31 +121,31 @@
 <!-- Abastecimientoagua Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('AbastecimientoAgua_id', 'Abastecimientoagua Id:') !!}
-    {!! Form::select('AbastecimientoAgua_id', $abastecimientoagua ,null, ['class' => 'form-control']) !!}
+    {!! Form::select('AbastecimientoAgua_id', $abastecimientoagua, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Evacuacoinagualluvia Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('EvacuacoinAguaLluvia_id', 'Evacuacoinagualluvia Id:') !!}
-    {!! Form::number('EvacuacoinAguaLluvia_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('EvacuacoinAguaLluvia_id', $evacuacionagualluvia, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Caracteristicasetnicas Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('CaracteristicasEtnicas_id', 'Caracteristicasetnicas Id:') !!}
-    {!! Form::number('CaracteristicasEtnicas_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('CaracteristicasEtnicas_id', $caracteristicasetnicas, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Consolidacionareainfluencia Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('ConsolidacionAreaInfluencia_id', 'Consolidacionareainfluencia Id:') !!}
-    {!! Form::number('ConsolidacionAreaInfluencia_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('ConsolidacionAreaInfluencia_id', $consolidacionareainfluencia, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Evacuacionaguasservidas Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('EvacuacionAguasServidas_id', 'Evacuacionaguasservidas Id:') !!}
-    {!! Form::number('EvacuacionAguasServidas_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('EvacuacionAguasServidas_id', $evacuacionaguasservidas, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Lat Field -->
