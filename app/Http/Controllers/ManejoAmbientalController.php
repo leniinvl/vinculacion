@@ -105,6 +105,9 @@ class ManejoAmbientalController extends AppBaseController
     public function edit($id)
     {
         $manejoAmbiental = $this->manejoAmbientalRepository->findWithoutFail($id);
+        $tipoproyecto=TipoProyecto::all()->pluck('nombre','id');
+        $categoriaproyecto=CategoriaProyecto::all()->pluck('nombre','id');
+        $unidadproduccion=unidadproduccion::all()->pluck('nombre','id');
 
         if (empty($manejoAmbiental)) {
             Flash::error('Manejo Ambiental not found');
@@ -112,7 +115,7 @@ class ManejoAmbientalController extends AppBaseController
             return redirect(route('manejoAmbientals.index'));
         }
 
-        return view('manejo_ambientals.edit')->with('manejoAmbiental', $manejoAmbiental);
+        return view('manejo_ambientals.edit')->with('manejoAmbiental', $manejoAmbiental)->with('tipoproyecto',$tipoproyecto)->with('categoriaproyecto',$categoriaproyecto)->with('unidadproduccion',$unidadproduccion);
     }
 
     /**
