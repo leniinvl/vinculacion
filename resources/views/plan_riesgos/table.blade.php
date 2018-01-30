@@ -20,9 +20,9 @@
             <td>{!! $planRiesgos->ConsumoPropio !!}</td>
             <td>{!! $planRiesgos->salarioFueraFinca !!}</td>
             <td>{!! $planRiesgos->productosGeneradosVendidos !!}</td>
-            <td>{!! $planRiesgos->TipoAbono_id !!}</td>
-            <td>{!! $planRiesgos->TipoControlPlaga_id !!}</td>
-            <td>{!! $planRiesgos->UnidadProduccion_id !!}</td>
+            <td>{!! $planRiesgos->tipoabono->nombre !!}</td>
+            <td>{!! $planRiesgos->tipocontrolplaga->nombre !!}</td>
+            <td>{!! $planRiesgos->unidadproduccion->nombre !!}</td>
             <td>
                 {!! Form::open(['route' => ['planRiesgos.destroy', $planRiesgos->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>

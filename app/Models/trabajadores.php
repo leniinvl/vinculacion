@@ -42,20 +42,18 @@ class trabajadores extends Model
     use SoftDeletes;
 
     public $table = 'trabajadores';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-
     protected $dates = ['deleted_at'];
-
 
     public $fillable = [
         'nombre',
         'sexo',
         'horasTrabajo',
         'salario',
-        'PlanRiesgos_id'
+        'PlanRiesgos_id',
     ];
 
     /**
@@ -64,12 +62,12 @@ class trabajadores extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
-        'nombre' => 'string',
-        'sexo' => 'string',
-        'horasTrabajo' => 'integer',
-        'salario' => 'float',
-        'PlanRiesgos_id' => 'integer'
+        'id'             => 'integer',
+        'nombre'         => 'string',
+        'sexo'           => 'string',
+        'horasTrabajo'   => 'integer',
+        'salario'        => 'float',
+        'PlanRiesgos_id' => 'integer',
     ];
 
     /**
@@ -78,7 +76,7 @@ class trabajadores extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**
@@ -86,6 +84,7 @@ class trabajadores extends Model
      **/
     public function planriesgo()
     {
-        return $this->belongsTo(\App\Models\Planriesgo::class);
+        return $this->belongsTo(\App\Models\Planriesgo::class
+            , 'PlanRiesgos_id');
     }
 }

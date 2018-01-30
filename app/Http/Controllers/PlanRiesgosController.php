@@ -10,6 +10,9 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Models\TipoAbono;
+use App\Models\TipoControlPlaga;
+use App\Models\unidadproduccion;
 
 class PlanRiesgosController extends AppBaseController
 {
@@ -43,7 +46,14 @@ class PlanRiesgosController extends AppBaseController
      */
     public function create()
     {
-        return view('plan_riesgos.create');
+        $tiposabono=TipoAbono::all()->pluck('nombre','id');
+        $tiposcontrolplaga=TipoControlPlaga::all()->pluck('nombre','id');
+        $unidadesproduccion=unidadproduccion::all()->pluck('nombre','id');
+        return view('plan_riesgos.create',[
+            'tiposabono' => $tiposabono, 
+            'tiposcontrolplaga' => $tiposcontrolplaga, 
+            'unidadesproduccion' => $unidadesproduccion
+        ]);
     }
 
     /**
@@ -93,6 +103,9 @@ class PlanRiesgosController extends AppBaseController
      */
     public function edit($id)
     {
+        $tiposabono=TipoAbono::all()->pluck('nombre','id');
+        $tiposcontrolplaga=TipoControlPlaga::all()->pluck('nombre','id');
+        $unidadesproduccion=unidadproduccion::all()->pluck('nombre','id');
         $planRiesgos = $this->planRiesgosRepository->findWithoutFail($id);
 
         if (empty($planRiesgos)) {
@@ -101,7 +114,7 @@ class PlanRiesgosController extends AppBaseController
             return redirect(route('planRiesgos.index'));
         }
 
-        return view('plan_riesgos.edit')->with('planRiesgos', $planRiesgos);
+        return view('plan_riesgos.edit')->with('planRiesgos', $planRiesgos)->with('tiposabono', $tiposabono)->with('tiposcontrolplaga', $tiposcontrolplaga)->with('unidadesproduccion', $unidadesproduccion);
     }
 
     /**

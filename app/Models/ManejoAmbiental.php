@@ -89,7 +89,7 @@ class ManejoAmbiental extends Model
      **/
     public function categoriaproyecto()
     {
-        return $this->belongsTo(\App\Models\Categoriaproyecto::class);
+        return $this->belongsTo(\App\Models\Categoriaproyecto::class,'CategoriaProyecto_id');
     }
 
     /**
@@ -97,7 +97,7 @@ class ManejoAmbiental extends Model
      **/
     public function tipoproyecto()
     {
-        return $this->belongsTo(\App\Models\Tipoproyecto::class);
+        return $this->belongsTo(\App\Models\Tipoproyecto::class,'TipoProyecto_id');
     }
 
     /**
@@ -105,7 +105,7 @@ class ManejoAmbiental extends Model
      **/
     public function unidadproduccion()
     {
-        return $this->belongsTo(\App\Models\Unidadproduccion::class);
+        return $this->belongsTo(\App\Models\Unidadproduccion::class,'UnidadProduccion_id');
     }
 
     /**

@@ -31,19 +31,19 @@
 <!-- Tipoabono Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('TipoAbono_id', 'Tipoabono Id:') !!}
-    {!! Form::number('TipoAbono_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('TipoAbono_id', $tiposabono, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Tipocontrolplaga Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('TipoControlPlaga_id', 'Tipocontrolplaga Id:') !!}
-    {!! Form::number('TipoControlPlaga_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('TipoControlPlaga_id', $tiposcontrolplaga, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Unidadproduccion Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('UnidadProduccion_id', 'Unidadproduccion Id:') !!}
-    {!! Form::number('UnidadProduccion_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('UnidadProduccion_id', $unidadesproduccion, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->

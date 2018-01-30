@@ -14,9 +14,9 @@
         <tr>
             <td>{!! $manejoAmbiental->nombre !!}</td>
             <td>{!! $manejoAmbiental->descripcion !!}</td>
-            <td>{!! $manejoAmbiental->TipoProyecto_id !!}</td>
-            <td>{!! $manejoAmbiental->CategoriaProyecto_id !!}</td>
-            <td>{!! $manejoAmbiental->UnidadProduccion_id !!}</td>
+            <td>{!! $manejoAmbiental->tipoproyecto->nombre !!}</td>
+            <td>{!! $manejoAmbiental->categoriaproyecto->nombre !!}</td>
+            <td>{!! $manejoAmbiental->unidadproduccion->nombre !!}</td>
             <td>
                 {!! Form::open(['route' => ['manejoAmbientals.destroy', $manejoAmbiental->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>

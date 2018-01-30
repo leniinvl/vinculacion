@@ -25,13 +25,13 @@
 <!-- Asociacion Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('Asociacion_id', 'Asociacion Id:') !!}
-    {!! Form::number('Asociacion_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('Asociacion_id', $asociacion, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Producto Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('Producto_id', 'Producto Id:') !!}
-    {!! Form::number('Producto_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('Producto_id', $producto, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->

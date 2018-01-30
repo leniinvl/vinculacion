@@ -307,3 +307,7 @@
     <a href="{!! route('areainfluencias.index') !!}"><i class="fa fa-edit"></i><span>Areainfluencias</span></a>
 </li>
 
+<li class="{{ Request::is('calidadSuelos*') ? 'active' : '' }}">
+    <a href="{!! route('calidadSuelos.index') !!}"><i class="fa fa-edit"></i><span>Calidad Suelos</span></a>
+</li>
+
