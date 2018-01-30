@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreatetrabajadoresRequest;
 use App\Http\Requests\UpdatetrabajadoresRequest;
+use App\Models\PlanRiesgos;
 use App\Repositories\trabajadoresRepository;
-use App\Http\Controllers\AppBaseController;
-use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
@@ -43,7 +44,10 @@ class trabajadoresController extends AppBaseController
      */
     public function create()
     {
-        return view('trabajadores.create');
+        $planriesgoss = PlanRiesgos::all()->pluck('id', 'id');
+        return view('trabajadores.create', [
+            'planriesgoss' => $planriesgoss,
+        ]);
     }
 
     /**
@@ -93,6 +97,7 @@ class trabajadoresController extends AppBaseController
      */
     public function edit($id)
     {
+        $planriesgoss = PlanRiesgos::all()->pluck('id', 'id');
         $trabajadores = $this->trabajadoresRepository->findWithoutFail($id);
 
         if (empty($trabajadores)) {
@@ -101,7 +106,8 @@ class trabajadoresController extends AppBaseController
             return redirect(route('trabajadores.index'));
         }
 
-        return view('trabajadores.edit')->with('trabajadores', $trabajadores);
+        return view('trabajadores.edit')->with('trabajadores', $trabajadores)
+            ->with('planriesgos', $planriesgoss);
     }
 
     /**
