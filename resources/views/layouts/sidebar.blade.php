@@ -1,4 +1,4 @@
-<aside class="main-sidebar" id="sidebar-wrapper">
+<aside class="main-sidebar " id="sidebar-wrapper">
 
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
@@ -32,7 +32,7 @@
         </form>
         <!-- Sidebar Menu -->
 
-        <ul class="sidebar-menu">
+        <ul class="sidebar-menu menu-style" >
             @include('layouts.menu')
         </ul>
         <!-- /.sidebar-menu -->
