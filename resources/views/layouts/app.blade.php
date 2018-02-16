@@ -26,6 +26,12 @@
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
+    <!-- Menu -->
+    <link rel="stylesheet" type="text/css"  href="{{ asset('css/menu.css')}}">
+    <script type="text/javascript" src="{{asset('js/menu.js')}}"></script>
+
+
+
     @yield('css')
 </head>
 
