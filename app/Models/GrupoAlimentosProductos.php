@@ -37,7 +37,7 @@ class GrupoAlimentosProductos extends Model
     use SoftDeletes;
 
     public $table = 'grupoalimentosproductos';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -46,7 +46,7 @@ class GrupoAlimentosProductos extends Model
 
 
     public $fillable = [
-        ' nombre'
+        'nombre'
     ];
 
     /**
@@ -56,7 +56,7 @@ class GrupoAlimentosProductos extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        ' nombre' => 'string'
+        'nombre' => 'string'
     ];
 
     /**
@@ -65,7 +65,7 @@ class GrupoAlimentosProductos extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**

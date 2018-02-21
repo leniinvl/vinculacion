@@ -24,11 +24,100 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
+Route::post('storetipodesecho/{taller}',array('uses' => 'TallerController@storeTipoDesecho', 'as' => 'storeTipoDesecho'));
+
+Route::delete('deletetipodesecho/{taller}/{id}',array('uses' => 'TallerController@destroyTipoDesecho', 'as' => 'destroyTipoDesecho'));
+
+Route::post('storetiporiesgos/{taller}',array('uses' => 'TallerController@storeTipoRiesgos', 'as' => 'storeTipoRiesgos'));
+
+Route::delete('deleteTipoRiesgos/{taller}/{id}',array('uses' => 'TallerController@destroyTipoRiesgos', 'as' => 'destroyTipoRiesgos'));
+
+
+Route::post('storetipovegetal/{areainfluencia}', array('uses' => 'AreainfluenciaController@storeTipoVegetal', 'as' => 'storeTipoVegetal'));
+
+Route::delete('deletetipovegetal/{areainfluencia}/{id}',array('uses' => 'AreainfluenciaController@destroyTipoVegetal', 'as' => 'destroyTipoVegetal'));
+
+
+Route::post('storereligion/{areainfluencia}', array('uses' => 'AreainfluenciaController@storeReligion', 'as' => 'storeReligion'));
+
+Route::delete('deletereligion/{areainfluencia}/{id}',array('uses' => 'AreainfluenciaController@destroyReligion', 'as' => 'destroyReligion'));
+
+
+Route::post('storetipofuentes/{areainfluencia}', array('uses' => 'AreainfluenciaController@storeTipoFuentes', 'as' => 'storeTipoFuentes'));
+
+Route::delete('deletetipofuentes/{areainfluencia}/{id}',array('uses' => 'AreainfluenciaController@destroyTipoFuentes', 'as' => 'destroyTipoFuentes'));
+
+
+Route::post('storeusotierra/{areainfluencia}', array('uses' => 'AreainfluenciaController@storeUsoTierra', 'as' => 'storeUsoTierra'));
+
+Route::delete('deleteusotierra/{areainfluencia}/{id}',array('uses' => 'AreainfluenciaController@destroyUsoTierra', 'as' => 'destroyUsotierra'));
+
+
+Route::post('storelenguaje/{areainfluencia}', array('uses' => 'AreainfluenciaController@storeLenguaje', 'as' => 'storeLenguaje'));
+
+Route::delete('deletelenguaje/{areainfluencia}/{id}',array('uses' => 'AreainfluenciaController@destroyLenguaje', 'as' => 'destroyLenguaje'));
+
+
+Route::post('storetradicion/{areainfluencia}', array('uses' => 'AreainfluenciaController@storeTradicion', 'as' => 'storeTradicion'));
+
+Route::delete('deletetradicion/{areainfluencia}/{id}',array('uses' => 'AreainfluenciaController@destroyTradicion', 'as' => 'destroyTradicion'));
+
+
+Route::post('storepeligros/{areainfluencia}', array('uses' => 'AreainfluenciaController@storePeligros', 'as' => 'storePeligros'));
+
+Route::delete('deletepeligros/{areainfluencia}/{id}',array('uses' => 'AreainfluenciaController@destroyPeligros', 'as' => 'destroyPeligros'));
+
+
+Route::post('storetopologia/{areainfluencia}', array('uses' => 'AreainfluenciaController@storeTopologia', 'as' => 'storeTopologia'));
+
+Route::delete('deletetopologia/{areainfluencia}/{id}',array('uses' => 'AreainfluenciaController@destroyTopologia', 'as' => 'destroyTopologia'));
+
+
+
+
+Route::post('storetipocultivos/{planriesgos}', array('uses' => 'PlanRiesgosController@storeTipoCultivos', 'as' => 'storeTipoCultivos'));
+
+Route::delete('deleteTipoCultivos/{planriesgos}/{id}',array('uses' => 'PlanRiesgosController@destroyTipoCultivos', 'as' => 'destroyTipoCultivos'));
+
+
+
+Route::post('storetipoalimentos/{planriesgos}', array('uses' => 'PlanRiesgosController@storeTipoAlimentos', 'as' => 'storeTipoAlimentos'));
+
+Route::delete('deletetipoalimentos/{planRiesgos}/{id}',array('uses' => 'PlanRiesgosController@destroyTipoAlimentos', 'as' => 'destroyTipoAlimentos'));
+
+
+Route::post('storetipoalimentosconsumo/{planriesgos}', array('uses' => 'PlanRiesgosController@storeTipoAlimentosConsumo', 'as' => 'storeTipoAlimentosConsumo'));
+
+Route::delete('deletetipoalimentosconsumo/{planRiesgos}/{id}',array('uses' => 'PlanRiesgosController@destroyTipoAlimentosConsumo', 'as' => 'destroyTipoAlimentosConsumo'));
+
+
+Route::post('storetipoanimales/{planriesgos}', array('uses' => 'PlanRiesgosController@storeTipoAnimales', 'as' => 'storeTipoAnimales'));
+
+Route::delete('deletetipoanimales/{planRiesgos}/{id}',array('uses' => 'PlanRiesgosController@destroyTipoAnimales', 'as' => 'destroyTipoAnimales'));
+
+
+Route::post('storetipoagricultura/{planriesgos}', array('uses' => 'PlanRiesgosController@storeTipoAgricultura', 'as' => 'storeTipoAgricultura'));
+
+Route::delete('deletetipoagricultura/{planRiesgos}/{id}',array('uses' => 'PlanRiesgosController@destroyTipoAgricultura', 'as' => 'destroyTipoAgricultura'));
+
+
+Route::post('storeorigeningresos/{planriesgos}', array('uses' => 'PlanRiesgosController@storeOrigenIngresos', 'as' => 'storeOrigenIngresos'));
+
+Route::delete('deleteorigeningresos/{planRiesgos}/{id}',array('uses' => 'PlanRiesgosController@destroyOrigenIngresos', 'as' => 'destroyOrigenIngresos'));
+
+
+Route::post('storegrupoalimentosproductos/{planriesgos}', array('uses' => 'PlanRiesgosController@storeGrupoAlimentosProductos', 'as' => 'storeGrupoAlimentosProductos'));
+
+Route::delete('deletegrupoalimentosproductos/{planRiesgos}/{id}',array('uses' => 'PlanRiesgosController@destroyGrupoAlimentosProductos', 'as' => 'destroyGrupoAlimentosProductos'));
+
+Route::resource('planRiesgosHasGAProductos', 'PlanRiesgos_Has_GrupoAlimentosProductosController');
+
+
+
 Route::resource('asociacions', 'AsociacionController');
 
 Route::resource('planRiesgos', 'PlanRiesgosController');
 
-// Route::resource('planRiesgosHasGrupoAlimentosProductos', 'PlanRiesgos_Has_GrupoAlimentosProductosController');
 
 Route::resource('planRiesgosHasOrigenIngresos', 'PlanRiesgos_Has_OrigenIngresosController');
 
