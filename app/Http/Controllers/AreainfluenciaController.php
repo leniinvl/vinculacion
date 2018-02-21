@@ -30,6 +30,15 @@ use App\Models\OrganizacionSocial;
 use App\Models\Abastecimientoagua;
 use App\Models\CaracteristicasEtnicas;
 use App\Models\EvacuacionAguasServidas;
+use App\Models\AreaInfluencia;
+use App\Models\TipoVegetal;
+use App\Models\Religion;
+use App\Models\TipoFuentes;
+use App\Models\UsoTierra;
+use App\Models\Lenguaje;
+use App\Models\Tradicion;
+use App\Models\Peligros;
+use App\Models\Topologia;
 
 
 class areainfluenciaController extends AppBaseController
@@ -138,6 +147,14 @@ class areainfluenciaController extends AppBaseController
     public function show($id)
     {
         $areainfluencia = $this->areainfluenciaRepository->findWithoutFail($id);
+        $tipovegetal = TipoVegetal::all()->pluck('nombre', 'id');
+        $religion = Religion::all()->pluck('nombre', 'id');
+        $tipofuentes = TipoFuentes::all()->pluck('nombre', 'id');
+        $usotierra = UsoTierra::all()->pluck('nombre', 'id');
+        $lenguaje = Lenguaje::all()->pluck('nombre', 'id');
+        $tradicion = Tradicion::all()->pluck('nombre', 'id');
+        $peligros = Peligros::all()->pluck('nombre', 'id');
+        $topologia = Topologia::all()->pluck('nombre', 'id');
 
         if (empty($areainfluencia)) {
             Flash::error('Areainfluencia not found');
@@ -145,7 +162,9 @@ class areainfluenciaController extends AppBaseController
             return redirect(route('areainfluencias.index'));
         }
 
-        return view('areainfluencias.show')->with('areainfluencia', $areainfluencia);
+        return view('areainfluencias.show')->with('areainfluencia', $areainfluencia)->with('tipovegetal', $tipovegetal)->with('religion', $religion)
+        ->with('tipofuentes', $tipofuentes)->with('usotierra', $usotierra)->with('lenguaje', $lenguaje)->with('tradicion', $tradicion)
+        ->with('peligros', $peligros)->with('topologia', $topologia);
     }
 
     /**
@@ -256,4 +275,175 @@ class areainfluenciaController extends AppBaseController
 
         return redirect(route('areainfluencias.index'));
     }
+
+
+
+
+    public function storeTipoVegetal(Request $request, $idareainfluencia)
+    {
+        $areainfluencia = AreaInfluencia::find($idareainfluencia);
+        $areainfluencia->tipoVegetals()->attach($request->TipoVegetal_id);
+
+        Flash::success('Areainfluencia  Has  Tipo Vegetal saved successfully.');
+
+        return redirect(url('areainfluencias/' . $areainfluencia->id));
+    }
+
+    public function destroyTipoVegetal($idareainfluencia, $id)
+    {
+
+        $areainfluencia = AreaInfluencia::find($idareainfluencia);
+        $areainfluencia->tipoVegetals()->detach($id);
+        return redirect(url('areainfluencias/' . $areainfluencia->id));
+    }
+
+
+
+    public function storeReligion(Request $request, $idareainfluencia)
+    {
+
+        $areainfluencia = AreaInfluencia::find($idareainfluencia);
+        $areainfluencia->religions()->attach($request->Religion_id);
+
+        Flash::success('Areainfluencia  Has  Religion saved successfully.');
+
+        return redirect(url('areainfluencias/' . $areainfluencia->id));
+    }
+
+    public function destroyReligion($idareainfluencia, $id)
+    {
+
+        $areainfluencia = AreaInfluencia::find($idareainfluencia);
+        $areainfluencia->religions()->detach($id);
+        return redirect(url('areainfluencias/' . $areainfluencia->id));
+    }
+
+
+
+    public function storeTipoFuentes(Request $request, $idareainfluencia)
+    {
+
+        $areainfluencia = AreaInfluencia::find($idareainfluencia);
+        $areainfluencia->TipoFuentes()->attach($request->TipoFuentes_id);
+
+        Flash::success('Areainfluencia  Has  Tipo Fuentes saved successfully.');
+
+        return redirect(url('areainfluencias/' . $areainfluencia->id));
+    }
+
+    public function destroyTipoFuentes($idareainfluencia, $id)
+    {
+
+        $areainfluencia = AreaInfluencia::find($idareainfluencia);
+        $areainfluencia->TipoFuentes()->detach($id);
+        return redirect(url('areainfluencias/' . $areainfluencia->id));
+    }
+
+
+
+    public function storeUsoTierra(Request $request, $idareainfluencia)
+    {
+
+        $areainfluencia = AreaInfluencia::find($idareainfluencia);
+        $areainfluencia->usotierras()->attach($request->UsoTierra_id);
+
+        Flash::success('Areainfluencia  Has  Uso Tierra saved successfully.');
+
+        return redirect(url('areainfluencias/' . $areainfluencia->id));
+    }
+
+    public function destroyUsoTierra($idareainfluencia, $id)
+    {
+
+        $areainfluencia = AreaInfluencia::find($idareainfluencia);
+        $areainfluencia->usotierras()->detach($id);
+        return redirect(url('areainfluencias/' . $areainfluencia->id));
+    }
+
+
+
+    public function storeLenguaje(Request $request, $idareainfluencia)
+    {
+
+        $areainfluencia = AreaInfluencia::find($idareainfluencia);
+        $areainfluencia->lenguajes()->attach($request->Lenguaje_id);
+
+        Flash::success('Areainfluencia  Has  Lenguaje saved successfully.');
+
+        return redirect(url('areainfluencias/' . $areainfluencia->id));
+    }
+
+    public function destroyLenguaje($idareainfluencia, $id)
+    {
+
+        $areainfluencia = AreaInfluencia::find($idareainfluencia);
+        $areainfluencia->lenguajes()->detach($id);
+        return redirect(url('areainfluencias/' . $areainfluencia->id));
+    }
+
+
+
+    public function storeTradicion(Request $request, $idareainfluencia)
+    {
+
+        $areainfluencia = AreaInfluencia::find($idareainfluencia);
+        $areainfluencia->tradicions()->attach($request->Tradicion_id);
+
+        Flash::success('Areainfluencia  Has  Tradicion saved successfully.');
+
+        return redirect(url('areainfluencias/' . $areainfluencia->id));
+    }
+
+    public function destroyTradicion($idareainfluencia, $id)
+    {
+
+        $areainfluencia = AreaInfluencia::find($idareainfluencia);
+        $areainfluencia->tradicions()->detach($id);
+        return redirect(url('areainfluencias/' . $areainfluencia->id));
+    }
+
+
+
+
+    public function storePeligros(Request $request, $idareainfluencia)
+    {
+
+        $areainfluencia = AreaInfluencia::find($idareainfluencia);
+        $areainfluencia->peligros()->attach($request->Peligros_id);
+
+        Flash::success('Areainfluencia  Has  Peligros saved successfully.');
+
+        return redirect(url('areainfluencias/' . $areainfluencia->id));
+    }
+
+    public function destroyPeligros($idareainfluencia, $id)
+    {
+
+        $areainfluencia = AreaInfluencia::find($idareainfluencia);
+        $areainfluencia->peligros()->detach($id);
+        return redirect(url('areainfluencias/' . $areainfluencia->id));
+    }
+
+
+
+    public function storeTopologia(Request $request, $idareainfluencia)
+    {
+
+        $areainfluencia = AreaInfluencia::find($idareainfluencia);
+        $areainfluencia->topologia()->attach($request->Topologia_id);
+
+        Flash::success('Areainfluencia  Has  Topologia saved successfully.');
+
+        return redirect(url('areainfluencias/' . $areainfluencia->id));
+    }
+
+    public function destroyTopologia($idareainfluencia, $id)
+    {
+
+        $areainfluencia = AreaInfluencia::find($idareainfluencia);
+        $areainfluencia->topologia()->detach($id);
+        return redirect(url('areainfluencias/' . $areainfluencia->id));
+    }
+
+
 }

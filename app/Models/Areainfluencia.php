@@ -331,7 +331,7 @@ class areainfluencia extends Model
      **/
     public function lenguajes()
     {
-        return $this->belongsToMany(\App\Models\Lenguaje::class, 'areainfluencia_has_lenguaje');
+        return $this->belongsToMany(\App\Models\Lenguaje::class, 'areainfluencia_has_lenguaje', 'areainfluencia_id', 'lenguaje_id')->withTimestamps();
     }
 
     /**
@@ -339,7 +339,7 @@ class areainfluencia extends Model
      **/
     public function peligros()
     {
-        return $this->belongsToMany(\App\Models\Peligro::class, 'areainfluencia_has_peligros');
+        return $this->belongsToMany(\App\Models\Peligros::class, 'areainfluencia_has_peligros', 'areainfluencia_id', 'peligros_id')->withTimestamps();
     }
 
     /**
@@ -347,7 +347,7 @@ class areainfluencia extends Model
      **/
     public function religions()
     {
-        return $this->belongsToMany(\App\Models\Religion::class, 'areainfluencia_has_religion');
+        return $this->belongsToMany(\App\Models\Religion::class, 'areainfluencia_has_religion', 'areainfluencia_id', 'religion_id')->withTimestamps();
     }
 
     /**
@@ -355,7 +355,7 @@ class areainfluencia extends Model
      **/
     public function tipofuentes()
     {
-        return $this->belongsToMany(\App\Models\Tipofuente::class, 'areainfluencia_has_tipofuentes');
+        return $this->belongsToMany(\App\Models\Tipofuentes::class, 'areainfluencia_has_tipofuentes', 'areainfluencia_id', 'tipofuentes_id')->withTimestamps();
     }
 
     /**
@@ -363,7 +363,7 @@ class areainfluencia extends Model
      **/
     public function tipovegetals()
     {
-        return $this->belongsToMany(\App\Models\Tipovegetal::class, 'areainfluencia_has_tipovegetal');
+        return $this->belongsToMany(\App\Models\Tipovegetal::class, 'areainfluencia_has_tipovegetal', 'areainfluencia_id', 'tipovegetal_id')->withTimestamps();
     }
 
     /**
@@ -371,7 +371,7 @@ class areainfluencia extends Model
      **/
     public function topologia()
     {
-        return $this->belongsToMany(\App\Models\Topologium::class, 'areainfluencia_has_topologia');
+        return $this->belongsToMany(\App\Models\Topologia::class, 'areainfluencia_has_topologia', 'areainfluencia_id', 'topologia_id')->withTimestamps();
     }
 
     /**
@@ -379,7 +379,7 @@ class areainfluencia extends Model
      **/
     public function tradicions()
     {
-        return $this->belongsToMany(\App\Models\Tradicion::class, 'areainfluencia_has_tradicion');
+        return $this->belongsToMany(\App\Models\Tradicion::class, 'areainfluencia_has_tradicion', 'areainfluencia_id', 'tradicion_id')->withTimestamps();
     }
 
     /**
@@ -387,7 +387,7 @@ class areainfluencia extends Model
      **/
     public function usotierras()
     {
-        return $this->belongsToMany(\App\Models\Usotierra::class, 'areainfluencia_has_usotierra');
+        return $this->belongsToMany(\App\Models\Usotierra::class, 'areainfluencia_has_usotierra', 'areainfluencia_id', 'usotierra_id')->withTimestamps();
     }
 
     /**
