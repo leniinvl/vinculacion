@@ -11,7 +11,7 @@
             <div class="box-body">
                 <div class="row" style="padding-left: 20px">
                     @include('peligros.show_fields')
-                    <a href="{!! route('peligros.index') !!}" class="btn btn-default">Back</a>
+                    <a href="{!! route('peligros.index') !!}" class="btn btn-default">Volver</a>
                 </div>
             </div>
         </div>

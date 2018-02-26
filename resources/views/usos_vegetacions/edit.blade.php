@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Usos Vegetacion
+            Usos de Vegetación
         </h1>
    </section>
    <div class="content">
