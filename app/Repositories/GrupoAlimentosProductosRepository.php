@@ -20,7 +20,7 @@ class GrupoAlimentosProductosRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
-        ' nombre'
+        'nombre'
     ];
 
     /**

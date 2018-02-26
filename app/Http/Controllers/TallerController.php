@@ -11,6 +11,9 @@ use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use App\Models\Unidadproduccion;
+use App\Models\Taller;
+use App\Models\TipoDesecho;
+use App\Models\TipoRiesgos;
 
 class TallerController extends AppBaseController
 {
@@ -78,6 +81,8 @@ class TallerController extends AppBaseController
     public function show($id)
     {
         $taller = $this->tallerRepository->findWithoutFail($id);
+        $tipodesecho = TipoDesecho::all()->pluck('nombre', 'id');
+        $tiporiesgos = TipoRiesgos::all()->pluck('nombre', 'id');
 
         if (empty($taller)) {
             Flash::error('Taller not found');
@@ -85,7 +90,7 @@ class TallerController extends AppBaseController
             return redirect(route('tallers.index'));
         }
 
-        return view('tallers.show')->with('taller', $taller);
+        return view('tallers.show')->with('taller', $taller)->with('tipodesecho', $tipodesecho)->with('tiporiesgos', $tiporiesgos);
     }
 
     /**
@@ -157,5 +162,42 @@ class TallerController extends AppBaseController
         Flash::success('Taller deleted successfully.');
 
         return redirect(route('tallers.index'));
+    }
+
+
+    public function storeTipoDesecho(Request $request, $idtaller)
+    {
+        $taller = Taller::find($idtaller);
+        $taller->tipodesechos()->attach($request->TipoDesecho_id);
+
+        Flash::success('Taller  Has  Tipo Desecho saved successfully.');
+
+        return redirect(url('tallers/' . $taller->id));
+    }
+
+    public function destroyTipoDesecho($idtaller, $id)
+    {
+
+        $taller = Taller::find($idtaller);
+        $taller->tipodesechos()->detach($id);
+        return redirect(url('tallers/' . $taller->id));
+    }
+
+
+    public function storeTipoRiesgos(Request $request, $idtaller)
+    {
+        $taller = Taller::find($idtaller);
+        $taller->tipoRiesgos()->attach($request->TipoRiesgos_id);
+
+        Flash::success('Taller  Has  Tipo Riesgo saved successfully.');
+
+        return redirect(url('tallers/' . $taller->id));
+    }
+
+    public function destroyTipoRiesgos($idtaller, $id)
+    {
+        $taller = Taller::find($idtaller);
+        $taller->tipoRiesgos()->detach($id);
+        return redirect(url('tallers/' . $taller->id));
     }
 }

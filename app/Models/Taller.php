@@ -88,7 +88,7 @@ class Taller extends Model
      **/
     public function tipodesechos()
     {
-        return $this->belongsToMany(\App\Models\Tipodesecho::class, 'taller_has_tipodesecho');
+        return $this->belongsToMany(\App\Models\Tipodesecho::class, 'taller_has_tipodesecho', 'taller_id', 'tipodesecho_id')->withTimestamps();
     }
 
     /**
@@ -96,6 +96,6 @@ class Taller extends Model
      **/
     public function tiporiesgos()
     {
-        return $this->belongsToMany(\App\Models\Tiporiesgo::class, 'taller_has_tiporiesgos');
+        return $this->belongsToMany(\App\Models\Tiporiesgos::class, 'taller_has_tiporiesgos', 'taller_id', 'tiporiesgos_id')->withTimestamps();
     }
 }

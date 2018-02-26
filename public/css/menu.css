@@ -1,0 +1,36 @@
+.dropdown-btn {
+  text-decoration: none;
+  font-size: 18px;
+  color: beige;
+  display: block;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+
+.menu-style{
+  padding: 2px 2px 6px 8px;
+
+
+}
+
+.dropdown-container {
+  display: none;
+  padding-left: 20px;
+  font-size: 15px;
+}
+#submenu{
+  text-decoration: none;
+  font-size: 16px;
+  color: beige;
+  display: block;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}

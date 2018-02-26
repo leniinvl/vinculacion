@@ -48,7 +48,7 @@ class PlanRiesgos extends Model
     use SoftDeletes;
 
     public $table = 'planriesgos';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -90,7 +90,7 @@ class PlanRiesgos extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**
@@ -122,7 +122,7 @@ class PlanRiesgos extends Model
      **/
     public function grupoalimentosproductos()
     {
-        return $this->belongsToMany(\App\Models\Grupoalimentosproducto::class, 'planriesgos_has_grupoalimentosproductos');
+        return $this->belongsToMany(\App\Models\Grupoalimentosproductos::class, 'planriesgos_has_grupoalimentosproductos', 'planriesgos_id', 'GrupoAlimentosProductos_id')->withTimestamps();
     }
 
     /**
@@ -130,7 +130,7 @@ class PlanRiesgos extends Model
      **/
     public function origeningresos()
     {
-        return $this->belongsToMany(\App\Models\Origeningreso::class, 'planriesgos_has_origeningresos');
+        return $this->belongsToMany(\App\Models\Origeningresos::class, 'planriesgos_has_origeningresos', 'planriesgos_id', 'origeningresos_id')->withTimestamps();
     }
 
     /**
@@ -138,7 +138,7 @@ class PlanRiesgos extends Model
      **/
     public function tipoagriculturas()
     {
-        return $this->belongsToMany(\App\Models\Tipoagricultura::class, 'planriesgos_has_tipoagricultura');
+        return $this->belongsToMany(\App\Models\Tipoagricultura::class, 'planriesgos_has_tipoagricultura', 'planriesgos_id', 'tipoagricultura_id')->withTimestamps();
     }
 
     /**
@@ -146,7 +146,7 @@ class PlanRiesgos extends Model
      **/
     public function tipoalimentos()
     {
-        return $this->belongsToMany(\App\Models\Tipoalimento::class, 'planriesgos_has_tipoalimentos');
+        return $this->belongsToMany(\App\Models\Tipoalimentos::class, 'planriesgos_has_tipoalimentos', 'planriesgos_id', 'tipoalimentos_id')->withTimestamps();
     }
 
     /**
@@ -154,7 +154,7 @@ class PlanRiesgos extends Model
      **/
     public function tipoalimentosconsumos()
     {
-        return $this->belongsToMany(\App\Models\Tipoalimentosconsumo::class, 'planriesgos_has_tipoalimentosconsumo');
+        return $this->belongsToMany(\App\Models\Tipoalimentosconsumo::class, 'planriesgos_has_tipoalimentosconsumo', 'planriesgos_id', 'tipoalimentosconsumo_id')->withTimestamps();
     }
 
     /**
@@ -162,7 +162,7 @@ class PlanRiesgos extends Model
      **/
     public function tipoanimales()
     {
-        return $this->belongsToMany(\App\Models\Tipoanimale::class, 'planriesgos_has_tipoanimales');
+        return $this->belongsToMany(\App\Models\Tipoanimales::class, 'planriesgos_has_tipoanimales', 'planriesgos_id', 'tipoanimales_id')->withTimestamps();
     }
 
     /**
@@ -170,7 +170,7 @@ class PlanRiesgos extends Model
      **/
     public function tipocultivos()
     {
-        return $this->belongsToMany(\App\Models\Tipocultivo::class, 'planriesgos_has_tipocultivos');
+        return $this->belongsToMany(\App\Models\Tipocultivos::class, 'planriesgos_has_tipocultivos', 'planriesgos_id', 'tipocultivos_id')->withTimestamps();
     }
 
     /**
