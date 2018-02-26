@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Consolidacion Area Influencia
+            Consolidación de Área Influencia
         </h1>
     </section>
     <div class="content">
@@ -11,7 +11,7 @@
             <div class="box-body">
                 <div class="row" style="padding-left: 20px">
                     @include('consolidacion_area_influencias.show_fields')
-                    <a href="{!! route('consolidacionAreaInfluencias.index') !!}" class="btn btn-default">Back</a>
+                    <a href="{!! route('consolidacionAreaInfluencias.index') !!}" class="btn btn-default">Volver</a>
                 </div>
             </div>
         </div>

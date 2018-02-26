@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Areainfluencia
+            Area de Influencia
         </h1>
     </section>
     <div class="content">
@@ -309,7 +309,7 @@
                     </table>
 
 
-                    <a href="{!! route('areainfluencias.index') !!}" class="btn btn-default">Back</a>
+                    <a href="{!! route('areainfluencias.index') !!}" class="btn btn-default">Volver</a>
                 </div>
             </div>
         </div>
