@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Tipo Control Plaga
+            Tipos de Control de Plagas
         </h1>
    </section>
    <div class="content">

@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Tipo Fuentes
+            Tipos de Fuentes
         </h1>
     </section>
     <div class="content">
