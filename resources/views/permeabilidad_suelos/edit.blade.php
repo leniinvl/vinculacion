@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Permeabilidad Suelo
+            Permeabilidad de Suelos
         </h1>
    </section>
    <div class="content">

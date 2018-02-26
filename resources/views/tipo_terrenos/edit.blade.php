@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Tipo Terreno
+            Tipo de Terreno
         </h1>
    </section>
    <div class="content">
