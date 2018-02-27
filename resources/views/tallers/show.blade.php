@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Taller
+            Tipos de Taller
         </h1>
     </section>
     <div class="content">
@@ -87,7 +87,7 @@
                         </tbody>
                     </table>
 
-                    <a href="{!! route('tallers.index') !!}" class="btn btn-default">Back</a>
+                    <a href="{!! route('tallers.index') !!}" class="btn btn-default">Volver</a>
                 </div>
             </div>
         </div>

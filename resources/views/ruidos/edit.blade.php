@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Ruido
+            Tipos de Ruido
         </h1>
    </section>
    <div class="content">
