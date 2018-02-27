@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Tipo Fuentes
+            Tipos de Fuentes
         </h1>
     </section>
     <div class="content">
@@ -11,7 +11,7 @@
             <div class="box-body">
                 <div class="row" style="padding-left: 20px">
                     @include('tipo_fuentes.show_fields')
-                    <a href="{!! route('tipoFuentes.index') !!}" class="btn btn-default">Back</a>
+                    <a href="{!! route('tipoFuentes.index') !!}" class="btn btn-default">Volver</a>
                 </div>
             </div>
         </div>
