@@ -40,18 +40,16 @@ class Paisaje extends Model
     use SoftDeletes;
 
     public $table = 'paisaje';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-
     protected $dates = ['deleted_at'];
-
 
     public $fillable = [
         'nombre',
         'descripcion',
-        'AreaInfluencia_id'
+        'AreaInfluencia_id',
     ];
 
     /**
@@ -60,10 +58,10 @@ class Paisaje extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
-        'nombre' => 'string',
-        'descripcion' => 'string',
-        'AreaInfluencia_id' => 'integer'
+        'id'                => 'integer',
+        'nombre'            => 'string',
+        'descripcion'       => 'string',
+        'AreaInfluencia_id' => 'integer',
     ];
 
     /**
@@ -72,7 +70,7 @@ class Paisaje extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**

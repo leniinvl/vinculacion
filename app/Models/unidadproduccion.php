@@ -47,13 +47,11 @@ class unidadproduccion extends Model
     use SoftDeletes;
 
     public $table = 'unidadproduccion';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-
     protected $dates = ['deleted_at'];
-
 
     public $fillable = [
         'nombre',
@@ -61,7 +59,7 @@ class unidadproduccion extends Model
         'lng',
         'observaciones',
         'Asociacion_id',
-        'Producto_id'
+        'Producto_id',
     ];
 
     /**
@@ -70,13 +68,13 @@ class unidadproduccion extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
-        'nombre' => 'string',
-        'lat' => 'string',
-        'lng' => 'string',
+        'id'            => 'integer',
+        'nombre'        => 'string',
+        'lat'           => 'string',
+        'lng'           => 'string',
         'observaciones' => 'string',
         'Asociacion_id' => 'integer',
-        'Producto_id' => 'integer'
+        'Producto_id'   => 'integer',
     ];
 
     /**
@@ -85,7 +83,7 @@ class unidadproduccion extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**
@@ -93,7 +91,7 @@ class unidadproduccion extends Model
      **/
     public function asociacion()
     {
-        return $this->belongsTo(\App\Models\Asociacion::class,'Asociacion_id');
+        return $this->belongsTo(\App\Models\Asociacion::class, 'Asociacion_id');
     }
 
     /**
@@ -101,7 +99,7 @@ class unidadproduccion extends Model
      **/
     public function producto()
     {
-        return $this->belongsTo(\App\Models\Producto::class,'Producto_id');
+        return $this->belongsTo(\App\Models\Producto::class, 'Producto_id');
     }
 
     /**

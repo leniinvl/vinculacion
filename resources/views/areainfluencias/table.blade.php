@@ -29,7 +29,7 @@
         <th>Evacuacionaguasservidas Id</th>
         <th>Lat</th>
         <th>Long</th>
-            <th colspan="3">Action</th>
+            <th colspan="3">Acciones</th>
         </tr>
     </thead>
     <tbody>

@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreateProductoRequest;
 use App\Http\Requests\UpdateProductoRequest;
+use App\Models\TipoProducto;
 use App\Repositories\ProductoRepository;
-use App\Http\Controllers\AppBaseController;
-use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
-use App\Models\TipoProducto;
 
 class ProductoController extends AppBaseController
 {
@@ -44,9 +44,9 @@ class ProductoController extends AppBaseController
      */
     public function create()
     {
-        $tiposproducto=TipoProducto::all()->pluck('nombre','id');
-        return view('productos.create',[
-            'tiposproducto' => $tiposproducto
+        $tiposproducto = TipoProducto::all()->pluck('nombre', 'id');
+        return view('productos.create', [
+            'tiposproducto' => $tiposproducto,
         ]);
     }
 
@@ -97,8 +97,8 @@ class ProductoController extends AppBaseController
      */
     public function edit($id)
     {
-        $tiposproducto=TipoProducto::all()->pluck('nombre','id');
-        $producto = $this->productoRepository->findWithoutFail($id);
+        $tiposproducto = TipoProducto::all()->pluck('nombre', 'id');
+        $producto      = $this->productoRepository->findWithoutFail($id);
 
         if (empty($producto)) {
             Flash::error('Producto not found');
@@ -106,7 +106,7 @@ class ProductoController extends AppBaseController
             return redirect(route('productos.index'));
         }
 
-        return view('productos.edit')->with('producto', $producto)->with('tiposproducto',$tiposproducto);
+        return view('productos.edit')->with('producto', $producto)->with('tiposproducto', $tiposproducto);
     }
 
     /**

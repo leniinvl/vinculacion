@@ -11,7 +11,7 @@
             <div class="box-body">
                 <div class="row" style="padding-left: 20px">
                     @include('plan_riesgos__has__grupo_alimentos_productos.show_fields')
-                    <a href="{!! route('planRiesgosHasGrupoAlimentosProductos.index') !!}" class="btn btn-default">Back</a>
+                    <a href="{!! route('planRiesgosHasGrupoAlimentosProductos.index') !!}" class="btn btn-default">Volver</a>
                 </div>
             </div>
         </div>

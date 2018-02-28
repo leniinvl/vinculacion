@@ -38,16 +38,14 @@ class AreaInfluenciaHasTipoFuentes extends Model
     use SoftDeletes;
 
     public $table = 'areainfluencia_has_tipofuentes';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-
     protected $dates = ['deleted_at'];
 
-
     public $fillable = [
-        'TipoFuentes_id'
+        'TipoFuentes_id',
     ];
 
     /**
@@ -57,7 +55,7 @@ class AreaInfluenciaHasTipoFuentes extends Model
      */
     protected $casts = [
         'AreaInfluencia_id' => 'integer',
-        'TipoFuentes_id' => 'integer'
+        'TipoFuentes_id'    => 'integer',
     ];
 
     /**
@@ -66,7 +64,7 @@ class AreaInfluenciaHasTipoFuentes extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**

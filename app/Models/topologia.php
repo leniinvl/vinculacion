@@ -37,16 +37,14 @@ class Topologia extends Model
     use SoftDeletes;
 
     public $table = 'topologia';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-
     protected $dates = ['deleted_at'];
 
-
     public $fillable = [
-        'nombre'
+        'nombre',
     ];
 
     /**
@@ -55,8 +53,8 @@ class Topologia extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
-        'nombre' => 'string'
+        'id'     => 'integer',
+        'nombre' => 'string',
     ];
 
     /**
@@ -65,7 +63,7 @@ class Topologia extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**

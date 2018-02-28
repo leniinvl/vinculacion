@@ -9,9 +9,9 @@
 
 <ul class="sidebar-menu tree" data-widget="tree">
         <li class="header">NAVEGADOR</li>
-		
+
 		{{--****Talleres***--}}
-		
+
         <li class="treeview">
 			<a href="#">
 				<i></i> <span>Talleres</span>
@@ -25,50 +25,50 @@
 				<li class="active2"><a href="{!! route('tipoDesechos.index') !!}"><i class="fa fa-trash"></i>Desechos</a></li>
 			</ul>
         </li>
-		
+
 		{{--****Fin Talleres****--}}
 
 		{{--****Biodigestor****--}}
-		
+
 		<li class="treeview">
 			<span class="pull-right-container">
 				<li class="active"><a href="{!! route('biodigestors.index') !!}"><i class="fa fa-building"></i>Biodigestores</a></li>
 			</span>
         </li>
-		
+
 		{{--****Fin Biodigestor****--}}
-		
-		
+
+
 		<li class="treeview">
 			<span class="pull-right-container">
 				<li class="active"><a href="{!! route('tipoProyectos.index') !!}"><i class="fa fa-line-chart"></i>Tipo de Proyectos</a></li>
 			</span>
         </li>
-		
+
 		<li class="treeview">
 			<span class="pull-right-container">
 				<li class="active"><a href="{!! route('categoriaProyectos.index') !!}"><i class="fa fa-plus"></i>Categoria de Proyectos</a></li>
 			</span>
         </li>
-		
+
 		<li class="treeview">
 			<span class="pull-right-container">
 				<li class="active"><a href="{!! route('manejoAmbientals.index') !!}"><i class="fa fa-globe"></i>Manejo Ambiental</a></li>
 			</span>
         </li>
-		
+
 		<li class="treeview">
 			<span class="pull-right-container">
 				<li class="active"><a href="{!! route('areainfluencias.index') !!}"><i class="fa fa-line-chart"></i>Area de Influencia</a></li>
 			</span>
         </li>
-				
+
 		<li class="treeview">
 			<span class="pull-right-container">
 				<li class="active"><a href="{!! route('unidadproduccions.index') !!}"><i class="fa fa-gears"></i>Unidad de Produccion</a></li>
 			</span>
         </li>
-		
+
 		<li class="treeview">
 			<span class="pull-right-container">
 				<li class="active"><a href="{!! route('propietarios.index') !!}"><i class="fa fa-group"></i>Propietarios</a></li>
@@ -76,7 +76,7 @@
         </li>
 
 		{{--****Plan de Gestion de Riesgos ****--}}
-		
+
 		<li class="treeview">
 			<a href="#">
 				<i></i> <span>Gestion de Riesgos</span>
@@ -103,7 +103,7 @@
 
 
 		{{--****Linea Base****--}}
-		
+
 		<li class="treeview">
 			<a href="#">
 				<i></i> <span>Productos</span>
@@ -113,10 +113,10 @@
 			</a>
 			<ul class="treeview-menu" style="">
 				<li class="active"><a href="{!! route('tipoProductos.index') !!}"><i class="fa fa-plus"></i>Agregar Productos</a></li>
-				<li><a href="{!! route('tipoRiesgos.index') !!}"><i class="fa fa-product-hunt"></i>Productos</a></li>
+				<li><a href="{!! route('productos.index') !!}"><i class="fa fa-product-hunt"></i>Productos</a></li>
 			</ul>
         </li>
-		
+
 		<li class="treeview">
 			<a href="#">
 				<i></i> <span>Asociacion</span>
@@ -130,11 +130,11 @@
 			</ul>
         </li>
 
-		
+
 		{{--****Fin Linea Base****--}}
 
 		{{--****Plan Manejo Ambiental****--}}
-		
+
 		<li class="treeview">
 			<a href="#">
 				<i></i> <span>Manejo Ambiental</span>
@@ -168,14 +168,14 @@
 				<li><a href="{!! route('usoTierras.index') !!}"><i class="fa fa-leaf"></i>Uso de Tierra</a></li>
 				<li><a href="{!! route('religions.index') !!}"><i class="fa fa-institution"></i>Religión</a></li>
 				<li><a href="{!! route('lenguajes.index') !!}"><i class="fa fa-edit"></i>Lenguaje</a></li>
-				<li><a href="{!! route('tradicions.index') !!}"><i class="fa fa-language"></i>Traducción</a></li>
+				<li><a href="{!! route('tradicions.index') !!}"><i class="fa fa-group"></i>Tradiciones</a></li>
 				<li><a href="{!! route('tipoFuentes.index') !!}"><i class="fa fa-paint-brush"></i>Tipo de Fuente</a></li>
 				<li><a href="{!! route('peligros.index') !!}"><i class="fa fa-warning"></i>Peligros</a></li>
 				<li><a href="{!! route('topologias.index') !!}"><i class="fa fa-bullseye"></i>Topologías</a></li>
 			</ul>
         </li>
-	
-		
+
+
 
 {{--****Fin Plan Manejo Ambiental****--}}
 
@@ -212,8 +212,3 @@
 <li class="{{ Request::is('areaInfluenciaHasTradicions*') ? 'active' : '' }}">
     <a href="{!! route('areaInfluenciaHasTradicions.index') !!}"><i class="fa fa-edit"></i><span>Area Influencia Has Tradicions</span></a>
 </li>--}}
-
-
-
-
-

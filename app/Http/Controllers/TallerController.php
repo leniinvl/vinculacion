@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreateTallerRequest;
 use App\Http\Requests\UpdateTallerRequest;
-use App\Repositories\TallerRepository;
-use App\Http\Controllers\AppBaseController;
-use Illuminate\Http\Request;
-use Flash;
-use Prettus\Repository\Criteria\RequestCriteria;
-use Response;
-use App\Models\Unidadproduccion;
 use App\Models\Taller;
 use App\Models\TipoDesecho;
 use App\Models\TipoRiesgos;
+use App\Models\Unidadproduccion;
+use App\Repositories\TallerRepository;
+use Flash;
+use Illuminate\Http\Request;
+use Prettus\Repository\Criteria\RequestCriteria;
+use Response;
 
 class TallerController extends AppBaseController
 {
@@ -47,10 +47,10 @@ class TallerController extends AppBaseController
      */
     public function create()
     {
-      $unidadproduccion = Unidadproduccion::all()->pluck('nombre', 'id');
-      return view('tallers.create', [
-          'unidadproduccion' => $unidadproduccion
-      ]);
+        $unidadproduccion = Unidadproduccion::all()->pluck('nombre', 'id');
+        return view('tallers.create', [
+            'unidadproduccion' => $unidadproduccion,
+        ]);
     }
 
     /**
@@ -80,7 +80,7 @@ class TallerController extends AppBaseController
      */
     public function show($id)
     {
-        $taller = $this->tallerRepository->findWithoutFail($id);
+        $taller      = $this->tallerRepository->findWithoutFail($id);
         $tipodesecho = TipoDesecho::all()->pluck('nombre', 'id');
         $tiporiesgos = TipoRiesgos::all()->pluck('nombre', 'id');
 
@@ -102,7 +102,7 @@ class TallerController extends AppBaseController
      */
     public function edit($id)
     {
-        $taller = $this->tallerRepository->findWithoutFail($id);
+        $taller           = $this->tallerRepository->findWithoutFail($id);
         $unidadproduccion = Unidadproduccion::all()->pluck('nombre', 'id');
 
         if (empty($taller)) {
@@ -112,7 +112,7 @@ class TallerController extends AppBaseController
         }
 
         return view('tallers.edit')->with('taller', $taller)
-        ->with('unidadproduccion', $unidadproduccion);
+            ->with('unidadproduccion', $unidadproduccion);
     }
 
     /**
@@ -164,7 +164,6 @@ class TallerController extends AppBaseController
         return redirect(route('tallers.index'));
     }
 
-
     public function storeTipoDesecho(Request $request, $idtaller)
     {
         $taller = Taller::find($idtaller);
@@ -182,7 +181,6 @@ class TallerController extends AppBaseController
         $taller->tipodesechos()->detach($id);
         return redirect(url('tallers/' . $taller->id));
     }
-
 
     public function storeTipoRiesgos(Request $request, $idtaller)
     {

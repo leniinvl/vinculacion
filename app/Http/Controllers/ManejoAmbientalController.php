@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreateManejoAmbientalRequest;
 use App\Http\Requests\UpdateManejoAmbientalRequest;
+use App\Models\CategoriaProyecto;
+use App\Models\TipoProyecto;
+use App\Models\unidadproduccion;
 use App\Repositories\ManejoAmbientalRepository;
-use App\Http\Controllers\AppBaseController;
-use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
-use App\Models\TipoProyecto;
-use App\Models\CategoriaProyecto;
-use App\Models\unidadproduccion;
 
 class ManejoAmbientalController extends AppBaseController
 {
@@ -46,14 +46,14 @@ class ManejoAmbientalController extends AppBaseController
      */
     public function create()
     {
-        $tipoproyecto=TipoProyecto::all()->pluck('nombre','id');
-        $categoriaproyecto=CategoriaProyecto::all()->pluck('nombre','id');
-        $unidadproduccion=unidadproduccion::all()->pluck('nombre','id');
+        $tipoproyecto      = TipoProyecto::all()->pluck('nombre', 'id');
+        $categoriaproyecto = CategoriaProyecto::all()->pluck('nombre', 'id');
+        $unidadproduccion  = unidadproduccion::all()->pluck('nombre', 'id');
 
-        return view('manejo_ambientals.create',[
-            'tipoproyecto' => $tipoproyecto,
+        return view('manejo_ambientals.create', [
+            'tipoproyecto'      => $tipoproyecto,
             'categoriaproyecto' => $categoriaproyecto,
-            'unidadproduccion' => $unidadproduccion
+            'unidadproduccion'  => $unidadproduccion,
         ]);
     }
 
@@ -104,10 +104,10 @@ class ManejoAmbientalController extends AppBaseController
      */
     public function edit($id)
     {
-        $manejoAmbiental = $this->manejoAmbientalRepository->findWithoutFail($id);
-        $tipoproyecto=TipoProyecto::all()->pluck('nombre','id');
-        $categoriaproyecto=CategoriaProyecto::all()->pluck('nombre','id');
-        $unidadproduccion=unidadproduccion::all()->pluck('nombre','id');
+        $manejoAmbiental   = $this->manejoAmbientalRepository->findWithoutFail($id);
+        $tipoproyecto      = TipoProyecto::all()->pluck('nombre', 'id');
+        $categoriaproyecto = CategoriaProyecto::all()->pluck('nombre', 'id');
+        $unidadproduccion  = unidadproduccion::all()->pluck('nombre', 'id');
 
         if (empty($manejoAmbiental)) {
             Flash::error('Manejo Ambiental not found');
@@ -115,7 +115,7 @@ class ManejoAmbientalController extends AppBaseController
             return redirect(route('manejoAmbientals.index'));
         }
 
-        return view('manejo_ambientals.edit')->with('manejoAmbiental', $manejoAmbiental)->with('tipoproyecto',$tipoproyecto)->with('categoriaproyecto',$categoriaproyecto)->with('unidadproduccion',$unidadproduccion);
+        return view('manejo_ambientals.edit')->with('manejoAmbiental', $manejoAmbiental)->with('tipoproyecto', $tipoproyecto)->with('categoriaproyecto', $categoriaproyecto)->with('unidadproduccion', $unidadproduccion);
     }
 
     /**

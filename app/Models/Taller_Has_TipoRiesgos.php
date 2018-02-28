@@ -38,16 +38,14 @@ class Taller_Has_TipoRiesgos extends Model
     use SoftDeletes;
 
     public $table = 'taller_has_tiporiesgos';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-
     protected $dates = ['deleted_at'];
 
-
     public $fillable = [
-        'TipoRiesgos_id'
+        'TipoRiesgos_id',
     ];
 
     /**
@@ -56,8 +54,8 @@ class Taller_Has_TipoRiesgos extends Model
      * @var array
      */
     protected $casts = [
-        'Taller_id' => 'integer',
-        'TipoRiesgos_id' => 'integer'
+        'Taller_id'      => 'integer',
+        'TipoRiesgos_id' => 'integer',
     ];
 
     /**
@@ -66,7 +64,7 @@ class Taller_Has_TipoRiesgos extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**

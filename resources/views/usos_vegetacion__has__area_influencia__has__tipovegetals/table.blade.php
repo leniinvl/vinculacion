@@ -3,7 +3,7 @@
         <tr>
             <th>Areainfluencia Has Tipovegetal Areainfluencia Id</th>
         <th>Areainfluencia Has Tipovegetal Tipovegetal Id</th>
-            <th colspan="3">Action</th>
+            <th colspan="3">Acciones</th>
         </tr>
     </thead>
     <tbody>

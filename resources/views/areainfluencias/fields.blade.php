@@ -171,7 +171,7 @@
 
 @section('scripts')
 <script type="text/javascript">
-    
+
     var map;
     var marker;
     function initMap() {
@@ -194,7 +194,7 @@
     marker.setPosition(args.latLng);
     });
 
-    
+
 
     // Construct the polygon.
     var bermudaTriangle = new google.maps.Polygon({

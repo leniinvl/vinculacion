@@ -11,7 +11,7 @@
             <div class="box-body">
                 <div class="row" style="padding-left: 20px">
                     @include('unidad_produccion__has__propietarios.show_fields')
-                    <a href="{!! route('unidadProduccionHasPropietarios.index') !!}" class="btn btn-default">Back</a>
+                    <a href="{!! route('unidadProduccionHasPropietarios.index') !!}" class="btn btn-default">Volver</a>
                 </div>
             </div>
         </div>

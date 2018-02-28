@@ -37,16 +37,14 @@ class UnidadProduccion_Has_Propietario extends Model
     use SoftDeletes;
 
     public $table = 'unidadproduccion_has_propietario';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-
     protected $dates = ['deleted_at'];
 
-
     public $fillable = [
-        'Propietario_ci'
+        'Propietario_ci',
     ];
 
     /**
@@ -56,7 +54,7 @@ class UnidadProduccion_Has_Propietario extends Model
      */
     protected $casts = [
         'UnidadProduccion_id' => 'integer',
-        'Propietario_ci' => 'integer'
+        'Propietario_ci'      => 'integer',
     ];
 
     /**
@@ -65,7 +63,7 @@ class UnidadProduccion_Has_Propietario extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**

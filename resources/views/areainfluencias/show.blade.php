@@ -28,7 +28,7 @@
                         <thead>
                             <tr>
                                 <th>Nombre</th>
-                                <th colspan="3">Action</th>
+                                <th colspan="3">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -101,7 +101,7 @@
                         <thead>
                             <tr>
                                 <th>Nombre</th>
-                                <th colspan="3">Action</th>
+                                <th colspan="3">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -138,7 +138,7 @@
                         <thead>
                             <tr>
                                 <th>Nombre</th>
-                                <th colspan="3">Action</th>
+                                <th colspan="3">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -175,7 +175,7 @@
                         <thead>
                             <tr>
                                 <th>Nombre</th>
-                                <th colspan="3">Action</th>
+                                <th colspan="3">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -214,7 +214,7 @@
                         <thead>
                             <tr>
                                 <th>Nombre</th>
-                                <th colspan="3">Action</th>
+                                <th colspan="3">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -251,7 +251,7 @@
                         <thead>
                             <tr>
                                 <th>Nombre</th>
-                                <th colspan="3">Action</th>
+                                <th colspan="3">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -288,7 +288,7 @@
                         <thead>
                             <tr>
                                 <th>Nombre</th>
-                                <th colspan="3">Action</th>
+                                <th colspan="3">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>

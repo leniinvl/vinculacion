@@ -45,20 +45,18 @@ class ManejoAmbiental extends Model
     use SoftDeletes;
 
     public $table = 'manejoambiental';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-
     protected $dates = ['deleted_at'];
-
 
     public $fillable = [
         'nombre',
         'descripcion',
         'TipoProyecto_id',
         'CategoriaProyecto_id',
-        'UnidadProduccion_id'
+        'UnidadProduccion_id',
     ];
 
     /**
@@ -67,12 +65,12 @@ class ManejoAmbiental extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
-        'nombre' => 'string',
-        'descripcion' => 'string',
-        'TipoProyecto_id' => 'integer',
+        'id'                   => 'integer',
+        'nombre'               => 'string',
+        'descripcion'          => 'string',
+        'TipoProyecto_id'      => 'integer',
         'CategoriaProyecto_id' => 'integer',
-        'UnidadProduccion_id' => 'integer'
+        'UnidadProduccion_id'  => 'integer',
     ];
 
     /**
@@ -81,7 +79,7 @@ class ManejoAmbiental extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**
@@ -89,7 +87,7 @@ class ManejoAmbiental extends Model
      **/
     public function categoriaproyecto()
     {
-        return $this->belongsTo(\App\Models\Categoriaproyecto::class,'CategoriaProyecto_id');
+        return $this->belongsTo(\App\Models\Categoriaproyecto::class, 'CategoriaProyecto_id');
     }
 
     /**
@@ -97,7 +95,7 @@ class ManejoAmbiental extends Model
      **/
     public function tipoproyecto()
     {
-        return $this->belongsTo(\App\Models\Tipoproyecto::class,'TipoProyecto_id');
+        return $this->belongsTo(\App\Models\Tipoproyecto::class, 'TipoProyecto_id');
     }
 
     /**
@@ -105,7 +103,7 @@ class ManejoAmbiental extends Model
      **/
     public function unidadproduccion()
     {
-        return $this->belongsTo(\App\Models\Unidadproduccion::class,'UnidadProduccion_id');
+        return $this->belongsTo(\App\Models\Unidadproduccion::class, 'UnidadProduccion_id');
     }
 
     /**

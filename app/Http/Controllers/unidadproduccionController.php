@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreateunidadproduccionRequest;
 use App\Http\Requests\UpdateunidadproduccionRequest;
-use App\Repositories\unidadproduccionRepository;
-use App\Http\Controllers\AppBaseController;
-use Illuminate\Http\Request;
-use Flash;
-use Prettus\Repository\Criteria\RequestCriteria;
-use Response;
 use App\Models\Asociacion;
 use App\Models\Producto;
+use App\Repositories\unidadproduccionRepository;
+use Flash;
+use Illuminate\Http\Request;
+use Prettus\Repository\Criteria\RequestCriteria;
+use Response;
 
 class unidadproduccionController extends AppBaseController
 {
@@ -45,11 +45,11 @@ class unidadproduccionController extends AppBaseController
      */
     public function create()
     {
-        $asociacion=Asociacion::all()->pluck('nombre','id');
-        $producto=Producto::all()->pluck('nombre','id');
-        return view('unidadproduccions.create',[
-            'asociacion'=>$asociacion,
-            'producto'=>$producto
+        $asociacion = Asociacion::all()->pluck('nombre', 'id');
+        $producto   = Producto::all()->pluck('nombre', 'id');
+        return view('unidadproduccions.create', [
+            'asociacion' => $asociacion,
+            'producto'   => $producto,
         ]);
     }
 
@@ -100,8 +100,8 @@ class unidadproduccionController extends AppBaseController
      */
     public function edit($id)
     {
-        $asociacion=Asociacion::all()->pluck('nombre','id');
-        $producto=Producto::all()->pluck('nombre','id');
+        $asociacion       = Asociacion::all()->pluck('nombre', 'id');
+        $producto         = Producto::all()->pluck('nombre', 'id');
         $unidadproduccion = $this->unidadproduccionRepository->findWithoutFail($id);
 
         if (empty($unidadproduccion)) {
@@ -110,7 +110,7 @@ class unidadproduccionController extends AppBaseController
             return redirect(route('unidadproduccions.index'));
         }
 
-        return view('unidadproduccions.edit')->with('unidadproduccion', $unidadproduccion)->with('asociacion',$asociacion)->with('producto',$producto);
+        return view('unidadproduccions.edit')->with('unidadproduccion', $unidadproduccion)->with('asociacion', $asociacion)->with('producto', $producto);
     }
 
     /**
