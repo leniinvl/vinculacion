@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreateAreainfluencia_has_peligrosRequest;
 use App\Http\Requests\UpdateAreainfluencia_has_peligrosRequest;
 use App\Repositories\Areainfluencia_has_peligrosRepository;
-use App\Http\Controllers\AppBaseController;
-use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 

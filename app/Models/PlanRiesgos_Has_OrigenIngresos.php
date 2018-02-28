@@ -38,16 +38,14 @@ class PlanRiesgos_Has_OrigenIngresos extends Model
     use SoftDeletes;
 
     public $table = 'planriesgos_has_origeningresos';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-
     protected $dates = ['deleted_at'];
 
-
     public $fillable = [
-        'OrigenIngresos_id'
+        'OrigenIngresos_id',
     ];
 
     /**
@@ -56,8 +54,8 @@ class PlanRiesgos_Has_OrigenIngresos extends Model
      * @var array
      */
     protected $casts = [
-        'PlanRiesgos_id' => 'integer',
-        'OrigenIngresos_id' => 'integer'
+        'PlanRiesgos_id'    => 'integer',
+        'OrigenIngresos_id' => 'integer',
     ];
 
     /**
@@ -66,7 +64,7 @@ class PlanRiesgos_Has_OrigenIngresos extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**

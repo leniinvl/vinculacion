@@ -39,17 +39,15 @@ class Producto extends Model
     use SoftDeletes;
 
     public $table = 'producto';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-
     protected $dates = ['deleted_at'];
-
 
     public $fillable = [
         'nombre',
-        'TipoProducto_id'
+        'TipoProducto_id',
     ];
 
     /**
@@ -58,9 +56,9 @@ class Producto extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
-        'nombre' => 'string',
-        'TipoProducto_id' => 'integer'
+        'id'              => 'integer',
+        'nombre'          => 'string',
+        'TipoProducto_id' => 'integer',
     ];
 
     /**
@@ -69,7 +67,7 @@ class Producto extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**
@@ -77,7 +75,7 @@ class Producto extends Model
      **/
     public function tipoproducto()
     {
-        return $this->belongsTo(\App\Models\Tipoproducto::class,'TipoProducto_id');
+        return $this->belongsTo(\App\Models\Tipoproducto::class, 'TipoProducto_id');
     }
 
     /**

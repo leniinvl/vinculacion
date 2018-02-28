@@ -38,16 +38,14 @@ class OrganizacionSocial extends Model
     use SoftDeletes;
 
     public $table = 'organizacionsocial';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-
     protected $dates = ['deleted_at'];
 
-
     public $fillable = [
-        'nombre'
+        'nombre',
     ];
 
     /**
@@ -56,8 +54,8 @@ class OrganizacionSocial extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
-        'nombre' => 'string'
+        'id'     => 'integer',
+        'nombre' => 'string',
     ];
 
     /**
@@ -66,7 +64,7 @@ class OrganizacionSocial extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**

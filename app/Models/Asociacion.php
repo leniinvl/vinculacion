@@ -44,14 +44,12 @@ class Asociacion extends Model
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-
     protected $dates = ['deleted_at'];
-
 
     public $fillable = [
         'nombre',
         'personaEncargada',
-        'TipoAsociacion_id'
+        'TipoAsociacion_id',
     ];
 
     /**
@@ -60,10 +58,10 @@ class Asociacion extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
-        'nombre' => 'string',
-        'personaEncargada' => 'string',
-        'TipoAsociacion_id' => 'integer'
+        'id'                => 'integer',
+        'nombre'            => 'string',
+        'personaEncargada'  => 'string',
+        'TipoAsociacion_id' => 'integer',
     ];
 
     /**

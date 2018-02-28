@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreateUsosVegetacion_Has_AreaInfluencia_Has_TipovegetalRequest;
 use App\Http\Requests\UpdateUsosVegetacion_Has_AreaInfluencia_Has_TipovegetalRequest;
 use App\Repositories\UsosVegetacion_Has_AreaInfluencia_Has_TipovegetalRepository;
-use App\Http\Controllers\AppBaseController;
-use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 

@@ -168,7 +168,7 @@
 				<li><a href="{!! route('usoTierras.index') !!}"><i class="fa fa-leaf"></i>Uso de Tierra</a></li>
 				<li><a href="{!! route('religions.index') !!}"><i class="fa fa-institution"></i>Religión</a></li>
 				<li><a href="{!! route('lenguajes.index') !!}"><i class="fa fa-edit"></i>Lenguaje</a></li>
-				<li><a href="{!! route('tradicions.index') !!}"><i class="fa fa-language"></i>Traducción</a></li>
+				<li><a href="{!! route('tradicions.index') !!}"><i class="fa fa-group"></i>Tradiciones</a></li>
 				<li><a href="{!! route('tipoFuentes.index') !!}"><i class="fa fa-paint-brush"></i>Tipo de Fuente</a></li>
 				<li><a href="{!! route('peligros.index') !!}"><i class="fa fa-warning"></i>Peligros</a></li>
 				<li><a href="{!! route('topologias.index') !!}"><i class="fa fa-bullseye"></i>Topologías</a></li>

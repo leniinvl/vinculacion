@@ -38,16 +38,14 @@ class PlanRiesgos_Has_GrupoAlimentosProductos extends Model
     use SoftDeletes;
 
     public $table = 'planriesgos_has_grupoalimentosproductos';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-
     protected $dates = ['deleted_at'];
 
-
     public $fillable = [
-        'GrupoAlimentosProductos_id'
+        'GrupoAlimentosProductos_id',
     ];
 
     /**
@@ -56,8 +54,8 @@ class PlanRiesgos_Has_GrupoAlimentosProductos extends Model
      * @var array
      */
     protected $casts = [
-        'PlanRiesgos_id' => 'integer',
-        'GrupoAlimentosProductos_id' => 'integer'
+        'PlanRiesgos_id'             => 'integer',
+        'GrupoAlimentosProductos_id' => 'integer',
     ];
 
     /**
@@ -66,7 +64,7 @@ class PlanRiesgos_Has_GrupoAlimentosProductos extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**

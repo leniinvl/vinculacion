@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreateAreaInfluenciaHasTipoFuentesRequest;
 use App\Http\Requests\UpdateAreaInfluenciaHasTipoFuentesRequest;
 use App\Repositories\AreaInfluenciaHasTipoFuentesRepository;
-use App\Http\Controllers\AppBaseController;
-use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 

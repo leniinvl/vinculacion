@@ -39,17 +39,15 @@ class UsosVegetacion_Has_AreaInfluencia_Has_Tipovegetal extends Model
     use SoftDeletes;
 
     public $table = 'usosvegetacion_has_areainfluencia_has_tipovegetal';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-
     protected $dates = ['deleted_at'];
-
 
     public $fillable = [
         'AreaInfluencia_has_TipoVegetal_AreaInfluencia_id',
-        'AreaInfluencia_has_TipoVegetal_TipoVegetal_id'
+        'AreaInfluencia_has_TipoVegetal_TipoVegetal_id',
     ];
 
     /**
@@ -58,9 +56,9 @@ class UsosVegetacion_Has_AreaInfluencia_Has_Tipovegetal extends Model
      * @var array
      */
     protected $casts = [
-        'UsosVegetacion_id' => 'integer',
+        'UsosVegetacion_id'                                => 'integer',
         'AreaInfluencia_has_TipoVegetal_AreaInfluencia_id' => 'integer',
-        'AreaInfluencia_has_TipoVegetal_TipoVegetal_id' => 'integer'
+        'AreaInfluencia_has_TipoVegetal_TipoVegetal_id'    => 'integer',
     ];
 
     /**
@@ -69,7 +67,7 @@ class UsosVegetacion_Has_AreaInfluencia_Has_Tipovegetal extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**

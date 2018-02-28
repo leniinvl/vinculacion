@@ -52,9 +52,7 @@ class PlanRiesgos extends Model
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-
     protected $dates = ['deleted_at'];
-
 
     public $fillable = [
         'feriaAgricola',
@@ -64,7 +62,7 @@ class PlanRiesgos extends Model
         'productosGeneradosVendidos',
         'TipoAbono_id',
         'TipoControlPlaga_id',
-        'UnidadProduccion_id'
+        'UnidadProduccion_id',
     ];
 
     /**
@@ -73,15 +71,15 @@ class PlanRiesgos extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
-        'feriaAgricola' => 'string',
-        'semillasPropias' => 'string',
-        'ConsumoPropio' => 'float',
-        'salarioFueraFinca' => 'float',
+        'id'                         => 'integer',
+        'feriaAgricola'              => 'string',
+        'semillasPropias'            => 'string',
+        'ConsumoPropio'              => 'float',
+        'salarioFueraFinca'          => 'float',
         'productosGeneradosVendidos' => 'integer',
-        'TipoAbono_id' => 'integer',
-        'TipoControlPlaga_id' => 'integer',
-        'UnidadProduccion_id' => 'integer'
+        'TipoAbono_id'               => 'integer',
+        'TipoControlPlaga_id'        => 'integer',
+        'UnidadProduccion_id'        => 'integer',
     ];
 
     /**
@@ -98,7 +96,7 @@ class PlanRiesgos extends Model
      **/
     public function tipoabono()
     {
-        return $this->belongsTo(\App\Models\Tipoabono::class,'TipoAbono_id');
+        return $this->belongsTo(\App\Models\Tipoabono::class, 'TipoAbono_id');
     }
 
     /**
@@ -106,7 +104,7 @@ class PlanRiesgos extends Model
      **/
     public function tipocontrolplaga()
     {
-        return $this->belongsTo(\App\Models\Tipocontrolplaga::class,'TipoControlPlaga_id');
+        return $this->belongsTo(\App\Models\Tipocontrolplaga::class, 'TipoControlPlaga_id');
     }
 
     /**
@@ -114,7 +112,7 @@ class PlanRiesgos extends Model
      **/
     public function unidadproduccion()
     {
-        return $this->belongsTo(\App\Models\Unidadproduccion::class,'UnidadProduccion_id');
+        return $this->belongsTo(\App\Models\Unidadproduccion::class, 'UnidadProduccion_id');
     }
 
     /**

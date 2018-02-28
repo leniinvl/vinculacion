@@ -38,17 +38,15 @@ class TipoAnimales extends Model
     use SoftDeletes;
 
     public $table = 'tipoanimales';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-
     protected $dates = ['deleted_at'];
-
 
     public $fillable = [
         'nombre',
-        'losCria'
+        'losCria',
     ];
 
     /**
@@ -57,9 +55,9 @@ class TipoAnimales extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
-        'nombre' => 'string',
-        'losCria' => 'string'
+        'id'      => 'integer',
+        'nombre'  => 'string',
+        'losCria' => 'string',
     ];
 
     /**
@@ -68,7 +66,7 @@ class TipoAnimales extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**

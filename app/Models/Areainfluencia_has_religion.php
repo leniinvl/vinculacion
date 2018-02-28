@@ -38,16 +38,14 @@ class Areainfluencia_has_religion extends Model
     use SoftDeletes;
 
     public $table = 'areainfluencia_has_religion';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-
     protected $dates = ['deleted_at'];
 
-
     public $fillable = [
-        'Religion_id'
+        'Religion_id',
     ];
 
     /**
@@ -57,7 +55,7 @@ class Areainfluencia_has_religion extends Model
      */
     protected $casts = [
         'AreaInfluencia_id' => 'integer',
-        'Religion_id' => 'integer'
+        'Religion_id'       => 'integer',
     ];
 
     /**
@@ -66,7 +64,7 @@ class Areainfluencia_has_religion extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**

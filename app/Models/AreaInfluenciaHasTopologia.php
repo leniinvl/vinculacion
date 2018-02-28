@@ -38,16 +38,14 @@ class AreaInfluenciaHasTopologia extends Model
     use SoftDeletes;
 
     public $table = 'areainfluencia_has_topologia';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-
     protected $dates = ['deleted_at'];
 
-
     public $fillable = [
-        'Topologia_id'
+        'Topologia_id',
     ];
 
     /**
@@ -57,7 +55,7 @@ class AreaInfluenciaHasTopologia extends Model
      */
     protected $casts = [
         'AreaInfluencia_id' => 'integer',
-        'Topologia_id' => 'integer'
+        'Topologia_id'      => 'integer',
     ];
 
     /**
@@ -66,7 +64,7 @@ class AreaInfluenciaHasTopologia extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**

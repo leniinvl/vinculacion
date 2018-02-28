@@ -42,13 +42,11 @@ class Propietario extends Model
     use SoftDeletes;
 
     public $table = 'propietario';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-
     protected $dates = ['deleted_at'];
-
 
     public $fillable = [
         'ci',
@@ -57,7 +55,7 @@ class Propietario extends Model
         'fechaNacimiento',
         'telefono',
         'observaciones',
-        'genero'
+        'genero',
     ];
 
     /**
@@ -66,14 +64,14 @@ class Propietario extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
-        'ci' => 'integer',
-        'nombre' => 'string',
-        'correo' => 'string',
+        'id'              => 'integer',
+        'ci'              => 'integer',
+        'nombre'          => 'string',
+        'correo'          => 'string',
         'fechaNacimiento' => 'date',
-        'telefono' => 'string',
-        'observaciones' => 'string',
-        'genero' => 'string'
+        'telefono'        => 'string',
+        'observaciones'   => 'string',
+        'genero'          => 'string',
     ];
 
     /**
@@ -82,8 +80,7 @@ class Propietario extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
-    
 }

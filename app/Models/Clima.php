@@ -39,17 +39,15 @@ class Clima extends Model
     use SoftDeletes;
 
     public $table = 'clima';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-
     protected $dates = ['deleted_at'];
-
 
     public $fillable = [
         'nombre',
-        'mnsm'
+        'mnsm',
     ];
 
     /**
@@ -58,9 +56,9 @@ class Clima extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
+        'id'     => 'integer',
         'nombre' => 'string',
-        'mnsm' => 'string'
+        'mnsm'   => 'string',
     ];
 
     /**
@@ -69,7 +67,7 @@ class Clima extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**

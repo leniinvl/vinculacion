@@ -41,19 +41,17 @@ class Biodigestor extends Model
     use SoftDeletes;
 
     public $table = 'biodigestor';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-
     protected $dates = ['deleted_at'];
-
 
     public $fillable = [
         'ubicacion',
         'tamañoPropiedad',
         'cantidadDesechos',
-        'UnidadProduccion_id'
+        'UnidadProduccion_id',
     ];
 
     /**
@@ -62,11 +60,11 @@ class Biodigestor extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
-        'ubicacion' => 'string',
-        'tamañoPropiedad' => 'float',
-        'cantidadDesechos' => 'float',
-        'UnidadProduccion_id' => 'integer'
+        'id'                  => 'integer',
+        'ubicacion'           => 'string',
+        'tamañoPropiedad'     => 'float',
+        'cantidadDesechos'    => 'float',
+        'UnidadProduccion_id' => 'integer',
     ];
 
     /**
@@ -75,7 +73,7 @@ class Biodigestor extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**

@@ -38,16 +38,14 @@ class AreaInfluenciaHasTipoVegetal extends Model
     use SoftDeletes;
 
     public $table = 'areainfluencia_has_tipovegetal';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-
     protected $dates = ['deleted_at'];
 
-
     public $fillable = [
-        'TipoVegetal_id'
+        'TipoVegetal_id',
     ];
 
     /**
@@ -57,7 +55,7 @@ class AreaInfluenciaHasTipoVegetal extends Model
      */
     protected $casts = [
         'AreaInfluencia_id' => 'integer',
-        'TipoVegetal_id' => 'integer'
+        'TipoVegetal_id'    => 'integer',
     ];
 
     /**
@@ -66,7 +64,7 @@ class AreaInfluenciaHasTipoVegetal extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**

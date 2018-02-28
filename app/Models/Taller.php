@@ -44,14 +44,12 @@ class Taller extends Model
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-
     protected $dates = ['deleted_at'];
-
 
     public $fillable = [
         'nombre',
         'descripcion',
-        'UnidadProduccion_id'
+        'UnidadProduccion_id',
     ];
 
     /**
@@ -60,10 +58,10 @@ class Taller extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
-        'nombre' => 'string',
-        'descripcion' => 'string',
-        'UnidadProduccion_id' => 'integer'
+        'id'                  => 'integer',
+        'nombre'              => 'string',
+        'descripcion'         => 'string',
+        'UnidadProduccion_id' => 'integer',
     ];
 
     /**

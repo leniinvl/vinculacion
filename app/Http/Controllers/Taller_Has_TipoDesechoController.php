@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreateTaller_Has_TipoDesechoRequest;
 use App\Http\Requests\UpdateTaller_Has_TipoDesechoRequest;
 use App\Repositories\Taller_Has_TipoDesechoRepository;
-use App\Http\Controllers\AppBaseController;
-use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 

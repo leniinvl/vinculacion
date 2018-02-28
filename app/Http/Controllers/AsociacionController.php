@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreateAsociacionRequest;
 use App\Http\Requests\UpdateAsociacionRequest;
+use App\Models\TipoAsociacion;
 use App\Repositories\AsociacionRepository;
-use App\Http\Controllers\AppBaseController;
-use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
-use App\Models\TipoAsociacion;
 
 class AsociacionController extends AppBaseController
 {
@@ -46,7 +46,7 @@ class AsociacionController extends AppBaseController
     {
         $tiposasociacion = TipoAsociacion::all()->pluck('nombre', 'id');
         return view('asociacions.create', [
-            'tiposasociacion' => $tiposasociacion
+            'tiposasociacion' => $tiposasociacion,
         ]);
     }
 
@@ -97,7 +97,7 @@ class AsociacionController extends AppBaseController
      */
     public function edit($id)
     {
-        $asociacion = $this->asociacionRepository->findWithoutFail($id);
+        $asociacion      = $this->asociacionRepository->findWithoutFail($id);
         $tiposasociacion = TipoAsociacion::all()->pluck('nombre', 'id');
 
         if (empty($asociacion)) {
