@@ -46,8 +46,8 @@
 @section('scripts')
 <script>
     var map;
-    var marker;
-
+    var marker, lat1, lng1;
+    
     function initMap() {
 
         map = new google.maps.Map(document.getElementById('map'), {
@@ -62,6 +62,19 @@
         marker = new google.maps.Marker({
             map: map
         });
+
+        var latitud=document.getElementById('lat');
+        var longitud=document.getElementById('lng');
+
+        if(latitud!=undefined){
+            lat1=latitud.value;
+            lng1=longitud.value;
+            map.setCenter({lat: parseFloat(lat1), lng: parseFloat(lng1)});
+            marker = new google.maps.Marker({
+                position: new google.maps.LatLng(lat1, lng1),
+                map: map
+            });
+        }
 
         google.maps.event.addListener(map, 'click', function(args) {
             console.log(args.latLng.lat());

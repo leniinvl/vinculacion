@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Consolidacion Area Influencia
+            Consolidación de Área Influencia
         </h1>
     </section>
     <div class="content">
