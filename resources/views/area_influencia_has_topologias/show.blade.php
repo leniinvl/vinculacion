@@ -11,7 +11,7 @@
             <div class="box-body">
                 <div class="row" style="padding-left: 20px">
                     @include('area_influencia_has_topologias.show_fields')
-                    <a href="{!! route('areaInfluenciaHasTopologias.index') !!}" class="btn btn-default">Back</a>
+                    <a href="{!! route('areaInfluenciaHasTopologias.index') !!}" class="btn btn-default">Volver</a>
                 </div>
             </div>
         </div>

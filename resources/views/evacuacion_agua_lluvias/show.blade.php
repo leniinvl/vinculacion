@@ -11,7 +11,7 @@
             <div class="box-body">
                 <div class="row" style="padding-left: 20px">
                     @include('evacuacion_agua_lluvias.show_fields')
-                    <a href="{!! route('evacuacionAguaLluvias.index') !!}" class="btn btn-default">Back</a>
+                    <a href="{!! route('evacuacionAguaLluvias.index') !!}" class="btn btn-default">Volver</a>
                 </div>
             </div>
         </div>

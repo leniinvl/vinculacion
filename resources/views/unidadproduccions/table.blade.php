@@ -7,7 +7,7 @@
         <th>Observaciones</th>
         <th>Asociacion Id</th>
         <th>Producto Id</th>
-            <th colspan="3">Action</th>
+            <th colspan="3">Acciones</th>
         </tr>
     </thead>
     <tbody>

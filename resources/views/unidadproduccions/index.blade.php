@@ -4,7 +4,7 @@
     <section class="content-header">
         <h1 class="pull-left">Unidadproduccions</h1>
         <h1 class="pull-right">
-           <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('unidadproduccions.create') !!}">Add New</a>
+           <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('unidadproduccions.create') !!}">Agregar Nuevo</a>
         </h1>
     </section>
     <div class="content">
@@ -19,7 +19,7 @@
             </div>
         </div>
         <div class="text-center">
-        
+
         </div>
         <div id="map_index">mapa</div>
     </div>
@@ -34,7 +34,7 @@
     var nombres = new Array();
     var cont_lat=0;
     var cont_lng=0, cont_nomb=0;
-    
+
     var datos = document.getElementById('unidadproduccions-table').getElementsByTagName('td');
     for(var i=0;i<datos.length;i++){
         //console.log(datos[i]);
@@ -55,7 +55,7 @@
     }
 
     function initMap() {
-        
+
         map = new google.maps.Map(document.getElementById('map_index'), {
             center: {lat: 0.14309590647516032, lng: -78.80012830863114},
             zoom: 10,
@@ -63,11 +63,11 @@
             zoomControl: true,
             scrollwheel: true,
             disableDoubleClickZoom: true
-        });       
+        });
 
         var infowindow = new google.maps.InfoWindow();
         var marker, i;
-        
+
         for (i = 0; i < coords_lng.length; i++) {
             marker = new google.maps.Marker({
                 position: new google.maps.LatLng(coords_lat[i], coords_lng[i]),

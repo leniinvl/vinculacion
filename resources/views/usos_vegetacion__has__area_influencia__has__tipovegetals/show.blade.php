@@ -11,7 +11,7 @@
             <div class="box-body">
                 <div class="row" style="padding-left: 20px">
                     @include('usos_vegetacion__has__area_influencia__has__tipovegetals.show_fields')
-                    <a href="{!! route('usosVegetacionHasAreaInfluenciaHasTipovegetals.index') !!}" class="btn btn-default">Back</a>
+                    <a href="{!! route('usosVegetacionHasAreaInfluenciaHasTipovegetals.index') !!}" class="btn btn-default">Volver</a>
                 </div>
             </div>
         </div>

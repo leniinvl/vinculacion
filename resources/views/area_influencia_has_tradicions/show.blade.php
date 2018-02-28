@@ -11,7 +11,7 @@
             <div class="box-body">
                 <div class="row" style="padding-left: 20px">
                     @include('area_influencia_has_tradicions.show_fields')
-                    <a href="{!! route('areaInfluenciaHasTradicions.index') !!}" class="btn btn-default">Back</a>
+                    <a href="{!! route('areaInfluenciaHasTradicions.index') !!}" class="btn btn-default">Volver</a>
                 </div>
             </div>
         </div>

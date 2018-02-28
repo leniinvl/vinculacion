@@ -47,9 +47,9 @@
 <script>
     var map;
     var marker;
-    
+
     function initMap() {
-        
+
         map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: 0.14309590647516032, lng: -78.80012830863114},
             zoom: 10,
