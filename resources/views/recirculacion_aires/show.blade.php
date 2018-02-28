@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Recirculacion Aire
+            Recirculación de Aire
         </h1>
     </section>
     <div class="content">
