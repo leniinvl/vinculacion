@@ -2,7 +2,7 @@
     <thead>
         <tr>
             <th>Nombre</th>
-        <th>Descripcion</th>
+        <th>Descripción</th>
         <th>Areainfluencia Id</th>
             <th colspan="3">Acciones</th>
         </tr>
