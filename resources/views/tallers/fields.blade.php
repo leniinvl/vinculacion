@@ -13,6 +13,7 @@
 <!-- Unidadproduccion Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('UnidadProduccion_id', 'Unidadproduccion Id:') !!}
+    <a href="{{route('unidadproduccions.index')}}">(Añadir Nueva)</a>
     {!! Form::select('UnidadProduccion_id', $unidadproduccion, null, ['class' => 'form-control']) !!}
 </div>
 
