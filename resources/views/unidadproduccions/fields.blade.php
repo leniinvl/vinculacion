@@ -28,12 +28,14 @@
 <!-- Asociacion Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('Asociacion_id', 'Asociacion Id:') !!}
+    <a href="{{route('asociacions.index')}}">(Añadir Nueva)</a>
     {!! Form::select('Asociacion_id', $asociacion, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Producto Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('Producto_id', 'Producto Id:') !!}
+    <a href="{{route('productos.index')}}">(Añadir Nueva)</a>
     {!! Form::select('Producto_id', $producto, null, ['class' => 'form-control']) !!}
 </div>
 
@@ -66,7 +68,7 @@
         var latitud=document.getElementById('lat');
         var longitud=document.getElementById('lng');
 
-        if(latitud!=undefined){
+       /* if(latitud!=undefined){
             lat1=latitud.value;
             lng1=longitud.value;
             map.setCenter({lat: parseFloat(lat1), lng: parseFloat(lng1)});
@@ -74,7 +76,7 @@
                 position: new google.maps.LatLng(lat1, lng1),
                 map: map
             });
-        }
+        }*/
 
         google.maps.event.addListener(map, 'click', function(args) {
             console.log(args.latLng.lat());
