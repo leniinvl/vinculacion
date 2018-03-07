@@ -8,7 +8,7 @@ use InfyOm\Generator\Common\BaseRepository;
 /**
  * Class BiodigestorRepository
  * @package App\Repositories
- * @version January 19, 2018, 7:25 pm UTC
+ * @version March 7, 2018, 1:14 am UTC
  *
  * @method Biodigestor findWithoutFail($id, $columns = ['*'])
  * @method Biodigestor find($id, $columns = ['*'])
@@ -22,7 +22,15 @@ class BiodigestorRepository extends BaseRepository
     protected $fieldSearchable = [
         'ubicacion',
         'tamañoPropiedad',
-        'cantidadDesechos',
+        'imagen',
+        'video',
+        'anchoBio',
+        'largoBio',
+        'profundBio',
+        'anchoCaja',
+        'largoCaja',
+        'profundCaja',
+        'temperatura',
         'UnidadProduccion_id'
     ];
 

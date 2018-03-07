@@ -10,6 +10,29 @@
 <ul class="sidebar-menu tree" data-widget="tree">
         <li class="header">NAVEGADOR</li>
 
+		{{--****Biodigestor****--}}
+
+		<li class="treeview {{ Request::is('biodigestors*','desechos*') ? 'active' : '' }}">
+			<a href="#">
+				<i></i> <span>Biodigestor</span>
+				<span class="pull-right-container">
+					<i class="fa fa-angle-left pull-right"></i>
+				</span>
+			</a>
+			<ul class="treeview-menu">
+				<li class="{{ Request::is('biodigestors*') ? 'active' : '' }}"><a href="{!! route('biodigestors.index') !!}"><i class="fa fa-building"></i>Biodigestores</a></li>
+				<li class="{{ Request::is('desechos*') ? 'active' : '' }}"><a href="{!! route('desechos.index') !!}"><i class="fa fa-warning"></i>Desechos</a></li>
+			</ul>
+        </li>
+
+		{{--****Fin Biodigestor****--}}
+
+		<li class="treeview">
+			<span class="pull-right-container">
+				<li class="{{ Request::is('manejoAmbientals*') ? 'active' : '' }}"><a href="{!! route('manejoAmbientals.index') !!}"><i class="fa fa-globe"></i>Manejo Ambiental</a></li>
+			</span>
+        </li>
+
 		{{--****Talleres***--}}
 
         <li class="treeview {{ Request::is('tallers*','tipoRiesgos*','tipoDesechos*') ? 'active' : '' }}">
@@ -28,16 +51,18 @@
 
 		{{--****Fin Talleres****--}}
 
-		{{--****Biodigestor****--}}
-
-		<li class="treeview">
+        <li class="treeview">
 			<span class="pull-right-container">
-				<li  class="{{ Request::is('biodigestors*') ? 'active' : '' }}"><a href="{!! route('biodigestors.index') !!}"><i class="fa fa-building"></i>Biodigestores</a></li>
+				<li class="{{ Request::is('unidadproduccions*') ? 'active' : '' }}"><a href="{!! route('unidadproduccions.index') !!}"><i class="fa fa-gears"></i>Unidad de Producción</a></li>
 			</span>
         </li>
 
-		{{--****Fin Biodigestor****--}}
-
+        <li class="treeview">
+			<span class="pull-right-container">
+				<li class="{{ Request::is('areainfluencias*') ? 'active' : '' }}"><a href="{!! route('areainfluencias.index') !!}"><i class="fa fa-line-chart"></i>Área de Influencia</a></li>
+			</span>
+        </li>
+		
 
 		<li class="treeview">
 			<span class="pull-right-container">
@@ -48,24 +73,6 @@
 		<li class="treeview">
 			<span class="pull-right-container">
 				<li class="{{ Request::is('categoriaProyectos*') ? 'active' : '' }}"><a href="{!! route('categoriaProyectos.index') !!}"><i class="fa fa-plus"></i>Categoría de Proyectos</a></li>
-			</span>
-        </li>
-
-		<li class="treeview">
-			<span class="pull-right-container">
-				<li class="{{ Request::is('manejoAmbientals*') ? 'active' : '' }}"><a href="{!! route('manejoAmbientals.index') !!}"><i class="fa fa-globe"></i>Manejo Ambiental</a></li>
-			</span>
-        </li>
-
-		<li class="treeview">
-			<span class="pull-right-container">
-				<li class="{{ Request::is('areainfluencias*') ? 'active' : '' }}"><a href="{!! route('areainfluencias.index') !!}"><i class="fa fa-line-chart"></i>Área de Influencia</a></li>
-			</span>
-        </li>
-
-		<li class="treeview">
-			<span class="pull-right-container">
-				<li class="{{ Request::is('unidadproduccions*') ? 'active' : '' }}"><a href="{!! route('unidadproduccions.index') !!}"><i class="fa fa-gears"></i>Unidad de Producción</a></li>
 			</span>
         </li>
 
@@ -212,3 +219,5 @@
 <li class="{{ Request::is('areaInfluenciaHasTradicions*') ? 'active' : '' }}">
     <a href="{!! route('areaInfluenciaHasTradicions.index') !!}"><i class="fa fa-edit"></i><span>Area Influencia Has Tradicions</span></a>
 </li>--}}
+
+

@@ -209,7 +209,7 @@ Route::resource('usosVegetacions', 'UsosVegetacionController');
 
 // Route::resource('unidadProduccionHasPropietarios', 'UnidadProduccion_Has_PropietarioController');
 
-Route::resource('biodigestors', 'BiodigestorController');
+
 
 Route::resource('areainfluenciaHasUsotierras', 'Areainfluencia_has_usotierraController');
 
@@ -276,3 +276,8 @@ Route::resource('tipoTerrenos', 'TipoTerrenoController');
 Route::resource('areainfluencias', 'AreainfluenciaController');
 
 Route::resource('calidadSuelos', 'CalidadSueloController');
+
+
+Route::resource('biodigestors', 'BiodigestorController');
+
+Route::resource('desechos', 'DesechoController');
