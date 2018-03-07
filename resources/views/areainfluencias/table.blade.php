@@ -3,10 +3,10 @@
     <thead>
         <tr>
             <th>Altitud</th>
-        <th>Tipoterrenodescripcion</th>
-        <th>Detallecalidadaire</th>
-        <th>Detalleruido</th>
-        <th>Observacionesecosistema</th>
+        <th>Tipo de terreno descripción</th>
+        <th>Detalle calidad aire</th>
+        <th>Detalle ruido</th>
+        <th>Observaciones ecosistema</th>
         <th>Manejoambiental Id</th>
         <th>Calidadaire Id</th>
         <th>Tipoterreno Id</th>

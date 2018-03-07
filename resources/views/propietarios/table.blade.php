@@ -1,13 +1,13 @@
 <table class="table table-responsive" id="propietarios-table">
     <thead>
         <tr>
-            <th>Ci</th>
+            <th>CI</th>
         <th>Nombre</th>
         <th>Correo</th>
-        <th>Fechanacimiento</th>
-        <th>Telefono</th>
+        <th>Fecha de nacimiento</th>
+        <th>Teléfono</th>
         <th>Observaciones</th>
-        <th>Genero</th>
+        <th>Género</th>
             <th colspan="3">Acciones</th>
         </tr>
     </thead>

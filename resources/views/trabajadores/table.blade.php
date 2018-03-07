@@ -3,7 +3,7 @@
         <tr>
             <th>Nombre</th>
         <th>Sexo</th>
-        <th>Horastrabajo</th>
+        <th>Horas de trabajo</th>
         <th>Salario</th>
         <th>Planriesgos Id</th>
             <th colspan="3">Acciones</th>

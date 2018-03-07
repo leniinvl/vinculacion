@@ -1,11 +1,11 @@
 <table class="table table-responsive" id="planRiesgos-table">
     <thead>
         <tr>
-            <th>Feriaagricola</th>
-        <th>Semillaspropias</th>
-        <th>Consumopropio</th>
-        <th>Salariofuerafinca</th>
-        <th>Productosgeneradosvendidos</th>
+            <th>Feria agrícola</th>
+        <th>Semillas propias</th>
+        <th>Consumo propio</th>
+        <th>Salario fuera de finca</th>
+        <th>Productos generados vendidos</th>
         <th>Tipoabono Id</th>
         <th>Tipocontrolplaga Id</th>
         <th>Unidadproduccion Id</th>
