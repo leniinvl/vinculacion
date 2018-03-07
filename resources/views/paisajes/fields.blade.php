@@ -13,7 +13,7 @@
 <!-- Areainfluencia Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('AreaInfluencia_id', 'Areainfluencia Id:') !!}
-    {!! Form::number('AreaInfluencia_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('AreaInfluencia_id', $areainfluencia,null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->

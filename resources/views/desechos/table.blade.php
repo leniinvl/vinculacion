@@ -1,3 +1,8 @@
+
+{!! Form::open(['route' => 'desechos.index', 'method' => 'GET', 'role' => 'search']) !!}
+    {!! Form::text('biodigestor',null,['class' => 'form-contorl', 'placeholder' => 'Nombre Biodigestor']) !!}
+    <button type="submit" class="btn btn-default">Buscar</button>
+
 <table class="table table-responsive" id="desechos-table">
     <thead>
         <tr>

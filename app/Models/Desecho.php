@@ -81,4 +81,13 @@ class Desecho extends Model
     {
         return $this->belongsTo(\App\Models\Biodigestor::class, 'Biodigestor_id');
     }
+
+    public function scopeName($query,$name)
+    {
+        
+
+        $query->where('ubicacion',$name);
+
+
+    }
 }

@@ -30,6 +30,9 @@ class DesechoController extends AppBaseController
      */
     public function index(Request $request)
     {
+
+        //dd($request->get('biodigestor'));
+
         $this->desechoRepository->pushCriteria(new RequestCriteria($request));
         $desechos = $this->desechoRepository->all();
 

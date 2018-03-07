@@ -10,6 +10,7 @@ use Flash;
 use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Models\Areainfluencia;
 
 class PaisajeController extends AppBaseController
 {
@@ -43,7 +44,8 @@ class PaisajeController extends AppBaseController
      */
     public function create()
     {
-        return view('paisajes.create');
+        $areainfluencia=Areainfluencia::all()->pluck('nombre','id');
+        return view('paisajes.create',['areainfluencia' =>$areainfluencia]);
     }
 
     /**
@@ -94,6 +96,7 @@ class PaisajeController extends AppBaseController
     public function edit($id)
     {
         $paisaje = $this->paisajeRepository->findWithoutFail($id);
+        $areainfluencia=Areainfluencia::all()->pluck('nombre','id');
 
         if (empty($paisaje)) {
             Flash::error('Paisaje not found');
@@ -101,7 +104,7 @@ class PaisajeController extends AppBaseController
             return redirect(route('paisajes.index'));
         }
 
-        return view('paisajes.edit')->with('paisaje', $paisaje);
+        return view('paisajes.edit')->with('paisaje', $paisaje)->with('areainfluencia', $areainfluencia);
     }
 
     /**

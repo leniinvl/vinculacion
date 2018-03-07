@@ -12,7 +12,7 @@
         <tr>
             <td>{!! $paisaje->nombre !!}</td>
             <td>{!! $paisaje->descripcion !!}</td>
-            <td>{!! $paisaje->AreaInfluencia_id !!}</td>
+            <td>{!! $paisaje->areainfluencium->nombre !!}</td>
             <td>
                 {!! Form::open(['route' => ['paisajes.destroy', $paisaje->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
