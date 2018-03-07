@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreateBiodigestorRequest;
 use App\Http\Requests\UpdateBiodigestorRequest;
-use App\Models\unidadproduccion;
 use App\Repositories\BiodigestorRepository;
-use Flash;
+use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Models\unidadproduccion;
 
 class BiodigestorController extends AppBaseController
 {
@@ -44,9 +44,9 @@ class BiodigestorController extends AppBaseController
      */
     public function create()
     {
-        $unidades = unidadproduccion::all()->pluck('nombre', 'id');
-        return view('biodigestors.create', [
-            'unidades' => $unidades,
+        $unidadproduccion=unidadproduccion::all()->pluck('nombre','id');
+        return view('biodigestors.create',[
+            'unidadproduccion' => $unidadproduccion,
         ]);
     }
 
@@ -97,6 +97,7 @@ class BiodigestorController extends AppBaseController
      */
     public function edit($id)
     {
+        $unidadproduccion=unidadproduccion::all()->pluck('nombre','id');
         $biodigestor = $this->biodigestorRepository->findWithoutFail($id);
 
         if (empty($biodigestor)) {
@@ -105,7 +106,7 @@ class BiodigestorController extends AppBaseController
             return redirect(route('biodigestors.index'));
         }
 
-        return view('biodigestors.edit')->with('biodigestor', $biodigestor);
+        return view('biodigestors.edit')->with('biodigestor', $biodigestor)->with('unidadproduccion', $unidadproduccion);
     }
 
     /**

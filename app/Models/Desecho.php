@@ -6,11 +6,11 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class Biodigestor
+ * Class Desecho
  * @package App\Models
- * @version March 7, 2018, 1:14 am UTC
+ * @version March 7, 2018, 1:32 am UTC
  *
- * @property \App\Models\Unidadproduccion unidadproduccion
+ * @property \App\Models\Biodigestor biodigestor
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasLenguaje
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasPeligros
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasReligion
@@ -19,7 +19,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasTopologia
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasTradicion
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasUsotierra
- * @property \Illuminate\Database\Eloquent\Collection Desecho
  * @property \Illuminate\Database\Eloquent\Collection planriesgosHasGrupoalimentosproductos
  * @property \Illuminate\Database\Eloquent\Collection planriesgosHasOrigeningresos
  * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipoagricultura
@@ -32,24 +31,15 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \Illuminate\Database\Eloquent\Collection unidadproduccion
  * @property \Illuminate\Database\Eloquent\Collection unidadproduccionHasPropietario
  * @property \Illuminate\Database\Eloquent\Collection usosvegetacionHasAreainfluenciaHasTipovegetal
- * @property string ubicacion
- * @property float tamañoPropiedad
- * @property string imagen
- * @property string video
- * @property decimal anchoBio
- * @property decimal largoBio
- * @property decimal profundBio
- * @property decimal anchoCaja
- * @property decimal largoCaja
- * @property decimal profundCaja
- * @property float temperatura
- * @property integer UnidadProduccion_id
+ * @property date fecha
+ * @property decimal peso
+ * @property integer Biodigestor_id
  */
-class Biodigestor extends Model
+class Desecho extends Model
 {
     use SoftDeletes;
 
-    public $table = 'biodigestor';
+    public $table = 'desecho';
     
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
@@ -59,18 +49,9 @@ class Biodigestor extends Model
 
 
     public $fillable = [
-        'ubicacion',
-        'tamañoPropiedad',
-        'imagen',
-        'video',
-        'anchoBio',
-        'largoBio',
-        'profundBio',
-        'anchoCaja',
-        'largoCaja',
-        'profundCaja',
-        'temperatura',
-        'UnidadProduccion_id'
+        'fecha',
+        'peso',
+        'Biodigestor_id'
     ];
 
     /**
@@ -80,12 +61,8 @@ class Biodigestor extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'ubicacion' => 'string',
-        'tamañoPropiedad' => 'float',
-        'imagen' => 'string',
-        'video' => 'string',
-        'temperatura' => 'float',
-        'UnidadProduccion_id' => 'integer'
+        'fecha' => 'date',
+        'Biodigestor_id' => 'integer'
     ];
 
     /**
@@ -100,16 +77,8 @@ class Biodigestor extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function unidadproduccion()
+    public function biodigestor()
     {
-        return $this->belongsTo(\App\Models\Unidadproduccion::class, 'UnidadProduccion_id');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     **/
-    public function desechos()
-    {
-        return $this->hasMany(\App\Models\Desecho::class);
+        return $this->belongsTo(\App\Models\Biodigestor::class, 'Biodigestor_id');
     }
 }

@@ -3,15 +3,15 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Biodigestor
+            Desecho
         </h1>
     </section>
     <div class="content">
         <div class="box box-primary">
             <div class="box-body">
                 <div class="row" style="padding-left: 20px">
-                    @include('biodigestors.show_fields')
-                    <a href="{!! route('biodigestors.index') !!}" class="btn btn-default">Back</a>
+                    @include('desechos.show_fields')
+                    <a href="{!! route('desechos.index') !!}" class="btn btn-default">Back</a>
                 </div>
             </div>
         </div>

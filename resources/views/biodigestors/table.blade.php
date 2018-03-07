@@ -1,11 +1,20 @@
 <table class="table table-responsive" id="biodigestors-table">
     <thead>
         <tr>
-            <th>Ubicación</th>
-        <th>Tamaño de propiedad</th>
-        <th>Cantidad de desechos</th>
-        <th>Unidad de producción</th>
-            <th colspan="3">Acciones</th>
+            <th>Nombre</th>
+        <th>Tamaño de la Propiedad (m)</th>
+        <th>Imagen</th>
+        <th>Video</th>
+        <th>Ancho Biodigestor (m)</th>
+        <th>Largo Biodigestor (m)</th>
+        <th>Profundidad Biodigestor (m)</th>
+        <th>Ancho Caja AD (m)</th>
+        <th>Largo Caja AD (m)</th>
+        <th>Profundidad Caja AD (m)</th>
+        <th>Volumen Caja AD (m^3)</th>
+        <th>Temperatura (°C)</th>
+        <th>Unidad de Producción</th>
+            <th colspan="3">Action</th>
         </tr>
     </thead>
     <tbody>
@@ -13,8 +22,17 @@
         <tr>
             <td>{!! $biodigestor->ubicacion !!}</td>
             <td>{!! $biodigestor->tamañoPropiedad !!}</td>
-            <td>{!! $biodigestor->cantidadDesechos !!}</td>
-            <td>{!! $biodigestor->UnidadProduccion_id !!}</td>
+            <td>{!! $biodigestor->imagen !!}</td>
+            <td>{!! $biodigestor->video !!}</td>
+            <td>{!! $biodigestor->anchoBio !!}</td>
+            <td>{!! $biodigestor->largoBio !!}</td>
+            <td>{!! $biodigestor->profundBio !!}</td>
+            <td>{!! $biodigestor->anchoCaja !!}</td>
+            <td>{!! $biodigestor->largoCaja !!}</td>
+            <td>{!! $biodigestor->profundCaja !!}</td>
+            <td>{!! $biodigestor->profundBio * $biodigestor->largoBio * $biodigestor->anchoBio !!}</td>
+            <td>{!! $biodigestor->temperatura !!}</td>
+            <td>{!! $biodigestor->unidadproduccion->nombre !!}</td>
             <td>
                 {!! Form::open(['route' => ['biodigestors.destroy', $biodigestor->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
