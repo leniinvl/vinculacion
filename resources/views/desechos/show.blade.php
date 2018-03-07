@@ -11,7 +11,7 @@
             <div class="box-body">
                 <div class="row" style="padding-left: 20px">
                     @include('desechos.show_fields')
-                    <a href="{!! route('desechos.index') !!}" class="btn btn-default">Back</a>
+                    <a href="{!! route('desechos.index') !!}" class="btn btn-default">Volver</a>
                 </div>
             </div>
         </div>

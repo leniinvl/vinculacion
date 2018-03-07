@@ -78,6 +78,6 @@ class Paisaje extends Model
      **/
     public function areainfluencium()
     {
-        return $this->belongsTo(\App\Models\Areainfluencium::class);
+        return $this->belongsTo(\App\Models\Areainfluencium::class,'AreaInfluencia_id');
     }
 }
