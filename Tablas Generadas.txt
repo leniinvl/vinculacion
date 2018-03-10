@@ -22,3 +22,9 @@ tipoalimentos
 alimentosconsumo
 grupoalimentosproductos
 planriesgos
+
+- Ortografia 
+- Palabras en Ingles a Español
+- Select segun Tablas
+- Corregir Menu
+- Faltan Dos Tablas
