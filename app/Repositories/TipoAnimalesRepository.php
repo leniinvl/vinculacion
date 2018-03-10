@@ -2,26 +2,29 @@
 
 namespace App\Repositories;
 
-use App\Models\TipoAnimales;
+use App\Models\tipoanimales;
 use InfyOm\Generator\Common\BaseRepository;
 
 /**
- * Class TipoAnimalesRepository
+ * Class tipoanimalesRepository
  * @package App\Repositories
- * @version January 23, 2018, 2:07 am UTC
+ * @version March 10, 2018, 5:15 pm UTC
  *
- * @method TipoAnimales findWithoutFail($id, $columns = ['*'])
- * @method TipoAnimales find($id, $columns = ['*'])
- * @method TipoAnimales first($columns = ['*'])
+ * @method tipoanimales findWithoutFail($id, $columns = ['*'])
+ * @method tipoanimales find($id, $columns = ['*'])
+ * @method tipoanimales first($columns = ['*'])
 */
-class TipoAnimalesRepository extends BaseRepository
+class tipoanimalesRepository extends BaseRepository
 {
     /**
      * @var array
      */
     protected $fieldSearchable = [
         'nombre',
-        'losCria'
+        'TipoProduccion_id',
+        'TipoUnidad_id',
+        'Destino_id',
+        'Precuaria_id'
     ];
 
     /**
@@ -29,6 +32,6 @@ class TipoAnimalesRepository extends BaseRepository
      **/
     public function model()
     {
-        return TipoAnimales::class;
+        return tipoanimales::class;
     }
 }

@@ -14,7 +14,7 @@
         <th>Volumen Caja AD (m^3)</th>
         <th>Temperatura (°C)</th>
         <th>Unidad de Producción</th>
-            <th colspan="3">Action</th>
+            <th colspan="3">Acciones</th>
         </tr>
     </thead>
     <tbody>

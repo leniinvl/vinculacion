@@ -2,19 +2,19 @@
 
 namespace App\Repositories;
 
-use App\Models\TipoAbono;
+use App\Models\tipoabono;
 use InfyOm\Generator\Common\BaseRepository;
 
 /**
- * Class TipoAbonoRepository
+ * Class tipoabonoRepository
  * @package App\Repositories
- * @version January 19, 2018, 2:35 am UTC
+ * @version March 10, 2018, 4:44 pm UTC
  *
- * @method TipoAbono findWithoutFail($id, $columns = ['*'])
- * @method TipoAbono find($id, $columns = ['*'])
- * @method TipoAbono first($columns = ['*'])
+ * @method tipoabono findWithoutFail($id, $columns = ['*'])
+ * @method tipoabono find($id, $columns = ['*'])
+ * @method tipoabono first($columns = ['*'])
 */
-class TipoAbonoRepository extends BaseRepository
+class tipoabonoRepository extends BaseRepository
 {
     /**
      * @var array
@@ -28,6 +28,6 @@ class TipoAbonoRepository extends BaseRepository
      **/
     public function model()
     {
-        return TipoAbono::class;
+        return tipoabono::class;
     }
 }

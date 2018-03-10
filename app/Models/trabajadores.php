@@ -8,9 +8,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class trabajadores
  * @package App\Models
- * @version January 18, 2018, 11:31 pm UTC
+ * @version March 10, 2018, 5:32 pm UTC
  *
- * @property \App\Models\Planriesgo planriesgo
+ * @property \App\Models\Ciudad ciudad
+ * @property \App\Models\Pai pai
+ * @property \App\Models\Plandegestionderiesgo plandegestionderiesgo
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasLenguaje
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasPeligros
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasReligion
@@ -19,41 +21,51 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasTopologia
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasTradicion
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasUsotierra
- * @property \Illuminate\Database\Eloquent\Collection planriesgosHasGrupoalimentosproductos
+ * @property \Illuminate\Database\Eloquent\Collection desecho
+ * @property \Illuminate\Database\Eloquent\Collection desechot
+ * @property \Illuminate\Database\Eloquent\Collection origeningresos
  * @property \Illuminate\Database\Eloquent\Collection planriesgosHasOrigeningresos
  * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipoagricultura
- * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipoalimentos
- * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipoalimentosconsumo
  * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipoanimales
  * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipocultivos
- * @property \Illuminate\Database\Eloquent\Collection tallerHasTipodesecho
- * @property \Illuminate\Database\Eloquent\Collection tallerHasTiporiesgos
  * @property \Illuminate\Database\Eloquent\Collection unidadproduccion
  * @property \Illuminate\Database\Eloquent\Collection unidadproduccionHasPropietario
  * @property \Illuminate\Database\Eloquent\Collection usosvegetacionHasAreainfluenciaHasTipovegetal
  * @property string nombre
- * @property string sexo
+ * @property string apellido
+ * @property string genero
+ * @property date fechaDeNacimiento
+ * @property integer Pais_id
+ * @property integer Ciudad_id
+ * @property string instruccionFormal
  * @property integer horasTrabajo
  * @property float salario
- * @property integer PlanRiesgos_id
+ * @property integer PlanDeGestionDeRiesgos_id
  */
 class trabajadores extends Model
 {
     use SoftDeletes;
 
     public $table = 'trabajadores';
-
+    
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
+
     protected $dates = ['deleted_at'];
+
 
     public $fillable = [
         'nombre',
-        'sexo',
+        'apellido',
+        'genero',
+        'fechaDeNacimiento',
+        'Pais_id',
+        'Ciudad_id',
+        'instruccionFormal',
         'horasTrabajo',
         'salario',
-        'PlanRiesgos_id',
+        'PlanDeGestionDeRiesgos_id'
     ];
 
     /**
@@ -62,12 +74,17 @@ class trabajadores extends Model
      * @var array
      */
     protected $casts = [
-        'id'             => 'integer',
-        'nombre'         => 'string',
-        'sexo'           => 'string',
-        'horasTrabajo'   => 'integer',
-        'salario'        => 'float',
-        'PlanRiesgos_id' => 'integer',
+        'id' => 'integer',
+        'nombre' => 'string',
+        'apellido' => 'string',
+        'genero' => 'string',
+        'fechaDeNacimiento' => 'date',
+        'Pais_id' => 'integer',
+        'Ciudad_id' => 'integer',
+        'instruccionFormal' => 'string',
+        'horasTrabajo' => 'integer',
+        'salario' => 'float',
+        'PlanDeGestionDeRiesgos_id' => 'integer'
     ];
 
     /**
@@ -76,15 +93,30 @@ class trabajadores extends Model
      * @var array
      */
     public static $rules = [
-
+        
     ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function planriesgo()
+    public function ciudad()
     {
-        return $this->belongsTo(\App\Models\Planriesgo::class
-            , 'PlanRiesgos_id');
+        return $this->belongsTo(\App\Models\Ciudad::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     **/
+    public function pai()
+    {
+        return $this->belongsTo(\App\Models\Pai::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     **/
+    public function plandegestionderiesgo()
+    {
+        return $this->belongsTo(\App\Models\Plandegestionderiesgo::class);
     }
 }

@@ -167,7 +167,7 @@ Route::resource('unidadproduccions', 'unidadproduccionController');
 
 Route::resource('tradicions', 'tradicionController');
 
-Route::resource('trabajadores', 'trabajadoresController');
+
 
 Route::resource('topologias', 'topologiaController');
 
@@ -281,3 +281,31 @@ Route::resource('calidadSuelos', 'CalidadSueloController');
 Route::resource('biodigestors', 'BiodigestorController');
 
 Route::resource('desechos', 'DesechoController');
+
+Route::resource('tipoabonos', 'tipoabonoController');
+
+
+
+
+
+Route::resource('tipoanimales', 'tipoanimalesController');
+
+Route::resource('origeningresos', 'origeningresosController');
+
+Route::resource('precuarias', 'precuariaController');
+
+Route::resource('trabajadores', 'trabajadoresController');
+
+Route::resource('destinos', 'destinoController');
+
+Route::resource('tipounidads', 'tipounidadController');
+
+Route::resource('tipoproduccions', 'tipoproduccionController');
+
+Route::resource('amenazas', 'amenazasController');
+
+Route::resource('vulnerabilidades', 'vulnerabilidadesController');
+
+Route::resource('ciudads', 'ciudadController');
+
+Route::resource('pais', 'paisController');

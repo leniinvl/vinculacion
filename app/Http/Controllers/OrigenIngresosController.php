@@ -2,70 +2,70 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateorigeningresosRequest;
+use App\Http\Requests\UpdateorigeningresosRequest;
+use App\Repositories\origeningresosRepository;
 use App\Http\Controllers\AppBaseController;
-use App\Http\Requests\CreateOrigenIngresosRequest;
-use App\Http\Requests\UpdateOrigenIngresosRequest;
-use App\Repositories\OrigenIngresosRepository;
-use Flash;
 use Illuminate\Http\Request;
+use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
-class OrigenIngresosController extends AppBaseController
+class origeningresosController extends AppBaseController
 {
-    /** @var  OrigenIngresosRepository */
-    private $origenIngresosRepository;
+    /** @var  origeningresosRepository */
+    private $origeningresosRepository;
 
-    public function __construct(OrigenIngresosRepository $origenIngresosRepo)
+    public function __construct(origeningresosRepository $origeningresosRepo)
     {
-        $this->origenIngresosRepository = $origenIngresosRepo;
+        $this->origeningresosRepository = $origeningresosRepo;
     }
 
     /**
-     * Display a listing of the OrigenIngresos.
+     * Display a listing of the origeningresos.
      *
      * @param Request $request
      * @return Response
      */
     public function index(Request $request)
     {
-        $this->origenIngresosRepository->pushCriteria(new RequestCriteria($request));
-        $origenIngresos = $this->origenIngresosRepository->all();
+        $this->origeningresosRepository->pushCriteria(new RequestCriteria($request));
+        $origeningresos = $this->origeningresosRepository->all();
 
-        return view('origen_ingresos.index')
-            ->with('origenIngresos', $origenIngresos);
+        return view('origeningresos.index')
+            ->with('origeningresos', $origeningresos);
     }
 
     /**
-     * Show the form for creating a new OrigenIngresos.
+     * Show the form for creating a new origeningresos.
      *
      * @return Response
      */
     public function create()
     {
-        return view('origen_ingresos.create');
+        return view('origeningresos.create');
     }
 
     /**
-     * Store a newly created OrigenIngresos in storage.
+     * Store a newly created origeningresos in storage.
      *
-     * @param CreateOrigenIngresosRequest $request
+     * @param CreateorigeningresosRequest $request
      *
      * @return Response
      */
-    public function store(CreateOrigenIngresosRequest $request)
+    public function store(CreateorigeningresosRequest $request)
     {
         $input = $request->all();
 
-        $origenIngresos = $this->origenIngresosRepository->create($input);
+        $origeningresos = $this->origeningresosRepository->create($input);
 
-        Flash::success('Origen Ingresos saved successfully.');
+        Flash::success('Origeningresos saved successfully.');
 
-        return redirect(route('origenIngresos.index'));
+        return redirect(route('origeningresos.index'));
     }
 
     /**
-     * Display the specified OrigenIngresos.
+     * Display the specified origeningresos.
      *
      * @param  int $id
      *
@@ -73,19 +73,19 @@ class OrigenIngresosController extends AppBaseController
      */
     public function show($id)
     {
-        $origenIngresos = $this->origenIngresosRepository->findWithoutFail($id);
+        $origeningresos = $this->origeningresosRepository->findWithoutFail($id);
 
-        if (empty($origenIngresos)) {
-            Flash::error('Origen Ingresos not found');
+        if (empty($origeningresos)) {
+            Flash::error('Origeningresos not found');
 
-            return redirect(route('origenIngresos.index'));
+            return redirect(route('origeningresos.index'));
         }
 
-        return view('origen_ingresos.show')->with('origenIngresos', $origenIngresos);
+        return view('origeningresos.show')->with('origeningresos', $origeningresos);
     }
 
     /**
-     * Show the form for editing the specified OrigenIngresos.
+     * Show the form for editing the specified origeningresos.
      *
      * @param  int $id
      *
@@ -93,44 +93,44 @@ class OrigenIngresosController extends AppBaseController
      */
     public function edit($id)
     {
-        $origenIngresos = $this->origenIngresosRepository->findWithoutFail($id);
+        $origeningresos = $this->origeningresosRepository->findWithoutFail($id);
 
-        if (empty($origenIngresos)) {
-            Flash::error('Origen Ingresos not found');
+        if (empty($origeningresos)) {
+            Flash::error('Origeningresos not found');
 
-            return redirect(route('origenIngresos.index'));
+            return redirect(route('origeningresos.index'));
         }
 
-        return view('origen_ingresos.edit')->with('origenIngresos', $origenIngresos);
+        return view('origeningresos.edit')->with('origeningresos', $origeningresos);
     }
 
     /**
-     * Update the specified OrigenIngresos in storage.
+     * Update the specified origeningresos in storage.
      *
      * @param  int              $id
-     * @param UpdateOrigenIngresosRequest $request
+     * @param UpdateorigeningresosRequest $request
      *
      * @return Response
      */
-    public function update($id, UpdateOrigenIngresosRequest $request)
+    public function update($id, UpdateorigeningresosRequest $request)
     {
-        $origenIngresos = $this->origenIngresosRepository->findWithoutFail($id);
+        $origeningresos = $this->origeningresosRepository->findWithoutFail($id);
 
-        if (empty($origenIngresos)) {
-            Flash::error('Origen Ingresos not found');
+        if (empty($origeningresos)) {
+            Flash::error('Origeningresos not found');
 
-            return redirect(route('origenIngresos.index'));
+            return redirect(route('origeningresos.index'));
         }
 
-        $origenIngresos = $this->origenIngresosRepository->update($request->all(), $id);
+        $origeningresos = $this->origeningresosRepository->update($request->all(), $id);
 
-        Flash::success('Origen Ingresos updated successfully.');
+        Flash::success('Origeningresos updated successfully.');
 
-        return redirect(route('origenIngresos.index'));
+        return redirect(route('origeningresos.index'));
     }
 
     /**
-     * Remove the specified OrigenIngresos from storage.
+     * Remove the specified origeningresos from storage.
      *
      * @param  int $id
      *
@@ -138,18 +138,18 @@ class OrigenIngresosController extends AppBaseController
      */
     public function destroy($id)
     {
-        $origenIngresos = $this->origenIngresosRepository->findWithoutFail($id);
+        $origeningresos = $this->origeningresosRepository->findWithoutFail($id);
 
-        if (empty($origenIngresos)) {
-            Flash::error('Origen Ingresos not found');
+        if (empty($origeningresos)) {
+            Flash::error('Origeningresos not found');
 
-            return redirect(route('origenIngresos.index'));
+            return redirect(route('origeningresos.index'));
         }
 
-        $this->origenIngresosRepository->delete($id);
+        $this->origeningresosRepository->delete($id);
 
-        Flash::success('Origen Ingresos deleted successfully.');
+        Flash::success('Origeningresos deleted successfully.');
 
-        return redirect(route('origenIngresos.index'));
+        return redirect(route('origeningresos.index'));
     }
 }

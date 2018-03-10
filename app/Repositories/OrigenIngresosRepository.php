@@ -2,25 +2,26 @@
 
 namespace App\Repositories;
 
-use App\Models\OrigenIngresos;
+use App\Models\origeningresos;
 use InfyOm\Generator\Common\BaseRepository;
 
 /**
- * Class OrigenIngresosRepository
+ * Class origeningresosRepository
  * @package App\Repositories
- * @version January 23, 2018, 2:04 am UTC
+ * @version March 10, 2018, 5:17 pm UTC
  *
- * @method OrigenIngresos findWithoutFail($id, $columns = ['*'])
- * @method OrigenIngresos find($id, $columns = ['*'])
- * @method OrigenIngresos first($columns = ['*'])
+ * @method origeningresos findWithoutFail($id, $columns = ['*'])
+ * @method origeningresos find($id, $columns = ['*'])
+ * @method origeningresos first($columns = ['*'])
 */
-class OrigenIngresosRepository extends BaseRepository
+class origeningresosRepository extends BaseRepository
 {
     /**
      * @var array
      */
     protected $fieldSearchable = [
-        'nombre'
+        'Propietario_id',
+        'UnidadProduccion_id'
     ];
 
     /**
@@ -28,6 +29,6 @@ class OrigenIngresosRepository extends BaseRepository
      **/
     public function model()
     {
-        return OrigenIngresos::class;
+        return origeningresos::class;
     }
 }
