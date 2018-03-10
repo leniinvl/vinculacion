@@ -3,9 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\OrigenIngresos;
+use App\Models\origeningresos;
 
-class CreateOrigenIngresosRequest extends FormRequest
+class CreateorigeningresosRequest extends FormRequest
 {
 
     /**
@@ -25,6 +25,6 @@ class CreateOrigenIngresosRequest extends FormRequest
      */
     public function rules()
     {
-        return OrigenIngresos::$rules;
+        return origeningresos::$rules;
     }
 }

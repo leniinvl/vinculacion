@@ -6,9 +6,9 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class TipoAbono
+ * Class tipoabono
  * @package App\Models
- * @version January 19, 2018, 2:35 am UTC
+ * @version March 10, 2018, 4:44 pm UTC
  *
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasLenguaje
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasPeligros
@@ -18,34 +18,35 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasTopologia
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasTradicion
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasUsotierra
+ * @property \Illuminate\Database\Eloquent\Collection desecho
+ * @property \Illuminate\Database\Eloquent\Collection desechot
+ * @property \Illuminate\Database\Eloquent\Collection origeningresos
+ * @property \Illuminate\Database\Eloquent\Collection Plandegestionderiesgo
  * @property \Illuminate\Database\Eloquent\Collection Planriesgo
- * @property \Illuminate\Database\Eloquent\Collection planriesgosHasGrupoalimentosproductos
  * @property \Illuminate\Database\Eloquent\Collection planriesgosHasOrigeningresos
  * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipoagricultura
- * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipoalimentos
- * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipoalimentosconsumo
  * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipoanimales
  * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipocultivos
- * @property \Illuminate\Database\Eloquent\Collection tallerHasTipodesecho
- * @property \Illuminate\Database\Eloquent\Collection tallerHasTiporiesgos
  * @property \Illuminate\Database\Eloquent\Collection unidadproduccion
  * @property \Illuminate\Database\Eloquent\Collection unidadproduccionHasPropietario
  * @property \Illuminate\Database\Eloquent\Collection usosvegetacionHasAreainfluenciaHasTipovegetal
  * @property string nombre
  */
-class TipoAbono extends Model
+class tipoabono extends Model
 {
     use SoftDeletes;
 
     public $table = 'tipoabono';
-
+    
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
+
     protected $dates = ['deleted_at'];
 
+
     public $fillable = [
-        'nombre',
+        'nombre'
     ];
 
     /**
@@ -54,8 +55,8 @@ class TipoAbono extends Model
      * @var array
      */
     protected $casts = [
-        'id'     => 'integer',
-        'nombre' => 'string',
+        'id' => 'integer',
+        'nombre' => 'string'
     ];
 
     /**
@@ -64,8 +65,16 @@ class TipoAbono extends Model
      * @var array
      */
     public static $rules = [
-
+        
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     **/
+    public function plandegestionderiesgos()
+    {
+        return $this->hasMany(\App\Models\Plandegestionderiesgo::class);
+    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

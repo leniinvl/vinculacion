@@ -6,10 +6,12 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class OrigenIngresos
+ * Class origeningresos
  * @package App\Models
- * @version January 23, 2018, 2:04 am UTC
+ * @version March 10, 2018, 5:17 pm UTC
  *
+ * @property \App\Models\Propietario propietario
+ * @property \App\Models\Unidadproduccion unidadproduccion
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasLenguaje
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasPeligros
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasReligion
@@ -18,33 +20,35 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasTopologia
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasTradicion
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasUsotierra
- * @property \Illuminate\Database\Eloquent\Collection planriesgosHasGrupoalimentosproductos
+ * @property \Illuminate\Database\Eloquent\Collection desecho
+ * @property \Illuminate\Database\Eloquent\Collection desechot
+ * @property \Illuminate\Database\Eloquent\Collection Plandegestionderiesgo
  * @property \Illuminate\Database\Eloquent\Collection planriesgosHasOrigeningresos
  * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipoagricultura
- * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipoalimentos
- * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipoalimentosconsumo
  * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipoanimales
  * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipocultivos
- * @property \Illuminate\Database\Eloquent\Collection tallerHasTipodesecho
- * @property \Illuminate\Database\Eloquent\Collection tallerHasTiporiesgos
  * @property \Illuminate\Database\Eloquent\Collection unidadproduccion
  * @property \Illuminate\Database\Eloquent\Collection unidadproduccionHasPropietario
  * @property \Illuminate\Database\Eloquent\Collection usosvegetacionHasAreainfluenciaHasTipovegetal
- * @property string nombre
+ * @property integer Propietario_id
+ * @property integer UnidadProduccion_id
  */
-class OrigenIngresos extends Model
+class origeningresos extends Model
 {
     use SoftDeletes;
 
     public $table = 'origeningresos';
-
+    
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
+
     protected $dates = ['deleted_at'];
 
+
     public $fillable = [
-        'nombre',
+        'Propietario_id',
+        'UnidadProduccion_id'
     ];
 
     /**
@@ -53,8 +57,9 @@ class OrigenIngresos extends Model
      * @var array
      */
     protected $casts = [
-        'id'     => 'integer',
-        'nombre' => 'string',
+        'id' => 'integer',
+        'Propietario_id' => 'integer',
+        'UnidadProduccion_id' => 'integer'
     ];
 
     /**
@@ -63,8 +68,32 @@ class OrigenIngresos extends Model
      * @var array
      */
     public static $rules = [
-
+        
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     **/
+    public function propietario()
+    {
+        return $this->belongsTo(\App\Models\Propietario::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     **/
+    public function unidadproduccion()
+    {
+        return $this->belongsTo(\App\Models\Unidadproduccion::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     **/
+    public function plandegestionderiesgos()
+    {
+        return $this->hasMany(\App\Models\Plandegestionderiesgo::class);
+    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany

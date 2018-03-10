@@ -10,10 +10,40 @@
     <p>{!! $trabajadores->nombre !!}</p>
 </div>
 
-<!-- Sexo Field -->
+<!-- Apellido Field -->
 <div class="form-group">
-    {!! Form::label('sexo', 'Sexo:') !!}
-    <p>{!! $trabajadores->sexo !!}</p>
+    {!! Form::label('apellido', 'Apellido:') !!}
+    <p>{!! $trabajadores->apellido !!}</p>
+</div>
+
+<!-- Genero Field -->
+<div class="form-group">
+    {!! Form::label('genero', 'Genero:') !!}
+    <p>{!! $trabajadores->genero !!}</p>
+</div>
+
+<!-- Fechadenacimiento Field -->
+<div class="form-group">
+    {!! Form::label('fechaDeNacimiento', 'Fechadenacimiento:') !!}
+    <p>{!! $trabajadores->fechaDeNacimiento !!}</p>
+</div>
+
+<!-- Pais Id Field -->
+<div class="form-group">
+    {!! Form::label('Pais_id', 'Pais Id:') !!}
+    <p>{!! $trabajadores->Pais_id !!}</p>
+</div>
+
+<!-- Ciudad Id Field -->
+<div class="form-group">
+    {!! Form::label('Ciudad_id', 'Ciudad Id:') !!}
+    <p>{!! $trabajadores->Ciudad_id !!}</p>
+</div>
+
+<!-- Instruccionformal Field -->
+<div class="form-group">
+    {!! Form::label('instruccionFormal', 'Instruccionformal:') !!}
+    <p>{!! $trabajadores->instruccionFormal !!}</p>
 </div>
 
 <!-- Horastrabajo Field -->
@@ -26,12 +56,6 @@
 <div class="form-group">
     {!! Form::label('salario', 'Salario:') !!}
     <p>{!! $trabajadores->salario !!}</p>
-</div>
-
-<!-- Planriesgos Id Field -->
-<div class="form-group">
-    {!! Form::label('PlanRiesgos_id', 'Planriesgos Id:') !!}
-    <p>{!! $trabajadores->PlanRiesgos_id !!}</p>
 </div>
 
 <!-- Created At Field -->
@@ -50,5 +74,11 @@
 <div class="form-group">
     {!! Form::label('deleted_at', 'Deleted At:') !!}
     <p>{!! $trabajadores->deleted_at !!}</p>
+</div>
+
+<!-- Plandegestionderiesgos Id Field -->
+<div class="form-group">
+    {!! Form::label('PlanDeGestionDeRiesgos_id', 'Plandegestionderiesgos Id:') !!}
+    <p>{!! $trabajadores->PlanDeGestionDeRiesgos_id !!}</p>
 </div>
 

@@ -2,21 +2,31 @@
     <thead>
         <tr>
             <th>Nombre</th>
-        <th>Sexo</th>
-        <th>Horas de trabajo</th>
+        <th>Apellido</th>
+        <th>Genero</th>
+        <th>Fechadenacimiento</th>
+        <th>Pais Id</th>
+        <th>Ciudad Id</th>
+        <th>Instruccionformal</th>
+        <th>Horastrabajo</th>
         <th>Salario</th>
-        <th>Planriesgos Id</th>
-            <th colspan="3">Acciones</th>
+        <th>Plandegestionderiesgos Id</th>
+            <th colspan="3">Action</th>
         </tr>
     </thead>
     <tbody>
     @foreach($trabajadores as $trabajadores)
         <tr>
             <td>{!! $trabajadores->nombre !!}</td>
-            <td>{!! $trabajadores->sexo !!}</td>
+            <td>{!! $trabajadores->apellido !!}</td>
+            <td>{!! $trabajadores->genero !!}</td>
+            <td>{!! $trabajadores->fechaDeNacimiento !!}</td>
+            <td>{!! $trabajadores->Pais_id !!}</td>
+            <td>{!! $trabajadores->Ciudad_id !!}</td>
+            <td>{!! $trabajadores->instruccionFormal !!}</td>
             <td>{!! $trabajadores->horasTrabajo !!}</td>
             <td>{!! $trabajadores->salario !!}</td>
-            <td>{!! $trabajadores->PlanRiesgos_id !!}</td>
+            <td>{!! $trabajadores->PlanDeGestionDeRiesgos_id !!}</td>
             <td>
                 {!! Form::open(['route' => ['trabajadores.destroy', $trabajadores->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>

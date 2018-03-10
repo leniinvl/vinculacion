@@ -4,10 +4,40 @@
     {!! Form::text('nombre', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Sexo Field -->
+<!-- Apellido Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('sexo', 'Sexo:') !!}
-    {!! Form::text('sexo', null, ['class' => 'form-control']) !!}
+    {!! Form::label('apellido', 'Apellido:') !!}
+    {!! Form::text('apellido', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Genero Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('genero', 'Genero:') !!}
+    {!! Form::text('genero', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Fechadenacimiento Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('fechaDeNacimiento', 'Fechadenacimiento:') !!}
+    {!! Form::date('fechaDeNacimiento', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Pais Id Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('Pais_id', 'Pais Id:') !!}
+    {!! Form::number('Pais_id', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Ciudad Id Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('Ciudad_id', 'Ciudad Id:') !!}
+    {!! Form::number('Ciudad_id', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Instruccionformal Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('instruccionFormal', 'Instruccionformal:') !!}
+    {!! Form::text('instruccionFormal', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Horastrabajo Field -->
@@ -22,14 +52,14 @@
     {!! Form::number('salario', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Planriesgos Id Field -->
+<!-- Plandegestionderiesgos Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('PlanRiesgos_id', 'Planriesgos Id:') !!}
-    {!! Form::select('PlanRiesgos_id',$planriesgoss ,null, ['class' => 'form-control']) !!}
+    {!! Form::label('PlanDeGestionDeRiesgos_id', 'Plandegestionderiesgos Id:') !!}
+    {!! Form::number('PlanDeGestionDeRiesgos_id', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
-    {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
-    <a href="{!! route('trabajadores.index') !!}" class="btn btn-default">Cancelar</a>
+    {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
+    <a href="{!! route('trabajadores.index') !!}" class="btn btn-default">Cancel</a>
 </div>

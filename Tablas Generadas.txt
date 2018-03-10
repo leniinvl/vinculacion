@@ -1,0 +1,24 @@
+Tablas Generadas
+
+trabajadores
+tipoanimales
+origeningresos
+precuaria
+destino
+tipounidad
+tipoproduccion
+amenazas
+vulnerabilidades
+ciudad
+pais
+
+Tablas Faltan
+
+Agricultura
+plandegestionderiesgos
+
+Tablas Eliminar
+tipoalimentos
+alimentosconsumo
+grupoalimentosproductos
+planriesgos
