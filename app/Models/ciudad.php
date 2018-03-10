@@ -6,9 +6,9 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class ciudad
+ * Class Ciudad
  * @package App\Models
- * @version March 10, 2018, 5:38 pm UTC
+ * @version March 10, 2018, 6:48 pm UTC
  *
  * @property \App\Models\Pai pai
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasLenguaje
@@ -33,7 +33,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string nombre
  * @property integer Pais_id
  */
-class ciudad extends Model
+class Ciudad extends Model
 {
     use SoftDeletes;
 

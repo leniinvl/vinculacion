@@ -3,9 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\trabajadores;
+use App\Models\Trabajadores;
 
-class CreatetrabajadoresRequest extends FormRequest
+class CreateTrabajadoresRequest extends FormRequest
 {
 
     /**
@@ -25,6 +25,6 @@ class CreatetrabajadoresRequest extends FormRequest
      */
     public function rules()
     {
-        return trabajadores::$rules;
+        return Trabajadores::$rules;
     }
 }

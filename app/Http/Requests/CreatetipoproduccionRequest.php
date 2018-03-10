@@ -3,9 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\tipoproduccion;
+use App\Models\TipoProduccion;
 
-class CreatetipoproduccionRequest extends FormRequest
+class CreateTipoProduccionRequest extends FormRequest
 {
 
     /**
@@ -25,6 +25,6 @@ class CreatetipoproduccionRequest extends FormRequest
      */
     public function rules()
     {
-        return tipoproduccion::$rules;
+        return TipoProduccion::$rules;
     }
 }

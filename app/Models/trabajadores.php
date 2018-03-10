@@ -6,9 +6,9 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class trabajadores
+ * Class Trabajadores
  * @package App\Models
- * @version March 10, 2018, 5:32 pm UTC
+ * @version March 10, 2018, 6:29 pm UTC
  *
  * @property \App\Models\Ciudad ciudad
  * @property \App\Models\Pai pai
@@ -42,7 +42,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property float salario
  * @property integer PlanDeGestionDeRiesgos_id
  */
-class trabajadores extends Model
+class Trabajadores extends Model
 {
     use SoftDeletes;
 

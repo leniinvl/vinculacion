@@ -3,9 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\ciudad;
+use App\Models\Ciudad;
 
-class UpdateciudadRequest extends FormRequest
+class UpdateCiudadRequest extends FormRequest
 {
 
     /**
@@ -25,6 +25,6 @@ class UpdateciudadRequest extends FormRequest
      */
     public function rules()
     {
-        return ciudad::$rules;
+        return Ciudad::$rules;
     }
 }

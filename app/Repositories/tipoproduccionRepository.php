@@ -2,19 +2,19 @@
 
 namespace App\Repositories;
 
-use App\Models\tipoproduccion;
+use App\Models\TipoProduccion;
 use InfyOm\Generator\Common\BaseRepository;
 
 /**
- * Class tipoproduccionRepository
+ * Class TipoProduccionRepository
  * @package App\Repositories
- * @version March 10, 2018, 5:34 pm UTC
+ * @version March 10, 2018, 6:45 pm UTC
  *
- * @method tipoproduccion findWithoutFail($id, $columns = ['*'])
- * @method tipoproduccion find($id, $columns = ['*'])
- * @method tipoproduccion first($columns = ['*'])
+ * @method TipoProduccion findWithoutFail($id, $columns = ['*'])
+ * @method TipoProduccion find($id, $columns = ['*'])
+ * @method TipoProduccion first($columns = ['*'])
 */
-class tipoproduccionRepository extends BaseRepository
+class TipoProduccionRepository extends BaseRepository
 {
     /**
      * @var array
@@ -28,6 +28,6 @@ class tipoproduccionRepository extends BaseRepository
      **/
     public function model()
     {
-        return tipoproduccion::class;
+        return TipoProduccion::class;
     }
 }

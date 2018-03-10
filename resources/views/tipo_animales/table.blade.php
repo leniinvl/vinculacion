@@ -2,15 +2,21 @@
     <thead>
         <tr>
             <th>Nombre</th>
-        <th>Loscria</th>
-            <th colspan="3">Acciones</th>
+        <th>Tipoproduccion Id</th>
+        <th>Tipounidad Id</th>
+        <th>Destino Id</th>
+        <th>Precuaria Id</th>
+            <th colspan="3">Action</th>
         </tr>
     </thead>
     <tbody>
     @foreach($tipoAnimales as $tipoAnimales)
         <tr>
             <td>{!! $tipoAnimales->nombre !!}</td>
-            <td>{!! $tipoAnimales->losCria !!}</td>
+            <td>{!! $tipoAnimales->TipoProduccion_id !!}</td>
+            <td>{!! $tipoAnimales->TipoUnidad_id !!}</td>
+            <td>{!! $tipoAnimales->Destino_id !!}</td>
+            <td>{!! $tipoAnimales->Precuaria_id !!}</td>
             <td>
                 {!! Form::open(['route' => ['tipoAnimales.destroy', $tipoAnimales->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>

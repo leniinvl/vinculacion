@@ -3,9 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\vulnerabilidades;
+use App\Models\Vulnerabilidades;
 
-class UpdatevulnerabilidadesRequest extends FormRequest
+class UpdateVulnerabilidadesRequest extends FormRequest
 {
 
     /**
@@ -25,6 +25,6 @@ class UpdatevulnerabilidadesRequest extends FormRequest
      */
     public function rules()
     {
-        return vulnerabilidades::$rules;
+        return Vulnerabilidades::$rules;
     }
 }

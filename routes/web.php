@@ -282,30 +282,56 @@ Route::resource('biodigestors', 'BiodigestorController');
 
 Route::resource('desechos', 'DesechoController');
 
-Route::resource('tipoabonos', 'tipoabonoController');
 
 
 
 
 
-Route::resource('tipoanimales', 'tipoanimalesController');
 
-Route::resource('origeningresos', 'origeningresosController');
 
-Route::resource('precuarias', 'precuariaController');
 
-Route::resource('trabajadores', 'trabajadoresController');
 
-Route::resource('destinos', 'destinoController');
 
-Route::resource('tipounidads', 'tipounidadController');
 
-Route::resource('tipoproduccions', 'tipoproduccionController');
 
-Route::resource('amenazas', 'amenazasController');
 
-Route::resource('vulnerabilidades', 'vulnerabilidadesController');
 
-Route::resource('ciudads', 'ciudadController');
 
-Route::resource('pais', 'paisController');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Route::resource('trabajadores', 'TrabajadoresController');
+
+Route::resource('tipoAnimales', 'TipoAnimalesController');
+
+Route::resource('origenIngresos', 'OrigenIngresosController');
+
+Route::resource('precuarias', 'PrecuariaController');
+
+Route::resource('destinos', 'DestinoController');
+
+Route::resource('tipoUnidads', 'TipoUnidadController');
+
+Route::resource('tipoProduccions', 'TipoProduccionController');
+
+Route::resource('amenazas', 'AmenazasController');
+
+Route::resource('vulnerabilidades', 'VulnerabilidadesController');
+
+Route::resource('ciudads', 'CiudadController');
+
+Route::resource('pais', 'PaisController');
+
+Route::resource('tipoAbonos', 'TipoAbonoController');

@@ -3,9 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\tipounidad;
+use App\Models\TipoUnidad;
 
-class CreatetipounidadRequest extends FormRequest
+class CreateTipoUnidadRequest extends FormRequest
 {
 
     /**
@@ -25,6 +25,6 @@ class CreatetipounidadRequest extends FormRequest
      */
     public function rules()
     {
-        return tipounidad::$rules;
+        return TipoUnidad::$rules;
     }
 }

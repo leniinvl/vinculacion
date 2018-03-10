@@ -3,9 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\precuaria;
+use App\Models\Precuaria;
 
-class CreateprecuariaRequest extends FormRequest
+class CreatePrecuariaRequest extends FormRequest
 {
 
     /**
@@ -25,6 +25,6 @@ class CreateprecuariaRequest extends FormRequest
      */
     public function rules()
     {
-        return precuaria::$rules;
+        return Precuaria::$rules;
     }
 }

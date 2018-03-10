@@ -2,27 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateamenazasRequest;
-use App\Http\Requests\UpdateamenazasRequest;
-use App\Repositories\amenazasRepository;
+use App\Http\Requests\CreateAmenazasRequest;
+use App\Http\Requests\UpdateAmenazasRequest;
+use App\Repositories\AmenazasRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
-class amenazasController extends AppBaseController
+class AmenazasController extends AppBaseController
 {
-    /** @var  amenazasRepository */
+    /** @var  AmenazasRepository */
     private $amenazasRepository;
 
-    public function __construct(amenazasRepository $amenazasRepo)
+    public function __construct(AmenazasRepository $amenazasRepo)
     {
         $this->amenazasRepository = $amenazasRepo;
     }
 
     /**
-     * Display a listing of the amenazas.
+     * Display a listing of the Amenazas.
      *
      * @param Request $request
      * @return Response
@@ -37,7 +37,7 @@ class amenazasController extends AppBaseController
     }
 
     /**
-     * Show the form for creating a new amenazas.
+     * Show the form for creating a new Amenazas.
      *
      * @return Response
      */
@@ -47,13 +47,13 @@ class amenazasController extends AppBaseController
     }
 
     /**
-     * Store a newly created amenazas in storage.
+     * Store a newly created Amenazas in storage.
      *
-     * @param CreateamenazasRequest $request
+     * @param CreateAmenazasRequest $request
      *
      * @return Response
      */
-    public function store(CreateamenazasRequest $request)
+    public function store(CreateAmenazasRequest $request)
     {
         $input = $request->all();
 
@@ -65,7 +65,7 @@ class amenazasController extends AppBaseController
     }
 
     /**
-     * Display the specified amenazas.
+     * Display the specified Amenazas.
      *
      * @param  int $id
      *
@@ -85,7 +85,7 @@ class amenazasController extends AppBaseController
     }
 
     /**
-     * Show the form for editing the specified amenazas.
+     * Show the form for editing the specified Amenazas.
      *
      * @param  int $id
      *
@@ -105,14 +105,14 @@ class amenazasController extends AppBaseController
     }
 
     /**
-     * Update the specified amenazas in storage.
+     * Update the specified Amenazas in storage.
      *
      * @param  int              $id
-     * @param UpdateamenazasRequest $request
+     * @param UpdateAmenazasRequest $request
      *
      * @return Response
      */
-    public function update($id, UpdateamenazasRequest $request)
+    public function update($id, UpdateAmenazasRequest $request)
     {
         $amenazas = $this->amenazasRepository->findWithoutFail($id);
 
@@ -130,7 +130,7 @@ class amenazasController extends AppBaseController
     }
 
     /**
-     * Remove the specified amenazas from storage.
+     * Remove the specified Amenazas from storage.
      *
      * @param  int $id
      *

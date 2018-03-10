@@ -2,70 +2,70 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreatetipoabonoRequest;
-use App\Http\Requests\UpdatetipoabonoRequest;
-use App\Repositories\tipoabonoRepository;
+use App\Http\Requests\CreateTipoAbonoRequest;
+use App\Http\Requests\UpdateTipoAbonoRequest;
+use App\Repositories\TipoAbonoRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
-class tipoabonoController extends AppBaseController
+class TipoAbonoController extends AppBaseController
 {
-    /** @var  tipoabonoRepository */
-    private $tipoabonoRepository;
+    /** @var  TipoAbonoRepository */
+    private $tipoAbonoRepository;
 
-    public function __construct(tipoabonoRepository $tipoabonoRepo)
+    public function __construct(TipoAbonoRepository $tipoAbonoRepo)
     {
-        $this->tipoabonoRepository = $tipoabonoRepo;
+        $this->tipoAbonoRepository = $tipoAbonoRepo;
     }
 
     /**
-     * Display a listing of the tipoabono.
+     * Display a listing of the TipoAbono.
      *
      * @param Request $request
      * @return Response
      */
     public function index(Request $request)
     {
-        $this->tipoabonoRepository->pushCriteria(new RequestCriteria($request));
-        $tipoabonos = $this->tipoabonoRepository->all();
+        $this->tipoAbonoRepository->pushCriteria(new RequestCriteria($request));
+        $tipoAbonos = $this->tipoAbonoRepository->all();
 
-        return view('tipoabonos.index')
-            ->with('tipoabonos', $tipoabonos);
+        return view('tipo_abonos.index')
+            ->with('tipoAbonos', $tipoAbonos);
     }
 
     /**
-     * Show the form for creating a new tipoabono.
+     * Show the form for creating a new TipoAbono.
      *
      * @return Response
      */
     public function create()
     {
-        return view('tipoabonos.create');
+        return view('tipo_abonos.create');
     }
 
     /**
-     * Store a newly created tipoabono in storage.
+     * Store a newly created TipoAbono in storage.
      *
-     * @param CreatetipoabonoRequest $request
+     * @param CreateTipoAbonoRequest $request
      *
      * @return Response
      */
-    public function store(CreatetipoabonoRequest $request)
+    public function store(CreateTipoAbonoRequest $request)
     {
         $input = $request->all();
 
-        $tipoabono = $this->tipoabonoRepository->create($input);
+        $tipoAbono = $this->tipoAbonoRepository->create($input);
 
-        Flash::success('Tipoabono saved successfully.');
+        Flash::success('Tipo Abono saved successfully.');
 
-        return redirect(route('tipoabonos.index'));
+        return redirect(route('tipoAbonos.index'));
     }
 
     /**
-     * Display the specified tipoabono.
+     * Display the specified TipoAbono.
      *
      * @param  int $id
      *
@@ -73,19 +73,19 @@ class tipoabonoController extends AppBaseController
      */
     public function show($id)
     {
-        $tipoabono = $this->tipoabonoRepository->findWithoutFail($id);
+        $tipoAbono = $this->tipoAbonoRepository->findWithoutFail($id);
 
-        if (empty($tipoabono)) {
-            Flash::error('Tipoabono not found');
+        if (empty($tipoAbono)) {
+            Flash::error('Tipo Abono not found');
 
-            return redirect(route('tipoabonos.index'));
+            return redirect(route('tipoAbonos.index'));
         }
 
-        return view('tipoabonos.show')->with('tipoabono', $tipoabono);
+        return view('tipo_abonos.show')->with('tipoAbono', $tipoAbono);
     }
 
     /**
-     * Show the form for editing the specified tipoabono.
+     * Show the form for editing the specified TipoAbono.
      *
      * @param  int $id
      *
@@ -93,44 +93,44 @@ class tipoabonoController extends AppBaseController
      */
     public function edit($id)
     {
-        $tipoabono = $this->tipoabonoRepository->findWithoutFail($id);
+        $tipoAbono = $this->tipoAbonoRepository->findWithoutFail($id);
 
-        if (empty($tipoabono)) {
-            Flash::error('Tipoabono not found');
+        if (empty($tipoAbono)) {
+            Flash::error('Tipo Abono not found');
 
-            return redirect(route('tipoabonos.index'));
+            return redirect(route('tipoAbonos.index'));
         }
 
-        return view('tipoabonos.edit')->with('tipoabono', $tipoabono);
+        return view('tipo_abonos.edit')->with('tipoAbono', $tipoAbono);
     }
 
     /**
-     * Update the specified tipoabono in storage.
+     * Update the specified TipoAbono in storage.
      *
      * @param  int              $id
-     * @param UpdatetipoabonoRequest $request
+     * @param UpdateTipoAbonoRequest $request
      *
      * @return Response
      */
-    public function update($id, UpdatetipoabonoRequest $request)
+    public function update($id, UpdateTipoAbonoRequest $request)
     {
-        $tipoabono = $this->tipoabonoRepository->findWithoutFail($id);
+        $tipoAbono = $this->tipoAbonoRepository->findWithoutFail($id);
 
-        if (empty($tipoabono)) {
-            Flash::error('Tipoabono not found');
+        if (empty($tipoAbono)) {
+            Flash::error('Tipo Abono not found');
 
-            return redirect(route('tipoabonos.index'));
+            return redirect(route('tipoAbonos.index'));
         }
 
-        $tipoabono = $this->tipoabonoRepository->update($request->all(), $id);
+        $tipoAbono = $this->tipoAbonoRepository->update($request->all(), $id);
 
-        Flash::success('Tipoabono updated successfully.');
+        Flash::success('Tipo Abono updated successfully.');
 
-        return redirect(route('tipoabonos.index'));
+        return redirect(route('tipoAbonos.index'));
     }
 
     /**
-     * Remove the specified tipoabono from storage.
+     * Remove the specified TipoAbono from storage.
      *
      * @param  int $id
      *
@@ -138,18 +138,18 @@ class tipoabonoController extends AppBaseController
      */
     public function destroy($id)
     {
-        $tipoabono = $this->tipoabonoRepository->findWithoutFail($id);
+        $tipoAbono = $this->tipoAbonoRepository->findWithoutFail($id);
 
-        if (empty($tipoabono)) {
-            Flash::error('Tipoabono not found');
+        if (empty($tipoAbono)) {
+            Flash::error('Tipo Abono not found');
 
-            return redirect(route('tipoabonos.index'));
+            return redirect(route('tipoAbonos.index'));
         }
 
-        $this->tipoabonoRepository->delete($id);
+        $this->tipoAbonoRepository->delete($id);
 
-        Flash::success('Tipoabono deleted successfully.');
+        Flash::success('Tipo Abono deleted successfully.');
 
-        return redirect(route('tipoabonos.index'));
+        return redirect(route('tipoAbonos.index'));
     }
 }

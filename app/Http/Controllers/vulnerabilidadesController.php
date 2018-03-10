@@ -2,27 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreatevulnerabilidadesRequest;
-use App\Http\Requests\UpdatevulnerabilidadesRequest;
-use App\Repositories\vulnerabilidadesRepository;
+use App\Http\Requests\CreateVulnerabilidadesRequest;
+use App\Http\Requests\UpdateVulnerabilidadesRequest;
+use App\Repositories\VulnerabilidadesRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
-class vulnerabilidadesController extends AppBaseController
+class VulnerabilidadesController extends AppBaseController
 {
-    /** @var  vulnerabilidadesRepository */
+    /** @var  VulnerabilidadesRepository */
     private $vulnerabilidadesRepository;
 
-    public function __construct(vulnerabilidadesRepository $vulnerabilidadesRepo)
+    public function __construct(VulnerabilidadesRepository $vulnerabilidadesRepo)
     {
         $this->vulnerabilidadesRepository = $vulnerabilidadesRepo;
     }
 
     /**
-     * Display a listing of the vulnerabilidades.
+     * Display a listing of the Vulnerabilidades.
      *
      * @param Request $request
      * @return Response
@@ -37,7 +37,7 @@ class vulnerabilidadesController extends AppBaseController
     }
 
     /**
-     * Show the form for creating a new vulnerabilidades.
+     * Show the form for creating a new Vulnerabilidades.
      *
      * @return Response
      */
@@ -47,13 +47,13 @@ class vulnerabilidadesController extends AppBaseController
     }
 
     /**
-     * Store a newly created vulnerabilidades in storage.
+     * Store a newly created Vulnerabilidades in storage.
      *
-     * @param CreatevulnerabilidadesRequest $request
+     * @param CreateVulnerabilidadesRequest $request
      *
      * @return Response
      */
-    public function store(CreatevulnerabilidadesRequest $request)
+    public function store(CreateVulnerabilidadesRequest $request)
     {
         $input = $request->all();
 
@@ -65,7 +65,7 @@ class vulnerabilidadesController extends AppBaseController
     }
 
     /**
-     * Display the specified vulnerabilidades.
+     * Display the specified Vulnerabilidades.
      *
      * @param  int $id
      *
@@ -85,7 +85,7 @@ class vulnerabilidadesController extends AppBaseController
     }
 
     /**
-     * Show the form for editing the specified vulnerabilidades.
+     * Show the form for editing the specified Vulnerabilidades.
      *
      * @param  int $id
      *
@@ -105,14 +105,14 @@ class vulnerabilidadesController extends AppBaseController
     }
 
     /**
-     * Update the specified vulnerabilidades in storage.
+     * Update the specified Vulnerabilidades in storage.
      *
      * @param  int              $id
-     * @param UpdatevulnerabilidadesRequest $request
+     * @param UpdateVulnerabilidadesRequest $request
      *
      * @return Response
      */
-    public function update($id, UpdatevulnerabilidadesRequest $request)
+    public function update($id, UpdateVulnerabilidadesRequest $request)
     {
         $vulnerabilidades = $this->vulnerabilidadesRepository->findWithoutFail($id);
 
@@ -130,7 +130,7 @@ class vulnerabilidadesController extends AppBaseController
     }
 
     /**
-     * Remove the specified vulnerabilidades from storage.
+     * Remove the specified Vulnerabilidades from storage.
      *
      * @param  int $id
      *

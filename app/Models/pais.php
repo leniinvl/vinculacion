@@ -6,9 +6,9 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class pais
+ * Class Pais
  * @package App\Models
- * @version March 10, 2018, 5:38 pm UTC
+ * @version March 10, 2018, 6:49 pm UTC
  *
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasLenguaje
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasPeligros
@@ -33,7 +33,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string nombre
  * @property string nacionalidad
  */
-class pais extends Model
+class Pais extends Model
 {
     use SoftDeletes;
 

@@ -2,70 +2,70 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreatetipoproduccionRequest;
-use App\Http\Requests\UpdatetipoproduccionRequest;
-use App\Repositories\tipoproduccionRepository;
+use App\Http\Requests\CreateTipoProduccionRequest;
+use App\Http\Requests\UpdateTipoProduccionRequest;
+use App\Repositories\TipoProduccionRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
-class tipoproduccionController extends AppBaseController
+class TipoProduccionController extends AppBaseController
 {
-    /** @var  tipoproduccionRepository */
-    private $tipoproduccionRepository;
+    /** @var  TipoProduccionRepository */
+    private $tipoProduccionRepository;
 
-    public function __construct(tipoproduccionRepository $tipoproduccionRepo)
+    public function __construct(TipoProduccionRepository $tipoProduccionRepo)
     {
-        $this->tipoproduccionRepository = $tipoproduccionRepo;
+        $this->tipoProduccionRepository = $tipoProduccionRepo;
     }
 
     /**
-     * Display a listing of the tipoproduccion.
+     * Display a listing of the TipoProduccion.
      *
      * @param Request $request
      * @return Response
      */
     public function index(Request $request)
     {
-        $this->tipoproduccionRepository->pushCriteria(new RequestCriteria($request));
-        $tipoproduccions = $this->tipoproduccionRepository->all();
+        $this->tipoProduccionRepository->pushCriteria(new RequestCriteria($request));
+        $tipoProduccions = $this->tipoProduccionRepository->all();
 
-        return view('tipoproduccions.index')
-            ->with('tipoproduccions', $tipoproduccions);
+        return view('tipo_produccions.index')
+            ->with('tipoProduccions', $tipoProduccions);
     }
 
     /**
-     * Show the form for creating a new tipoproduccion.
+     * Show the form for creating a new TipoProduccion.
      *
      * @return Response
      */
     public function create()
     {
-        return view('tipoproduccions.create');
+        return view('tipo_produccions.create');
     }
 
     /**
-     * Store a newly created tipoproduccion in storage.
+     * Store a newly created TipoProduccion in storage.
      *
-     * @param CreatetipoproduccionRequest $request
+     * @param CreateTipoProduccionRequest $request
      *
      * @return Response
      */
-    public function store(CreatetipoproduccionRequest $request)
+    public function store(CreateTipoProduccionRequest $request)
     {
         $input = $request->all();
 
-        $tipoproduccion = $this->tipoproduccionRepository->create($input);
+        $tipoProduccion = $this->tipoProduccionRepository->create($input);
 
-        Flash::success('Tipoproduccion saved successfully.');
+        Flash::success('Tipo Produccion saved successfully.');
 
-        return redirect(route('tipoproduccions.index'));
+        return redirect(route('tipoProduccions.index'));
     }
 
     /**
-     * Display the specified tipoproduccion.
+     * Display the specified TipoProduccion.
      *
      * @param  int $id
      *
@@ -73,19 +73,19 @@ class tipoproduccionController extends AppBaseController
      */
     public function show($id)
     {
-        $tipoproduccion = $this->tipoproduccionRepository->findWithoutFail($id);
+        $tipoProduccion = $this->tipoProduccionRepository->findWithoutFail($id);
 
-        if (empty($tipoproduccion)) {
-            Flash::error('Tipoproduccion not found');
+        if (empty($tipoProduccion)) {
+            Flash::error('Tipo Produccion not found');
 
-            return redirect(route('tipoproduccions.index'));
+            return redirect(route('tipoProduccions.index'));
         }
 
-        return view('tipoproduccions.show')->with('tipoproduccion', $tipoproduccion);
+        return view('tipo_produccions.show')->with('tipoProduccion', $tipoProduccion);
     }
 
     /**
-     * Show the form for editing the specified tipoproduccion.
+     * Show the form for editing the specified TipoProduccion.
      *
      * @param  int $id
      *
@@ -93,44 +93,44 @@ class tipoproduccionController extends AppBaseController
      */
     public function edit($id)
     {
-        $tipoproduccion = $this->tipoproduccionRepository->findWithoutFail($id);
+        $tipoProduccion = $this->tipoProduccionRepository->findWithoutFail($id);
 
-        if (empty($tipoproduccion)) {
-            Flash::error('Tipoproduccion not found');
+        if (empty($tipoProduccion)) {
+            Flash::error('Tipo Produccion not found');
 
-            return redirect(route('tipoproduccions.index'));
+            return redirect(route('tipoProduccions.index'));
         }
 
-        return view('tipoproduccions.edit')->with('tipoproduccion', $tipoproduccion);
+        return view('tipo_produccions.edit')->with('tipoProduccion', $tipoProduccion);
     }
 
     /**
-     * Update the specified tipoproduccion in storage.
+     * Update the specified TipoProduccion in storage.
      *
      * @param  int              $id
-     * @param UpdatetipoproduccionRequest $request
+     * @param UpdateTipoProduccionRequest $request
      *
      * @return Response
      */
-    public function update($id, UpdatetipoproduccionRequest $request)
+    public function update($id, UpdateTipoProduccionRequest $request)
     {
-        $tipoproduccion = $this->tipoproduccionRepository->findWithoutFail($id);
+        $tipoProduccion = $this->tipoProduccionRepository->findWithoutFail($id);
 
-        if (empty($tipoproduccion)) {
-            Flash::error('Tipoproduccion not found');
+        if (empty($tipoProduccion)) {
+            Flash::error('Tipo Produccion not found');
 
-            return redirect(route('tipoproduccions.index'));
+            return redirect(route('tipoProduccions.index'));
         }
 
-        $tipoproduccion = $this->tipoproduccionRepository->update($request->all(), $id);
+        $tipoProduccion = $this->tipoProduccionRepository->update($request->all(), $id);
 
-        Flash::success('Tipoproduccion updated successfully.');
+        Flash::success('Tipo Produccion updated successfully.');
 
-        return redirect(route('tipoproduccions.index'));
+        return redirect(route('tipoProduccions.index'));
     }
 
     /**
-     * Remove the specified tipoproduccion from storage.
+     * Remove the specified TipoProduccion from storage.
      *
      * @param  int $id
      *
@@ -138,18 +138,18 @@ class tipoproduccionController extends AppBaseController
      */
     public function destroy($id)
     {
-        $tipoproduccion = $this->tipoproduccionRepository->findWithoutFail($id);
+        $tipoProduccion = $this->tipoProduccionRepository->findWithoutFail($id);
 
-        if (empty($tipoproduccion)) {
-            Flash::error('Tipoproduccion not found');
+        if (empty($tipoProduccion)) {
+            Flash::error('Tipo Produccion not found');
 
-            return redirect(route('tipoproduccions.index'));
+            return redirect(route('tipoProduccions.index'));
         }
 
-        $this->tipoproduccionRepository->delete($id);
+        $this->tipoProduccionRepository->delete($id);
 
-        Flash::success('Tipoproduccion deleted successfully.');
+        Flash::success('Tipo Produccion deleted successfully.');
 
-        return redirect(route('tipoproduccions.index'));
+        return redirect(route('tipoProduccions.index'));
     }
 }

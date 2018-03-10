@@ -2,27 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateciudadRequest;
-use App\Http\Requests\UpdateciudadRequest;
-use App\Repositories\ciudadRepository;
+use App\Http\Requests\CreateCiudadRequest;
+use App\Http\Requests\UpdateCiudadRequest;
+use App\Repositories\CiudadRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
-class ciudadController extends AppBaseController
+class CiudadController extends AppBaseController
 {
-    /** @var  ciudadRepository */
+    /** @var  CiudadRepository */
     private $ciudadRepository;
 
-    public function __construct(ciudadRepository $ciudadRepo)
+    public function __construct(CiudadRepository $ciudadRepo)
     {
         $this->ciudadRepository = $ciudadRepo;
     }
 
     /**
-     * Display a listing of the ciudad.
+     * Display a listing of the Ciudad.
      *
      * @param Request $request
      * @return Response
@@ -37,7 +37,7 @@ class ciudadController extends AppBaseController
     }
 
     /**
-     * Show the form for creating a new ciudad.
+     * Show the form for creating a new Ciudad.
      *
      * @return Response
      */
@@ -47,13 +47,13 @@ class ciudadController extends AppBaseController
     }
 
     /**
-     * Store a newly created ciudad in storage.
+     * Store a newly created Ciudad in storage.
      *
-     * @param CreateciudadRequest $request
+     * @param CreateCiudadRequest $request
      *
      * @return Response
      */
-    public function store(CreateciudadRequest $request)
+    public function store(CreateCiudadRequest $request)
     {
         $input = $request->all();
 
@@ -65,7 +65,7 @@ class ciudadController extends AppBaseController
     }
 
     /**
-     * Display the specified ciudad.
+     * Display the specified Ciudad.
      *
      * @param  int $id
      *
@@ -85,7 +85,7 @@ class ciudadController extends AppBaseController
     }
 
     /**
-     * Show the form for editing the specified ciudad.
+     * Show the form for editing the specified Ciudad.
      *
      * @param  int $id
      *
@@ -105,14 +105,14 @@ class ciudadController extends AppBaseController
     }
 
     /**
-     * Update the specified ciudad in storage.
+     * Update the specified Ciudad in storage.
      *
      * @param  int              $id
-     * @param UpdateciudadRequest $request
+     * @param UpdateCiudadRequest $request
      *
      * @return Response
      */
-    public function update($id, UpdateciudadRequest $request)
+    public function update($id, UpdateCiudadRequest $request)
     {
         $ciudad = $this->ciudadRepository->findWithoutFail($id);
 
@@ -130,7 +130,7 @@ class ciudadController extends AppBaseController
     }
 
     /**
-     * Remove the specified ciudad from storage.
+     * Remove the specified Ciudad from storage.
      *
      * @param  int $id
      *

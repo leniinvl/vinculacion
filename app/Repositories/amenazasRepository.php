@@ -2,19 +2,19 @@
 
 namespace App\Repositories;
 
-use App\Models\amenazas;
+use App\Models\Amenazas;
 use InfyOm\Generator\Common\BaseRepository;
 
 /**
- * Class amenazasRepository
+ * Class AmenazasRepository
  * @package App\Repositories
- * @version March 10, 2018, 5:36 pm UTC
+ * @version March 10, 2018, 6:47 pm UTC
  *
- * @method amenazas findWithoutFail($id, $columns = ['*'])
- * @method amenazas find($id, $columns = ['*'])
- * @method amenazas first($columns = ['*'])
+ * @method Amenazas findWithoutFail($id, $columns = ['*'])
+ * @method Amenazas find($id, $columns = ['*'])
+ * @method Amenazas first($columns = ['*'])
 */
-class amenazasRepository extends BaseRepository
+class AmenazasRepository extends BaseRepository
 {
     /**
      * @var array
@@ -28,6 +28,6 @@ class amenazasRepository extends BaseRepository
      **/
     public function model()
     {
-        return amenazas::class;
+        return Amenazas::class;
     }
 }
