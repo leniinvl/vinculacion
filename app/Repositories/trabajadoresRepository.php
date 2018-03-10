@@ -2,19 +2,19 @@
 
 namespace App\Repositories;
 
-use App\Models\trabajadores;
+use App\Models\Trabajadores;
 use InfyOm\Generator\Common\BaseRepository;
 
 /**
- * Class trabajadoresRepository
+ * Class TrabajadoresRepository
  * @package App\Repositories
- * @version March 10, 2018, 5:32 pm UTC
+ * @version March 10, 2018, 6:29 pm UTC
  *
- * @method trabajadores findWithoutFail($id, $columns = ['*'])
- * @method trabajadores find($id, $columns = ['*'])
- * @method trabajadores first($columns = ['*'])
+ * @method Trabajadores findWithoutFail($id, $columns = ['*'])
+ * @method Trabajadores find($id, $columns = ['*'])
+ * @method Trabajadores first($columns = ['*'])
 */
-class trabajadoresRepository extends BaseRepository
+class TrabajadoresRepository extends BaseRepository
 {
     /**
      * @var array
@@ -37,6 +37,6 @@ class trabajadoresRepository extends BaseRepository
      **/
     public function model()
     {
-        return trabajadores::class;
+        return Trabajadores::class;
     }
 }

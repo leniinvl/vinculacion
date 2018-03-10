@@ -3,9 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\tipoabono;
+use App\Models\TipoAbono;
 
-class CreatetipoabonoRequest extends FormRequest
+class CreateTipoAbonoRequest extends FormRequest
 {
 
     /**
@@ -25,6 +25,6 @@ class CreatetipoabonoRequest extends FormRequest
      */
     public function rules()
     {
-        return tipoabono::$rules;
+        return TipoAbono::$rules;
     }
 }

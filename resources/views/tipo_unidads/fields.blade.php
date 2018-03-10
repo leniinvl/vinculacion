@@ -7,5 +7,5 @@
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
     {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-    <a href="{!! route('tipounidads.index') !!}" class="btn btn-default">Cancel</a>
+    <a href="{!! route('tipoUnidads.index') !!}" class="btn btn-default">Cancel</a>
 </div>

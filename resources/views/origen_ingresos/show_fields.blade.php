@@ -4,12 +4,6 @@
     <p>{!! $origenIngresos->id !!}</p>
 </div>
 
-<!-- Nombre Field -->
-<div class="form-group">
-    {!! Form::label('nombre', 'Nombre:') !!}
-    <p>{!! $origenIngresos->nombre !!}</p>
-</div>
-
 <!-- Created At Field -->
 <div class="form-group">
     {!! Form::label('created_at', 'Created At:') !!}
@@ -26,5 +20,17 @@
 <div class="form-group">
     {!! Form::label('deleted_at', 'Deleted At:') !!}
     <p>{!! $origenIngresos->deleted_at !!}</p>
+</div>
+
+<!-- Propietario Id Field -->
+<div class="form-group">
+    {!! Form::label('Propietario_id', 'Propietario Id:') !!}
+    <p>{!! $origenIngresos->Propietario_id !!}</p>
+</div>
+
+<!-- Unidadproduccion Id Field -->
+<div class="form-group">
+    {!! Form::label('UnidadProduccion_id', 'Unidadproduccion Id:') !!}
+    <p>{!! $origenIngresos->UnidadProduccion_id !!}</p>
 </div>
 

@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Tipoanimales
+            Tipo Unidad
         </h1>
    </section>
    <div class="content">
@@ -11,9 +11,9 @@
        <div class="box box-primary">
            <div class="box-body">
                <div class="row">
-                   {!! Form::model($tipoanimales, ['route' => ['tipoanimales.update', $tipoanimales->id], 'method' => 'patch']) !!}
+                   {!! Form::model($tipoUnidad, ['route' => ['tipoUnidads.update', $tipoUnidad->id], 'method' => 'patch']) !!}
 
-                        @include('tipoanimales.fields')
+                        @include('tipo_unidads.fields')
 
                    {!! Form::close() !!}
                </div>

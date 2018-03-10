@@ -6,9 +6,9 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class destino
+ * Class Destino
  * @package App\Models
- * @version March 10, 2018, 5:33 pm UTC
+ * @version March 10, 2018, 6:43 pm UTC
  *
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasLenguaje
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasPeligros
@@ -31,7 +31,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \Illuminate\Database\Eloquent\Collection usosvegetacionHasAreainfluenciaHasTipovegetal
  * @property string nombre
  */
-class destino extends Model
+class Destino extends Model
 {
     use SoftDeletes;
 

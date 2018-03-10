@@ -2,19 +2,19 @@
 
 namespace App\Repositories;
 
-use App\Models\tipounidad;
+use App\Models\TipoUnidad;
 use InfyOm\Generator\Common\BaseRepository;
 
 /**
- * Class tipounidadRepository
+ * Class TipoUnidadRepository
  * @package App\Repositories
- * @version March 10, 2018, 5:34 pm UTC
+ * @version March 10, 2018, 6:45 pm UTC
  *
- * @method tipounidad findWithoutFail($id, $columns = ['*'])
- * @method tipounidad find($id, $columns = ['*'])
- * @method tipounidad first($columns = ['*'])
+ * @method TipoUnidad findWithoutFail($id, $columns = ['*'])
+ * @method TipoUnidad find($id, $columns = ['*'])
+ * @method TipoUnidad first($columns = ['*'])
 */
-class tipounidadRepository extends BaseRepository
+class TipoUnidadRepository extends BaseRepository
 {
     /**
      * @var array
@@ -28,6 +28,6 @@ class tipounidadRepository extends BaseRepository
      **/
     public function model()
     {
-        return tipounidad::class;
+        return TipoUnidad::class;
     }
 }

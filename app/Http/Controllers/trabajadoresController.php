@@ -2,27 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreatetrabajadoresRequest;
-use App\Http\Requests\UpdatetrabajadoresRequest;
-use App\Repositories\trabajadoresRepository;
+use App\Http\Requests\CreateTrabajadoresRequest;
+use App\Http\Requests\UpdateTrabajadoresRequest;
+use App\Repositories\TrabajadoresRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
-class trabajadoresController extends AppBaseController
+class TrabajadoresController extends AppBaseController
 {
-    /** @var  trabajadoresRepository */
+    /** @var  TrabajadoresRepository */
     private $trabajadoresRepository;
 
-    public function __construct(trabajadoresRepository $trabajadoresRepo)
+    public function __construct(TrabajadoresRepository $trabajadoresRepo)
     {
         $this->trabajadoresRepository = $trabajadoresRepo;
     }
 
     /**
-     * Display a listing of the trabajadores.
+     * Display a listing of the Trabajadores.
      *
      * @param Request $request
      * @return Response
@@ -37,7 +37,7 @@ class trabajadoresController extends AppBaseController
     }
 
     /**
-     * Show the form for creating a new trabajadores.
+     * Show the form for creating a new Trabajadores.
      *
      * @return Response
      */
@@ -47,13 +47,13 @@ class trabajadoresController extends AppBaseController
     }
 
     /**
-     * Store a newly created trabajadores in storage.
+     * Store a newly created Trabajadores in storage.
      *
-     * @param CreatetrabajadoresRequest $request
+     * @param CreateTrabajadoresRequest $request
      *
      * @return Response
      */
-    public function store(CreatetrabajadoresRequest $request)
+    public function store(CreateTrabajadoresRequest $request)
     {
         $input = $request->all();
 
@@ -65,7 +65,7 @@ class trabajadoresController extends AppBaseController
     }
 
     /**
-     * Display the specified trabajadores.
+     * Display the specified Trabajadores.
      *
      * @param  int $id
      *
@@ -85,7 +85,7 @@ class trabajadoresController extends AppBaseController
     }
 
     /**
-     * Show the form for editing the specified trabajadores.
+     * Show the form for editing the specified Trabajadores.
      *
      * @param  int $id
      *
@@ -105,14 +105,14 @@ class trabajadoresController extends AppBaseController
     }
 
     /**
-     * Update the specified trabajadores in storage.
+     * Update the specified Trabajadores in storage.
      *
      * @param  int              $id
-     * @param UpdatetrabajadoresRequest $request
+     * @param UpdateTrabajadoresRequest $request
      *
      * @return Response
      */
-    public function update($id, UpdatetrabajadoresRequest $request)
+    public function update($id, UpdateTrabajadoresRequest $request)
     {
         $trabajadores = $this->trabajadoresRepository->findWithoutFail($id);
 
@@ -130,7 +130,7 @@ class trabajadoresController extends AppBaseController
     }
 
     /**
-     * Remove the specified trabajadores from storage.
+     * Remove the specified Trabajadores from storage.
      *
      * @param  int $id
      *

@@ -3,9 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\destino;
+use App\Models\Destino;
 
-class CreatedestinoRequest extends FormRequest
+class CreateDestinoRequest extends FormRequest
 {
 
     /**
@@ -25,6 +25,6 @@ class CreatedestinoRequest extends FormRequest
      */
     public function rules()
     {
-        return destino::$rules;
+        return Destino::$rules;
     }
 }

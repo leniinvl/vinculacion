@@ -3,9 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\amenazas;
+use App\Models\Amenazas;
 
-class CreateamenazasRequest extends FormRequest
+class CreateAmenazasRequest extends FormRequest
 {
 
     /**
@@ -25,6 +25,6 @@ class CreateamenazasRequest extends FormRequest
      */
     public function rules()
     {
-        return amenazas::$rules;
+        return Amenazas::$rules;
     }
 }

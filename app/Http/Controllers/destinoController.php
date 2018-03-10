@@ -2,27 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreatedestinoRequest;
-use App\Http\Requests\UpdatedestinoRequest;
-use App\Repositories\destinoRepository;
+use App\Http\Requests\CreateDestinoRequest;
+use App\Http\Requests\UpdateDestinoRequest;
+use App\Repositories\DestinoRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
-class destinoController extends AppBaseController
+class DestinoController extends AppBaseController
 {
-    /** @var  destinoRepository */
+    /** @var  DestinoRepository */
     private $destinoRepository;
 
-    public function __construct(destinoRepository $destinoRepo)
+    public function __construct(DestinoRepository $destinoRepo)
     {
         $this->destinoRepository = $destinoRepo;
     }
 
     /**
-     * Display a listing of the destino.
+     * Display a listing of the Destino.
      *
      * @param Request $request
      * @return Response
@@ -37,7 +37,7 @@ class destinoController extends AppBaseController
     }
 
     /**
-     * Show the form for creating a new destino.
+     * Show the form for creating a new Destino.
      *
      * @return Response
      */
@@ -47,13 +47,13 @@ class destinoController extends AppBaseController
     }
 
     /**
-     * Store a newly created destino in storage.
+     * Store a newly created Destino in storage.
      *
-     * @param CreatedestinoRequest $request
+     * @param CreateDestinoRequest $request
      *
      * @return Response
      */
-    public function store(CreatedestinoRequest $request)
+    public function store(CreateDestinoRequest $request)
     {
         $input = $request->all();
 
@@ -65,7 +65,7 @@ class destinoController extends AppBaseController
     }
 
     /**
-     * Display the specified destino.
+     * Display the specified Destino.
      *
      * @param  int $id
      *
@@ -85,7 +85,7 @@ class destinoController extends AppBaseController
     }
 
     /**
-     * Show the form for editing the specified destino.
+     * Show the form for editing the specified Destino.
      *
      * @param  int $id
      *
@@ -105,14 +105,14 @@ class destinoController extends AppBaseController
     }
 
     /**
-     * Update the specified destino in storage.
+     * Update the specified Destino in storage.
      *
      * @param  int              $id
-     * @param UpdatedestinoRequest $request
+     * @param UpdateDestinoRequest $request
      *
      * @return Response
      */
-    public function update($id, UpdatedestinoRequest $request)
+    public function update($id, UpdateDestinoRequest $request)
     {
         $destino = $this->destinoRepository->findWithoutFail($id);
 
@@ -130,7 +130,7 @@ class destinoController extends AppBaseController
     }
 
     /**
-     * Remove the specified destino from storage.
+     * Remove the specified Destino from storage.
      *
      * @param  int $id
      *

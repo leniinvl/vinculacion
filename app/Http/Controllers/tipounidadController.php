@@ -2,70 +2,70 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreatetipounidadRequest;
-use App\Http\Requests\UpdatetipounidadRequest;
-use App\Repositories\tipounidadRepository;
+use App\Http\Requests\CreateTipoUnidadRequest;
+use App\Http\Requests\UpdateTipoUnidadRequest;
+use App\Repositories\TipoUnidadRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
-class tipounidadController extends AppBaseController
+class TipoUnidadController extends AppBaseController
 {
-    /** @var  tipounidadRepository */
-    private $tipounidadRepository;
+    /** @var  TipoUnidadRepository */
+    private $tipoUnidadRepository;
 
-    public function __construct(tipounidadRepository $tipounidadRepo)
+    public function __construct(TipoUnidadRepository $tipoUnidadRepo)
     {
-        $this->tipounidadRepository = $tipounidadRepo;
+        $this->tipoUnidadRepository = $tipoUnidadRepo;
     }
 
     /**
-     * Display a listing of the tipounidad.
+     * Display a listing of the TipoUnidad.
      *
      * @param Request $request
      * @return Response
      */
     public function index(Request $request)
     {
-        $this->tipounidadRepository->pushCriteria(new RequestCriteria($request));
-        $tipounidads = $this->tipounidadRepository->all();
+        $this->tipoUnidadRepository->pushCriteria(new RequestCriteria($request));
+        $tipoUnidads = $this->tipoUnidadRepository->all();
 
-        return view('tipounidads.index')
-            ->with('tipounidads', $tipounidads);
+        return view('tipo_unidads.index')
+            ->with('tipoUnidads', $tipoUnidads);
     }
 
     /**
-     * Show the form for creating a new tipounidad.
+     * Show the form for creating a new TipoUnidad.
      *
      * @return Response
      */
     public function create()
     {
-        return view('tipounidads.create');
+        return view('tipo_unidads.create');
     }
 
     /**
-     * Store a newly created tipounidad in storage.
+     * Store a newly created TipoUnidad in storage.
      *
-     * @param CreatetipounidadRequest $request
+     * @param CreateTipoUnidadRequest $request
      *
      * @return Response
      */
-    public function store(CreatetipounidadRequest $request)
+    public function store(CreateTipoUnidadRequest $request)
     {
         $input = $request->all();
 
-        $tipounidad = $this->tipounidadRepository->create($input);
+        $tipoUnidad = $this->tipoUnidadRepository->create($input);
 
-        Flash::success('Tipounidad saved successfully.');
+        Flash::success('Tipo Unidad saved successfully.');
 
-        return redirect(route('tipounidads.index'));
+        return redirect(route('tipoUnidads.index'));
     }
 
     /**
-     * Display the specified tipounidad.
+     * Display the specified TipoUnidad.
      *
      * @param  int $id
      *
@@ -73,19 +73,19 @@ class tipounidadController extends AppBaseController
      */
     public function show($id)
     {
-        $tipounidad = $this->tipounidadRepository->findWithoutFail($id);
+        $tipoUnidad = $this->tipoUnidadRepository->findWithoutFail($id);
 
-        if (empty($tipounidad)) {
-            Flash::error('Tipounidad not found');
+        if (empty($tipoUnidad)) {
+            Flash::error('Tipo Unidad not found');
 
-            return redirect(route('tipounidads.index'));
+            return redirect(route('tipoUnidads.index'));
         }
 
-        return view('tipounidads.show')->with('tipounidad', $tipounidad);
+        return view('tipo_unidads.show')->with('tipoUnidad', $tipoUnidad);
     }
 
     /**
-     * Show the form for editing the specified tipounidad.
+     * Show the form for editing the specified TipoUnidad.
      *
      * @param  int $id
      *
@@ -93,44 +93,44 @@ class tipounidadController extends AppBaseController
      */
     public function edit($id)
     {
-        $tipounidad = $this->tipounidadRepository->findWithoutFail($id);
+        $tipoUnidad = $this->tipoUnidadRepository->findWithoutFail($id);
 
-        if (empty($tipounidad)) {
-            Flash::error('Tipounidad not found');
+        if (empty($tipoUnidad)) {
+            Flash::error('Tipo Unidad not found');
 
-            return redirect(route('tipounidads.index'));
+            return redirect(route('tipoUnidads.index'));
         }
 
-        return view('tipounidads.edit')->with('tipounidad', $tipounidad);
+        return view('tipo_unidads.edit')->with('tipoUnidad', $tipoUnidad);
     }
 
     /**
-     * Update the specified tipounidad in storage.
+     * Update the specified TipoUnidad in storage.
      *
      * @param  int              $id
-     * @param UpdatetipounidadRequest $request
+     * @param UpdateTipoUnidadRequest $request
      *
      * @return Response
      */
-    public function update($id, UpdatetipounidadRequest $request)
+    public function update($id, UpdateTipoUnidadRequest $request)
     {
-        $tipounidad = $this->tipounidadRepository->findWithoutFail($id);
+        $tipoUnidad = $this->tipoUnidadRepository->findWithoutFail($id);
 
-        if (empty($tipounidad)) {
-            Flash::error('Tipounidad not found');
+        if (empty($tipoUnidad)) {
+            Flash::error('Tipo Unidad not found');
 
-            return redirect(route('tipounidads.index'));
+            return redirect(route('tipoUnidads.index'));
         }
 
-        $tipounidad = $this->tipounidadRepository->update($request->all(), $id);
+        $tipoUnidad = $this->tipoUnidadRepository->update($request->all(), $id);
 
-        Flash::success('Tipounidad updated successfully.');
+        Flash::success('Tipo Unidad updated successfully.');
 
-        return redirect(route('tipounidads.index'));
+        return redirect(route('tipoUnidads.index'));
     }
 
     /**
-     * Remove the specified tipounidad from storage.
+     * Remove the specified TipoUnidad from storage.
      *
      * @param  int $id
      *
@@ -138,18 +138,18 @@ class tipounidadController extends AppBaseController
      */
     public function destroy($id)
     {
-        $tipounidad = $this->tipounidadRepository->findWithoutFail($id);
+        $tipoUnidad = $this->tipoUnidadRepository->findWithoutFail($id);
 
-        if (empty($tipounidad)) {
-            Flash::error('Tipounidad not found');
+        if (empty($tipoUnidad)) {
+            Flash::error('Tipo Unidad not found');
 
-            return redirect(route('tipounidads.index'));
+            return redirect(route('tipoUnidads.index'));
         }
 
-        $this->tipounidadRepository->delete($id);
+        $this->tipoUnidadRepository->delete($id);
 
-        Flash::success('Tipounidad deleted successfully.');
+        Flash::success('Tipo Unidad deleted successfully.');
 
-        return redirect(route('tipounidads.index'));
+        return redirect(route('tipoUnidads.index'));
     }
 }

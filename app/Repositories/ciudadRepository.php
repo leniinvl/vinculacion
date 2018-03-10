@@ -2,19 +2,19 @@
 
 namespace App\Repositories;
 
-use App\Models\ciudad;
+use App\Models\Ciudad;
 use InfyOm\Generator\Common\BaseRepository;
 
 /**
- * Class ciudadRepository
+ * Class CiudadRepository
  * @package App\Repositories
- * @version March 10, 2018, 5:38 pm UTC
+ * @version March 10, 2018, 6:48 pm UTC
  *
- * @method ciudad findWithoutFail($id, $columns = ['*'])
- * @method ciudad find($id, $columns = ['*'])
- * @method ciudad first($columns = ['*'])
+ * @method Ciudad findWithoutFail($id, $columns = ['*'])
+ * @method Ciudad find($id, $columns = ['*'])
+ * @method Ciudad first($columns = ['*'])
 */
-class ciudadRepository extends BaseRepository
+class CiudadRepository extends BaseRepository
 {
     /**
      * @var array
@@ -29,6 +29,6 @@ class ciudadRepository extends BaseRepository
      **/
     public function model()
     {
-        return ciudad::class;
+        return Ciudad::class;
     }
 }

@@ -2,19 +2,19 @@
 
 namespace App\Repositories;
 
-use App\Models\destino;
+use App\Models\Destino;
 use InfyOm\Generator\Common\BaseRepository;
 
 /**
- * Class destinoRepository
+ * Class DestinoRepository
  * @package App\Repositories
- * @version March 10, 2018, 5:33 pm UTC
+ * @version March 10, 2018, 6:43 pm UTC
  *
- * @method destino findWithoutFail($id, $columns = ['*'])
- * @method destino find($id, $columns = ['*'])
- * @method destino first($columns = ['*'])
+ * @method Destino findWithoutFail($id, $columns = ['*'])
+ * @method Destino find($id, $columns = ['*'])
+ * @method Destino first($columns = ['*'])
 */
-class destinoRepository extends BaseRepository
+class DestinoRepository extends BaseRepository
 {
     /**
      * @var array
@@ -28,6 +28,6 @@ class destinoRepository extends BaseRepository
      **/
     public function model()
     {
-        return destino::class;
+        return Destino::class;
     }
 }

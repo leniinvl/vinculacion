@@ -3,9 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\pais;
+use App\Models\Pais;
 
-class UpdatepaisRequest extends FormRequest
+class UpdatePaisRequest extends FormRequest
 {
 
     /**
@@ -25,6 +25,6 @@ class UpdatepaisRequest extends FormRequest
      */
     public function rules()
     {
-        return pais::$rules;
+        return Pais::$rules;
     }
 }

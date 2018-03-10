@@ -2,19 +2,19 @@
 
 namespace App\Repositories;
 
-use App\Models\vulnerabilidades;
+use App\Models\Vulnerabilidades;
 use InfyOm\Generator\Common\BaseRepository;
 
 /**
- * Class vulnerabilidadesRepository
+ * Class VulnerabilidadesRepository
  * @package App\Repositories
- * @version March 10, 2018, 5:37 pm UTC
+ * @version March 10, 2018, 6:47 pm UTC
  *
- * @method vulnerabilidades findWithoutFail($id, $columns = ['*'])
- * @method vulnerabilidades find($id, $columns = ['*'])
- * @method vulnerabilidades first($columns = ['*'])
+ * @method Vulnerabilidades findWithoutFail($id, $columns = ['*'])
+ * @method Vulnerabilidades find($id, $columns = ['*'])
+ * @method Vulnerabilidades first($columns = ['*'])
 */
-class vulnerabilidadesRepository extends BaseRepository
+class VulnerabilidadesRepository extends BaseRepository
 {
     /**
      * @var array
@@ -28,6 +28,6 @@ class vulnerabilidadesRepository extends BaseRepository
      **/
     public function model()
     {
-        return vulnerabilidades::class;
+        return Vulnerabilidades::class;
     }
 }

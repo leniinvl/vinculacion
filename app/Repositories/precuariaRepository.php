@@ -2,19 +2,19 @@
 
 namespace App\Repositories;
 
-use App\Models\precuaria;
+use App\Models\Precuaria;
 use InfyOm\Generator\Common\BaseRepository;
 
 /**
- * Class precuariaRepository
+ * Class PrecuariaRepository
  * @package App\Repositories
- * @version March 10, 2018, 5:30 pm UTC
+ * @version March 10, 2018, 6:42 pm UTC
  *
- * @method precuaria findWithoutFail($id, $columns = ['*'])
- * @method precuaria find($id, $columns = ['*'])
- * @method precuaria first($columns = ['*'])
+ * @method Precuaria findWithoutFail($id, $columns = ['*'])
+ * @method Precuaria find($id, $columns = ['*'])
+ * @method Precuaria first($columns = ['*'])
 */
-class precuariaRepository extends BaseRepository
+class PrecuariaRepository extends BaseRepository
 {
     /**
      * @var array
@@ -28,6 +28,6 @@ class precuariaRepository extends BaseRepository
      **/
     public function model()
     {
-        return precuaria::class;
+        return Precuaria::class;
     }
 }

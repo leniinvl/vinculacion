@@ -2,27 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreatepaisRequest;
-use App\Http\Requests\UpdatepaisRequest;
-use App\Repositories\paisRepository;
+use App\Http\Requests\CreatePaisRequest;
+use App\Http\Requests\UpdatePaisRequest;
+use App\Repositories\PaisRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
-class paisController extends AppBaseController
+class PaisController extends AppBaseController
 {
-    /** @var  paisRepository */
+    /** @var  PaisRepository */
     private $paisRepository;
 
-    public function __construct(paisRepository $paisRepo)
+    public function __construct(PaisRepository $paisRepo)
     {
         $this->paisRepository = $paisRepo;
     }
 
     /**
-     * Display a listing of the pais.
+     * Display a listing of the Pais.
      *
      * @param Request $request
      * @return Response
@@ -37,7 +37,7 @@ class paisController extends AppBaseController
     }
 
     /**
-     * Show the form for creating a new pais.
+     * Show the form for creating a new Pais.
      *
      * @return Response
      */
@@ -47,13 +47,13 @@ class paisController extends AppBaseController
     }
 
     /**
-     * Store a newly created pais in storage.
+     * Store a newly created Pais in storage.
      *
-     * @param CreatepaisRequest $request
+     * @param CreatePaisRequest $request
      *
      * @return Response
      */
-    public function store(CreatepaisRequest $request)
+    public function store(CreatePaisRequest $request)
     {
         $input = $request->all();
 
@@ -65,7 +65,7 @@ class paisController extends AppBaseController
     }
 
     /**
-     * Display the specified pais.
+     * Display the specified Pais.
      *
      * @param  int $id
      *
@@ -85,7 +85,7 @@ class paisController extends AppBaseController
     }
 
     /**
-     * Show the form for editing the specified pais.
+     * Show the form for editing the specified Pais.
      *
      * @param  int $id
      *
@@ -105,14 +105,14 @@ class paisController extends AppBaseController
     }
 
     /**
-     * Update the specified pais in storage.
+     * Update the specified Pais in storage.
      *
      * @param  int              $id
-     * @param UpdatepaisRequest $request
+     * @param UpdatePaisRequest $request
      *
      * @return Response
      */
-    public function update($id, UpdatepaisRequest $request)
+    public function update($id, UpdatePaisRequest $request)
     {
         $pais = $this->paisRepository->findWithoutFail($id);
 
@@ -130,7 +130,7 @@ class paisController extends AppBaseController
     }
 
     /**
-     * Remove the specified pais from storage.
+     * Remove the specified Pais from storage.
      *
      * @param  int $id
      *

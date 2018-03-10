@@ -6,9 +6,9 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class tipoanimales
+ * Class TipoAnimales
  * @package App\Models
- * @version March 10, 2018, 5:15 pm UTC
+ * @version March 10, 2018, 6:32 pm UTC
  *
  * @property \App\Models\Destino destino
  * @property \App\Models\Precuarium precuarium
@@ -39,7 +39,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property integer Destino_id
  * @property integer Precuaria_id
  */
-class tipoanimales extends Model
+class TipoAnimales extends Model
 {
     use SoftDeletes;
 

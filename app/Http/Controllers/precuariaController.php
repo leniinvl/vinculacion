@@ -2,27 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateprecuariaRequest;
-use App\Http\Requests\UpdateprecuariaRequest;
-use App\Repositories\precuariaRepository;
+use App\Http\Requests\CreatePrecuariaRequest;
+use App\Http\Requests\UpdatePrecuariaRequest;
+use App\Repositories\PrecuariaRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
-class precuariaController extends AppBaseController
+class PrecuariaController extends AppBaseController
 {
-    /** @var  precuariaRepository */
+    /** @var  PrecuariaRepository */
     private $precuariaRepository;
 
-    public function __construct(precuariaRepository $precuariaRepo)
+    public function __construct(PrecuariaRepository $precuariaRepo)
     {
         $this->precuariaRepository = $precuariaRepo;
     }
 
     /**
-     * Display a listing of the precuaria.
+     * Display a listing of the Precuaria.
      *
      * @param Request $request
      * @return Response
@@ -37,7 +37,7 @@ class precuariaController extends AppBaseController
     }
 
     /**
-     * Show the form for creating a new precuaria.
+     * Show the form for creating a new Precuaria.
      *
      * @return Response
      */
@@ -47,13 +47,13 @@ class precuariaController extends AppBaseController
     }
 
     /**
-     * Store a newly created precuaria in storage.
+     * Store a newly created Precuaria in storage.
      *
-     * @param CreateprecuariaRequest $request
+     * @param CreatePrecuariaRequest $request
      *
      * @return Response
      */
-    public function store(CreateprecuariaRequest $request)
+    public function store(CreatePrecuariaRequest $request)
     {
         $input = $request->all();
 
@@ -65,7 +65,7 @@ class precuariaController extends AppBaseController
     }
 
     /**
-     * Display the specified precuaria.
+     * Display the specified Precuaria.
      *
      * @param  int $id
      *
@@ -85,7 +85,7 @@ class precuariaController extends AppBaseController
     }
 
     /**
-     * Show the form for editing the specified precuaria.
+     * Show the form for editing the specified Precuaria.
      *
      * @param  int $id
      *
@@ -105,14 +105,14 @@ class precuariaController extends AppBaseController
     }
 
     /**
-     * Update the specified precuaria in storage.
+     * Update the specified Precuaria in storage.
      *
      * @param  int              $id
-     * @param UpdateprecuariaRequest $request
+     * @param UpdatePrecuariaRequest $request
      *
      * @return Response
      */
-    public function update($id, UpdateprecuariaRequest $request)
+    public function update($id, UpdatePrecuariaRequest $request)
     {
         $precuaria = $this->precuariaRepository->findWithoutFail($id);
 
@@ -130,7 +130,7 @@ class precuariaController extends AppBaseController
     }
 
     /**
-     * Remove the specified precuaria from storage.
+     * Remove the specified Precuaria from storage.
      *
      * @param  int $id
      *

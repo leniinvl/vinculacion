@@ -3,9 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\tipoanimales;
+use App\Models\TipoAnimales;
 
-class CreatetipoanimalesRequest extends FormRequest
+class CreateTipoAnimalesRequest extends FormRequest
 {
 
     /**
@@ -25,6 +25,6 @@ class CreatetipoanimalesRequest extends FormRequest
      */
     public function rules()
     {
-        return tipoanimales::$rules;
+        return TipoAnimales::$rules;
     }
 }

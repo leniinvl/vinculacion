@@ -2,70 +2,70 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreatetipoanimalesRequest;
-use App\Http\Requests\UpdatetipoanimalesRequest;
-use App\Repositories\tipoanimalesRepository;
+use App\Http\Requests\CreateTipoAnimalesRequest;
+use App\Http\Requests\UpdateTipoAnimalesRequest;
+use App\Repositories\TipoAnimalesRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
-class tipoanimalesController extends AppBaseController
+class TipoAnimalesController extends AppBaseController
 {
-    /** @var  tipoanimalesRepository */
-    private $tipoanimalesRepository;
+    /** @var  TipoAnimalesRepository */
+    private $tipoAnimalesRepository;
 
-    public function __construct(tipoanimalesRepository $tipoanimalesRepo)
+    public function __construct(TipoAnimalesRepository $tipoAnimalesRepo)
     {
-        $this->tipoanimalesRepository = $tipoanimalesRepo;
+        $this->tipoAnimalesRepository = $tipoAnimalesRepo;
     }
 
     /**
-     * Display a listing of the tipoanimales.
+     * Display a listing of the TipoAnimales.
      *
      * @param Request $request
      * @return Response
      */
     public function index(Request $request)
     {
-        $this->tipoanimalesRepository->pushCriteria(new RequestCriteria($request));
-        $tipoanimales = $this->tipoanimalesRepository->all();
+        $this->tipoAnimalesRepository->pushCriteria(new RequestCriteria($request));
+        $tipoAnimales = $this->tipoAnimalesRepository->all();
 
-        return view('tipoanimales.index')
-            ->with('tipoanimales', $tipoanimales);
+        return view('tipo_animales.index')
+            ->with('tipoAnimales', $tipoAnimales);
     }
 
     /**
-     * Show the form for creating a new tipoanimales.
+     * Show the form for creating a new TipoAnimales.
      *
      * @return Response
      */
     public function create()
     {
-        return view('tipoanimales.create');
+        return view('tipo_animales.create');
     }
 
     /**
-     * Store a newly created tipoanimales in storage.
+     * Store a newly created TipoAnimales in storage.
      *
-     * @param CreatetipoanimalesRequest $request
+     * @param CreateTipoAnimalesRequest $request
      *
      * @return Response
      */
-    public function store(CreatetipoanimalesRequest $request)
+    public function store(CreateTipoAnimalesRequest $request)
     {
         $input = $request->all();
 
-        $tipoanimales = $this->tipoanimalesRepository->create($input);
+        $tipoAnimales = $this->tipoAnimalesRepository->create($input);
 
-        Flash::success('Tipoanimales saved successfully.');
+        Flash::success('Tipo Animales saved successfully.');
 
-        return redirect(route('tipoanimales.index'));
+        return redirect(route('tipoAnimales.index'));
     }
 
     /**
-     * Display the specified tipoanimales.
+     * Display the specified TipoAnimales.
      *
      * @param  int $id
      *
@@ -73,19 +73,19 @@ class tipoanimalesController extends AppBaseController
      */
     public function show($id)
     {
-        $tipoanimales = $this->tipoanimalesRepository->findWithoutFail($id);
+        $tipoAnimales = $this->tipoAnimalesRepository->findWithoutFail($id);
 
-        if (empty($tipoanimales)) {
-            Flash::error('Tipoanimales not found');
+        if (empty($tipoAnimales)) {
+            Flash::error('Tipo Animales not found');
 
-            return redirect(route('tipoanimales.index'));
+            return redirect(route('tipoAnimales.index'));
         }
 
-        return view('tipoanimales.show')->with('tipoanimales', $tipoanimales);
+        return view('tipo_animales.show')->with('tipoAnimales', $tipoAnimales);
     }
 
     /**
-     * Show the form for editing the specified tipoanimales.
+     * Show the form for editing the specified TipoAnimales.
      *
      * @param  int $id
      *
@@ -93,44 +93,44 @@ class tipoanimalesController extends AppBaseController
      */
     public function edit($id)
     {
-        $tipoanimales = $this->tipoanimalesRepository->findWithoutFail($id);
+        $tipoAnimales = $this->tipoAnimalesRepository->findWithoutFail($id);
 
-        if (empty($tipoanimales)) {
-            Flash::error('Tipoanimales not found');
+        if (empty($tipoAnimales)) {
+            Flash::error('Tipo Animales not found');
 
-            return redirect(route('tipoanimales.index'));
+            return redirect(route('tipoAnimales.index'));
         }
 
-        return view('tipoanimales.edit')->with('tipoanimales', $tipoanimales);
+        return view('tipo_animales.edit')->with('tipoAnimales', $tipoAnimales);
     }
 
     /**
-     * Update the specified tipoanimales in storage.
+     * Update the specified TipoAnimales in storage.
      *
      * @param  int              $id
-     * @param UpdatetipoanimalesRequest $request
+     * @param UpdateTipoAnimalesRequest $request
      *
      * @return Response
      */
-    public function update($id, UpdatetipoanimalesRequest $request)
+    public function update($id, UpdateTipoAnimalesRequest $request)
     {
-        $tipoanimales = $this->tipoanimalesRepository->findWithoutFail($id);
+        $tipoAnimales = $this->tipoAnimalesRepository->findWithoutFail($id);
 
-        if (empty($tipoanimales)) {
-            Flash::error('Tipoanimales not found');
+        if (empty($tipoAnimales)) {
+            Flash::error('Tipo Animales not found');
 
-            return redirect(route('tipoanimales.index'));
+            return redirect(route('tipoAnimales.index'));
         }
 
-        $tipoanimales = $this->tipoanimalesRepository->update($request->all(), $id);
+        $tipoAnimales = $this->tipoAnimalesRepository->update($request->all(), $id);
 
-        Flash::success('Tipoanimales updated successfully.');
+        Flash::success('Tipo Animales updated successfully.');
 
-        return redirect(route('tipoanimales.index'));
+        return redirect(route('tipoAnimales.index'));
     }
 
     /**
-     * Remove the specified tipoanimales from storage.
+     * Remove the specified TipoAnimales from storage.
      *
      * @param  int $id
      *
@@ -138,18 +138,18 @@ class tipoanimalesController extends AppBaseController
      */
     public function destroy($id)
     {
-        $tipoanimales = $this->tipoanimalesRepository->findWithoutFail($id);
+        $tipoAnimales = $this->tipoAnimalesRepository->findWithoutFail($id);
 
-        if (empty($tipoanimales)) {
-            Flash::error('Tipoanimales not found');
+        if (empty($tipoAnimales)) {
+            Flash::error('Tipo Animales not found');
 
-            return redirect(route('tipoanimales.index'));
+            return redirect(route('tipoAnimales.index'));
         }
 
-        $this->tipoanimalesRepository->delete($id);
+        $this->tipoAnimalesRepository->delete($id);
 
-        Flash::success('Tipoanimales deleted successfully.');
+        Flash::success('Tipo Animales deleted successfully.');
 
-        return redirect(route('tipoanimales.index'));
+        return redirect(route('tipoAnimales.index'));
     }
 }

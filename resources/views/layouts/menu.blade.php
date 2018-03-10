@@ -84,7 +84,7 @@
 
 		{{--****Plan de Gestion de Riesgos ****--}}
 
-		<li class="treeview {{ Request::is('tipoAbonos*','tipoControlPlagas*','trabajadores*','tipoCultivos*','tipoAnimales*','origenIngresos*','tipoAgriculturas*','precuarias*','destinos*','tipounidads*','tipoproduccions*','amenazas*','vulnerabilidades*','ciudads*','pais*') ? 'active' : '' }}">
+		<li class="treeview {{ Request::is('tipoAbonos*','tipoControlPlagas*','trabajadores*','tipoCultivos*','tipoAnimales*','origenIngresos*','tipoAgriculturas*','precuarias*','destinos*','tipoUnidads*','tipoProduccions*','amenazas*','vulnerabilidades*','ciudads*','pais*') ? 'active' : '' }}">
 			<a href="#">
 				<i></i> <span>Gestión de Riesgos</span>
 				<span class="pull-right-container">
@@ -100,9 +100,9 @@
 				<li class="{{ Request::is('origenIngresos*') ? 'active' : '' }}"><a href="{!! route('origenIngresos.index') !!}"><i class="fa fa-money"></i>Origen de ingresos</a></li>
 				<li class="{{ Request::is('tipoAgriculturas*') ? 'active' : '' }}"><a href="{!! route('tipoAgriculturas.index') !!}"><i class="fa fa-anchor"></i>Agricultura</a></li>
 				<li class="{{ Request::is('precuarias*') ? 'active' : '' }}"><a href="{!! route('precuarias.index') !!}"><i class="fa fa-edit"></i><span>Precuarias</span></a></li>
-				<li class="{{ Request::is('destinos*') ? 'active' : '' }}"><a href="{!! route('destinos.index') !!}"><i class="fa fa-edit"></i><span>Destinos</span></a></li><li class="{{ Request::is('tipounidads*') ? 'active' : '' }}"><a href="{!! route('tipounidads.index') !!}"><i class="fa fa-edit"></i><span>Tipounidads</span></a></li>
-				<li class="{{ Request::is('tipoproduccions*') ? 'active' : '' }}"><a href="{!! route('tipoproduccions.index') !!}"><i class="fa fa-edit"></i><span>Tipoproduccions</span></a></li>
-				<li class="{{ Request::is('amenazas*') ? 'active' : '' }}"><a href="{!! route('amenazas.index') !!}"><i class="fa fa-edit"></i><span>Amenazas</span></a></li>
+				<li class="{{ Request::is('destinos*') ? 'active' : '' }}"><a href="{!! route('destinos.index') !!}"><i class="fa fa-edit"></i><span>Destinos</span></a></li>
+				<li class="{{ Request::is('tipoUnidads*') ? 'active' : '' }}"><a href="{!! route('tipoUnidads.index') !!}"><i class="fa fa-edit"></i><span>Tipo Unidads</span></a></li>
+				<li class="{{ Request::is('tipoProduccions*') ? 'active' : '' }}"><a href="{!! route('tipoProduccions.index') !!}"><i class="fa fa-edit"></i><span>Tipo Produccions</span></a></li><li class="{{ Request::is('amenazas*') ? 'active' : '' }}"><a href="{!! route('amenazas.index') !!}"><i class="fa fa-edit"></i><span>Amenazas</span></a></li>
 				<li class="{{ Request::is('vulnerabilidades*') ? 'active' : '' }}"><a href="{!! route('vulnerabilidades.index') !!}"><i class="fa fa-edit"></i><span>Vulnerabilidades</span></a></li>
 				<li class="{{ Request::is('ciudads*') ? 'active' : '' }}"><a href="{!! route('ciudads.index') !!}"><i class="fa fa-edit"></i><span>Ciudads</span></a></li>
 				<li class="{{ Request::is('pais*') ? 'active' : '' }}"><a href="{!! route('pais.index') !!}"><i class="fa fa-edit"></i><span>Pais</span></a></li>

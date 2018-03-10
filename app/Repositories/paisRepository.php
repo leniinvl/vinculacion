@@ -2,19 +2,19 @@
 
 namespace App\Repositories;
 
-use App\Models\pais;
+use App\Models\Pais;
 use InfyOm\Generator\Common\BaseRepository;
 
 /**
- * Class paisRepository
+ * Class PaisRepository
  * @package App\Repositories
- * @version March 10, 2018, 5:38 pm UTC
+ * @version March 10, 2018, 6:49 pm UTC
  *
- * @method pais findWithoutFail($id, $columns = ['*'])
- * @method pais find($id, $columns = ['*'])
- * @method pais first($columns = ['*'])
+ * @method Pais findWithoutFail($id, $columns = ['*'])
+ * @method Pais find($id, $columns = ['*'])
+ * @method Pais first($columns = ['*'])
 */
-class paisRepository extends BaseRepository
+class PaisRepository extends BaseRepository
 {
     /**
      * @var array
@@ -29,6 +29,6 @@ class paisRepository extends BaseRepository
      **/
     public function model()
     {
-        return pais::class;
+        return Pais::class;
     }
 }
