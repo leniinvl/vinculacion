@@ -3,15 +3,15 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Desecho
+            Tipodesecho
         </h1>
     </section>
     <div class="content">
         <div class="box box-primary">
             <div class="box-body">
                 <div class="row" style="padding-left: 20px">
-                    @include('desechos.show_fields')
-                    <a href="{!! route('desechos.index') !!}" class="btn btn-default">Regresar</a>
+                    @include('tipodesechos.show_fields')
+                    <a href="{!! route('tipodesechos.index') !!}" class="btn btn-default">Volver</a>
                 </div>
             </div>
         </div>

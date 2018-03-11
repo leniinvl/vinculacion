@@ -6,9 +6,9 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class TipoDesecho
+ * Class Tipodesecho
  * @package App\Models
- * @version January 23, 2018, 2:09 am UTC
+ * @version March 11, 2018, 11:10 pm UTC
  *
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasLenguaje
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasPeligros
@@ -18,33 +18,35 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasTopologia
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasTradicion
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasUsotierra
- * @property \Illuminate\Database\Eloquent\Collection planriesgosHasGrupoalimentosproductos
+ * @property \Illuminate\Database\Eloquent\Collection Desecho
+ * @property \Illuminate\Database\Eloquent\Collection desechot
+ * @property \Illuminate\Database\Eloquent\Collection origeningresos
  * @property \Illuminate\Database\Eloquent\Collection planriesgosHasOrigeningresos
  * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipoagricultura
- * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipoalimentos
- * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipoalimentosconsumo
  * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipoanimales
  * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipocultivos
- * @property \Illuminate\Database\Eloquent\Collection tallerHasTipodesecho
- * @property \Illuminate\Database\Eloquent\Collection tallerHasTiporiesgos
  * @property \Illuminate\Database\Eloquent\Collection unidadproduccion
  * @property \Illuminate\Database\Eloquent\Collection unidadproduccionHasPropietario
  * @property \Illuminate\Database\Eloquent\Collection usosvegetacionHasAreainfluenciaHasTipovegetal
  * @property string nombre
+ * @property string descripcion
  */
-class TipoDesecho extends Model
+class Tipodesecho extends Model
 {
     use SoftDeletes;
 
     public $table = 'tipodesecho';
-
+    
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
+
     protected $dates = ['deleted_at'];
+
 
     public $fillable = [
         'nombre',
+        'descripcion'
     ];
 
     /**
@@ -53,8 +55,9 @@ class TipoDesecho extends Model
      * @var array
      */
     protected $casts = [
-        'id'     => 'integer',
+        'id' => 'integer',
         'nombre' => 'string',
+        'descripcion' => 'string'
     ];
 
     /**
@@ -63,14 +66,14 @@ class TipoDesecho extends Model
      * @var array
      */
     public static $rules = [
-
+        
     ];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      **/
-    public function tallers()
+    public function desechos()
     {
-        return $this->belongsToMany(\App\Models\Taller::class, 'taller_has_tipodesecho');
+        return $this->hasMany(\App\Models\Desecho::class);
     }
 }

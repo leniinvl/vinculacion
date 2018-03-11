@@ -2,25 +2,26 @@
 
 namespace App\Repositories;
 
-use App\Models\TipoDesecho;
+use App\Models\Tipodesecho;
 use InfyOm\Generator\Common\BaseRepository;
 
 /**
- * Class TipoDesechoRepository
+ * Class TipodesechoRepository
  * @package App\Repositories
- * @version January 23, 2018, 2:09 am UTC
+ * @version March 11, 2018, 11:10 pm UTC
  *
- * @method TipoDesecho findWithoutFail($id, $columns = ['*'])
- * @method TipoDesecho find($id, $columns = ['*'])
- * @method TipoDesecho first($columns = ['*'])
+ * @method Tipodesecho findWithoutFail($id, $columns = ['*'])
+ * @method Tipodesecho find($id, $columns = ['*'])
+ * @method Tipodesecho first($columns = ['*'])
 */
-class TipoDesechoRepository extends BaseRepository
+class TipodesechoRepository extends BaseRepository
 {
     /**
      * @var array
      */
     protected $fieldSearchable = [
-        'nombre'
+        'nombre',
+        'descripcion'
     ];
 
     /**
@@ -28,6 +29,6 @@ class TipoDesechoRepository extends BaseRepository
      **/
     public function model()
     {
-        return TipoDesecho::class;
+        return Tipodesecho::class;
     }
 }

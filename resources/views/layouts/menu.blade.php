@@ -12,7 +12,7 @@
 
 		{{--****Biodigestor****--}}
 
-		<li class="treeview {{ Request::is('biodigestors*','desechos*') ? 'active' : '' }}">
+		<li class="treeview {{ Request::is('biodigestors*','desechos*','tipodesechos*') ? 'active' : '' }}">
 			<a href="#">
 				<i></i> <span>Biodigestor</span>
 				<span class="pull-right-container">
@@ -22,6 +22,7 @@
 			<ul class="treeview-menu">
 				<li class="{{ Request::is('biodigestors*') ? 'active' : '' }}"><a href="{!! route('biodigestors.index') !!}"><i class="fa fa-building"></i>Biodigestores</a></li>
 				<li class="{{ Request::is('desechos*') ? 'active' : '' }}"><a href="{!! route('desechos.index') !!}"><i class="fa fa-warning"></i>Desechos</a></li>
+				<li class="{{ Request::is('tipodesechos*') ? 'active' : '' }}"><a href="{!! route('tipodesechos.index') !!}"><i class="fa fa-warning"></i>Tipo Desechos</a></li>
 			</ul>
         </li>
 
@@ -222,3 +223,4 @@
 <li class="{{ Request::is('areaInfluenciaHasTradicions*') ? 'active' : '' }}">
     <a href="{!! route('areaInfluenciaHasTradicions.index') !!}"><i class="fa fa-edit"></i><span>Area Influencia Has Tradicions</span></a>
 </li>--}}
+

@@ -8,9 +8,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class Desecho
  * @package App\Models
- * @version March 7, 2018, 1:32 am UTC
+ * @version March 11, 2018, 11:10 pm UTC
  *
  * @property \App\Models\Biodigestor biodigestor
+ * @property \App\Models\Tipodesecho tipodesecho
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasLenguaje
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasPeligros
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasReligion
@@ -19,21 +20,19 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasTopologia
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasTradicion
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasUsotierra
- * @property \Illuminate\Database\Eloquent\Collection planriesgosHasGrupoalimentosproductos
+ * @property \Illuminate\Database\Eloquent\Collection desechot
+ * @property \Illuminate\Database\Eloquent\Collection origeningresos
  * @property \Illuminate\Database\Eloquent\Collection planriesgosHasOrigeningresos
  * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipoagricultura
- * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipoalimentos
- * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipoalimentosconsumo
  * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipoanimales
  * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipocultivos
- * @property \Illuminate\Database\Eloquent\Collection tallerHasTipodesecho
- * @property \Illuminate\Database\Eloquent\Collection tallerHasTiporiesgos
  * @property \Illuminate\Database\Eloquent\Collection unidadproduccion
  * @property \Illuminate\Database\Eloquent\Collection unidadproduccionHasPropietario
  * @property \Illuminate\Database\Eloquent\Collection usosvegetacionHasAreainfluenciaHasTipovegetal
  * @property date fecha
  * @property decimal peso
  * @property integer Biodigestor_id
+ * @property integer TipoDesecho_id
  */
 class Desecho extends Model
 {
@@ -51,7 +50,8 @@ class Desecho extends Model
     public $fillable = [
         'fecha',
         'peso',
-        'Biodigestor_id'
+        'Biodigestor_id',
+        'TipoDesecho_id'
     ];
 
     /**
@@ -62,7 +62,8 @@ class Desecho extends Model
     protected $casts = [
         'id' => 'integer',
         'fecha' => 'date',
-        'Biodigestor_id' => 'integer'
+        'Biodigestor_id' => 'integer',
+        'TipoDesecho_id' => 'integer'
     ];
 
     /**
@@ -79,15 +80,14 @@ class Desecho extends Model
      **/
     public function biodigestor()
     {
-        return $this->belongsTo(\App\Models\Biodigestor::class, 'Biodigestor_id');
+        return $this->belongsTo(\App\Models\Biodigestor::class,'Biodigestor_id');
     }
 
-    public function scopeName($query,$name)
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     **/
+    public function tipodesecho()
     {
-        
-
-        $query->where('ubicacion',$name);
-
-
+        return $this->belongsTo(\App\Models\Tipodesecho::class,'TipoDesecho_id');
     }
 }

@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Tipos de Desecho
+            Tipo de Desecho
         </h1>
     </section>
     <div class="content">

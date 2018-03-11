@@ -280,7 +280,7 @@ Route::resource('calidadSuelos', 'CalidadSueloController');
 
 Route::resource('biodigestors', 'BiodigestorController');
 
-Route::resource('desechos', 'DesechoController');
+
 
 
 
@@ -335,3 +335,7 @@ Route::resource('ciudads', 'CiudadController');
 Route::resource('pais', 'PaisController');
 
 Route::resource('tipoAbonos', 'TipoAbonoController');
+
+Route::resource('desechos', 'DesechoController');
+
+Route::resource('tipodesechos', 'TipodesechoController');

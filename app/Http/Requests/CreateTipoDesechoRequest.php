@@ -3,9 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\TipoDesecho;
+use App\Models\Tipodesecho;
 
-class CreateTipoDesechoRequest extends FormRequest
+class CreateTipodesechoRequest extends FormRequest
 {
 
     /**
@@ -25,6 +25,6 @@ class CreateTipoDesechoRequest extends FormRequest
      */
     public function rules()
     {
-        return TipoDesecho::$rules;
+        return Tipodesecho::$rules;
     }
 }

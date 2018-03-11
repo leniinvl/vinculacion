@@ -11,9 +11,9 @@
        <div class="box box-primary">
            <div class="box-body">
                <div class="row">
-                   {!! Form::model($tipoDesecho, ['route' => ['tipoDesechos.update', $tipoDesecho->id], 'method' => 'patch']) !!}
+                   {!! Form::model($tipodesecho, ['route' => ['tipodesechos.update', $tipodesecho->id], 'method' => 'patch']) !!}
 
-                        @include('tipo_desechos.fields')
+                        @include('tipodesechos.fields')
 
                    {!! Form::close() !!}
                </div>

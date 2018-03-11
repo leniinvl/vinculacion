@@ -1,15 +1,11 @@
-
-{!! Form::open(['route' => 'desechos.index', 'method' => 'GET', 'role' => 'search']) !!}
-    {!! Form::text('biodigestor',null,['class' => 'form-contorl', 'placeholder' => 'Nombre Biodigestor']) !!}
-    <button type="submit" class="btn btn-default">Buscar</button>
-
 <table class="table table-responsive" id="desechos-table">
     <thead>
         <tr>
             <th>Fecha</th>
-        <th>Peso (kg)</th>
+        <th>Peso</th>
         <th>Biodigestor</th>
-            <th colspan="3">Acciones</th>
+        <th>Tipo de Desecho</th>
+            <th colspan="3">Action</th>
         </tr>
     </thead>
     <tbody>
@@ -18,6 +14,7 @@
             <td>{!! $desecho->fecha !!}</td>
             <td>{!! $desecho->peso !!}</td>
             <td>{!! $desecho->biodigestor->ubicacion !!}</td>
+            <td>{!! $desecho->tipodesecho->nombre !!}</td>
             <td>
                 {!! Form::open(['route' => ['desechos.destroy', $desecho->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
