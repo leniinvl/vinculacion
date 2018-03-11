@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreateCiudadRequest;
 use App\Http\Requests\UpdateCiudadRequest;
+use App\Models\Pais;
 use App\Repositories\CiudadRepository;
-use App\Http\Controllers\AppBaseController;
-use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
@@ -43,7 +44,8 @@ class CiudadController extends AppBaseController
      */
     public function create()
     {
-        return view('ciudads.create');
+        $paises = Pais::all()->pluck('nombre', 'id');
+        return view('ciudads.create', ['paises' => $paises]);
     }
 
     /**
@@ -93,6 +95,7 @@ class CiudadController extends AppBaseController
      */
     public function edit($id)
     {
+        $paises = Pais::all()->pluck('nombre', 'id');
         $ciudad = $this->ciudadRepository->findWithoutFail($id);
 
         if (empty($ciudad)) {
@@ -101,7 +104,7 @@ class CiudadController extends AppBaseController
             return redirect(route('ciudads.index'));
         }
 
-        return view('ciudads.edit')->with('ciudad', $ciudad);
+        return view('ciudads.edit')->with('ciudad', $ciudad)->with('paises', $paises);
     }
 
     /**
