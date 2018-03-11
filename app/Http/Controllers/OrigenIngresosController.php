@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Models\Propietario;
+use App\Models\unidadproduccion;
 
 class OrigenIngresosController extends AppBaseController
 {
@@ -43,7 +45,12 @@ class OrigenIngresosController extends AppBaseController
      */
     public function create()
     {
-        return view('origen_ingresos.create');
+      $propietario = Propietario::all()->pluck('nombre', 'id');
+      $unidadproduccion = unidadproduccion::all()->pluck('nombre', 'id');
+      return view('origen_ingresos.create', [
+        'propietario' => $propietario,
+        'unidadproduccion' => $unidadproduccion,
+      ]);
     }
 
     /**
@@ -94,6 +101,8 @@ class OrigenIngresosController extends AppBaseController
     public function edit($id)
     {
         $origenIngresos = $this->origenIngresosRepository->findWithoutFail($id);
+        $propietario = Propietario::all()->pluck('nombre', 'id');
+        $unidadproduccion = unidadproduccion::all()->pluck('nombre', 'id');
 
         if (empty($origenIngresos)) {
             Flash::error('Origen Ingresos not found');
@@ -101,7 +110,9 @@ class OrigenIngresosController extends AppBaseController
             return redirect(route('origenIngresos.index'));
         }
 
-        return view('origen_ingresos.edit')->with('origenIngresos', $origenIngresos);
+        return view('origen_ingresos.edit')->with('origenIngresos', $origenIngresos)
+        ->with('propietario', $propietario)
+        ->with('unidadproduccion', $unidadproduccion);
     }
 
     /**

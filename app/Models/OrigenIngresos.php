@@ -38,7 +38,7 @@ class OrigenIngresos extends Model
     use SoftDeletes;
 
     public $table = 'origeningresos';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -68,7 +68,7 @@ class OrigenIngresos extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**
@@ -76,7 +76,7 @@ class OrigenIngresos extends Model
      **/
     public function propietario()
     {
-        return $this->belongsTo(\App\Models\Propietario::class);
+        return $this->belongsTo(\App\Models\Propietario::class,'Propietario_id');
     }
 
     /**
@@ -84,7 +84,7 @@ class OrigenIngresos extends Model
      **/
     public function unidadproduccion()
     {
-        return $this->belongsTo(\App\Models\Unidadproduccion::class);
+        return $this->belongsTo(\App\Models\Unidadproduccion::class,'UnidadProduccion_id');
     }
 
     /**

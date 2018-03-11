@@ -1,13 +1,13 @@
 <!-- Propietario Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('Propietario_id', 'Propietario Id:') !!}
-    {!! Form::number('Propietario_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('Propietario_id',$propietario, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Unidadproduccion Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('UnidadProduccion_id', 'Unidadproduccion Id:') !!}
-    {!! Form::number('UnidadProduccion_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('UnidadProduccion_id',$unidadproduccion, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->
