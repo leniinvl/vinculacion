@@ -36,7 +36,7 @@ class TipoUnidad extends Model
     use SoftDeletes;
 
     public $table = 'tipounidad';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -64,7 +64,7 @@ class TipoUnidad extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**
