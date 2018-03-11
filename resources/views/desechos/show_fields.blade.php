@@ -18,25 +18,31 @@
 
 <!-- Created At Field -->
 <div class="form-group">
-    {!! Form::label('created_at', 'Created At:') !!}
+    {!! Form::label('created_at', 'Creado el:') !!}
     <p>{!! $desecho->created_at !!}</p>
 </div>
 
 <!-- Updated At Field -->
 <div class="form-group">
-    {!! Form::label('updated_at', 'Updated At:') !!}
+    {!! Form::label('updated_at', 'Actualizado el:') !!}
     <p>{!! $desecho->updated_at !!}</p>
 </div>
 
 <!-- Deleted At Field -->
 <div class="form-group">
-    {!! Form::label('deleted_at', 'Deleted At:') !!}
+    {!! Form::label('deleted_at', 'Eliminado el:') !!}
     <p>{!! $desecho->deleted_at !!}</p>
 </div>
 
 <!-- Biodigestor Id Field -->
 <div class="form-group">
-    {!! Form::label('Biodigestor_id', 'Biodigestor Id:') !!}
+    {!! Form::label('Biodigestor_id', 'Biodigestor:') !!}
     <p>{!! $desecho->biodigestor->ubicacion !!}</p>
+</div>
+
+<!-- Tipodesecho Id Field -->
+<div class="form-group">
+    {!! Form::label('TipoDesecho_id', 'Tipodesecho:') !!}
+    <p>{!! $desecho->tipodesecho->nombre !!}</p>
 </div>
 

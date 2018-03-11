@@ -2,70 +2,70 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateTipodesechoRequest;
+use App\Http\Requests\UpdateTipodesechoRequest;
+use App\Repositories\TipodesechoRepository;
 use App\Http\Controllers\AppBaseController;
-use App\Http\Requests\CreateTipoDesechoRequest;
-use App\Http\Requests\UpdateTipoDesechoRequest;
-use App\Repositories\TipoDesechoRepository;
-use Flash;
 use Illuminate\Http\Request;
+use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
-class TipoDesechoController extends AppBaseController
+class TipodesechoController extends AppBaseController
 {
-    /** @var  TipoDesechoRepository */
-    private $tipoDesechoRepository;
+    /** @var  TipodesechoRepository */
+    private $tipodesechoRepository;
 
-    public function __construct(TipoDesechoRepository $tipoDesechoRepo)
+    public function __construct(TipodesechoRepository $tipodesechoRepo)
     {
-        $this->tipoDesechoRepository = $tipoDesechoRepo;
+        $this->tipodesechoRepository = $tipodesechoRepo;
     }
 
     /**
-     * Display a listing of the TipoDesecho.
+     * Display a listing of the Tipodesecho.
      *
      * @param Request $request
      * @return Response
      */
     public function index(Request $request)
     {
-        $this->tipoDesechoRepository->pushCriteria(new RequestCriteria($request));
-        $tipoDesechos = $this->tipoDesechoRepository->all();
+        $this->tipodesechoRepository->pushCriteria(new RequestCriteria($request));
+        $tipodesechos = $this->tipodesechoRepository->all();
 
-        return view('tipo_desechos.index')
-            ->with('tipoDesechos', $tipoDesechos);
+        return view('tipodesechos.index')
+            ->with('tipodesechos', $tipodesechos);
     }
 
     /**
-     * Show the form for creating a new TipoDesecho.
+     * Show the form for creating a new Tipodesecho.
      *
      * @return Response
      */
     public function create()
     {
-        return view('tipo_desechos.create');
+        return view('tipodesechos.create');
     }
 
     /**
-     * Store a newly created TipoDesecho in storage.
+     * Store a newly created Tipodesecho in storage.
      *
-     * @param CreateTipoDesechoRequest $request
+     * @param CreateTipodesechoRequest $request
      *
      * @return Response
      */
-    public function store(CreateTipoDesechoRequest $request)
+    public function store(CreateTipodesechoRequest $request)
     {
         $input = $request->all();
 
-        $tipoDesecho = $this->tipoDesechoRepository->create($input);
+        $tipodesecho = $this->tipodesechoRepository->create($input);
 
-        Flash::success('Tipo Desecho saved successfully.');
+        Flash::success('Tipodesecho saved successfully.');
 
-        return redirect(route('tipoDesechos.index'));
+        return redirect(route('tipodesechos.index'));
     }
 
     /**
-     * Display the specified TipoDesecho.
+     * Display the specified Tipodesecho.
      *
      * @param  int $id
      *
@@ -73,19 +73,19 @@ class TipoDesechoController extends AppBaseController
      */
     public function show($id)
     {
-        $tipoDesecho = $this->tipoDesechoRepository->findWithoutFail($id);
+        $tipodesecho = $this->tipodesechoRepository->findWithoutFail($id);
 
-        if (empty($tipoDesecho)) {
-            Flash::error('Tipo Desecho not found');
+        if (empty($tipodesecho)) {
+            Flash::error('Tipodesecho not found');
 
-            return redirect(route('tipoDesechos.index'));
+            return redirect(route('tipodesechos.index'));
         }
 
-        return view('tipo_desechos.show')->with('tipoDesecho', $tipoDesecho);
+        return view('tipodesechos.show')->with('tipodesecho', $tipodesecho);
     }
 
     /**
-     * Show the form for editing the specified TipoDesecho.
+     * Show the form for editing the specified Tipodesecho.
      *
      * @param  int $id
      *
@@ -93,44 +93,44 @@ class TipoDesechoController extends AppBaseController
      */
     public function edit($id)
     {
-        $tipoDesecho = $this->tipoDesechoRepository->findWithoutFail($id);
+        $tipodesecho = $this->tipodesechoRepository->findWithoutFail($id);
 
-        if (empty($tipoDesecho)) {
-            Flash::error('Tipo Desecho not found');
+        if (empty($tipodesecho)) {
+            Flash::error('Tipodesecho not found');
 
-            return redirect(route('tipoDesechos.index'));
+            return redirect(route('tipodesechos.index'));
         }
 
-        return view('tipo_desechos.edit')->with('tipoDesecho', $tipoDesecho);
+        return view('tipodesechos.edit')->with('tipodesecho', $tipodesecho);
     }
 
     /**
-     * Update the specified TipoDesecho in storage.
+     * Update the specified Tipodesecho in storage.
      *
      * @param  int              $id
-     * @param UpdateTipoDesechoRequest $request
+     * @param UpdateTipodesechoRequest $request
      *
      * @return Response
      */
-    public function update($id, UpdateTipoDesechoRequest $request)
+    public function update($id, UpdateTipodesechoRequest $request)
     {
-        $tipoDesecho = $this->tipoDesechoRepository->findWithoutFail($id);
+        $tipodesecho = $this->tipodesechoRepository->findWithoutFail($id);
 
-        if (empty($tipoDesecho)) {
-            Flash::error('Tipo Desecho not found');
+        if (empty($tipodesecho)) {
+            Flash::error('Tipodesecho not found');
 
-            return redirect(route('tipoDesechos.index'));
+            return redirect(route('tipodesechos.index'));
         }
 
-        $tipoDesecho = $this->tipoDesechoRepository->update($request->all(), $id);
+        $tipodesecho = $this->tipodesechoRepository->update($request->all(), $id);
 
-        Flash::success('Tipo Desecho updated successfully.');
+        Flash::success('Tipodesecho updated successfully.');
 
-        return redirect(route('tipoDesechos.index'));
+        return redirect(route('tipodesechos.index'));
     }
 
     /**
-     * Remove the specified TipoDesecho from storage.
+     * Remove the specified Tipodesecho from storage.
      *
      * @param  int $id
      *
@@ -138,18 +138,18 @@ class TipoDesechoController extends AppBaseController
      */
     public function destroy($id)
     {
-        $tipoDesecho = $this->tipoDesechoRepository->findWithoutFail($id);
+        $tipodesecho = $this->tipodesechoRepository->findWithoutFail($id);
 
-        if (empty($tipoDesecho)) {
-            Flash::error('Tipo Desecho not found');
+        if (empty($tipodesecho)) {
+            Flash::error('Tipodesecho not found');
 
-            return redirect(route('tipoDesechos.index'));
+            return redirect(route('tipodesechos.index'));
         }
 
-        $this->tipoDesechoRepository->delete($id);
+        $this->tipodesechoRepository->delete($id);
 
-        Flash::success('Tipo Desecho deleted successfully.');
+        Flash::success('Tipodesecho deleted successfully.');
 
-        return redirect(route('tipoDesechos.index'));
+        return redirect(route('tipodesechos.index'));
     }
 }

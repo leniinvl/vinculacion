@@ -8,7 +8,7 @@ use InfyOm\Generator\Common\BaseRepository;
 /**
  * Class DesechoRepository
  * @package App\Repositories
- * @version March 7, 2018, 1:32 am UTC
+ * @version March 11, 2018, 11:10 pm UTC
  *
  * @method Desecho findWithoutFail($id, $columns = ['*'])
  * @method Desecho find($id, $columns = ['*'])
@@ -22,7 +22,8 @@ class DesechoRepository extends BaseRepository
     protected $fieldSearchable = [
         'fecha',
         'peso',
-        'Biodigestor_id'
+        'Biodigestor_id',
+        'TipoDesecho_id'
     ];
 
     /**
