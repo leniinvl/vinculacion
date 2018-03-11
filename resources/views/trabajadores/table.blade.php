@@ -21,8 +21,8 @@
             <td>{!! $trabajadores->apellido !!}</td>
             <td>{!! $trabajadores->genero !!}</td>
             <td>{!! $trabajadores->fechaDeNacimiento !!}</td>
-            <td>{!! $trabajadores->Pais_id !!}</td>
-            <td>{!! $trabajadores->Ciudad_id !!}</td>
+            <td>{!! $trabajadores->pais->nombre !!}</td>
+            <td>{!! $trabajadores->ciudad->nombre !!}</td>
             <td>{!! $trabajadores->instruccionFormal !!}</td>
             <td>{!! $trabajadores->horasTrabajo !!}</td>
             <td>{!! $trabajadores->salario !!}</td>

@@ -25,13 +25,13 @@
 <!-- Pais Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('Pais_id', 'Pais Id:') !!}
-    {!! Form::number('Pais_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('Pais_id', $paises, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Ciudad Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('Ciudad_id', 'Ciudad Id:') !!}
-    {!! Form::number('Ciudad_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('Ciudad_id', $ciudades, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Instruccionformal Field -->
@@ -56,6 +56,7 @@
 <div class="form-group col-sm-6">
     {!! Form::label('PlanDeGestionDeRiesgos_id', 'Plandegestionderiesgos Id:') !!}
     {!! Form::number('PlanDeGestionDeRiesgos_id', null, ['class' => 'form-control']) !!}
+    <!-- {!! Form::number('PlanDeGestionDeRiesgos_id', null, ['class' => 'form-control']) !!}-->
 </div>
 
 <!-- Submit Field -->
