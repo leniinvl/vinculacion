@@ -10,6 +10,10 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Models\tipoproduccion;
+use App\Models\tipounidad;
+use App\Models\destino;
+use App\Models\precuaria;
 
 class TipoAnimalesController extends AppBaseController
 {
@@ -43,7 +47,17 @@ class TipoAnimalesController extends AppBaseController
      */
     public function create()
     {
-        return view('tipo_animales.create');
+        $tipoproduccion=tipoproduccion::all()->pluck('nombre','id');
+          $tipounidad=tipounidad::all()->pluck('nombre','id');
+          $destino=destino::all()->pluck('nombre','id');
+          $precuaria=precuaria::all()->pluck('nombre','id');
+        return view('tipo_animales.create',['tipoproduccion'=>$tipoproduccion,'tipounidad'=>$tipounidad,
+      'destino'=>$destino,'precuaria'=>$precuaria]);
+
+
+
+
+
     }
 
     /**
@@ -93,6 +107,13 @@ class TipoAnimalesController extends AppBaseController
      */
     public function edit($id)
     {
+        $tipoproduccion=tipoproduccion::all()->pluck('nombre','id');
+        $tipounidad=tipounidad::all()->pluck('nombre','id');
+        $destino=destino::all()->pluck('nombre','id');
+        $precuaria=precuaria::all()->pluck('nombre','id');
+
+
+
         $tipoAnimales = $this->tipoAnimalesRepository->findWithoutFail($id);
 
         if (empty($tipoAnimales)) {
@@ -101,7 +122,9 @@ class TipoAnimalesController extends AppBaseController
             return redirect(route('tipoAnimales.index'));
         }
 
-        return view('tipo_animales.edit')->with('tipoAnimales', $tipoAnimales);
+        return view('tipo_animales.edit')->with('tipoAnimales', $tipoAnimales)->with('tipoproduccion',$tipoproduccion)
+        ->with('tipounidad',$tipounidad)->with('destino',$destino)->with('precuaria',$precuaria);
+
     }
 
     /**

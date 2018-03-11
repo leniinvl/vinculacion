@@ -2,10 +2,10 @@
     <thead>
         <tr>
             <th>Nombre</th>
-        <th>Tipoproduccion Id</th>
-        <th>Tipounidad Id</th>
-        <th>Destino Id</th>
-        <th>Precuaria Id</th>
+        <th>Tipoproduccion</th>
+        <th>Tipounidad</th>
+        <th>Destino</th>
+        <th>Precuaria</th>
             <th colspan="3">Action</th>
         </tr>
     </thead>
@@ -13,10 +13,12 @@
     @foreach($tipoAnimales as $tipoAnimales)
         <tr>
             <td>{!! $tipoAnimales->nombre !!}</td>
-            <td>{!! $tipoAnimales->TipoProduccion_id !!}</td>
-            <td>{!! $tipoAnimales->TipoUnidad_id !!}</td>
-            <td>{!! $tipoAnimales->Destino_id !!}</td>
-            <td>{!! $tipoAnimales->Precuaria_id !!}</td>
+            <td>{!! $tipoAnimales->TipoProduccion->nombre !!}</td>
+              <td>{!! $tipoAnimales->tipounidad ->nombre !!}</td>
+            <td>{!! $tipoAnimales->destino->nombre !!}</td>
+            <td>{!! $tipoAnimales->precuaria->nombre !!}</td>
+
+
             <td>
                 {!! Form::open(['route' => ['tipoAnimales.destroy', $tipoAnimales->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>

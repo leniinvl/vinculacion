@@ -6,27 +6,28 @@
 
 <!-- Tipoproduccion Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('TipoProduccion_id', 'Tipoproduccion Id:') !!}
-    {!! Form::number('TipoProduccion_id', null, ['class' => 'form-control']) !!}
+    {!! Form::label('TipoProduccion_id', 'Tipoproduccion:') !!}
+    {!! Form::select('TipoProduccion_id',$tipoproduccion, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Tipounidad Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('TipoUnidad_id', 'Tipounidad Id:') !!}
-    {!! Form::number('TipoUnidad_id', null, ['class' => 'form-control']) !!}
+    {!! Form::label('TipoUnidad_id', 'Tipounidad:') !!}
+    {!! Form::select('TipoUnidad_id',$tipounidad, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Destino Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('Destino_id', 'Destino Id:') !!}
-    {!! Form::number('Destino_id', null, ['class' => 'form-control']) !!}
+    {!! Form::label('Destino_id', 'Destino:') !!}
+    {!! Form::select('Destino_id',$destino, null, ['class' => 'form-control']) !!}
+  </div>
 </div>
 
 <!-- Precuaria Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('Precuaria_id', 'Precuaria Id:') !!}
-    {!! Form::number('Precuaria_id', null, ['class' => 'form-control']) !!}
-</div>
+    {!! Form::label('Precuaria_id', 'Precuaria:') !!}
+      {!! Form::select('Precuaria_id',$precuaria, null, ['class' => 'form-control']) !!}
+  </div>
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">

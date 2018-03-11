@@ -44,7 +44,7 @@ class TipoAnimales extends Model
     use SoftDeletes;
 
     public $table = 'tipoanimales';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -80,7 +80,7 @@ class TipoAnimales extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**
@@ -88,15 +88,15 @@ class TipoAnimales extends Model
      **/
     public function destino()
     {
-        return $this->belongsTo(\App\Models\Destino::class);
+          return $this->belongsTo(\App\Models\destino::class,'Destino_id');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function precuarium()
+    public function precuaria()
     {
-        return $this->belongsTo(\App\Models\Precuarium::class);
+        return $this->belongsTo(\App\Models\precuaria::class,'Precuaria_id');
     }
 
     /**
@@ -104,7 +104,7 @@ class TipoAnimales extends Model
      **/
     public function tipoproduccion()
     {
-        return $this->belongsTo(\App\Models\Tipoproduccion::class);
+        return $this->belongsTo(\App\Models\Tipoproduccion::class,'TipoProduccion_id');
     }
 
     /**
@@ -112,7 +112,7 @@ class TipoAnimales extends Model
      **/
     public function tipounidad()
     {
-        return $this->belongsTo(\App\Models\Tipounidad::class);
+        return $this->belongsTo(\App\Models\tipounidad::class,'TipoUnidad_id');
     }
 
     /**
