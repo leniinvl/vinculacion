@@ -11,7 +11,7 @@
         <th>Horastrabajo</th>
         <th>Salario</th>
         <th>Plandegestionderiesgos Id</th>
-            <th colspan="3">Action</th>
+            <th colspan="3">Acciones</th>
         </tr>
     </thead>
     <tbody>
