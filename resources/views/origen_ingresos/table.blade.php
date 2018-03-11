@@ -1,16 +1,16 @@
 <table class="table table-responsive" id="origenIngresos-table">
     <thead>
         <tr>
-            <th>Propietario Id</th>
-        <th>Unidadproduccion Id</th>
+            <th>Propietario</th>
+            <th>Unidad produccion</th>
             <th colspan="3">Action</th>
         </tr>
     </thead>
     <tbody>
     @foreach($origenIngresos as $origenIngresos)
         <tr>
-            <td>{!! $origenIngresos->Propietario_id !!}</td>
-            <td>{!! $origenIngresos->UnidadProduccion_id !!}</td>
+            <td>{!! $origenIngresos->Propietario->nombre !!}</td>
+            <td>{!! $origenIngresos->unidadproduccion->nombre !!}</td>
             <td>
                 {!! Form::open(['route' => ['origenIngresos.destroy', $origenIngresos->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
