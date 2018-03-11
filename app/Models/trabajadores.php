@@ -99,10 +99,10 @@ class Trabajadores extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function ciudad()
+    /*public function ciudad()
     {
         return $this->belongsTo(\App\Models\Ciudad::class);
-    }
+    }*/
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -119,4 +119,17 @@ class Trabajadores extends Model
     {
         return $this->belongsTo(\App\Models\Plandegestionderiesgo::class);
     }
+    
+    public function pais()
+    {
+        return $this->belongsTo(\App\Models\Pais::class,'Pais_id');
+    }
+    public function ciudad()
+    {
+        return $this->belongsTo(\App\Models\Ciudad::class,'Ciudad_id');
+    }
+    /*public function planDeGestionDeRiesgos()
+    {
+        return $this->belongsTo(\App\Models\Plandegestionderiesgo::class,'PlanDeGestionDeRiesgos_id');
+    }*/
 }
