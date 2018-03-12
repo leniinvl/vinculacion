@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-03-2018 a las 01:59:37
+-- Tiempo de generación: 12-03-2018 a las 02:14:51
 -- Versión del servidor: 5.7.14
 -- Versión de PHP: 7.0.10
 
@@ -481,9 +481,7 @@ CREATE TABLE `genero` (
 
 INSERT INTO `genero` (`id`, `nombre`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (1, 'Femenino', '2018-03-12 01:59:07', '2018-03-12 01:59:07', NULL),
-(2, 'Masculino', '2018-03-12 01:59:07', '2018-03-12 01:59:07', NULL),
-(3, 'Femenino', '2018-03-12 01:59:13', '2018-03-12 01:59:13', NULL),
-(4, 'Masculino', '2018-03-12 01:59:13', '2018-03-12 01:59:13', NULL);
+(2, 'Masculino', '2018-03-12 01:59:07', '2018-03-12 01:59:07', NULL);
 
 -- --------------------------------------------------------
 
@@ -1219,6 +1217,13 @@ CREATE TABLE `users` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Jessica Roman', 'jessicaromanlargo@gmail.com', '$2y$10$a/6dBMq3HgTAXvIAxLcIJuIIrZEY.E1yge4pwI0C2hLL/s8yl2YhG', NULL, '2018-03-12 07:00:43', '2018-03-12 07:00:43');
 
 -- --------------------------------------------------------
 
@@ -2170,7 +2175,7 @@ ALTER TABLE `unidadproduccion`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `usosvegetacion`
 --

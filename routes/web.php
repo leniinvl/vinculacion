@@ -349,3 +349,5 @@ Route::resource('plandeGestiondeRiesgos', 'PlandeGestiondeRiesgosController');
 Route::resource('agriculturas', 'AgriculturaController');
 
 Route::resource('agriculturas', 'AgriculturaController');
+
+Route::resource('generos', 'GeneroController');
