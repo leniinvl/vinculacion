@@ -102,11 +102,13 @@
 				<li class="{{ Request::is('tipoAgriculturas*') ? 'active' : '' }}"><a href="{!! route('tipoAgriculturas.index') !!}"><i class="fa fa-anchor"></i>Agricultura</a></li>
 				<li class="{{ Request::is('precuarias*') ? 'active' : '' }}"><a href="{!! route('precuarias.index') !!}"><i class="fa fa-shopping-basket"></i><span>Precuarias</span></a></li>
 				<li class="{{ Request::is('destinos*') ? 'active' : '' }}"><a href="{!! route('destinos.index') !!}"><i class="fa fa-plane"></i><span>Destinos</span></a></li>
-				<li class="{{ Request::is('tipoUnidads*') ? 'active' : '' }}"><a href="{!! route('tipoUnidads.index') !!}"><i class="fa fa-info"></i><span>Tipo Unidades</span></a></li>
-				<li class="{{ Request::is('tipoProduccions*') ? 'active' : '' }}"><a href="{!! route('tipoProduccions.index') !!}"><i class="fa fa-edit"></i><span>Tipo Produccions</span></a></li><li class="{{ Request::is('amenazas*') ? 'active' : '' }}"><a href="{!! route('amenazas.index') !!}"><i class="fa fa-edit"></i><span>Amenazas</span></a></li>
+				<li class="{{ Request::is('tipoUnidads*') ? 'active' : '' }}"><a href="{!! route('tipoUnidads.index') !!}"><i class="fa fa-info"></i><span>Unidades</span></a></li>
+				<li class="{{ Request::is('tipoProduccions*') ? 'active' : '' }}"><a href="{!! route('tipoProduccions.index') !!}"><i class="fa fa-industry"></i><span>Producción</span></a></li>
+        <li class="{{ Request::is('amenazas*') ? 'active' : '' }}"><a href="{!! route('amenazas.index') !!}"><i class="fa fa-edit"></i><span>Amenazas</span></a></li>
+
 				<li class="{{ Request::is('vulnerabilidades*') ? 'active' : '' }}"><a href="{!! route('vulnerabilidades.index') !!}"><i class="fa fa-edit"></i><span>Vulnerabilidades</span></a></li>
-				<li class="{{ Request::is('ciudads*') ? 'active' : '' }}"><a href="{!! route('ciudads.index') !!}"><i class="fa fa-edit"></i><span>Ciudads</span></a></li>
-				<li class="{{ Request::is('pais*') ? 'active' : '' }}"><a href="{!! route('pais.index') !!}"><i class="fa fa-edit"></i><span>Pais</span></a></li>
+				<li class="{{ Request::is('ciudads*') ? 'active' : '' }}"><a href="{!! route('ciudads.index') !!}"><i class="fa fa-bank"></i><span>Ciudades</span></a></li>
+				<li class="{{ Request::is('pais*') ? 'active' : '' }}"><a href="{!! route('pais.index') !!}"><i class="fa fa-road"></i><span>País</span></a></li>
 			</ul>
         </li>
 
@@ -223,8 +225,4 @@
 <li class="{{ Request::is('areaInfluenciaHasTradicions*') ? 'active' : '' }}">
     <a href="{!! route('areaInfluenciaHasTradicions.index') !!}"><i class="fa fa-edit"></i><span>Area Influencia Has Tradicions</span></a>
 </li>--}}
-
-<li class="{{ Request::is('trabajadores*') ? 'active' : '' }}">
-    <a href="{!! route('trabajadores.index') !!}"><i class="fa fa-edit"></i><span>Trabajadores</span></a>
-</li>
 
