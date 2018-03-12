@@ -341,3 +341,11 @@ Route::resource('desechos', 'DesechoController');
 Route::resource('tipodesechos', 'TipodesechoController');
 
 Route::resource('trabajadores', 'TrabajadoresController');
+
+Route::resource('agriculturas', 'AgriculturaController');
+
+Route::resource('plandeGestiondeRiesgos', 'PlandeGestiondeRiesgosController');
+
+Route::resource('agriculturas', 'AgriculturaController');
+
+Route::resource('agriculturas', 'AgriculturaController');

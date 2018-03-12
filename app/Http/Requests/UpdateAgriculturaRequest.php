@@ -3,9 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\TipoAgricultura;
+use App\Models\Agricultura;
 
-class UpdateTipoAgriculturaRequest extends FormRequest
+class UpdateAgriculturaRequest extends FormRequest
 {
 
     /**
@@ -25,6 +25,6 @@ class UpdateTipoAgriculturaRequest extends FormRequest
      */
     public function rules()
     {
-        return TipoAgricultura::$rules;
+        return Agricultura::$rules;
     }
 }
