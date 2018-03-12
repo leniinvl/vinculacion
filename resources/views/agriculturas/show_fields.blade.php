@@ -24,13 +24,12 @@
 
 <!-- Usotierra Id Field -->
 <div class="form-group">
-    {!! Form::label('UsoTierra_id', 'Usotierra Id:') !!}
-    <p>{!! $agricultura->UsoTierra_id !!}</p>
+    {!! Form::label('UsoTierra_id', 'Usotierra:') !!}
+    <p>{!! $agricultura->UsoTierra->nombre !!}</p>
 </div>
 
 <!-- Unidadproduccion Id Field -->
 <div class="form-group">
-    {!! Form::label('UnidadProduccion_id', 'Unidadproduccion Id:') !!}
-    <p>{!! $agricultura->UnidadProduccion_id !!}</p>
+    {!! Form::label('UnidadProduccion_id', 'Unidadproduccion:') !!}
+    <p>{!! $agricultura->unidadproduccion->nombre!!}</p>
 </div>
-

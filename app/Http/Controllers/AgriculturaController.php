@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use\App\Models\UsoTierra;
+use\App\Models\unidadproduccion;
 
 class AgriculturaController extends AppBaseController
 {
@@ -43,7 +45,9 @@ class AgriculturaController extends AppBaseController
      */
     public function create()
     {
-        return view('agriculturas.create');
+      $UsoTierra=UsoTierra::all()->pluck('nombre','id');
+        $unidadproduccion=unidadproduccion::all()->pluck('nombre','id');
+        return view('agriculturas.create',['UsoTierra'=>$UsoTierra,'unidadproduccion'=>$unidadproduccion]);
     }
 
     /**
@@ -93,6 +97,8 @@ class AgriculturaController extends AppBaseController
      */
     public function edit($id)
     {
+      $UsoTierra=UsoTierra::all()->pluck('nombre','id');
+        $unidadproduccion=unidadproduccion::all()->pluck('nombre','id');
         $agricultura = $this->agriculturaRepository->findWithoutFail($id);
 
         if (empty($agricultura)) {
@@ -101,7 +107,7 @@ class AgriculturaController extends AppBaseController
             return redirect(route('agriculturas.index'));
         }
 
-        return view('agriculturas.edit')->with('agricultura', $agricultura);
+        return view('agriculturas.edit')->with('agricultura', $agricultura)->with('UsoTierra',$UsoTierra)->with('unidadproduccion',$unidadproduccion);
     }
 
     /**

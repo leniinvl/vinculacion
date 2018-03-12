@@ -39,7 +39,7 @@ class Agricultura extends Model
     use SoftDeletes;
 
     public $table = 'agricultura';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -69,7 +69,7 @@ class Agricultura extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**
@@ -77,7 +77,7 @@ class Agricultura extends Model
      **/
     public function unidadproduccion()
     {
-        return $this->belongsTo(\App\Models\Unidadproduccion::class);
+        return $this->belongsTo(\App\Models\Unidadproduccion::class,'UnidadProduccion_id');
     }
 
     /**
@@ -85,7 +85,7 @@ class Agricultura extends Model
      **/
     public function usotierra()
     {
-        return $this->belongsTo(\App\Models\Usotierra::class);
+        return $this->belongsTo(\App\Models\Usotierra::class,'UsoTierra_id');
     }
 
     /**

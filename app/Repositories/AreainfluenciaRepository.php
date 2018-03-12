@@ -2,19 +2,19 @@
 
 namespace App\Repositories;
 
-use App\Models\Areainfluencia;
+use App\Models\AreaInfluencia;
 use InfyOm\Generator\Common\BaseRepository;
 
 /**
- * Class AreainfluenciaRepository
+ * Class AreaInfluenciaRepository
  * @package App\Repositories
- * @version January 25, 2018, 12:24 am UTC
+ * @version January 19, 2018, 7:27 pm UTC
  *
- * @method Areainfluencia findWithoutFail($id, $columns = ['*'])
- * @method Areainfluencia find($id, $columns = ['*'])
- * @method Areainfluencia first($columns = ['*'])
+ * @method AreaInfluencia findWithoutFail($id, $columns = ['*'])
+ * @method AreaInfluencia find($id, $columns = ['*'])
+ * @method AreaInfluencia first($columns = ['*'])
 */
-class AreainfluenciaRepository extends BaseRepository
+class AreaInfluenciaRepository extends BaseRepository
 {
     /**
      * @var array
@@ -54,6 +54,6 @@ class AreainfluenciaRepository extends BaseRepository
      **/
     public function model()
     {
-        return Areainfluencia::class;
+        return AreaInfluencia::class;
     }
 }

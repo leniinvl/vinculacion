@@ -97,10 +97,9 @@
 				<li class="{{ Request::is('tipoControlPlagas*') ? 'active' : '' }}"><a href="{!! route('tipoControlPlagas.index') !!}"><i class="fa fa-bug"></i>Control de Plagas</a></li>
 				<li class="{{ Request::is('trabajadores*') ? 'active' : '' }}"><a href="{!! route('trabajadores.index') !!}"><i class="fa fa-group"></i>Trabajadores</a></li>
 				<li class="{{ Request::is('tipoCultivos*') ? 'active' : '' }}"><a href="{!! route('tipoCultivos.index') !!}"><i class="fa fa-tree"></i>Cultivos</a></li>
-				<li class="{{ Request::is('agriculturas*') ? 'active' : '' }}"><a href="{!! route('agriculturas.index') !!}"><i class="fa fa-edit"></i><span>Agriculturas</span></a></li>
+				<li class="{{ Request::is('agriculturas*') ? 'active' : '' }}"><a href="{!! route('agriculturas.index') !!}"><i class="fa fa-envira"></i><span>Agricultura</span></a></li>
 				<li class="{{ Request::is('tipoAnimales*') ? 'active' : '' }}"><a href="{!! route('tipoAnimales.index') !!}"><i class="fa fa-paw"></i>Animales</a></li>
 				<li class="{{ Request::is('origenIngresos*') ? 'active' : '' }}"><a href="{!! route('origenIngresos.index') !!}"><i class="fa fa-money"></i>Origen de Ingresos</a></li>
-				<li class="{{ Request::is('tipoAgriculturas*') ? 'active' : '' }}"><a href="{!! route('tipoAgriculturas.index') !!}"><i class="fa fa-anchor"></i>Agricultura</a></li>
 				<li class="{{ Request::is('precuarias*') ? 'active' : '' }}"><a href="{!! route('precuarias.index') !!}"><i class="fa fa-shopping-basket"></i><span>Precuarias</span></a></li>
 				<li class="{{ Request::is('destinos*') ? 'active' : '' }}"><a href="{!! route('destinos.index') !!}"><i class="fa fa-plane"></i><span>Destinos</span></a></li>
 				<li class="{{ Request::is('tipoUnidads*') ? 'active' : '' }}"><a href="{!! route('tipoUnidads.index') !!}"><i class="fa fa-info"></i><span>Unidades</span></a></li>
