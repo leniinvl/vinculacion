@@ -10,6 +10,10 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Models\Pais;
+use App\Models\Ciudad;
+use App\Models\PlandeGestiondeRiesgos;
+use App\Models\Genero;
 
 class TrabajadoresController extends AppBaseController
 {
@@ -43,7 +47,11 @@ class TrabajadoresController extends AppBaseController
      */
     public function create()
     {
-        return view('trabajadores.create');
+        $paises = Pais::all()->pluck('nombre', 'id');
+        $ciudades = Ciudad::all()->pluck('nombre', 'id');
+        $plandegestionderiesgos = PlandeGestiondeRiesgos::all()->pluck('nombre', 'id');
+        $generos = Genero::all()->pluck('nombre', 'id');
+        return view('trabajadores.create', ['generos' => $generos,'ciudades' => $ciudades,'paises' => $paises,'plandegestionderiesgos' => $plandegestionderiesgos]);
     }
 
     /**
@@ -93,6 +101,10 @@ class TrabajadoresController extends AppBaseController
      */
     public function edit($id)
     {
+        $paises = Pais::all()->pluck('nombre', 'id');
+        $ciudades = Ciudad::all()->pluck('nombre', 'id');
+        $plandegestionderiesgos = PlandeGestiondeRiesgos::all()->pluck('nombre', 'id');
+        $generos = Genero::all()->pluck('nombre', 'id');
         $trabajadores = $this->trabajadoresRepository->findWithoutFail($id);
 
         if (empty($trabajadores)) {
@@ -101,7 +113,7 @@ class TrabajadoresController extends AppBaseController
             return redirect(route('trabajadores.index'));
         }
 
-        return view('trabajadores.edit')->with('trabajadores', $trabajadores);
+            return view('trabajadores.edit')->with('trabajadores', $trabajadores)->with('paises', $paises)->with('ciudades', $ciudades)->with('planDeGestionDeRiesgos', $plandegestionderiesgos)->with('generos', $generos);
     }
 
     /**

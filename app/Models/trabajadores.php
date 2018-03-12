@@ -102,7 +102,7 @@ class Trabajadores extends Model
      **/
     public function ciudad()
     {
-        return $this->belongsTo(\App\Models\Ciudad::class);
+        return $this->belongsTo(\App\Models\Ciudad::class,'Ciudad_id');
     }
 
     /**
@@ -110,22 +110,22 @@ class Trabajadores extends Model
      **/
     public function genero()
     {
-        return $this->belongsTo(\App\Models\Genero::class);
+        return $this->belongsTo(\App\Models\Genero::class,'Genero_id');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function pai()
+    public function pais()
     {
-        return $this->belongsTo(\App\Models\Pai::class);
+        return $this->belongsTo(\App\Models\Pais::class,'Pais_id');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function plandegestionderiesgo()
+    public function plandegestionderiesgos()
     {
-        return $this->belongsTo(\App\Models\Plandegestionderiesgo::class);
+        return $this->belongsTo(\App\Models\PlandeGestiondeRiesgos::class,'PlanDeGestionDeRiesgos_id');
     }
 }
