@@ -1218,13 +1218,6 @@ CREATE TABLE `users` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Volcado de datos para la tabla `users`
---
-
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Jessica Roman', 'jessicaromanlargo@gmail.com', '$2y$10$a/6dBMq3HgTAXvIAxLcIJuIIrZEY.E1yge4pwI0C2hLL/s8yl2YhG', NULL, '2018-03-12 07:00:43', '2018-03-12 07:00:43');
-
 -- --------------------------------------------------------
 
 --
