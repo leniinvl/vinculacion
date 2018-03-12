@@ -2,7 +2,7 @@
     <thead>
         <tr>
             <th>Nombre</th>
-        <th>Pais Id</th>
+        <th>País</th>
             <th colspan="3">Acciones</th>
         </tr>
     </thead>
