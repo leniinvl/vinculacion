@@ -3,15 +3,15 @@
         <tr>
             <th>Nombre</th>
         <th>Apellido</th>
-        <th>Fechadenacimiento</th>
-        <th>Genero Id</th>
-        <th>Pais Id</th>
+        <th>Fecha de Nacimiento</th>
+        <th>Género Id</th>
+        <th>País Id</th>
         <th>Ciudad Id</th>
-        <th>Instruccionformal</th>
-        <th>Horastrabajo</th>
+        <th>Instrucción Formal</th>
+        <th>Horas de Trabajo</th>
         <th>Salario</th>
-        <th>Plandegestionderiesgos Id</th>
-            <th colspan="3">Action</th>
+        <th>Plan de Gestión de Riesgos Id</th>
+            <th colspan="3">Acciones</th>
         </tr>
     </thead>
     <tbody>
@@ -20,13 +20,13 @@
             <td>{!! $trabajadores->nombre !!}</td>
             <td>{!! $trabajadores->apellido !!}</td>
             <td>{!! $trabajadores->fechaDeNacimiento !!}</td>
-            <td>{!! $trabajadores->Genero_id !!}</td>
-            <td>{!! $trabajadores->Pais_id !!}</td>
-            <td>{!! $trabajadores->Ciudad_id !!}</td>
+            <td>{!! $trabajadores->genero->nombre !!}</td>
+            <td>{!! $trabajadores->pais->nombre !!}</td>
+            <td>{!! $trabajadores->ciudad->nombre !!}</td>
             <td>{!! $trabajadores->instruccionFormal !!}</td>
             <td>{!! $trabajadores->horasTrabajo !!}</td>
             <td>{!! $trabajadores->salario !!}</td>
-            <td>{!! $trabajadores->PlanDeGestionDeRiesgos_id !!}</td>
+            <td>{!! $trabajadores->plandegestionderiesgos->nombre !!}</td>
             <td>
                 {!! Form::open(['route' => ['trabajadores.destroy', $trabajadores->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>

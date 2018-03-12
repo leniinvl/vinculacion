@@ -12,37 +12,37 @@
 
 <!-- Fechadenacimiento Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('fechaDeNacimiento', 'Fechadenacimiento:') !!}
+    {!! Form::label('fechaDeNacimiento', 'Fecha de Nacimiento:') !!}
     {!! Form::date('fechaDeNacimiento', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Genero Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('Genero_id', 'Genero Id:') !!}
-    {!! Form::number('Genero_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('Genero_id', $generos, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Pais Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('Pais_id', 'Pais Id:') !!}
-    {!! Form::number('Pais_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('Pais_id', $paises, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Ciudad Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('Ciudad_id', 'Ciudad Id:') !!}
-    {!! Form::number('Ciudad_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('Ciudad_id', $ciudades, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Instruccionformal Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('instruccionFormal', 'Instruccionformal:') !!}
+    {!! Form::label('instruccionFormal', 'Instruccón Formal:') !!}
     {!! Form::text('instruccionFormal', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Horastrabajo Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('horasTrabajo', 'Horastrabajo:') !!}
+    {!! Form::label('horasTrabajo', 'Horas de Trabajo:') !!}
     {!! Form::number('horasTrabajo', null, ['class' => 'form-control']) !!}
 </div>
 
@@ -54,12 +54,12 @@
 
 <!-- Plandegestionderiesgos Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('PlanDeGestionDeRiesgos_id', 'Plandegestionderiesgos Id:') !!}
-    {!! Form::number('PlanDeGestionDeRiesgos_id', null, ['class' => 'form-control']) !!}
+    {!! Form::label('PlanDeGestionDeRiesgos_id', 'Plan de Gestión de Riesgos Id:') !!}
+    {!! Form::select('PlanDeGestionDeRiesgos_id', $plandegestionderiesgos, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
-    {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-    <a href="{!! route('trabajadores.index') !!}" class="btn btn-default">Cancel</a>
+    {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
+    <a href="{!! route('trabajadores.index') !!}" class="btn btn-default">Cancelar</a>
 </div>
