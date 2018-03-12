@@ -224,3 +224,7 @@
     <a href="{!! route('areaInfluenciaHasTradicions.index') !!}"><i class="fa fa-edit"></i><span>Area Influencia Has Tradicions</span></a>
 </li>--}}
 
+<li class="{{ Request::is('trabajadores*') ? 'active' : '' }}">
+    <a href="{!! route('trabajadores.index') !!}"><i class="fa fa-edit"></i><span>Trabajadores</span></a>
+</li>
+
