@@ -53,7 +53,7 @@ class PlandeGestiondeRiesgos extends Model
     use SoftDeletes;
 
     public $table = 'plandegestionderiesgos';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -99,7 +99,7 @@ class PlandeGestiondeRiesgos extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**
@@ -107,7 +107,7 @@ class PlandeGestiondeRiesgos extends Model
      **/
     public function agricultura()
     {
-        return $this->belongsTo(\App\Models\Agricultura::class);
+        return $this->belongsTo(\App\Models\Agricultura::class, 'Agricultura_id');
     }
 
     /**
@@ -115,7 +115,7 @@ class PlandeGestiondeRiesgos extends Model
      **/
     public function amenaza()
     {
-        return $this->belongsTo(\App\Models\Amenaza::class);
+        return $this->belongsTo(\App\Models\Amenaza::class, 'Amenazas_id');
     }
 
     /**
@@ -123,7 +123,7 @@ class PlandeGestiondeRiesgos extends Model
      **/
     public function origeningreso()
     {
-        return $this->belongsTo(\App\Models\Origeningreso::class);
+        return $this->belongsTo(\App\Models\Origeningreso::class, 'OrigenIngresos_id');
     }
 
     /**
@@ -131,7 +131,7 @@ class PlandeGestiondeRiesgos extends Model
      **/
     public function tipoabono()
     {
-        return $this->belongsTo(\App\Models\Tipoabono::class);
+        return $this->belongsTo(\App\Models\Tipoabono::class, 'TipoAbono_id');
     }
 
     /**
@@ -139,7 +139,7 @@ class PlandeGestiondeRiesgos extends Model
      **/
     public function tipoanimale()
     {
-        return $this->belongsTo(\App\Models\Tipoanimale::class);
+        return $this->belongsTo(\App\Models\Tipoanimale::class, 'TipoAnimales_id');
     }
 
     /**
@@ -147,7 +147,7 @@ class PlandeGestiondeRiesgos extends Model
      **/
     public function tipocontrolplaga()
     {
-        return $this->belongsTo(\App\Models\Tipocontrolplaga::class);
+        return $this->belongsTo(\App\Models\Tipocontrolplaga::class, 'TipoControlPlaga_id');
     }
 
     /**
@@ -155,7 +155,7 @@ class PlandeGestiondeRiesgos extends Model
      **/
     public function tipocultivo()
     {
-        return $this->belongsTo(\App\Models\Tipocultivo::class);
+        return $this->belongsTo(\App\Models\Tipocultivo::class, 'TipoCultivos_id');
     }
 
     /**
@@ -163,7 +163,7 @@ class PlandeGestiondeRiesgos extends Model
      **/
     public function vulnerabilidade()
     {
-        return $this->belongsTo(\App\Models\Vulnerabilidade::class);
+        return $this->belongsTo(\App\Models\Vulnerabilidade::class, 'Vulnerabilidades_id');
     }
 
     /**
