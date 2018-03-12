@@ -108,7 +108,7 @@
 				<li class="{{ Request::is('vulnerabilidades*') ? 'active' : '' }}"><a href="{!! route('vulnerabilidades.index') !!}"><i class="fa fa-edit"></i><span>Vulnerabilidades</span></a></li>
 				<li class="{{ Request::is('ciudads*') ? 'active' : '' }}"><a href="{!! route('ciudads.index') !!}"><i class="fa fa-bank"></i><span>Ciudades</span></a></li>
 				<li class="{{ Request::is('pais*') ? 'active' : '' }}"><a href="{!! route('pais.index') !!}"><i class="fa fa-road"></i><span>País</span></a></li>
-				<li class="{{ Request::is('plandeGestiondeRiesgos*') ? 'active' : '' }}"><a href="{!! route('plandeGestiondeRiesgos.index') !!}"><i class="fa fa-edit"></i><span>Plande Gestionde Riesgos</span></a></li>
+				<li class="{{ Request::is('plandeGestiondeRiesgos*') ? 'active' : '' }}"><a href="{!! route('plandeGestiondeRiesgos.index') !!}"><i class="fa fa-pencil-square-o"></i><span>Plan de Gestión de Riesgos</span></a></li>
 			</ul>
         </li>
 

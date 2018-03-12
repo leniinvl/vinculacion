@@ -2,15 +2,15 @@
     <thead>
         <tr>
             <th>Nombre</th>
-        <th>Tipoabono Id</th>
-        <th>Tipocontrolplaga Id</th>
-        <th>Tipocultivos Id</th>
-        <th>Tipoanimales Id</th>
+        <th>Tipo abono</th>
+        <th>Tipo control plaga</th>
+        <th>Tipo cultivo</th>
+        <th>Tipo animales</th>
         <th>Cantidad Animales</th>
-        <th>Origeningresos Id</th>
-        <th>Agricultura Id</th>
-        <th>Amenazas Id</th>
-        <th>Vulnerabilidades Id</th>
+        <th>Origen ingresos</th>
+        <th>Agricultura</th>
+        <th>Amenazas</th>
+        <th>Vulnerabilidades</th>
             <th colspan="3">Action</th>
         </tr>
     </thead>
@@ -18,15 +18,15 @@
     @foreach($plandeGestiondeRiesgos as $plandeGestiondeRiesgos)
         <tr>
             <td>{!! $plandeGestiondeRiesgos->nombre !!}</td>
-            <td>{!! $plandeGestiondeRiesgos->TipoAbono_id !!}</td>
-            <td>{!! $plandeGestiondeRiesgos->TipoControlPlaga_id !!}</td>
-            <td>{!! $plandeGestiondeRiesgos->TipoCultivos_id !!}</td>
-            <td>{!! $plandeGestiondeRiesgos->TipoAnimales_id !!}</td>
+            <td>{!! $plandeGestiondeRiesgos->TipoAbono->nombre !!}</td>
+            <td>{!! $plandeGestiondeRiesgos->TipoControlPlaga->nombre !!}</td>
+            <td>{!! $plandeGestiondeRiesgos->TipoCultivos->nombre !!}</td>
+            <td>{!! $plandeGestiondeRiesgos->TipoAnimales->nombre !!}</td>
             <td>{!! $plandeGestiondeRiesgos->cantidad_animales !!}</td>
-            <td>{!! $plandeGestiondeRiesgos->OrigenIngresos_id !!}</td>
-            <td>{!! $plandeGestiondeRiesgos->Agricultura_id !!}</td>
-            <td>{!! $plandeGestiondeRiesgos->Amenazas_id !!}</td>
-            <td>{!! $plandeGestiondeRiesgos->Vulnerabilidades_id !!}</td>
+            <td>{!! $plandeGestiondeRiesgos->OrigenIngresos->nombre !!}</td>
+            <td>{!! $plandeGestiondeRiesgos->Agricultura->nombre !!}</td>
+            <td>{!! $plandeGestiondeRiesgos->Amenazas->nombre !!}</td>
+            <td>{!! $plandeGestiondeRiesgos->Vulnerabilidades->nombre !!}</td>
             <td>
                 {!! Form::open(['route' => ['plandeGestiondeRiesgos.destroy', $plandeGestiondeRiesgos->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>

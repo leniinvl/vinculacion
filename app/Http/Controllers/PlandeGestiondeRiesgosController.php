@@ -10,6 +10,15 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Models\TipoAbono;
+use App\Models\TipoControlPlaga;
+use App\Models\TipoCultivos;
+use App\Models\TipoAnimales;
+use App\Models\OrigenIngresos;
+use App\Models\Agricultura;
+use App\Models\amenazas;
+use App\Models\vulnerabilidades;
+
 
 class PlandeGestiondeRiesgosController extends AppBaseController
 {
@@ -43,7 +52,27 @@ class PlandeGestiondeRiesgosController extends AppBaseController
      */
     public function create()
     {
-        return view('plande_gestionde_riesgos.create');
+
+        $abono = TipoAbono::all()->pluck('nombre', 'id');
+        $controlPlaga = TipoControlPlaga::all()->pluck('nombre', 'id');
+        $cultivo = TipoCultivos::all()->pluck('nombre', 'id');
+        $animale = TipoAnimales::all()->pluck('nombre', 'id');
+        $origenIngreso = OrigenIngresos::all()->pluck('nombre', 'id');
+        $agricultura = Agricultura::all()->pluck('nombre', 'id');
+        $amenaza = amenazas::all()->pluck('nombre', 'id');
+        $vulnerabilidade = vulnerabilidades::all()->pluck('nombre', 'id');
+
+
+        return view('plande_gestionde_riesgos.create', [
+          'abono'                => $abono,
+          'controlPlaga'         => $controlPlaga,
+          'cultivo'             => $cultivo,
+          'animale'             => $animale,
+          'origenIngreso'       => $origenIngreso,
+          'agricultura'          => $agricultura,
+          'amenaza'             => $amenaza,
+          'vulnerabilidade'     => $vulnerabilidade,
+        ]);
     }
 
     /**
@@ -94,6 +123,14 @@ class PlandeGestiondeRiesgosController extends AppBaseController
     public function edit($id)
     {
         $plandeGestiondeRiesgos = $this->plandeGestiondeRiesgosRepository->findWithoutFail($id);
+        $abono = TipoAbono::all()->pluck('nombre', 'id');
+        $controlPlaga = TipoControlPlaga::all()->pluck('nombre', 'id');
+        $cultivo = TipoCultivos::all()->pluck('nombre', 'id');
+        $animale = TipoAnimales::all()->pluck('nombre', 'id');
+        $origenIngreso = OrigenIngresos::all()->pluck('nombre', 'id');
+        $agricultura = Agricultura::all()->pluck('nombre', 'id');
+        $amenaza = amenazas::all()->pluck('nombre', 'id');
+        $vulnerabilidade = vulnerabilidades::all()->pluck('nombre', 'id');
 
         if (empty($plandeGestiondeRiesgos)) {
             Flash::error('Plande Gestionde Riesgos not found');
@@ -101,8 +138,18 @@ class PlandeGestiondeRiesgosController extends AppBaseController
             return redirect(route('plandeGestiondeRiesgos.index'));
         }
 
-        return view('plande_gestionde_riesgos.edit')->with('plandeGestiondeRiesgos', $plandeGestiondeRiesgos);
+        return view('plande_gestionde_riesgos.edit')->with('plandeGestiondeRiesgos', $plandeGestiondeRiesgos)
+        ->with('abono', $abono)
+        ->with('controlPlaga', $controlPlaga)
+        ->with('cultivos', $cultivos)
+        ->with('animales', $animales)
+        ->with('origenIngresos', $origenIngresos)
+        ->with('agricultura', $agricultura)
+        ->with('amenazas', $amenazas)
+        ->with('vulnerabilidades', $vulnerabilidades);
     }
+
+
 
     /**
      * Update the specified PlandeGestiondeRiesgos in storage.

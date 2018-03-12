@@ -6,26 +6,26 @@
 
 <!-- Tipoabono Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('TipoAbono_id', 'Tipoabono Id:') !!}
-    {!! Form::number('TipoAbono_id', null, ['class' => 'form-control']) !!}
+    {!! Form::label('TipoAbono_id', 'Tipo abono:') !!}
+    {!! Form::select('TipoAbono_id',$abono, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Tipocontrolplaga Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('TipoControlPlaga_id', 'Tipocontrolplaga Id:') !!}
-    {!! Form::number('TipoControlPlaga_id', null, ['class' => 'form-control']) !!}
+    {!! Form::label('TipoControlPlaga_id', 'Tipo control plaga:') !!}
+    {!! Form::select('TipoControlPlaga_id',$controlPlaga, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Tipocultivos Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('TipoCultivos_id', 'Tipocultivos Id:') !!}
-    {!! Form::number('TipoCultivos_id', null, ['class' => 'form-control']) !!}
+    {!! Form::label('TipoCultivos_id', 'Tipo cultivos:') !!}
+    {!! Form::select('TipoCultivos_id',$cultivo, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Tipoanimales Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('TipoAnimales_id', 'Tipoanimales Id:') !!}
-    {!! Form::number('TipoAnimales_id', null, ['class' => 'form-control']) !!}
+    {!! Form::label('TipoAnimales_id', 'Tipo animales:') !!}
+    {!! Form::select('TipoAnimales_id',$animale, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Cantidad Animales Field -->
@@ -36,26 +36,26 @@
 
 <!-- Origeningresos Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('OrigenIngresos_id', 'Origeningresos Id:') !!}
-    {!! Form::number('OrigenIngresos_id', null, ['class' => 'form-control']) !!}
+    {!! Form::label('OrigenIngresos_id', 'Origen ingresos:') !!}
+    {!! Form::select('OrigenIngresos_id',$origenIngreso, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Agricultura Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('Agricultura_id', 'Agricultura Id:') !!}
-    {!! Form::number('Agricultura_id', null, ['class' => 'form-control']) !!}
+    {!! Form::label('Agricultura_id', 'Agricultura:') !!}
+    {!! Form::select('Agricultura_id',$agricultura, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Amenazas Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('Amenazas_id', 'Amenazas Id:') !!}
-    {!! Form::number('Amenazas_id', null, ['class' => 'form-control']) !!}
+    {!! Form::label('Amenazas_id', 'Amenazas:') !!}
+    {!! Form::select('Amenazas_id',$amenaza, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Vulnerabilidades Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('Vulnerabilidades_id', 'Vulnerabilidades Id:') !!}
-    {!! Form::number('Vulnerabilidades_id', null, ['class' => 'form-control']) !!}
+    {!! Form::label('Vulnerabilidades_id', 'Vulnerabilidades:') !!}
+    {!! Form::select('Vulnerabilidades_id',$vulnerabilidade, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->
