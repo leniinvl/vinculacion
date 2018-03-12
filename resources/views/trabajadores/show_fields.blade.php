@@ -16,16 +16,16 @@
     <p>{!! $trabajadores->apellido !!}</p>
 </div>
 
-<!-- Genero Field -->
-<div class="form-group">
-    {!! Form::label('genero', 'Genero:') !!}
-    <p>{!! $trabajadores->genero !!}</p>
-</div>
-
 <!-- Fechadenacimiento Field -->
 <div class="form-group">
     {!! Form::label('fechaDeNacimiento', 'Fechadenacimiento:') !!}
     <p>{!! $trabajadores->fechaDeNacimiento !!}</p>
+</div>
+
+<!-- Genero Id Field -->
+<div class="form-group">
+    {!! Form::label('Genero_id', 'Genero Id:') !!}
+    <p>{!! $trabajadores->Genero_id !!}</p>
 </div>
 
 <!-- Pais Id Field -->
@@ -58,6 +58,12 @@
     <p>{!! $trabajadores->salario !!}</p>
 </div>
 
+<!-- Plandegestionderiesgos Id Field -->
+<div class="form-group">
+    {!! Form::label('PlanDeGestionDeRiesgos_id', 'Plandegestionderiesgos Id:') !!}
+    <p>{!! $trabajadores->PlanDeGestionDeRiesgos_id !!}</p>
+</div>
+
 <!-- Created At Field -->
 <div class="form-group">
     {!! Form::label('created_at', 'Created At:') !!}
@@ -74,11 +80,5 @@
 <div class="form-group">
     {!! Form::label('deleted_at', 'Deleted At:') !!}
     <p>{!! $trabajadores->deleted_at !!}</p>
-</div>
-
-<!-- Plandegestionderiesgos Id Field -->
-<div class="form-group">
-    {!! Form::label('PlanDeGestionDeRiesgos_id', 'Plandegestionderiesgos Id:') !!}
-    <p>{!! $trabajadores->PlanDeGestionDeRiesgos_id !!}</p>
 </div>
 
