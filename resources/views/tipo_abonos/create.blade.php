@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Tipo Abono
+            Tipos de Abonos
         </h1>
     </section>
     <div class="content">

@@ -2,7 +2,7 @@
     <thead>
         <tr>
             <th>Propietario</th>
-            <th>Unidad produccion</th>
+            <th>Unidad de Producción</th>
             <th colspan="3">Acciones</th>
         </tr>
     </thead>

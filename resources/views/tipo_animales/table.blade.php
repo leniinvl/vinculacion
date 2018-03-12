@@ -2,8 +2,8 @@
     <thead>
         <tr>
             <th>Nombre</th>
-        <th>Tipoproduccion</th>
-        <th>Tipounidad</th>
+        <th>Tipo de Producción</th>
+        <th>Tipo de Unidad</th>
         <th>Destino</th>
         <th>Precuaria</th>
             <th colspan="3">Acciones</th>

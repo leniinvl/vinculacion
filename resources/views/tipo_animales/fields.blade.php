@@ -6,13 +6,13 @@
 
 <!-- Tipoproduccion Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('TipoProduccion_id', 'Tipoproduccion:') !!}
+    {!! Form::label('TipoProduccion_id', 'Tipo de Producción:') !!}
     {!! Form::select('TipoProduccion_id',$tipoproduccion, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Tipounidad Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('TipoUnidad_id', 'Tipounidad:') !!}
+    {!! Form::label('TipoUnidad_id', 'Tipo de Unidad:') !!}
     {!! Form::select('TipoUnidad_id',$tipounidad, null, ['class' => 'form-control']) !!}
 </div>
 

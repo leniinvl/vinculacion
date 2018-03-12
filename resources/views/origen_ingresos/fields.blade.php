@@ -6,7 +6,7 @@
 
 <!-- Unidadproduccion Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('UnidadProduccion_id', 'Unidadproduccion Id:') !!}
+    {!! Form::label('UnidadProduccion_id', 'Unidad de Producción Id:') !!}
     {!! Form::select('UnidadProduccion_id',$unidadproduccion, null, ['class' => 'form-control']) !!}
 </div>
 
