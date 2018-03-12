@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-03-2018 a las 01:23:54
+-- Tiempo de generación: 12-03-2018 a las 01:59:37
 -- Versión del servidor: 5.7.14
 -- Versión de PHP: 7.0.10
 
@@ -45,9 +45,8 @@ CREATE TABLE `agricultura` (
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
-  `UnidadProduccion_id` int(11) NOT NULL,
   `UsoTierra_id` int(11) NOT NULL,
-  `UnidadProduccion_id1` int(11) NOT NULL
+  `UnidadProduccion_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -481,8 +480,10 @@ CREATE TABLE `genero` (
 --
 
 INSERT INTO `genero` (`id`, `nombre`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Femenino', '2018-03-12 01:21:22', '2018-03-12 01:21:22', NULL),
-(2, 'Masculino', '2018-03-12 01:21:41', '2018-03-12 01:21:41', NULL);
+(1, 'Femenino', '2018-03-12 01:59:07', '2018-03-12 01:59:07', NULL),
+(2, 'Masculino', '2018-03-12 01:59:07', '2018-03-12 01:59:07', NULL),
+(3, 'Femenino', '2018-03-12 01:59:13', '2018-03-12 01:59:13', NULL),
+(4, 'Masculino', '2018-03-12 01:59:13', '2018-03-12 01:59:13', NULL);
 
 -- --------------------------------------------------------
 
@@ -1291,9 +1292,8 @@ ALTER TABLE `abastecimientoagua`
 --
 ALTER TABLE `agricultura`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_Agricultura_UnidadProduccion1_idx` (`UnidadProduccion_id`),
   ADD KEY `fk_Agricultura_UsoTierra1_idx` (`UsoTierra_id`),
-  ADD KEY `fk_Agricultura_UnidadProduccion2_idx` (`UnidadProduccion_id1`);
+  ADD KEY `fk_Agricultura_UnidadProduccion2_idx` (`UnidadProduccion_id`);
 
 --
 -- Indices de la tabla `amenazas`
@@ -1965,7 +1965,7 @@ ALTER TABLE `evacuacoinagualluvia`
 -- AUTO_INCREMENT de la tabla `genero`
 --
 ALTER TABLE `genero`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `lenguaje`
 --
@@ -2194,8 +2194,7 @@ ALTER TABLE `vulnerabilidades`
 -- Filtros para la tabla `agricultura`
 --
 ALTER TABLE `agricultura`
-  ADD CONSTRAINT `fk_Agricultura_UnidadProduccion1` FOREIGN KEY (`UnidadProduccion_id`) REFERENCES `unidadproduccion` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_Agricultura_UnidadProduccion2` FOREIGN KEY (`UnidadProduccion_id1`) REFERENCES `unidadproduccion` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_Agricultura_UnidadProduccion2` FOREIGN KEY (`UnidadProduccion_id`) REFERENCES `unidadproduccion` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_Agricultura_UsoTierra1` FOREIGN KEY (`UsoTierra_id`) REFERENCES `usotierra` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
