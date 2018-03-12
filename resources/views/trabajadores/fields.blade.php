@@ -10,28 +10,28 @@
     {!! Form::text('apellido', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Genero Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('genero', 'Genero:') !!}
-    {!! Form::text('genero', null, ['class' => 'form-control']) !!}
-</div>
-
 <!-- Fechadenacimiento Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('fechaDeNacimiento', 'Fechadenacimiento:') !!}
     {!! Form::date('fechaDeNacimiento', null, ['class' => 'form-control']) !!}
 </div>
 
+<!-- Genero Id Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('Genero_id', 'Genero Id:') !!}
+    {!! Form::number('Genero_id', null, ['class' => 'form-control']) !!}
+</div>
+
 <!-- Pais Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('Pais_id', 'Pais Id:') !!}
-    {!! Form::select('Pais_id', $paises, null, ['class' => 'form-control']) !!}
+    {!! Form::number('Pais_id', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Ciudad Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('Ciudad_id', 'Ciudad Id:') !!}
-    {!! Form::select('Ciudad_id', $ciudades, null, ['class' => 'form-control']) !!}
+    {!! Form::number('Ciudad_id', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Instruccionformal Field -->
@@ -56,11 +56,10 @@
 <div class="form-group col-sm-6">
     {!! Form::label('PlanDeGestionDeRiesgos_id', 'Plandegestionderiesgos Id:') !!}
     {!! Form::number('PlanDeGestionDeRiesgos_id', null, ['class' => 'form-control']) !!}
-    <!-- {!! Form::number('PlanDeGestionDeRiesgos_id', null, ['class' => 'form-control']) !!}-->
 </div>
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
-    {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
-    <a href="{!! route('trabajadores.index') !!}" class="btn btn-default">Cancelar</a>
+    {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
+    <a href="{!! route('trabajadores.index') !!}" class="btn btn-default">Cancel</a>
 </div>

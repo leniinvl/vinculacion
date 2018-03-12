@@ -339,3 +339,5 @@ Route::resource('tipoAbonos', 'TipoAbonoController');
 Route::resource('desechos', 'DesechoController');
 
 Route::resource('tipodesechos', 'TipodesechoController');
+
+Route::resource('trabajadores', 'TrabajadoresController');

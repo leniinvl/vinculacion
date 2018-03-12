@@ -8,7 +8,7 @@ use InfyOm\Generator\Common\BaseRepository;
 /**
  * Class TrabajadoresRepository
  * @package App\Repositories
- * @version March 10, 2018, 6:29 pm UTC
+ * @version March 12, 2018, 1:27 am UTC
  *
  * @method Trabajadores findWithoutFail($id, $columns = ['*'])
  * @method Trabajadores find($id, $columns = ['*'])
@@ -22,8 +22,8 @@ class TrabajadoresRepository extends BaseRepository
     protected $fieldSearchable = [
         'nombre',
         'apellido',
-        'genero',
         'fechaDeNacimiento',
+        'Genero_id',
         'Pais_id',
         'Ciudad_id',
         'instruccionFormal',

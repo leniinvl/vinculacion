@@ -8,9 +8,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class Trabajadores
  * @package App\Models
- * @version March 10, 2018, 6:29 pm UTC
+ * @version March 12, 2018, 1:27 am UTC
  *
  * @property \App\Models\Ciudad ciudad
+ * @property \App\Models\Genero genero
  * @property \App\Models\Pai pai
  * @property \App\Models\Plandegestionderiesgo plandegestionderiesgo
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasLenguaje
@@ -33,8 +34,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \Illuminate\Database\Eloquent\Collection usosvegetacionHasAreainfluenciaHasTipovegetal
  * @property string nombre
  * @property string apellido
- * @property string genero
  * @property date fechaDeNacimiento
+ * @property integer Genero_id
  * @property integer Pais_id
  * @property integer Ciudad_id
  * @property string instruccionFormal
@@ -58,8 +59,8 @@ class Trabajadores extends Model
     public $fillable = [
         'nombre',
         'apellido',
-        'genero',
         'fechaDeNacimiento',
+        'Genero_id',
         'Pais_id',
         'Ciudad_id',
         'instruccionFormal',
@@ -77,8 +78,8 @@ class Trabajadores extends Model
         'id' => 'integer',
         'nombre' => 'string',
         'apellido' => 'string',
-        'genero' => 'string',
         'fechaDeNacimiento' => 'date',
+        'Genero_id' => 'integer',
         'Pais_id' => 'integer',
         'Ciudad_id' => 'integer',
         'instruccionFormal' => 'string',
@@ -99,10 +100,18 @@ class Trabajadores extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    /*public function ciudad()
+    public function ciudad()
     {
         return $this->belongsTo(\App\Models\Ciudad::class);
-    }*/
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     **/
+    public function genero()
+    {
+        return $this->belongsTo(\App\Models\Genero::class);
+    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -119,17 +128,4 @@ class Trabajadores extends Model
     {
         return $this->belongsTo(\App\Models\Plandegestionderiesgo::class);
     }
-    
-    public function pais()
-    {
-        return $this->belongsTo(\App\Models\Pais::class,'Pais_id');
-    }
-    public function ciudad()
-    {
-        return $this->belongsTo(\App\Models\Ciudad::class,'Ciudad_id');
-    }
-    /*public function planDeGestionDeRiesgos()
-    {
-        return $this->belongsTo(\App\Models\Plandegestionderiesgo::class,'PlanDeGestionDeRiesgos_id');
-    }*/
 }

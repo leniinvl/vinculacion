@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-03-2018 a las 22:49:59
+-- Tiempo de generación: 12-03-2018 a las 01:23:54
 -- Versión del servidor: 5.7.14
 -- Versión de PHP: 7.0.10
 
@@ -45,7 +45,9 @@ CREATE TABLE `agricultura` (
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
-  `UnidadProduccion_id` int(11) NOT NULL
+  `UnidadProduccion_id` int(11) NOT NULL,
+  `UsoTierra_id` int(11) NOT NULL,
+  `UnidadProduccion_id1` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -230,13 +232,6 @@ CREATE TABLE `asociacion` (
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Volcado de datos para la tabla `asociacion`
---
-
-INSERT INTO `asociacion` (`id`, `nombre`, `personaEncargada`, `TipoAsociacion_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Asociación 1', 'Persona 1', 1, '2018-03-11 09:08:42', '2018-03-11 09:08:42', NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -332,15 +327,6 @@ CREATE TABLE `ciudad` (
   `deleted_at` timestamp NULL DEFAULT NULL,
   `Pais_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Volcado de datos para la tabla `ciudad`
---
-
-INSERT INTO `ciudad` (`id`, `nombre`, `created_at`, `updated_at`, `deleted_at`, `Pais_id`) VALUES
-(0000000001, 'Quito', '2018-03-11 00:42:07', '2018-03-11 00:42:07', NULL, 1),
-(0000000002, 'Bogotá', '2018-03-11 00:42:34', '2018-03-11 00:42:34', NULL, 2),
-(0000000003, 'Guayaquil', '2018-03-11 11:47:01', '2018-03-11 11:48:47', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -479,6 +465,28 @@ CREATE TABLE `evacuacoinagualluvia` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `genero`
+--
+
+CREATE TABLE `genero` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(50) DEFAULT NULL,
+  `created_at` timestamp NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `genero`
+--
+
+INSERT INTO `genero` (`id`, `nombre`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Femenino', '2018-03-12 01:21:22', '2018-03-12 01:21:22', NULL),
+(2, 'Masculino', '2018-03-12 01:21:41', '2018-03-12 01:21:41', NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `lenguaje`
 --
 
@@ -571,13 +579,6 @@ CREATE TABLE `origeningresos` (
   `UnidadProduccion_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Volcado de datos para la tabla `origeningresos`
---
-
-INSERT INTO `origeningresos` (`id`, `created_at`, `updated_at`, `deleted_at`, `Propietario_id`, `UnidadProduccion_id`) VALUES
-(1, '2018-03-11 09:11:22', '2018-03-11 09:11:22', NULL, 1, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -592,14 +593,6 @@ CREATE TABLE `pais` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Volcado de datos para la tabla `pais`
---
-
-INSERT INTO `pais` (`id`, `nombre`, `nacionalidad`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Ecuador', 'Ecuatoriana', '2018-03-11 00:25:25', '2018-03-11 00:25:25', NULL),
-(2, 'Colombia', 'Colombiana', '2018-03-11 00:25:42', '2018-03-11 00:25:42', NULL);
 
 -- --------------------------------------------------------
 
@@ -674,6 +667,7 @@ CREATE TABLE `plandegestionderiesgos` (
   `TipoControlPlaga_id` int(11) NOT NULL,
   `TipoCultivos_id` int(11) NOT NULL,
   `TipoAnimales_id` int(11) NOT NULL,
+  `cantidad_animales` int(10) DEFAULT NULL,
   `OrigenIngresos_id` int(11) NOT NULL,
   `Agricultura_id` int(11) NOT NULL,
   `Amenazas_id` int(11) NOT NULL,
@@ -814,13 +808,6 @@ CREATE TABLE `producto` (
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='	';
 
---
--- Volcado de datos para la tabla `producto`
---
-
-INSERT INTO `producto` (`id`, `nombre`, `TipoProducto_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Producto 1', 1, '2018-03-11 09:09:15', '2018-03-11 09:09:15', NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -831,22 +818,15 @@ CREATE TABLE `propietario` (
   `id` int(11) NOT NULL,
   `ci` int(11) NOT NULL,
   `nombre` varchar(200) DEFAULT NULL,
+  `Genero_id` int(11) NOT NULL,
   `correo` varchar(200) DEFAULT NULL,
   `fechaNacimiento` date DEFAULT NULL,
   `telefono` varchar(10) DEFAULT NULL,
   `observaciones` text,
-  `genero` char(1) DEFAULT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Volcado de datos para la tabla `propietario`
---
-
-INSERT INTO `propietario` (`id`, `ci`, `nombre`, `correo`, `fechaNacimiento`, `telefono`, `observaciones`, `genero`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1716602972, 'Jessica Román', 'jessicaromanlargo@gmail.com', '1994-02-11', '0995770947', 'Ninguna', 'F', '2018-03-11 09:06:12', '2018-03-11 09:12:25', NULL);
 
 -- --------------------------------------------------------
 
@@ -969,13 +949,6 @@ CREATE TABLE `tipoasociacion` (
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Volcado de datos para la tabla `tipoasociacion`
---
-
-INSERT INTO `tipoasociacion` (`id`, `nombre`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Tipo Asociación 1', '2018-03-11 09:06:56', '2018-03-11 09:06:56', NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -1076,13 +1049,6 @@ CREATE TABLE `tipoproducto` (
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Volcado de datos para la tabla `tipoproducto`
---
-
-INSERT INTO `tipoproducto` (`id`, `nombre`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Tipo Producto 1', '2018-03-11 09:09:02', '2018-03-11 09:09:02', NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -1177,17 +1143,17 @@ CREATE TABLE `trabajadores` (
   `id` int(11) NOT NULL,
   `nombre` varchar(200) DEFAULT NULL,
   `apellido` varchar(200) DEFAULT NULL,
-  `genero` varchar(20) DEFAULT NULL,
   `fechaDeNacimiento` date DEFAULT NULL,
+  `Genero_id` int(11) NOT NULL,
   `Pais_id` int(11) NOT NULL,
   `Ciudad_id` int(10) UNSIGNED ZEROFILL NOT NULL,
   `instruccionFormal` varchar(200) DEFAULT NULL,
   `horasTrabajo` int(11) DEFAULT NULL,
   `salario` double DEFAULT NULL,
+  `PlanDeGestionDeRiesgos_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `deleted_at` timestamp NULL DEFAULT NULL,
-  `PlanDeGestionDeRiesgos_id` int(11) NOT NULL
+  `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -1223,13 +1189,6 @@ CREATE TABLE `unidadproduccion` (
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Volcado de datos para la tabla `unidadproduccion`
---
-
-INSERT INTO `unidadproduccion` (`id`, `nombre`, `lat`, `lng`, `observaciones`, `Asociacion_id`, `Producto_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Unidad 1', '0.951920667309418', '-79.72915968070146', 'Ninguna', 1, 1, '2018-03-11 09:11:02', '2018-03-11 09:11:02', NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -1259,13 +1218,6 @@ CREATE TABLE `users` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Volcado de datos para la tabla `users`
---
-
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Jessica Roman', 'jessicaromanlargo@gmail.com', '$2y$10$rwu9az.lDP2vKx68fxDSaeET/ZaGLFSv4mZP/ButTMUIbM4KWJ0CO', NULL, '2018-03-10 22:12:08', '2018-03-10 22:12:08');
 
 -- --------------------------------------------------------
 
@@ -1339,7 +1291,9 @@ ALTER TABLE `abastecimientoagua`
 --
 ALTER TABLE `agricultura`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_Agricultura_UnidadProduccion1_idx` (`UnidadProduccion_id`);
+  ADD KEY `fk_Agricultura_UnidadProduccion1_idx` (`UnidadProduccion_id`),
+  ADD KEY `fk_Agricultura_UsoTierra1_idx` (`UsoTierra_id`),
+  ADD KEY `fk_Agricultura_UnidadProduccion2_idx` (`UnidadProduccion_id1`);
 
 --
 -- Indices de la tabla `amenazas`
@@ -1541,6 +1495,12 @@ ALTER TABLE `evacuacoinagualluvia`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `genero`
+--
+ALTER TABLE `genero`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `lenguaje`
 --
 ALTER TABLE `lenguaje`
@@ -1698,7 +1658,8 @@ ALTER TABLE `producto`
 --
 ALTER TABLE `propietario`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `ci_UNIQUE` (`ci`);
+  ADD UNIQUE KEY `ci_UNIQUE` (`ci`),
+  ADD KEY `fk_Propietario_Genero1_idx` (`Genero_id`);
 
 --
 -- Indices de la tabla `recirculacionaire`
@@ -1838,7 +1799,8 @@ ALTER TABLE `trabajadores`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_Trabajadores_Pais1_idx` (`Pais_id`),
   ADD KEY `fk_Trabajadores_Ciudad1_idx` (`Ciudad_id`),
-  ADD KEY `fk_Trabajadores_PlanDeGestionDeRiesgos1_idx` (`PlanDeGestionDeRiesgos_id`);
+  ADD KEY `fk_Trabajadores_PlanDeGestionDeRiesgos1_idx` (`PlanDeGestionDeRiesgos_id`),
+  ADD KEY `fk_Trabajadores_Genero1_idx` (`Genero_id`);
 
 --
 -- Indices de la tabla `tradicion`
@@ -1923,7 +1885,7 @@ ALTER TABLE `areainfluencia`
 -- AUTO_INCREMENT de la tabla `asociacion`
 --
 ALTER TABLE `asociacion`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `biodigestor`
 --
@@ -1953,7 +1915,7 @@ ALTER TABLE `categoriaproyecto`
 -- AUTO_INCREMENT de la tabla `ciudad`
 --
 ALTER TABLE `ciudad`
-  MODIFY `id` int(10) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `clima`
 --
@@ -2000,6 +1962,11 @@ ALTER TABLE `evacuacionaguasservidas`
 ALTER TABLE `evacuacoinagualluvia`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT de la tabla `genero`
+--
+ALTER TABLE `genero`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT de la tabla `lenguaje`
 --
 ALTER TABLE `lenguaje`
@@ -2028,12 +1995,12 @@ ALTER TABLE `organizacionsocial`
 -- AUTO_INCREMENT de la tabla `origeningresos`
 --
 ALTER TABLE `origeningresos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `pais`
 --
 ALTER TABLE `pais`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `paisaje`
 --
@@ -2073,12 +2040,12 @@ ALTER TABLE `precuaria`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `propietario`
 --
 ALTER TABLE `propietario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `recirculacionaire`
 --
@@ -2118,7 +2085,7 @@ ALTER TABLE `tipoanimales`
 -- AUTO_INCREMENT de la tabla `tipoasociacion`
 --
 ALTER TABLE `tipoasociacion`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `tipocontrolplaga`
 --
@@ -2153,7 +2120,7 @@ ALTER TABLE `tipoproduccion`
 -- AUTO_INCREMENT de la tabla `tipoproducto`
 --
 ALTER TABLE `tipoproducto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `tipoproyecto`
 --
@@ -2198,12 +2165,12 @@ ALTER TABLE `tradicion`
 -- AUTO_INCREMENT de la tabla `unidadproduccion`
 --
 ALTER TABLE `unidadproduccion`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `usosvegetacion`
 --
@@ -2227,7 +2194,9 @@ ALTER TABLE `vulnerabilidades`
 -- Filtros para la tabla `agricultura`
 --
 ALTER TABLE `agricultura`
-  ADD CONSTRAINT `fk_Agricultura_UnidadProduccion1` FOREIGN KEY (`UnidadProduccion_id`) REFERENCES `unidadproduccion` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_Agricultura_UnidadProduccion1` FOREIGN KEY (`UnidadProduccion_id`) REFERENCES `unidadproduccion` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_Agricultura_UnidadProduccion2` FOREIGN KEY (`UnidadProduccion_id1`) REFERENCES `unidadproduccion` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_Agricultura_UsoTierra1` FOREIGN KEY (`UsoTierra_id`) REFERENCES `usotierra` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `areainfluencia`
@@ -2425,6 +2394,12 @@ ALTER TABLE `producto`
   ADD CONSTRAINT `fk_Producto_TipoProducto1` FOREIGN KEY (`TipoProducto_id`) REFERENCES `tipoproducto` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
+-- Filtros para la tabla `propietario`
+--
+ALTER TABLE `propietario`
+  ADD CONSTRAINT `fk_Propietario_Genero1` FOREIGN KEY (`Genero_id`) REFERENCES `genero` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
 -- Filtros para la tabla `taller`
 --
 ALTER TABLE `taller`
@@ -2444,6 +2419,7 @@ ALTER TABLE `tipoanimales`
 --
 ALTER TABLE `trabajadores`
   ADD CONSTRAINT `fk_Trabajadores_Ciudad1` FOREIGN KEY (`Ciudad_id`) REFERENCES `ciudad` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_Trabajadores_Genero1` FOREIGN KEY (`Genero_id`) REFERENCES `genero` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_Trabajadores_Pais1` FOREIGN KEY (`Pais_id`) REFERENCES `pais` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_Trabajadores_PlanDeGestionDeRiesgos1` FOREIGN KEY (`PlanDeGestionDeRiesgos_id`) REFERENCES `plandegestionderiesgos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 

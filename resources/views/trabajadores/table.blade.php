@@ -3,15 +3,15 @@
         <tr>
             <th>Nombre</th>
         <th>Apellido</th>
-        <th>Genero</th>
         <th>Fechadenacimiento</th>
+        <th>Genero Id</th>
         <th>Pais Id</th>
         <th>Ciudad Id</th>
         <th>Instruccionformal</th>
         <th>Horastrabajo</th>
         <th>Salario</th>
         <th>Plandegestionderiesgos Id</th>
-            <th colspan="3">Acciones</th>
+            <th colspan="3">Action</th>
         </tr>
     </thead>
     <tbody>
@@ -19,10 +19,10 @@
         <tr>
             <td>{!! $trabajadores->nombre !!}</td>
             <td>{!! $trabajadores->apellido !!}</td>
-            <td>{!! $trabajadores->genero !!}</td>
             <td>{!! $trabajadores->fechaDeNacimiento !!}</td>
-            <td>{!! $trabajadores->pais->nombre !!}</td>
-            <td>{!! $trabajadores->ciudad->nombre !!}</td>
+            <td>{!! $trabajadores->Genero_id !!}</td>
+            <td>{!! $trabajadores->Pais_id !!}</td>
+            <td>{!! $trabajadores->Ciudad_id !!}</td>
             <td>{!! $trabajadores->instruccionFormal !!}</td>
             <td>{!! $trabajadores->horasTrabajo !!}</td>
             <td>{!! $trabajadores->salario !!}</td>
