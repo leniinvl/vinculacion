@@ -290,6 +290,4 @@ Route::resource('tipoAbonos', 'TipoAbonoController');
 
 Route::resource('desechos', 'DesechoController');
 
-Route::post('/search', 'DesechoController@Search');
-
 Route::resource('tipodesechos', 'TipodesechoController');
