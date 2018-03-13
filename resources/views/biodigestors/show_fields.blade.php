@@ -19,7 +19,7 @@
 <!-- Imagen Field -->
 <div class="form-group">
     {!! Form::label('imagen', 'Imagen:') !!}
-    <p>{!! $biodigestor->imagen !!}</p>
+    <p><img width="300px" src="../imagenes/{!! $biodigestor->imagen !!}"/></p>
 </div>
 
 <!-- Video Field -->
