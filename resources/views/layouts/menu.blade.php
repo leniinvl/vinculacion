@@ -22,7 +22,7 @@
 			<ul class="treeview-menu">
 				<li class="{{ Request::is('biodigestors*') ? 'active' : '' }}"><a href="{!! route('biodigestors.index') !!}"><i class="fa fa-building"></i>Biodigestores</a></li>
 				<li class="{{ Request::is('desechos*') ? 'active' : '' }}"><a href="{!! route('desechos.index') !!}"><i class="fa fa-warning"></i>Desechos</a></li>
-				<li class="{{ Request::is('tipodesechos*') ? 'active' : '' }}"><a href="{!! route('tipodesechos.index') !!}"><i class="fa fa-warning"></i>Tipo Desechos</a></li>
+				<li class="{{ Request::is('tipodesechos*') ? 'active' : '' }}"><a href="{!! route('tipodesechos.index') !!}"><i class="glyphicon glyphicon-fire"></i>Tipo Desechos</a></li>
 			</ul>
         </li>
 

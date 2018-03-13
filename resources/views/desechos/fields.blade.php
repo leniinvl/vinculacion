@@ -6,19 +6,21 @@
 
 <!-- Peso Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('peso', 'Peso:') !!}
+    {!! Form::label('peso', 'Peso (kg):') !!}
     {!! Form::number('peso', null, ['class' => 'form-control','step'=>'0.01']) !!}
 </div>
 
 <!-- Biodigestor Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('Biodigestor_id', 'Biodigestor:') !!}
+     <a href="{{route('biodigestors.index')}}">(Añadir Nueva)</a>
     {!! Form::select('Biodigestor_id', $biodigestor ,null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Tipodesecho Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('TipoDesecho_id', 'Tipo Desecho:') !!}
+     <a href="{{route('tipodesechos.index')}}">(Añadir Nueva)</a>
     {!! Form::select('TipoDesecho_id', $tipodesecho ,null, ['class' => 'form-control']) !!}
 </div>
 

@@ -72,9 +72,6 @@ Route::post('storetopologia/{areainfluencia}', array('uses' => 'AreainfluenciaCo
 
 Route::delete('deletetopologia/{areainfluencia}/{id}',array('uses' => 'AreainfluenciaController@destroyTopologia', 'as' => 'destroyTopologia'));
 
-
-
-
 Route::post('storetipocultivos/{planriesgos}', array('uses' => 'PlanRiesgosController@storeTipoCultivos', 'as' => 'storeTipoCultivos'));
 
 Route::delete('deleteTipoCultivos/{planriesgos}/{id}',array('uses' => 'PlanRiesgosController@destroyTipoCultivos', 'as' => 'destroyTipoCultivos'));
@@ -112,12 +109,9 @@ Route::delete('deletegrupoalimentosproductos/{planRiesgos}/{id}',array('uses' =>
 
 Route::resource('planRiesgosHasGAProductos', 'PlanRiesgos_Has_GrupoAlimentosProductosController');
 
-
-
 Route::resource('asociacions', 'AsociacionController');
 
 Route::resource('planRiesgos', 'PlanRiesgosController');
-
 
 Route::resource('planRiesgosHasOrigenIngresos', 'PlanRiesgos_Has_OrigenIngresosController');
 
@@ -167,8 +161,6 @@ Route::resource('unidadproduccions', 'unidadproduccionController');
 
 Route::resource('tradicions', 'tradicionController');
 
-
-
 Route::resource('topologias', 'topologiaController');
 
 Route::resource('tipoFuentes', 'TipoFuentesController');
@@ -208,8 +200,6 @@ Route::resource('usosVegetacions', 'UsosVegetacionController');
 Route::resource('usosVegetacions', 'UsosVegetacionController');
 
 // Route::resource('unidadProduccionHasPropietarios', 'UnidadProduccion_Has_PropietarioController');
-
-
 
 Route::resource('areainfluenciaHasUsotierras', 'Areainfluencia_has_usotierraController');
 
@@ -267,50 +257,12 @@ Route::resource('tipoSuelos', 'TipoSueloController');
 
 Route::resource('tipoTerrenos', 'TipoTerrenoController');
 
-
-
-
-
-
-
 Route::resource('areainfluencias', 'AreainfluenciaController');
 
 Route::resource('calidadSuelos', 'CalidadSueloController');
 
 
 Route::resource('biodigestors', 'BiodigestorController');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 Route::resource('trabajadores', 'TrabajadoresController');
 

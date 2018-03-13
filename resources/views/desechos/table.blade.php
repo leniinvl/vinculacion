@@ -2,7 +2,7 @@
     <thead>
         <tr>
             <th>Fecha</th>
-        <th>Peso</th>
+        <th>Peso (kg)</th>
         <th>Biodigestor</th>
         <th>Tipo de Desecho</th>
             <th colspan="3">Action</th>
