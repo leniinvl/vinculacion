@@ -16,12 +16,6 @@
     <p>{!! $biodigestor->tamañoPropiedad !!}</p>
 </div>
 
-<!-- Imagen Field -->
-<div class="form-group">
-    {!! Form::label('imagen', 'Imagen:') !!}
-    <p>{!! $biodigestor->imagen !!}</p>
-</div>
-
 <!-- Video Field -->
 <div class="form-group">
     {!! Form::label('video', 'Video:') !!}
@@ -47,7 +41,7 @@
 </div>
 
 <div class="form-group">
-    {!! Form::label('volumenCaja', 'Volumen de la caja de acumulación de desechos (m^3):') !!}
+    {!! Form::label('volumenCaja', 'Volumen del Biodigestor (m^3):') !!}
     <p>{!! $biodigestor->profundBio * $biodigestor->largoBio * $biodigestor->anchoBio !!}</p>
 </div>
 

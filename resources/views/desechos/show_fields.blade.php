@@ -12,7 +12,7 @@
 
 <!-- Peso Field -->
 <div class="form-group">
-    {!! Form::label('peso', 'Peso:') !!}
+    {!! Form::label('peso', 'Peso (kg):') !!}
     <p>{!! $desecho->peso !!}</p>
 </div>
 

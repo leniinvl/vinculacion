@@ -7,6 +7,21 @@
            <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('desechos.create') !!}">Agregar Nuevo</a>
         </h1>
     </section>
+
+    
+        {!! Form::open(['route' => 'desechos.index', 'method' => 'GET','class' => 'navbar-form navbar-left pull-right', 'role' => 'search']) !!}
+          <div class="form-group">
+
+            {!! Form::date('date1',null, ['class' => 'form-control']) !!}
+            {!! Form::date('date2', null, ['class' => 'form-control']) !!}
+            {!! Form::select('name', $biodigestor ,null, ['class' => 'form-control', 'placeholder'=>'Selecciona un Biodigestor']) !!}
+            
+          </div>
+          <button type="submit" class="btn btn-default">Buscar</button>
+        {!! Form::close() !!}
+
+    
+
     <div class="content">
         <div class="clearfix"></div>
 
