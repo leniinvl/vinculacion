@@ -6,11 +6,12 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class Taller
+ * Class Desechot
  * @package App\Models
- * @version March 14, 2018, 9:40 pm UTC
+ * @version March 14, 2018, 9:38 pm UTC
  *
- * @property \App\Models\Unidadproduccion unidadproduccion
+ * @property \App\Models\Taller taller
+ * @property \App\Models\Tipodesechot tipodesechot
  * @property \Illuminate\Database\Eloquent\Collection agricultura
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasLenguaje
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasPeligros
@@ -21,7 +22,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasTradicion
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasUsotierra
  * @property \Illuminate\Database\Eloquent\Collection desecho
- * @property \Illuminate\Database\Eloquent\Collection Desechot
  * @property \Illuminate\Database\Eloquent\Collection origeningresos
  * @property \Illuminate\Database\Eloquent\Collection planriesgosHasOrigeningresos
  * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipoagricultura
@@ -30,18 +30,16 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \Illuminate\Database\Eloquent\Collection unidadproduccion
  * @property \Illuminate\Database\Eloquent\Collection unidadproduccionHasPropietario
  * @property \Illuminate\Database\Eloquent\Collection usosvegetacionHasAreainfluenciaHasTipovegetal
- * @property string nombre
- * @property string descripcion
- * @property string riesgo
- * @property string imagen
- * @property string video
- * @property integer UnidadProduccion_id
+ * @property date fecha
+ * @property decimal peso
+ * @property integer Taller_id
+ * @property integer TipoDesechoT_id
  */
-class Taller extends Model
+class Desechot extends Model
 {
     use SoftDeletes;
 
-    public $table = 'taller';
+    public $table = 'desechot';
     
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
@@ -51,12 +49,10 @@ class Taller extends Model
 
 
     public $fillable = [
-        'nombre',
-        'descripcion',
-        'riesgo',
-        'imagen',
-        'video',
-        'UnidadProduccion_id'
+        'fecha',
+        'peso',
+        'Taller_id',
+        'TipoDesechoT_id'
     ];
 
     /**
@@ -66,12 +62,9 @@ class Taller extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'nombre' => 'string',
-        'descripcion' => 'string',
-        'riesgo' => 'string',
-        'imagen' => 'string',
-        'video' => 'string',
-        'UnidadProduccion_id' => 'integer'
+        'fecha' => 'date',
+        'Taller_id' => 'integer',
+        'TipoDesechoT_id' => 'integer'
     ];
 
     /**
@@ -86,16 +79,16 @@ class Taller extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function unidadproduccion()
+    public function taller()
     {
-        return $this->belongsTo(\App\Models\Unidadproduccion::class,'UnidadProduccion_id');
+        return $this->belongsTo(\App\Models\Taller::class,'Taller_id');
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function desechots()
+    public function tipodesechot()
     {
-        return $this->hasMany(\App\Models\Desechot::class);
+        return $this->belongsTo(\App\Models\Tipodesechot::class,'TipoDesechoT_id');
     }
 }

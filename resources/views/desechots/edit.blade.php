@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Taller
+            Desechos
         </h1>
    </section>
    <div class="content">
@@ -11,9 +11,9 @@
        <div class="box box-primary">
            <div class="box-body">
                <div class="row">
-                   {!! Form::model($taller, ['route' => ['tallers.update', $taller->id], 'method' => 'patch']) !!}
+                   {!! Form::model($desechot, ['route' => ['desechots.update', $desechot->id], 'method' => 'patch']) !!}
 
-                        @include('tallers.fields')
+                        @include('desechots.fields')
 
                    {!! Form::close() !!}
                </div>

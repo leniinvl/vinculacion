@@ -8,7 +8,7 @@ use InfyOm\Generator\Common\BaseRepository;
 /**
  * Class TallerRepository
  * @package App\Repositories
- * @version January 18, 2018, 2:42 pm UTC
+ * @version March 14, 2018, 9:40 pm UTC
  *
  * @method Taller findWithoutFail($id, $columns = ['*'])
  * @method Taller find($id, $columns = ['*'])
@@ -22,6 +22,9 @@ class TallerRepository extends BaseRepository
     protected $fieldSearchable = [
         'nombre',
         'descripcion',
+        'riesgo',
+        'imagen',
+        'video',
         'UnidadProduccion_id'
     ];
 
