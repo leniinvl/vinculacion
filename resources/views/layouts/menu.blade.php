@@ -210,3 +210,15 @@
 </li>--}}
 
 
+<li class="{{ Request::is('condicionesDrenajes*') ? 'active' : '' }}">
+    <a href="{!! route('condicionesDrenajes.index') !!}"><i class="fa fa-edit"></i><span>Condiciones Drenajes</span></a>
+</li>
+
+<li class="{{ Request::is('ruidos*') ? 'active' : '' }}">
+    <a href="{!! route('ruidos.index') !!}"><i class="fa fa-edit"></i><span>Ruidos</span></a>
+</li>
+
+<li class="{{ Request::is('tipoVegetals*') ? 'active' : '' }}">
+    <a href="{!! route('tipoVegetals.index') !!}"><i class="fa fa-edit"></i><span>Tipo Vegetals</span></a>
+</li>
+

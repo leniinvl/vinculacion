@@ -79,13 +79,13 @@
 <!-- Condicionesdrenaje Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('CondicionesDrenaje_id', 'Condicionesdrenaje Id:') !!}
-    {!! Form::number('CondicionesDrenaje_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('CondicionesDrenaje_id', $condicionesdrenaje, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Ruido Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('Ruido_id', 'Ruido Id:') !!}
-    {!! Form::number('Ruido_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('Ruido_id', $ruido, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Ecosistema Id Field -->
