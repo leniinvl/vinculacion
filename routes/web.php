@@ -309,3 +309,9 @@ Route::resource('generos', 'GeneroController');
 Route::resource('usoSuelos', 'UsoSueloController');
 
 Route::resource('areaInfluencias', 'AreaInfluenciaController');
+
+Route::resource('condicionesDrenajes', 'CondicionesDrenajeController');
+
+Route::resource('ruidos', 'RuidoController');
+
+Route::resource('tipoVegetals', 'TipoVegetalController');

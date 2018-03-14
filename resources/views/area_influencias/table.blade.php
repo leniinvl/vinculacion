@@ -48,8 +48,8 @@
             <td>{!! $areaInfluencia->Precipitaciones_id !!}</td>
             <td>{!! $areaInfluencia->PermeabilidadSuelo_id !!}</td>
             <td>{!! $areaInfluencia->Clima_id !!}</td>
-            <td>{!! $areaInfluencia->CondicionesDrenaje_id !!}</td>
-            <td>{!! $areaInfluencia->Ruido_id !!}</td>
+            <td>{!! $areaInfluencia->CondicionesDrenaje->nombre !!}</td>
+            <td>{!! $areaInfluencia->Ruido->valor !!}</td>
             <td>{!! $areaInfluencia->Ecosistema_id !!}</td>
             <td>{!! $areaInfluencia->CaracteristicasEtnicas_id !!}</td>
             <td>{!! $areaInfluencia->nivelTraficoDescripcion !!}</td>
