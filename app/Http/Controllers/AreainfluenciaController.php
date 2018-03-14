@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Models\UsoSuelo;
 
 class AreaInfluenciaController extends AppBaseController
 {
@@ -43,7 +44,8 @@ class AreaInfluenciaController extends AppBaseController
      */
     public function create()
     {
-        return view('area_influencias.create');
+        $usosuelo=UsoSuelo::all()->pluck('nombre','id');
+        return view('area_influencias.create',['usosuelo' => $usosuelo]);
     }
 
     /**
@@ -94,6 +96,7 @@ class AreaInfluenciaController extends AppBaseController
     public function edit($id)
     {
         $areaInfluencia = $this->areaInfluenciaRepository->findWithoutFail($id);
+         $usosuelo=UsoSuelo::all()->pluck('nombre','id');
 
         if (empty($areaInfluencia)) {
             Flash::error('Area Influencia not found');
@@ -101,7 +104,7 @@ class AreaInfluenciaController extends AppBaseController
             return redirect(route('areaInfluencias.index'));
         }
 
-        return view('area_influencias.edit')->with('areaInfluencia', $areaInfluencia);
+        return view('area_influencias.edit')->with('areaInfluencia', $areaInfluencia)->with('usosuelo', $usosuelo);
     }
 
     /**

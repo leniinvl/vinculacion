@@ -148,7 +148,7 @@
 
 		{{--****Plan Manejo Ambiental****--}}
 
-		<li class="treeview {{ Request::is('calidadAires*','tipoTerrenos*','tipoSuelos*','calidadSuelos*','precipitaciones*','nivelDeTraficos*','permeabilidadSuelos*','climas*','condicionesDrenajes*','ruidos*','recirculacionAires*','ecosistemas*','organizacionSocials*','tendenciaTierras*','abastecimientoaguas*','evacuacionAguaLluvias*','caracteristicasEtnicas*','consolidacionAreaInfluencias*','evacuacionAguasServidas*','paisajes*','usosVegetacions*','tipoVegetals*','usoTierras*','religions*','lenguajes*','tradicions*','tipoFuentes*','peligros*','topologias*') ? 'active' : '' }}">
+		<li class="treeview {{ Request::is('tipoSuelos*','climas*','ecosistemas*','abastecimientoaguas*','caracteristicasEtnicas*','consolidacionAreaInfluencias*','paisajes*','religions*','lenguajes*','tradicions*','topologias*','usoSuelos*') ? 'active' : '' }}">
 			<a href="#">
 				<i></i> <span>Manejo Ambiental</span>
 				<span class="pull-right-container">
@@ -156,38 +156,21 @@
 				</span>
 			</a>
 			<ul class="treeview-menu" style="">
-				<li class="{{ Request::is('calidadAires*') ? 'active' : '' }}"><a href="{!! route('calidadAires.index') !!}"><i class="fa fa-snowflake-o"></i>Calidad del Aire</a></li>
-				<li class="{{ Request::is('tipoTerrenos*') ? 'active' : '' }}"><a href="{!! route('tipoTerrenos.index') !!}"><i class="fa fa-road"></i>Agregar Tipo de Terreno</a></li>
+				
 				<li class="{{ Request::is('tipoSuelos*') ? 'active' : '' }}"><a href="{!! route('tipoSuelos.index') !!}"><i class="fa fa-road"></i>Agregar Tipo de Suelo</a></li>
-				<li class="{{ Request::is('calidadSuelos*') ? 'active' : '' }}"><a href="{!! route('calidadSuelos.index') !!}"><i class="fa fa-road"></i>Calidad de Suelo</a></li>
-				<li class="{{ Request::is('precipitaciones*') ? 'active' : '' }}"><a href="{!! route('precipitaciones.index') !!}"><i class="fa fa-map"></i>Precipitaciones</a></li>
-				<li class="{{ Request::is('nivelDeTraficos*') ? 'active' : '' }}"><a href="{!! route('nivelDeTraficos.index') !!}"><i class="fa fa-car"></i>Nivel De Tráficos</a></li>
-				<li class="{{ Request::is('permeabilidadSuelos*') ? 'active' : '' }}"><a href="{!! route('permeabilidadSuelos.index') !!}"><i class="fa fa-snowflake-o"></i>Permeabilidad del Suelo</a></li>
 				<li class="{{ Request::is('climas*') ? 'active' : '' }}"><a href="{!! route('climas.index') !!}"><i class="fa fa-snowflake-o"></i>Clima</a></li>
-				<li class="{{ Request::is('condicionesDrenajes*') ? 'active' : '' }}"><a href="{!! route('condicionesDrenajes.index') !!}"><i class="fa fa-ticket"></i>Condiciones de Drenaje</a></li>
-				<li class="{{ Request::is('ruidos*') ? 'active' : '' }}"><a href="{!! route('ruidos.index') !!}"><i class="fa fa-volume-up"></i>Ruido</a></li>
-				<li class="{{ Request::is('recirculacionAires*') ? 'active' : '' }}"><a href="{!! route('recirculacionAires.index') !!}"><i class="fa fa-snowflake-o"></i>Recirculación de Aire</a></li>
 				<li class="{{ Request::is('ecosistemas*') ? 'active' : '' }}"><a href="{!! route('ecosistemas.index') !!}"><i class="fa fa-cubes"></i>Ecosistema</a></li>
-				<li class="{{ Request::is('organizacionSocials*') ? 'active' : '' }}"><a href="{!! route('organizacionSocials.index') !!}"><i class="fa fa-group"></i>Organización Social</a></li>
-				<li class="{{ Request::is('tendenciaTierras*') ? 'active' : '' }}"><a href="{!! route('tendenciaTierras.index') !!}"><i class="fa fa-road"></i>Tendencia de Tierra</a></li>
 				<li class="{{ Request::is('abastecimientoaguas*') ? 'active' : '' }}"><a href="{!! route('abastecimientoaguas.index') !!}"><i class="fa fa-tint"></i>Abastecimiento de Agua</a></li>
-				<li class="{{ Request::is('evacuacionAguaLluvias*') ? 'active' : '' }}"><a href="{!! route('evacuacionAguaLluvias.index') !!}"><i class="fa fa-tint"></i>Evacuación de agua de<br/> &emsp; Lluvia</a></li>
 				<li class="{{ Request::is('caracteristicasEtnicas*') ? 'active' : '' }}"><a href="{!! route('caracteristicasEtnicas.index') !!}"><i class="fa fa-child"></i>Características Étnicas</a></li>
 				<li class="{{ Request::is('consolidacionAreaInfluencias*') ? 'active' : '' }}"><a href="{!! route('consolidacionAreaInfluencias.index') !!}"><i class="fa fa-edit"></i>Consolidación de Área<br/> &emsp; de Influencias</a></li>
-				<li class="{{ Request::is('evacuacionAguasServidas*') ? 'active' : '' }}"><a href="{!! route('evacuacionAguasServidas.index') !!}"><i class="fa fa-tint"></i>Evacuación de Aguas<br/> &emsp; Servidas</a></li>
 				<li class="{{ Request::is('paisajes*') ? 'active' : '' }}"><a href="{!! route('paisajes.index') !!}"><i class="fa fa-certificate"></i>Paisaje</a></li>
-				<li class="{{ Request::is('usosVegetacions*') ? 'active' : '' }}"><a href="{!! route('usosVegetacions.index') !!}"><i class="fa fa-globe"></i>Usos de Vegetación</a></li>
-				<li class="{{ Request::is('tipoVegetals*') ? 'active' : '' }}"><a href="{!! route('tipoVegetals.index') !!}"><i class="fa fa-leaf"></i>Tipos de Vegetales</a></li>
-				<li class="{{ Request::is('usoTierras*') ? 'active' : '' }}"><a href="{!! route('usoTierras.index') !!}"><i class="fa fa-leaf"></i>Uso de Tierra</a></li>
 				<li class="{{ Request::is('religions*') ? 'active' : '' }}"><a href="{!! route('religions.index') !!}"><i class="fa fa-institution"></i>Religión</a></li>
 				<li class="{{ Request::is('lenguajes*') ? 'active' : '' }}"><a href="{!! route('lenguajes.index') !!}"><i class="fa fa-edit"></i>Lenguaje</a></li>
 				<li class="{{ Request::is('tradicions*') ? 'active' : '' }}"><a href="{!! route('tradicions.index') !!}"><i class="fa fa-group"></i>Tradiciones</a></li>
-				<li class="{{ Request::is('tipoFuentes*') ? 'active' : '' }}"><a href="{!! route('tipoFuentes.index') !!}"><i class="fa fa-paint-brush"></i>Tipo de Fuente</a></li>
-				<li class="{{ Request::is('peligros*') ? 'active' : '' }}"><a href="{!! route('peligros.index') !!}"><i class="fa fa-warning"></i>Peligros</a></li>
 				<li class="{{ Request::is('topologias*') ? 'active' : '' }}"><a href="{!! route('topologias.index') !!}"><i class="fa fa-bullseye"></i>Topologías</a></li>
+				<li class="{{ Request::is('usoSuelos*') ? 'active' : '' }}"><a href="{!! route('usoSuelos.index') !!}"><i class="glyphicon glyphicon-filter"></i>Uso de Suelos</a></li>
 			</ul>
         </li>
-
 
 
 {{--****Fin Plan Manejo Ambiental****--}}
@@ -225,3 +208,5 @@
 <li class="{{ Request::is('areaInfluenciaHasTradicions*') ? 'active' : '' }}">
     <a href="{!! route('areaInfluenciaHasTradicions.index') !!}"><i class="fa fa-edit"></i><span>Area Influencia Has Tradicions</span></a>
 </li>--}}
+
+

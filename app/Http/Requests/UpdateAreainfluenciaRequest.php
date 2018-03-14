@@ -3,9 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\Areainfluencia;
+use App\Models\AreaInfluencia;
 
-class UpdateAreainfluenciaRequest extends FormRequest
+class UpdateAreaInfluenciaRequest extends FormRequest
 {
 
     /**
@@ -25,6 +25,6 @@ class UpdateAreainfluenciaRequest extends FormRequest
      */
     public function rules()
     {
-        return Areainfluencia::$rules;
+        return AreaInfluencia::$rules;
     }
 }
