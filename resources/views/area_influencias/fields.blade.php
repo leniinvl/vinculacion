@@ -73,7 +73,7 @@
 <!-- Condicionesdrenaje Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('CondicionesDrenaje_id', 'Condicionesdrenaje Id:') !!}
-    {!! Form::number('CondicionesDrenaje_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('CondicionesDrenaje_id', $condicionesdrenaje, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Ecosistema Id Field -->
