@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\AppBaseController;
+<<<<<<< HEAD
+use App\Http\Requests\CreateTallerRequest;
+use App\Http\Requests\UpdateTallerRequest;
+=======
 use App\Http\Controllers\ChromePhp;
 use App\Http\Requests\CreateTallerRequest;
 use App\Http\Requests\UpdateTallerRequest;
@@ -11,16 +15,20 @@ use App\Repositories\TallerRepository;
 use Flash;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
+>>>>>>> upstream/master
 use App\Models\Taller;
-use Illuminate\Http\Request;
-use Flash;
 use App\Models\unidadproduccion;
+<<<<<<< HEAD
+use App\Repositories\TallerRepository;
+use Flash;
+use Illuminate\Http\Request;
+=======
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Log;
 
+>>>>>>> upstream/master
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
-
 
 class TallerController extends AppBaseController
 {
@@ -55,10 +63,16 @@ class TallerController extends AppBaseController
     public function create()
     {
 
+<<<<<<< HEAD
+        $unidadproducion = unidadproduccion::all()->pluck('nombre', 'id');
+        return view('tallers.create', [
+            'unidadproduccion' => $unidadproducion,
+=======
 
         $unidadproducion= unidadproduccion::all()->pluck('nombre','id');
         return view('tallers.create',[
             'unidadproduccion'=>$unidadproducion
+>>>>>>> upstream/master
         ]);
     }
 
@@ -81,28 +95,28 @@ guardado exitosamente.');
 
 
         //$input = $request->all();
-        $base64Photo=null;
-        if($request->hasFile('file')){
+        $base64Photo = null;
+        if ($request->hasFile('file')) {
             $this->validate($request, [
                 'file' => 'required|image|mimes:jpeg,png,jpg,gif|max:1024',
             ]);
-                $image = $request->file('file');
-                $extension= $image->getClientOriginalExtension();
-                $im= file_get_contents($image);
-                $data = base64_encode($im);
-                $base64Photo= 'data:image/'.$extension.';base64,'.$data;
-        }else{
-            $base64Photo=null;
+            $image       = $request->file('file');
+            $extension   = $image->getClientOriginalExtension();
+            $im          = file_get_contents($image);
+            $data        = base64_encode($im);
+            $base64Photo = 'data:image/' . $extension . ';base64,' . $data;
+        } else {
+            $base64Photo = null;
         }
-        $taller = new Taller();
-        $taller->nombre=$request->get('nombre');
-        $taller->descripcion=$request->get('descripcion');
-        $taller->riesgo=$request->get('riesgo');
-        $taller->imagen=$base64Photo;
-        $taller->video=$request->get('video');
-        $taller->UnidadProduccion_id=$request->get('UnidadProduccion_id');
+        $taller                      = new Taller();
+        $taller->nombre              = $request->get('nombre');
+        $taller->descripcion         = $request->get('descripcion');
+        $taller->riesgo              = $request->get('riesgo');
+        $taller->imagen              = $base64Photo;
+        $taller->video               = $request->get('video');
+        $taller->UnidadProduccion_id = $request->get('UnidadProduccion_id');
         $taller->save();
-        Flash::success('Guardado Satisfactoriamente.');
+        Flash::success('Taller saved successfully.');
         return redirect(route('tallers.index'));
 
     }

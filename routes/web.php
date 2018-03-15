@@ -259,10 +259,14 @@ Route::resource('tipoVegetals', 'TipoVegetalController');
 
 Route::resource('agriculturas', 'AgriculturaController');
 
-Route::resource('planDeGestionDeRiesgos', 'PlanDeGestionDeRiesgosController');
 
 
 
+<<<<<<< HEAD
+
+Route::resource('planGestionRiesgos', 'PlanGestionRiesgosController');
+=======
 Route::resource('areaInfluencias', 'AreaInfluenciaController');
 
 Route::resource('permeabilidadSuelos', 'PermeabilidadSueloController');
+>>>>>>> upstream/master

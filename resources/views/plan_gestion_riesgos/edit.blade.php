@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Plan De Gestion De Riesgos
+            Plan Gestion Riesgos
         </h1>
    </section>
    <div class="content">
@@ -11,9 +11,9 @@
        <div class="box box-primary">
            <div class="box-body">
                <div class="row">
-                   {!! Form::model($planDeGestionDeRiesgos, ['route' => ['planDeGestionDeRiesgos.update', $planDeGestionDeRiesgos->id], 'method' => 'patch']) !!}
+                   {!! Form::model($planGestionRiesgos, ['route' => ['planGestionRiesgos.update', $planGestionRiesgos->id], 'method' => 'patch']) !!}
 
-                        @include('plan_de_gestion_de_riesgos.fields')
+                        @include('plan_gestion_riesgos.fields')
 
                    {!! Form::close() !!}
                </div>
