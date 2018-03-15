@@ -59,7 +59,8 @@ class TipoRiesgosController extends AppBaseController
 
         $tipoRiesgos = $this->tipoRiesgosRepository->create($input);
 
-        Flash::success('Tipo Riesgos saved successfully.');
+        Flash::success('Tipo Riesgos
+guardado exitosamente.');
 
         return redirect(route('tipoRiesgos.index'));
     }

@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreatePrecuariaRequest;
 use App\Http\Requests\UpdatePrecuariaRequest;
 use App\Repositories\PrecuariaRepository;
-use App\Http\Controllers\AppBaseController;
-use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
@@ -59,7 +59,8 @@ class PrecuariaController extends AppBaseController
 
         $precuaria = $this->precuariaRepository->create($input);
 
-        Flash::success('Precuaria saved successfully.');
+        Flash::success('Precuaria
+guardado exitosamente.');
 
         return redirect(route('precuarias.index'));
     }

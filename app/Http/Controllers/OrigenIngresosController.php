@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreateOrigenIngresosRequest;
 use App\Http\Requests\UpdateOrigenIngresosRequest;
-use App\Repositories\OrigenIngresosRepository;
-use App\Http\Controllers\AppBaseController;
-use Illuminate\Http\Request;
-use Flash;
-use Prettus\Repository\Criteria\RequestCriteria;
-use Response;
 use App\Models\Propietario;
 use App\Models\unidadproduccion;
+use App\Repositories\OrigenIngresosRepository;
+use Flash;
+use Illuminate\Http\Request;
+use Prettus\Repository\Criteria\RequestCriteria;
+use Response;
 
 class OrigenIngresosController extends AppBaseController
 {
@@ -45,12 +45,12 @@ class OrigenIngresosController extends AppBaseController
      */
     public function create()
     {
-      $propietario = Propietario::all()->pluck('nombre', 'id');
-      $unidadproduccion = unidadproduccion::all()->pluck('nombre', 'id');
-      return view('origen_ingresos.create', [
-        'propietario' => $propietario,
-        'unidadproduccion' => $unidadproduccion,
-      ]);
+        $propietario      = Propietario::all()->pluck('nombre', 'id');
+        $unidadproduccion = unidadproduccion::all()->pluck('nombre', 'id');
+        return view('origen_ingresos.create', [
+            'propietario'      => $propietario,
+            'unidadproduccion' => $unidadproduccion,
+        ]);
     }
 
     /**
@@ -66,7 +66,8 @@ class OrigenIngresosController extends AppBaseController
 
         $origenIngresos = $this->origenIngresosRepository->create($input);
 
-        Flash::success('Origen Ingresos saved successfully.');
+        Flash::success('Origen Ingresos
+guardado exitosamente.');
 
         return redirect(route('origenIngresos.index'));
     }
@@ -100,8 +101,8 @@ class OrigenIngresosController extends AppBaseController
      */
     public function edit($id)
     {
-        $origenIngresos = $this->origenIngresosRepository->findWithoutFail($id);
-        $propietario = Propietario::all()->pluck('nombre', 'id');
+        $origenIngresos   = $this->origenIngresosRepository->findWithoutFail($id);
+        $propietario      = Propietario::all()->pluck('nombre', 'id');
         $unidadproduccion = unidadproduccion::all()->pluck('nombre', 'id');
 
         if (empty($origenIngresos)) {
@@ -111,8 +112,8 @@ class OrigenIngresosController extends AppBaseController
         }
 
         return view('origen_ingresos.edit')->with('origenIngresos', $origenIngresos)
-        ->with('propietario', $propietario)
-        ->with('unidadproduccion', $unidadproduccion);
+            ->with('propietario', $propietario)
+            ->with('unidadproduccion', $unidadproduccion);
     }
 
     /**

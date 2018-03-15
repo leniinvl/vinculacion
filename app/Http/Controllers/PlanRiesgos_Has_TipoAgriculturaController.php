@@ -59,7 +59,8 @@ class PlanRiesgos_Has_TipoAgriculturaController extends AppBaseController
 
         $planRiesgosHasTipoAgricultura = $this->planRiesgosHasTipoAgriculturaRepository->create($input);
 
-        Flash::success('Plan Riesgos  Has  Tipo Agricultura saved successfully.');
+        Flash::success('Plan Riesgos  Has  Tipo Agricultura
+guardado exitosamente.');
 
         return redirect(route('planRiesgosHasTipoAgriculturas.index'));
     }

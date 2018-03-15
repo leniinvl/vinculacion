@@ -59,7 +59,8 @@ class PlanRiesgos_Has_OrigenIngresosController extends AppBaseController
 
         $planRiesgosHasOrigenIngresos = $this->planRiesgosHasOrigenIngresosRepository->create($input);
 
-        Flash::success('Plan Riesgos  Has  Origen Ingresos saved successfully.');
+        Flash::success('Plan Riesgos  Has  Origen Ingresos
+guardado exitosamente.');
 
         return redirect(route('planRiesgosHasOrigenIngresos.index'));
     }

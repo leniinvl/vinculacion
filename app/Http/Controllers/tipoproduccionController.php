@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreateTipoProduccionRequest;
 use App\Http\Requests\UpdateTipoProduccionRequest;
 use App\Repositories\TipoProduccionRepository;
-use App\Http\Controllers\AppBaseController;
-use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
@@ -59,7 +59,8 @@ class TipoProduccionController extends AppBaseController
 
         $tipoProduccion = $this->tipoProduccionRepository->create($input);
 
-        Flash::success('Tipo Produccion saved successfully.');
+        Flash::success('Tipo Produccion
+guardado exitosamente.');
 
         return redirect(route('tipoProduccions.index'));
     }

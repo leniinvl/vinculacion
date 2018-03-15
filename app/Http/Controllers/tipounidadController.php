@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreateTipoUnidadRequest;
 use App\Http\Requests\UpdateTipoUnidadRequest;
 use App\Repositories\TipoUnidadRepository;
-use App\Http\Controllers\AppBaseController;
-use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
@@ -59,7 +59,8 @@ class TipoUnidadController extends AppBaseController
 
         $tipoUnidad = $this->tipoUnidadRepository->create($input);
 
-        Flash::success('Tipo Unidad saved successfully.');
+        Flash::success('Tipo Unidad
+guardado exitosamente.');
 
         return redirect(route('tipoUnidads.index'));
     }

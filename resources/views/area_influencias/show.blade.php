@@ -123,7 +123,7 @@
                     </table>
 
 
-                    <a href="{!! route('areaInfluencias.index') !!}" class="btn btn-default">Back</a>
+                    <a href="{!! route('areaInfluencias.index') !!}" class="btn btn-default">Atrás</a>
                 </div>
             </div>
         </div>

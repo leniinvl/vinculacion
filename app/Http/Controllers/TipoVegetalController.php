@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreateTipoVegetalRequest;
 use App\Http\Requests\UpdateTipoVegetalRequest;
 use App\Repositories\TipoVegetalRepository;
-use App\Http\Controllers\AppBaseController;
-use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
@@ -59,7 +59,8 @@ class TipoVegetalController extends AppBaseController
 
         $tipoVegetal = $this->tipoVegetalRepository->create($input);
 
-        Flash::success('Tipo Vegetal saved successfully.');
+        Flash::success('Tipo Vegetal
+guardado exitosamente.');
 
         return redirect(route('tipoVegetals.index'));
     }

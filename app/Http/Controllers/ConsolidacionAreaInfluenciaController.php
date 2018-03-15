@@ -59,7 +59,8 @@ class ConsolidacionAreaInfluenciaController extends AppBaseController
 
         $consolidacionAreaInfluencia = $this->consolidacionAreaInfluenciaRepository->create($input);
 
-        Flash::success('Consolidacion Area Influencia saved successfully.');
+        Flash::success('Consolidacion Area Influencia
+guardado exitosamente.');
 
         return redirect(route('consolidacionAreaInfluencias.index'));
     }

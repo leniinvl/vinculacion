@@ -59,7 +59,8 @@ class AreaInfluenciaHasTipoVegetalController extends AppBaseController
 
         $areaInfluenciaHasTipoVegetal = $this->areaInfluenciaHasTipoVegetalRepository->create($input);
 
-        Flash::success('Area Influencia Has Tipo Vegetal saved successfully.');
+        Flash::success('Area Influencia Has Tipo Vegetal
+guardado exitosamente.');
 
         return redirect(route('areaInfluenciaHasTipoVegetals.index'));
     }

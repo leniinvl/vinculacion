@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreateVulnerabilidadesRequest;
 use App\Http\Requests\UpdateVulnerabilidadesRequest;
 use App\Repositories\VulnerabilidadesRepository;
-use App\Http\Controllers\AppBaseController;
-use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
@@ -59,7 +59,8 @@ class VulnerabilidadesController extends AppBaseController
 
         $vulnerabilidades = $this->vulnerabilidadesRepository->create($input);
 
-        Flash::success('Vulnerabilidades saved successfully.');
+        Flash::success('Vulnerabilidades
+guardado exitosamente.');
 
         return redirect(route('vulnerabilidades.index'));
     }

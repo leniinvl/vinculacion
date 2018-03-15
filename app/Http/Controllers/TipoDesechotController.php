@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreateTipoDesechotRequest;
 use App\Http\Requests\UpdateTipoDesechotRequest;
 use App\Repositories\TipoDesechotRepository;
-use App\Http\Controllers\AppBaseController;
-use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
@@ -59,7 +59,8 @@ class TipoDesechotController extends AppBaseController
 
         $tipoDesechot = $this->tipoDesechotRepository->create($input);
 
-        Flash::success('Tipo Desechot saved successfully.');
+        Flash::success('Tipo Desechot
+guardado exitosamente.');
 
         return redirect(route('tipoDesechots.index'));
     }

@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreateDesechotRequest;
 use App\Http\Requests\UpdateDesechotRequest;
-use App\Repositories\DesechotRepository;
-use App\Http\Controllers\AppBaseController;
-use App\Models\TipoDesechot;
 use App\Models\Taller;
-use Illuminate\Http\Request;
+use App\Models\TipoDesechot;
+use App\Repositories\DesechotRepository;
 use Flash;
+use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
@@ -45,11 +45,11 @@ class DesechotController extends AppBaseController
      */
     public function create()
     {
-        $taller= Taller::all()->pluck('nombre','id');
-        $tipodesechot=TipoDesechot::all()->pluck('nombre','id');
-        return view('desechots.create',[
-            'taller'=>$taller,
-            'tipodesechot'=>$tipodesechot
+        $taller       = Taller::all()->pluck('nombre', 'id');
+        $tipodesechot = TipoDesechot::all()->pluck('nombre', 'id');
+        return view('desechots.create', [
+            'taller'       => $taller,
+            'tipodesechot' => $tipodesechot,
 
         ]);
     }
@@ -67,8 +67,8 @@ class DesechotController extends AppBaseController
 
         $desechot = $this->desechotRepository->create($input);
 
-
-        Flash::success('Desechot saved successfully.');
+        Flash::success('Desechot
+guardado exitosamente.');
 
         return redirect(route('desechots.index'));
     }
@@ -82,9 +82,9 @@ class DesechotController extends AppBaseController
      */
     public function show($id)
     {
-        $taller= Taller::all()->pluck('nombre','id');
-        $tipodesechot=TipoDesechot::all()->pluck('nombre','id');
-        $desechot = $this->desechotRepository->findWithoutFail($id);
+        $taller       = Taller::all()->pluck('nombre', 'id');
+        $tipodesechot = TipoDesechot::all()->pluck('nombre', 'id');
+        $desechot     = $this->desechotRepository->findWithoutFail($id);
 
         if (empty($desechot)) {
             Flash::error('Desechot not found');
@@ -92,7 +92,7 @@ class DesechotController extends AppBaseController
             return redirect(route('desechots.index'));
         }
 
-        return view('desechots.show')->with('desechot', $desechot)->with('taller',$taller)->with('tipodesechot',$tipodesechot);
+        return view('desechots.show')->with('desechot', $desechot)->with('taller', $taller)->with('tipodesechot', $tipodesechot);
     }
 
     /**
@@ -104,9 +104,9 @@ class DesechotController extends AppBaseController
      */
     public function edit($id)
     {
-        $taller= Taller::all()->pluck('nombre','id');
-        $tipodesechot=TipoDesechot::all()->pluck('nombre','id');
-        $desechot = $this->desechotRepository->findWithoutFail($id);
+        $taller       = Taller::all()->pluck('nombre', 'id');
+        $tipodesechot = TipoDesechot::all()->pluck('nombre', 'id');
+        $desechot     = $this->desechotRepository->findWithoutFail($id);
 
         if (empty($desechot)) {
             Flash::error('Desechot not found');
@@ -114,7 +114,7 @@ class DesechotController extends AppBaseController
             return redirect(route('desechots.index'));
         }
 
-        return view('desechots.edit')->with('desechot', $desechot)->with('taller',$taller)->with('tipodesechot',$tipodesechot);
+        return view('desechots.edit')->with('desechot', $desechot)->with('taller', $taller)->with('tipodesechot', $tipodesechot);
     }
 
     /**

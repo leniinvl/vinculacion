@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreateTipodesechoRequest;
 use App\Http\Requests\UpdateTipodesechoRequest;
 use App\Repositories\TipodesechoRepository;
-use App\Http\Controllers\AppBaseController;
-use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
@@ -59,7 +59,8 @@ class TipodesechoController extends AppBaseController
 
         $tipodesecho = $this->tipodesechoRepository->create($input);
 
-        Flash::success('Tipodesecho saved successfully.');
+        Flash::success('Tipodesecho
+guardado exitosamente.');
 
         return redirect(route('tipodesechos.index'));
     }

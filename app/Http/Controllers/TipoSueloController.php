@@ -59,7 +59,8 @@ class TipoSueloController extends AppBaseController
 
         $tipoSuelo = $this->tipoSueloRepository->create($input);
 
-        Flash::success('Tipo Suelo saved successfully.');
+        Flash::success('Tipo Suelo
+guardado exitosamente.');
 
         return redirect(route('tipoSuelos.index'));
     }

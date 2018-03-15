@@ -59,7 +59,8 @@ class PlanRiesgos_Has_TipoCultivosController extends AppBaseController
 
         $planRiesgosHasTipoCultivos = $this->planRiesgosHasTipoCultivosRepository->create($input);
 
-        Flash::success('Plan Riesgos  Has  Tipo Cultivos saved successfully.');
+        Flash::success('Plan Riesgos  Has  Tipo Cultivos
+guardado exitosamente.');
 
         return redirect(route('planRiesgosHasTipoCultivos.index'));
     }

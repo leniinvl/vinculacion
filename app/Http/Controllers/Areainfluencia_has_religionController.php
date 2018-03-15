@@ -59,7 +59,8 @@ class Areainfluencia_has_religionController extends AppBaseController
 
         $areainfluenciaHasReligion = $this->areainfluenciaHasReligionRepository->create($input);
 
-        Flash::success('Areainfluencia Has Religion saved successfully.');
+        Flash::success('Areainfluencia Has Religion
+guardado exitosamente.');
 
         return redirect(route('areainfluenciaHasReligions.index'));
     }
