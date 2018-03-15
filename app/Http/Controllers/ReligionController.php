@@ -59,7 +59,8 @@ class ReligionController extends AppBaseController
 
         $religion = $this->religionRepository->create($input);
 
-        Flash::success('Religion saved successfully.');
+        Flash::success('Religion
+guardado exitosamente.');
 
         return redirect(route('religions.index'));
     }

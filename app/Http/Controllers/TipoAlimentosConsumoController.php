@@ -59,7 +59,8 @@ class TipoAlimentosConsumoController extends AppBaseController
 
         $tipoAlimentosConsumo = $this->tipoAlimentosConsumoRepository->create($input);
 
-        Flash::success('Tipo Alimentos Consumo saved successfully.');
+        Flash::success('Tipo Alimentos Consumo
+guardado exitosamente.');
 
         return redirect(route('tipoAlimentosConsumos.index'));
     }

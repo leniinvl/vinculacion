@@ -5,12 +5,12 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreatePaisajeRequest;
 use App\Http\Requests\UpdatePaisajeRequest;
+use App\Models\Areainfluencia;
 use App\Repositories\PaisajeRepository;
 use Flash;
 use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
-use App\Models\Areainfluencia;
 
 class PaisajeController extends AppBaseController
 {
@@ -44,8 +44,8 @@ class PaisajeController extends AppBaseController
      */
     public function create()
     {
-        $areainfluencia=Areainfluencia::all()->pluck('nombre','id');
-        return view('paisajes.create',['areainfluencia' =>$areainfluencia]);
+        $areainfluencia = Areainfluencia::all()->pluck('nombre', 'id');
+        return view('paisajes.create', ['areainfluencia' => $areainfluencia]);
     }
 
     /**
@@ -61,7 +61,8 @@ class PaisajeController extends AppBaseController
 
         $paisaje = $this->paisajeRepository->create($input);
 
-        Flash::success('Paisaje saved successfully.');
+        Flash::success('Paisaje
+guardado exitosamente.');
 
         return redirect(route('paisajes.index'));
     }
@@ -95,8 +96,8 @@ class PaisajeController extends AppBaseController
      */
     public function edit($id)
     {
-        $paisaje = $this->paisajeRepository->findWithoutFail($id);
-        $areainfluencia=Areainfluencia::all()->pluck('nombre','id');
+        $paisaje        = $this->paisajeRepository->findWithoutFail($id);
+        $areainfluencia = Areainfluencia::all()->pluck('nombre', 'id');
 
         if (empty($paisaje)) {
             Flash::error('Paisaje not found');

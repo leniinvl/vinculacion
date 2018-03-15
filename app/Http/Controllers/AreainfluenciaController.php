@@ -2,22 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreateAreaInfluenciaRequest;
 use App\Http\Requests\UpdateAreaInfluenciaRequest;
-use App\Repositories\AreaInfluenciaRepository;
-use App\Http\Controllers\AppBaseController;
-use Illuminate\Http\Request;
-use Flash;
-use Prettus\Repository\Criteria\RequestCriteria;
-use Response;
-use App\Models\UsoSuelo;
+use App\Models\Areainfluencia;
 use App\Models\CondicionesDrenaje;
-use App\Models\TipoVegetal;
+use App\Models\Lenguaje;
 use App\Models\Religion;
 use App\Models\Ruido;
-use App\Models\Lenguaje;
-use App\Models\Areainfluencia;
-
+use App\Models\TipoVegetal;
+use App\Models\UsoSuelo;
+use App\Repositories\AreaInfluenciaRepository;
+use Flash;
+use Illuminate\Http\Request;
+use Prettus\Repository\Criteria\RequestCriteria;
+use Response;
 
 class AreaInfluenciaController extends AppBaseController
 {
@@ -51,9 +50,9 @@ class AreaInfluenciaController extends AppBaseController
      */
     public function create()
     {
-        $usosuelo=UsoSuelo::all()->pluck('nombre','id');
-        $ruido=Ruido::all()->pluck('valor','id');
-        $condicionesdrenaje=CondicionesDrenaje::all()->pluck('nombre','id');
+        $usosuelo           = UsoSuelo::all()->pluck('nombre', 'id');
+        $ruido              = Ruido::all()->pluck('valor', 'id');
+        $condicionesdrenaje = CondicionesDrenaje::all()->pluck('nombre', 'id');
         return view('area_influencias.create')->with('usosuelo', $usosuelo)->with('condicionesdrenaje', $condicionesdrenaje)->with('ruido', $ruido);
     }
 
@@ -70,7 +69,8 @@ class AreaInfluenciaController extends AppBaseController
 
         $areaInfluencia = $this->areaInfluenciaRepository->create($input);
 
-        Flash::success('Area Influencia saved successfully.');
+        Flash::success('Area Influencia
+guardado exitosamente.');
 
         return redirect(route('areaInfluencias.index'));
     }
@@ -85,10 +85,9 @@ class AreaInfluenciaController extends AppBaseController
     public function show($id)
     {
         $areaInfluencia = $this->areaInfluenciaRepository->findWithoutFail($id);
-        $tipovegetal = TipoVegetal::all()->pluck('nombre_comun', 'id');
-        $religion = Religion::all()->pluck('nombre', 'id');
-        $lenguaje = Lenguaje::all()->pluck('nombre', 'id');
-
+        $tipovegetal    = TipoVegetal::all()->pluck('nombre_comun', 'id');
+        $religion       = Religion::all()->pluck('nombre', 'id');
+        $lenguaje       = Lenguaje::all()->pluck('nombre', 'id');
 
         if (empty($areaInfluencia)) {
             Flash::error('Area Influencia not found');
@@ -96,12 +95,9 @@ class AreaInfluenciaController extends AppBaseController
             return redirect(route('areaInfluencias.index'));
         }
 
-<<<<<<< HEAD
-        return view('area_influencias.show');
-=======
+
         return view('area_influencias.show')->with('areaInfluencia', $areaInfluencia)->with('tipovegetal', $tipovegetal)->with('religion', $religion)
-        ->with('lenguaje', $lenguaje);
->>>>>>> upstream/master
+            ->with('lenguaje', $lenguaje);
     }
 
     /**
@@ -114,8 +110,8 @@ class AreaInfluenciaController extends AppBaseController
     public function edit($id)
     {
         $areaInfluencia = $this->areaInfluenciaRepository->findWithoutFail($id);
-         $usosuelo=UsoSuelo::all()->pluck('nombre','id');
-         $ruido=Ruido::all()->pluck('valor','id');
+        $usosuelo       = UsoSuelo::all()->pluck('nombre', 'id');
+        $ruido          = Ruido::all()->pluck('valor', 'id');
 
         if (empty($areaInfluencia)) {
             Flash::error('Area Influencia not found');
@@ -124,7 +120,7 @@ class AreaInfluenciaController extends AppBaseController
         }
 
         return view('area_influencias.edit')->with('areaInfluencia', $areaInfluencia)->with('usosuelo', $usosuelo)
-        ->with('condicionesdrenaje', $condicionesdrenaje)->with('ruido', $ruido);
+            ->with('condicionesdrenaje', $condicionesdrenaje)->with('ruido', $ruido);
     }
 
     /**
@@ -176,13 +172,12 @@ class AreaInfluenciaController extends AppBaseController
         return redirect(route('areaInfluencias.index'));
     }
 
-
-
     public function storeTipoVegetal(Request $request, $idareainfluencia)
     {
         $areainfluencia = AreaInfluencia::find($idareainfluencia);
         $areainfluencia->tipoVegetals()->attach($request->TipoVegetal_id);
-        Flash::success('Areainfluencia  Has  Tipo Vegetal saved successfully.');
+        Flash::success('Areainfluencia  Has  Tipo Vegetal
+guardado exitosamente.');
         return redirect(url('areainfluencias/' . $areainfluencia->id));
     }
     public function destroyTipoVegetal($idareainfluencia, $id)
@@ -196,7 +191,8 @@ class AreaInfluenciaController extends AppBaseController
     {
         $areainfluencia = AreaInfluencia::find($idareainfluencia);
         $areainfluencia->religions()->attach($request->Religion_id);
-        Flash::success('Areainfluencia  Has  Religion saved successfully.');
+        Flash::success('Areainfluencia  Has  Religion
+guardado exitosamente.');
         return redirect(url('areainfluencias/' . $areainfluencia->id));
     }
     public function destroyReligion($idareainfluencia, $id)
@@ -210,7 +206,8 @@ class AreaInfluenciaController extends AppBaseController
     {
         $areainfluencia = AreaInfluencia::find($idareainfluencia);
         $areainfluencia->lenguajes()->attach($request->Lenguaje_id);
-        Flash::success('Areainfluencia  Has  Lenguaje saved successfully.');
+        Flash::success('Areainfluencia  Has  Lenguaje
+guardado exitosamente.');
         return redirect(url('areainfluencias/' . $areainfluencia->id));
     }
     public function destroyLenguaje($idareainfluencia, $id)

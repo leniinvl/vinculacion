@@ -70,7 +70,8 @@ class ManejoAmbientalController extends AppBaseController
 
         $manejoAmbiental = $this->manejoAmbientalRepository->create($input);
 
-        Flash::success('Manejo Ambiental saved successfully.');
+        Flash::success('Manejo Ambiental
+guardado exitosamente.');
 
         return redirect(route('manejoAmbientals.index'));
     }

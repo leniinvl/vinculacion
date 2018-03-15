@@ -59,7 +59,8 @@ class Taller_Has_TipoRiesgosController extends AppBaseController
 
         $tallerHasTipoRiesgos = $this->tallerHasTipoRiesgosRepository->create($input);
 
-        Flash::success('Taller  Has  Tipo Riesgos saved successfully.');
+        Flash::success('Taller  Has  Tipo Riesgos
+guardado exitosamente.');
 
         return redirect(route('tallerHasTipoRiesgos.index'));
     }

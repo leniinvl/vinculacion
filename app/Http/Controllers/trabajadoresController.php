@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreateTrabajadoresRequest;
 use App\Http\Requests\UpdateTrabajadoresRequest;
+use App\Models\Ciudad;
+use App\Models\Genero;
+use App\Models\Pais;
+use App\Models\PlandeGestiondeRiesgos;
 use App\Repositories\TrabajadoresRepository;
-use App\Http\Controllers\AppBaseController;
-use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
-use App\Models\Pais;
-use App\Models\Ciudad;
-use App\Models\PlandeGestiondeRiesgos;
-use App\Models\Genero;
 
 class TrabajadoresController extends AppBaseController
 {
@@ -47,11 +47,11 @@ class TrabajadoresController extends AppBaseController
      */
     public function create()
     {
-        $paises = Pais::all()->pluck('nombre', 'id');
-        $ciudades = Ciudad::all()->pluck('nombre', 'id');
+        $paises                 = Pais::all()->pluck('nombre', 'id');
+        $ciudades               = Ciudad::all()->pluck('nombre', 'id');
         $plandegestionderiesgos = PlandeGestiondeRiesgos::all()->pluck('nombre', 'id');
-        $generos = Genero::all()->pluck('nombre', 'id');
-        return view('trabajadores.create', ['generos' => $generos,'ciudades' => $ciudades,'paises' => $paises,'plandegestionderiesgos' => $plandegestionderiesgos]);
+        $generos                = Genero::all()->pluck('nombre', 'id');
+        return view('trabajadores.create', ['generos' => $generos, 'ciudades' => $ciudades, 'paises' => $paises, 'plandegestionderiesgos' => $plandegestionderiesgos]);
     }
 
     /**
@@ -67,7 +67,8 @@ class TrabajadoresController extends AppBaseController
 
         $trabajadores = $this->trabajadoresRepository->create($input);
 
-        Flash::success('Trabajadores saved successfully.');
+        Flash::success('Trabajadores
+guardado exitosamente.');
 
         return redirect(route('trabajadores.index'));
     }
@@ -101,11 +102,11 @@ class TrabajadoresController extends AppBaseController
      */
     public function edit($id)
     {
-        $paises = Pais::all()->pluck('nombre', 'id');
-        $ciudades = Ciudad::all()->pluck('nombre', 'id');
+        $paises                 = Pais::all()->pluck('nombre', 'id');
+        $ciudades               = Ciudad::all()->pluck('nombre', 'id');
         $plandegestionderiesgos = PlandeGestiondeRiesgos::all()->pluck('nombre', 'id');
-        $generos = Genero::all()->pluck('nombre', 'id');
-        $trabajadores = $this->trabajadoresRepository->findWithoutFail($id);
+        $generos                = Genero::all()->pluck('nombre', 'id');
+        $trabajadores           = $this->trabajadoresRepository->findWithoutFail($id);
 
         if (empty($trabajadores)) {
             Flash::error('Trabajadores not found');
@@ -113,7 +114,7 @@ class TrabajadoresController extends AppBaseController
             return redirect(route('trabajadores.index'));
         }
 
-            return view('trabajadores.edit')->with('trabajadores', $trabajadores)->with('paises', $paises)->with('ciudades', $ciudades)->with('planDeGestionDeRiesgos', $plandegestionderiesgos)->with('generos', $generos);
+        return view('trabajadores.edit')->with('trabajadores', $trabajadores)->with('paises', $paises)->with('ciudades', $ciudades)->with('planDeGestionDeRiesgos', $plandegestionderiesgos)->with('generos', $generos);
     }
 
     /**

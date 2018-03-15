@@ -59,7 +59,8 @@ class EcosistemaController extends AppBaseController
 
         $ecosistema = $this->ecosistemaRepository->create($input);
 
-        Flash::success('Ecosistema saved successfully.');
+        Flash::success('Ecosistema
+guardado exitosamente.');
 
         return redirect(route('ecosistemas.index'));
     }

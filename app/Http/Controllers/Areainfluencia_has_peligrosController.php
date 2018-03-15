@@ -59,7 +59,8 @@ class Areainfluencia_has_peligrosController extends AppBaseController
 
         $areainfluenciaHasPeligros = $this->areainfluenciaHasPeligrosRepository->create($input);
 
-        Flash::success('Areainfluencia Has Peligros saved successfully.');
+        Flash::success('Areainfluencia Has Peligros
+guardado exitosamente.');
 
         return redirect(route('areainfluenciaHasPeligros.index'));
     }

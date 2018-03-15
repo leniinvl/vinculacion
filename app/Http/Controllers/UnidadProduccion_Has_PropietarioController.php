@@ -59,7 +59,8 @@ class UnidadProduccion_Has_PropietarioController extends AppBaseController
 
         $unidadProduccionHasPropietario = $this->unidadProduccionHasPropietarioRepository->create($input);
 
-        Flash::success('Unidad Produccion  Has  Propietario saved successfully.');
+        Flash::success('Unidad Produccion  Has  Propietario
+guardado exitosamente.');
 
         return redirect(route('unidadProduccionHasPropietarios.index'));
     }

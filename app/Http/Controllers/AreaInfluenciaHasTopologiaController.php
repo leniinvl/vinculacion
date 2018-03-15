@@ -59,7 +59,8 @@ class AreaInfluenciaHasTopologiaController extends AppBaseController
 
         $areaInfluenciaHasTopologia = $this->areaInfluenciaHasTopologiaRepository->create($input);
 
-        Flash::success('Area Influencia Has Topologia saved successfully.');
+        Flash::success('Area Influencia Has Topologia
+guardado exitosamente.');
 
         return redirect(route('areaInfluenciaHasTopologias.index'));
     }

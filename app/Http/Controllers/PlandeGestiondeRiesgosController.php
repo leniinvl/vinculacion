@@ -77,7 +77,8 @@ class PlanDeGestionDeRiesgosController extends AppBaseController
 
         $planDeGestionDeRiesgos = $this->planDeGestionDeRiesgosRepository->create($input);
 
-        Flash::success('Plan De Gestion De Riesgos saved successfully.');
+        Flash::success('Plan De Gestion De Riesgos
+guardado exitosamente.');
 
         return redirect(route('planDeGestionDeRiesgos.index'));
     }

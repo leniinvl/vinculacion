@@ -59,7 +59,8 @@ class TipoControlPlagaController extends AppBaseController
 
         $tipoControlPlaga = $this->tipoControlPlagaRepository->create($input);
 
-        Flash::success('Tipo Control Plaga saved successfully.');
+        Flash::success('Tipo Control Plaga
+guardado exitosamente.');
 
         return redirect(route('tipoControlPlagas.index'));
     }

@@ -11,7 +11,7 @@
             <div class="box-body">
                 <div class="row" style="padding-left: 20px">
                     @include('plan_de_gestion_de_riesgos.show_fields')
-                    <a href="{!! route('planDeGestionDeRiesgos.index') !!}" class="btn btn-default">Back</a>
+                    <a href="{!! route('planDeGestionDeRiesgos.index') !!}" class="btn btn-default">Atrás</a>
                 </div>
             </div>
         </div>

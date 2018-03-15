@@ -221,7 +221,3 @@
 <li class="{{ Request::is('tipoVegetals*') ? 'active' : '' }}">
     <a href="{!! route('tipoVegetals.index') !!}"><i class="fa fa-edit"></i><span>Tipo Vegetals</span></a>
 </li>
-<li class="{{ Request::is('planDeGestionDeRiesgos*') ? 'active' : '' }}">
-    <a href="{!! route('planDeGestionDeRiesgos.index') !!}"><i class="fa fa-edit"></i><span>Plan De Gestion De Riesgos</span></a>
-</li>
-

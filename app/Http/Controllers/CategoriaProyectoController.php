@@ -59,7 +59,8 @@ class CategoriaProyectoController extends AppBaseController
 
         $categoriaProyecto = $this->categoriaProyectoRepository->create($input);
 
-        Flash::success('Categoria Proyecto saved successfully.');
+        Flash::success('Categoria Proyecto
+guardado exitosamente.');
 
         return redirect(route('categoriaProyectos.index'));
     }

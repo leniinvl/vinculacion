@@ -61,7 +61,8 @@ class CiudadController extends AppBaseController
 
         $ciudad = $this->ciudadRepository->create($input);
 
-        Flash::success('Ciudad saved successfully.');
+        Flash::success('Ciudad
+guardado exitosamente.');
 
         return redirect(route('ciudads.index'));
     }

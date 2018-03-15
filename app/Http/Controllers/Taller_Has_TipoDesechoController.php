@@ -59,7 +59,8 @@ class Taller_Has_TipoDesechoController extends AppBaseController
 
         $tallerHasTipoDesecho = $this->tallerHasTipoDesechoRepository->create($input);
 
-        Flash::success('Taller  Has  Tipo Desecho saved successfully.');
+        Flash::success('Taller  Has  Tipo Desecho
+guardado exitosamente.');
 
         return redirect(route('tallerHasTipoDesechos.index'));
     }

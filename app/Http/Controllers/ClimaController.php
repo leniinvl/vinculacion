@@ -59,7 +59,8 @@ class ClimaController extends AppBaseController
 
         $clima = $this->climaRepository->create($input);
 
-        Flash::success('Clima saved successfully.');
+        Flash::success('Clima
+guardado exitosamente.');
 
         return redirect(route('climas.index'));
     }
