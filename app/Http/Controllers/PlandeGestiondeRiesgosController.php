@@ -2,99 +2,88 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreatePlandeGestiondeRiesgosRequest;
-use App\Http\Requests\UpdatePlandeGestiondeRiesgosRequest;
-use App\Repositories\PlandeGestiondeRiesgosRepository;
 use App\Http\Controllers\AppBaseController;
-use Illuminate\Http\Request;
-use Flash;
-use Prettus\Repository\Criteria\RequestCriteria;
-use Response;
+use App\Http\Requests\CreatePlanDeGestionDeRiesgosRequest;
+use App\Http\Requests\UpdatePlanDeGestionDeRiesgosRequest;
+use App\Models\Agricultura;
+use App\Models\OrigenIngresos;
 use App\Models\TipoAbono;
 use App\Models\TipoControlPlaga;
 use App\Models\TipoCultivos;
-use App\Models\TipoAnimales;
-use App\Models\OrigenIngresos;
-use App\Models\Agricultura;
-use App\Models\amenazas;
-use App\Models\vulnerabilidades;
+use App\Repositories\PlanDeGestionDeRiesgosRepository;
+use Flash;
+use Illuminate\Http\Request;
+use Prettus\Repository\Criteria\RequestCriteria;
+use Response;
 
-
-class PlandeGestiondeRiesgosController extends AppBaseController
+class PlanDeGestionDeRiesgosController extends AppBaseController
 {
-    /** @var  PlandeGestiondeRiesgosRepository */
-    private $plandeGestiondeRiesgosRepository;
+    /** @var  PlanDeGestionDeRiesgosRepository */
+    private $planDeGestionDeRiesgosRepository;
 
-    public function __construct(PlandeGestiondeRiesgosRepository $plandeGestiondeRiesgosRepo)
+    public function __construct(PlanDeGestionDeRiesgosRepository $planDeGestionDeRiesgosRepo)
     {
-        $this->plandeGestiondeRiesgosRepository = $plandeGestiondeRiesgosRepo;
+        $this->planDeGestionDeRiesgosRepository = $planDeGestionDeRiesgosRepo;
     }
 
     /**
-     * Display a listing of the PlandeGestiondeRiesgos.
+     * Display a listing of the PlanDeGestionDeRiesgos.
      *
      * @param Request $request
      * @return Response
      */
     public function index(Request $request)
     {
-        $this->plandeGestiondeRiesgosRepository->pushCriteria(new RequestCriteria($request));
-        $plandeGestiondeRiesgos = $this->plandeGestiondeRiesgosRepository->all();
+        $this->planDeGestionDeRiesgosRepository->pushCriteria(new RequestCriteria($request));
+        $planDeGestionDeRiesgos = $this->planDeGestionDeRiesgosRepository->all();
 
-        return view('plande_gestionde_riesgos.index')
-            ->with('plandeGestiondeRiesgos', $plandeGestiondeRiesgos);
+        return view('plan_de_gestion_de_riesgos.index')
+            ->with('planDeGestionDeRiesgos', $planDeGestionDeRiesgos);
     }
 
     /**
-     * Show the form for creating a new PlandeGestiondeRiesgos.
+     * Show the form for creating a new PlanDeGestionDeRiesgos.
      *
      * @return Response
      */
     public function create()
     {
 
-        $abono = TipoAbono::all()->pluck('nombre', 'id');
-        $controlPlaga = TipoControlPlaga::all()->pluck('nombre', 'id');
-        $cultivo = TipoCultivos::all()->pluck('nombre', 'id');
-        $animale = TipoAnimales::all()->pluck('nombre', 'id');
+        $abono         = TipoAbono::all()->pluck('nombre', 'id');
+        $controlPlaga  = TipoControlPlaga::all()->pluck('nombre', 'id');
+        $cultivo       = TipoCultivos::all()->pluck('nombre', 'id');
         $origenIngreso = OrigenIngresos::all()->pluck('nombre', 'id');
-        $agricultura = Agricultura::all()->pluck('nombre', 'id');
-        $amenaza = amenazas::all()->pluck('nombre', 'id');
-        $vulnerabilidade = vulnerabilidades::all()->pluck('nombre', 'id');
+        $agricultura   = Agricultura::all()->pluck('nombre', 'id');
 
-
-        return view('plande_gestionde_riesgos.create', [
-          'abono'                => $abono,
-          'controlPlaga'         => $controlPlaga,
-          'cultivo'             => $cultivo,
-          'animale'             => $animale,
-          'origenIngreso'       => $origenIngreso,
-          'agricultura'          => $agricultura,
-          'amenaza'             => $amenaza,
-          'vulnerabilidade'     => $vulnerabilidade,
+        return view('plan_de_gestion_de_riesgos.create', [
+            'abono'         => $abono,
+            'controlPlaga'  => $controlPlaga,
+            'cultivo'       => $cultivo,
+            'origenIngreso' => $origenIngreso,
+            'agricultura'   => $agricultura,
         ]);
     }
 
     /**
-     * Store a newly created PlandeGestiondeRiesgos in storage.
+     * Store a newly created PlanDeGestionDeRiesgos in storage.
      *
-     * @param CreatePlandeGestiondeRiesgosRequest $request
+     * @param CreatePlanDeGestionDeRiesgosRequest $request
      *
      * @return Response
      */
-    public function store(CreatePlandeGestiondeRiesgosRequest $request)
+    public function store(CreatePlanDeGestionDeRiesgosRequest $request)
     {
         $input = $request->all();
 
-        $plandeGestiondeRiesgos = $this->plandeGestiondeRiesgosRepository->create($input);
+        $planDeGestionDeRiesgos = $this->planDeGestionDeRiesgosRepository->create($input);
 
-        Flash::success('Plande Gestionde Riesgos saved successfully.');
+        Flash::success('Plan De Gestion De Riesgos saved successfully.');
 
-        return redirect(route('plandeGestiondeRiesgos.index'));
+        return redirect(route('planDeGestionDeRiesgos.index'));
     }
 
     /**
-     * Display the specified PlandeGestiondeRiesgos.
+     * Display the specified PlanDeGestionDeRiesgos.
      *
      * @param  int $id
      *
@@ -102,19 +91,19 @@ class PlandeGestiondeRiesgosController extends AppBaseController
      */
     public function show($id)
     {
-        $plandeGestiondeRiesgos = $this->plandeGestiondeRiesgosRepository->findWithoutFail($id);
+        $planDeGestionDeRiesgos = $this->planDeGestionDeRiesgosRepository->findWithoutFail($id);
 
-        if (empty($plandeGestiondeRiesgos)) {
-            Flash::error('Plande Gestionde Riesgos not found');
+        if (empty($planDeGestionDeRiesgos)) {
+            Flash::error('Plan De Gestion De Riesgos not found');
 
-            return redirect(route('plandeGestiondeRiesgos.index'));
+            return redirect(route('planDeGestionDeRiesgos.index'));
         }
 
-        return view('plande_gestionde_riesgos.show')->with('plandeGestiondeRiesgos', $plandeGestiondeRiesgos);
+        return view('plan_de_gestion_de_riesgos.show')->with('planDeGestionDeRiesgos', $planDeGestionDeRiesgos);
     }
 
     /**
-     * Show the form for editing the specified PlandeGestiondeRiesgos.
+     * Show the form for editing the specified PlanDeGestionDeRiesgos.
      *
      * @param  int $id
      *
@@ -122,62 +111,53 @@ class PlandeGestiondeRiesgosController extends AppBaseController
      */
     public function edit($id)
     {
-        $plandeGestiondeRiesgos = $this->plandeGestiondeRiesgosRepository->findWithoutFail($id);
-        $abono = TipoAbono::all()->pluck('nombre', 'id');
-        $controlPlaga = TipoControlPlaga::all()->pluck('nombre', 'id');
-        $cultivo = TipoCultivos::all()->pluck('nombre', 'id');
-        $animale = TipoAnimales::all()->pluck('nombre', 'id');
-        $origenIngreso = OrigenIngresos::all()->pluck('nombre', 'id');
-        $agricultura = Agricultura::all()->pluck('nombre', 'id');
-        $amenaza = amenazas::all()->pluck('nombre', 'id');
-        $vulnerabilidade = vulnerabilidades::all()->pluck('nombre', 'id');
+        $planDeGestionDeRiesgos = $this->planDeGestionDeRiesgosRepository->findWithoutFail($id);
+        $abono                  = TipoAbono::all()->pluck('nombre', 'id');
+        $controlPlaga           = TipoControlPlaga::all()->pluck('nombre', 'id');
+        $cultivo                = TipoCultivos::all()->pluck('nombre', 'id');
+        $origenIngreso          = OrigenIngresos::all()->pluck('nombre', 'id');
+        $agricultura            = Agricultura::all()->pluck('nombre', 'id');
+        if (empty($planDeGestionDeRiesgos)) {
+            Flash::error('Plan De Gestion De Riesgos not found');
 
-        if (empty($plandeGestiondeRiesgos)) {
-            Flash::error('Plande Gestionde Riesgos not found');
-
-            return redirect(route('plandeGestiondeRiesgos.index'));
+            return redirect(route('planDeGestionDeRiesgos.index'));
         }
 
-        return view('plande_gestionde_riesgos.edit')->with('plandeGestiondeRiesgos', $plandeGestiondeRiesgos)
-        ->with('abono', $abono)
-        ->with('controlPlaga', $controlPlaga)
-        ->with('cultivos', $cultivos)
-        ->with('animales', $animales)
-        ->with('origenIngresos', $origenIngresos)
-        ->with('agricultura', $agricultura)
-        ->with('amenazas', $amenazas)
-        ->with('vulnerabilidades', $vulnerabilidades);
+        return view('plan_de_gestion_de_riesgos.edit')->with('plandeGestiondeRiesgos', $plandeGestiondeRiesgos)
+            ->with('abono', $abono)
+            ->with('controlPlaga', $controlPlaga)
+            ->with('cultivos', $cultivos)
+            ->with('origenIngresos', $origenIngresos)
+            ->with('agricultura', $agricultura);
     }
 
-
-
     /**
-     * Update the specified PlandeGestiondeRiesgos in storage.
+     * Update the specified PlanDeGestionDeRiesgos in storage.
      *
      * @param  int              $id
-     * @param UpdatePlandeGestiondeRiesgosRequest $request
+     * @param UpdatePlanDeGestionDeRiesgosRequest $request
      *
      * @return Response
      */
-    public function update($id, UpdatePlandeGestiondeRiesgosRequest $request)
+    public function update($id, UpdatePlanDeGestionDeRiesgosRequest $request)
     {
-        $plandeGestiondeRiesgos = $this->plandeGestiondeRiesgosRepository->findWithoutFail($id);
+        $planDeGestionDeRiesgos = $this->planDeGestionDeRiesgosRepository->findWithoutFail($id);
 
-        if (empty($plandeGestiondeRiesgos)) {
-            Flash::error('Plande Gestionde Riesgos not found');
+        if (empty($planDeGestionDeRiesgos)) {
+            Flash::error('Plan De Gestion De Riesgos not found');
 
-            return redirect(route('plandeGestiondeRiesgos.index'));
+            return redirect(route('planDeGestionDeRiesgos.index'));
         }
 
-        $plandeGestiondeRiesgos = $this->plandeGestiondeRiesgosRepository->update($request->all(), $id);
+        $planDeGestionDeRiesgos = $this->planDeGestionDeRiesgosRepository->update($request->all(), $id);
 
-        Flash::success('Plande Gestionde Riesgos updated successfully.');
+        Flash::success('Plan De Gestion De Riesgos updated successfully.');
 
-        return redirect(route('plandeGestiondeRiesgos.index'));
+        return redirect(route('planDeGestionDeRiesgos.index'));
     }
 
     /**
-     * Remove the specified PlandeGestiondeRiesgos from storage.
+     * Remove the specified PlanDeGestionDeRiesgos from storage.
      *
      * @param  int $id
      *
@@ -185,18 +165,18 @@ class PlandeGestiondeRiesgosController extends AppBaseController
      */
     public function destroy($id)
     {
-        $plandeGestiondeRiesgos = $this->plandeGestiondeRiesgosRepository->findWithoutFail($id);
+        $planDeGestionDeRiesgos = $this->planDeGestionDeRiesgosRepository->findWithoutFail($id);
 
-        if (empty($plandeGestiondeRiesgos)) {
-            Flash::error('Plande Gestionde Riesgos not found');
+        if (empty($planDeGestionDeRiesgos)) {
+            Flash::error('Plan De Gestion De Riesgos not found');
 
-            return redirect(route('plandeGestiondeRiesgos.index'));
+            return redirect(route('planDeGestionDeRiesgos.index'));
         }
 
-        $this->plandeGestiondeRiesgosRepository->delete($id);
+        $this->planDeGestionDeRiesgosRepository->delete($id);
 
-        Flash::success('Plande Gestionde Riesgos deleted successfully.');
+        Flash::success('Plan De Gestion De Riesgos deleted successfully.');
 
-        return redirect(route('plandeGestiondeRiesgos.index'));
+        return redirect(route('planDeGestionDeRiesgos.index'));
     }
 }

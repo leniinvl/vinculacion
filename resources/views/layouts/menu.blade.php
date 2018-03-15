@@ -108,7 +108,7 @@
 				<li class="{{ Request::is('vulnerabilidades*') ? 'active' : '' }}"><a href="{!! route('vulnerabilidades.index') !!}"><i class="fa fa-edit"></i><span>Vulnerabilidades</span></a></li>
 				<li class="{{ Request::is('ciudads*') ? 'active' : '' }}"><a href="{!! route('ciudads.index') !!}"><i class="fa fa-bank"></i><span>Ciudades</span></a></li>
 				<li class="{{ Request::is('pais*') ? 'active' : '' }}"><a href="{!! route('pais.index') !!}"><i class="fa fa-road"></i><span>País</span></a></li>
-				<li class="{{ Request::is('plandeGestiondeRiesgos*') ? 'active' : '' }}"><a href="{!! route('plandeGestiondeRiesgos.index') !!}"><i class="fa fa-pencil-square-o"></i><span>Plan de Gestión de Riesgos</span></a></li>
+				<li class="{{ Request::is('planDeGestionDeRiesgos*') ? 'active' : '' }}"><a href="{!! route('planDeGestionDeRiesgos.index') !!}"><i class="fa fa-pencil-square-o"></i><span>Plan de Gestión de Riesgos</span></a></li>
 			</ul>
         </li>
 
@@ -156,7 +156,7 @@
 				</span>
 			</a>
 			<ul class="treeview-menu" style="">
-				
+
 				<li class="{{ Request::is('tipoSuelos*') ? 'active' : '' }}"><a href="{!! route('tipoSuelos.index') !!}"><i class="fa fa-road"></i>Agregar Tipo de Suelo</a></li>
 				<li class="{{ Request::is('climas*') ? 'active' : '' }}"><a href="{!! route('climas.index') !!}"><i class="fa fa-snowflake-o"></i>Clima</a></li>
 				<li class="{{ Request::is('ecosistemas*') ? 'active' : '' }}"><a href="{!! route('ecosistemas.index') !!}"><i class="fa fa-cubes"></i>Ecosistema</a></li>
@@ -220,5 +220,8 @@
 
 <li class="{{ Request::is('tipoVegetals*') ? 'active' : '' }}">
     <a href="{!! route('tipoVegetals.index') !!}"><i class="fa fa-edit"></i><span>Tipo Vegetals</span></a>
+</li>
+<li class="{{ Request::is('planDeGestionDeRiesgos*') ? 'active' : '' }}">
+    <a href="{!! route('planDeGestionDeRiesgos.index') !!}"><i class="fa fa-edit"></i><span>Plan De Gestion De Riesgos</span></a>
 </li>
 

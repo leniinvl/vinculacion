@@ -2,19 +2,19 @@
 
 namespace App\Repositories;
 
-use App\Models\PlandeGestiondeRiesgos;
+use App\Models\PlanDeGestionDeRiesgos;
 use InfyOm\Generator\Common\BaseRepository;
 
 /**
- * Class PlandeGestiondeRiesgosRepository
+ * Class PlanDeGestionDeRiesgosRepository
  * @package App\Repositories
- * @version March 12, 2018, 1:48 am UTC
+ * @version March 15, 2018, 1:35 am UTC
  *
- * @method PlandeGestiondeRiesgos findWithoutFail($id, $columns = ['*'])
- * @method PlandeGestiondeRiesgos find($id, $columns = ['*'])
- * @method PlandeGestiondeRiesgos first($columns = ['*'])
+ * @method PlanDeGestionDeRiesgos findWithoutFail($id, $columns = ['*'])
+ * @method PlanDeGestionDeRiesgos find($id, $columns = ['*'])
+ * @method PlanDeGestionDeRiesgos first($columns = ['*'])
 */
-class PlandeGestiondeRiesgosRepository extends BaseRepository
+class PlanDeGestionDeRiesgosRepository extends BaseRepository
 {
     /**
      * @var array
@@ -24,12 +24,8 @@ class PlandeGestiondeRiesgosRepository extends BaseRepository
         'TipoAbono_id',
         'TipoControlPlaga_id',
         'TipoCultivos_id',
-        'TipoAnimales_id',
-        'cantidad_animales',
         'OrigenIngresos_id',
-        'Agricultura_id',
-        'Amenazas_id',
-        'Vulnerabilidades_id'
+        'Agricultura_id'
     ];
 
     /**
@@ -37,6 +33,6 @@ class PlandeGestiondeRiesgosRepository extends BaseRepository
      **/
     public function model()
     {
-        return PlandeGestiondeRiesgos::class;
+        return PlanDeGestionDeRiesgos::class;
     }
 }

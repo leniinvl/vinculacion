@@ -1,16 +1,16 @@
 <table class="table table-responsive" id="agriculturas-table">
     <thead>
         <tr>
-            <th>Usotierra</th>
-        <th>Unidadproduccion</th>
+            <th>Unidad de Producción</th>
+        <th>Uso de suelo</th>
             <th colspan="3">Action</th>
         </tr>
     </thead>
     <tbody>
     @foreach($agriculturas as $agricultura)
         <tr>
-            <td>{!! $agricultura->UsoTierra->nombre !!}</td>
-            <td>{!! $agricultura->unidadproduccion->nombre !!}</td>
+            <td>{!! $agricultura->UnidadProduccion->nombre !!}</td>
+            <td>{!! $agricultura->UsoSuelo->nombre !!}</td>
             <td>
                 {!! Form::open(['route' => ['agriculturas.destroy', $agricultura->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
