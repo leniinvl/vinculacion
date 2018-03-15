@@ -1,20 +1,20 @@
 <!-- Ubicacion Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('ubicacion', 'Nombre:') !!}
-    {!! Form::text('ubicacion', null, ['class' => 'form-control']) !!}
+    {!! Form::text('ubicacion', null, ['class' => 'form-control','required' => 'required']) !!}
 </div>
 
 <!-- Tamañopropiedad Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('tamañoPropiedad', 'Tamaño de la Propiedad (m^2):') !!}
-    {!! Form::number('tamañoPropiedad', null, ['class' => 'form-control','step'=>'0.1']) !!}
+    {!! Form::number('tamañoPropiedad', null, ['class' => 'form-control','step'=>'0.01']) !!}
 </div>
 
 <!-- Imagen Field -->
 <div class="form-group">
     {!! Form::label('imagen', 'Imagen:') !!}
     <span class="btn btn-default btn-file">
-       Selecciona un archivo {!! Form::file('imagen') !!}
+       Selecciona un archivo {!! Form::file('imagen',null,['required' => 'required']) !!}
     </span>
 </div>
 
@@ -27,43 +27,43 @@
 <!-- Anchobio Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('anchoBio', 'Ancho del Biodigestor (metros):') !!}
-    {!! Form::number('anchoBio', null, ['class' => 'form-control','step'=>'0.1']) !!}
+    {!! Form::number('anchoBio', null, ['class' => 'form-control','step'=>'0.01','required' => 'required']) !!}
 </div>
 
 <!-- Largobio Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('largoBio', 'Largo del Biodigestor (m):') !!}
-    {!! Form::number('largoBio', null, ['class' => 'form-control','step'=>'0.1']) !!}
+    {!! Form::number('largoBio', null, ['class' => 'form-control','step'=>'0.01','required' => 'required']) !!}
 </div>
 
 <!-- Profundbio Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('profundBio', 'Profundidad del Biodigestor (m):') !!}
-    {!! Form::number('profundBio', null, ['class' => 'form-control','step'=>'0.1']) !!}
+    {!! Form::number('profundBio', null, ['class' => 'form-control','step'=>'0.01','required' => 'required']) !!}
 </div>
 
 <!-- Anchocaja Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('anchoCaja', 'Ancho de la caja de acumulación de desechos (m):') !!}
-    {!! Form::number('anchoCaja', null, ['class' => 'form-control','step'=>'0.1']) !!}
+    {!! Form::number('anchoCaja', null, ['class' => 'form-control','step'=>'0.01','required' => 'required']) !!}
 </div>
 
 <!-- Largocaja Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('largoCaja', 'Largo de la caja de acumulación de desechos (m):') !!}
-    {!! Form::number('largoCaja', null, ['class' => 'form-control','step'=>'0.1']) !!}
+    {!! Form::number('largoCaja', null, ['class' => 'form-control','step'=>'0.01','required' => 'required']) !!}
 </div>
 
 <!-- Profundcaja Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('profundCaja', 'Profundidad de la caja de acumulación de desechos (m):') !!}
-    {!! Form::number('profundCaja', null, ['class' => 'form-control','step'=>'0.1']) !!}
+    {!! Form::number('profundCaja', null, ['class' => 'form-control','step'=>'0.01','required' => 'required']) !!}
 </div>
 
 <!-- Temperatura Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('temperatura', 'Temperatura (°C):') !!}
-    {!! Form::number('temperatura', null, ['class' => 'form-control','step'=>'0.1']) !!}
+    {!! Form::number('temperatura', null, ['class' => 'form-control','step'=>'0.01','required' => 'required']) !!}
 </div>
 
 <!-- Unidadproduccion Id Field -->

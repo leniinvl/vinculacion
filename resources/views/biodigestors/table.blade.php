@@ -3,7 +3,7 @@
         <tr>
             <th>Nombre</th>
         <th>Tamaño de la Propiedad (m^2)</th>
-        <th>Imagen</th>
+        <th>Imágen</th>
         <th>Video</th>
         <th>Ancho Biodigestor (m)</th>
         <th>Largo Biodigestor (m)</th>

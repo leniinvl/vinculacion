@@ -1,13 +1,13 @@
 <!-- Fecha Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('fecha', 'Fecha:') !!}
-    {!! Form::date('fecha', null, ['class' => 'form-control']) !!}
+    {!! Form::date('fecha', null, ['class' => 'form-control','required' => 'required']) !!}
 </div>
 
 <!-- Peso Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('peso', 'Peso (kg):') !!}
-    {!! Form::number('peso', null, ['class' => 'form-control','step'=>'0.01']) !!}
+    {!! Form::number('peso', null, ['class' => 'form-control','step'=>'0.01','required' => 'required']) !!}
 </div>
 
 <!-- Biodigestor Id Field -->
