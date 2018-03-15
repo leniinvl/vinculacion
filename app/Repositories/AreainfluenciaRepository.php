@@ -8,7 +8,7 @@ use InfyOm\Generator\Common\BaseRepository;
 /**
  * Class AreaInfluenciaRepository
  * @package App\Repositories
- * @version March 14, 2018, 3:59 am UTC
+ * @version March 15, 2018, 4:15 am UTC
  *
  * @method AreaInfluencia findWithoutFail($id, $columns = ['*'])
  * @method AreaInfluencia find($id, $columns = ['*'])
@@ -30,11 +30,9 @@ class AreaInfluenciaRepository extends BaseRepository
         'ManejoAmbiental_id',
         'UsoSuelo_id',
         'TipoSuelo_id',
-        'Precipitaciones_id',
         'PermeabilidadSuelo_id',
         'Clima_id',
         'CondicionesDrenaje_id',
-        'Ruido_id',
         'Ecosistema_id',
         'CaracteristicasEtnicas_id',
         'nivelTraficoDescripcion',
@@ -47,7 +45,9 @@ class AreaInfluenciaRepository extends BaseRepository
         'evacuacionAguasServidasDescripcion',
         'usoVegetacionDescripcion',
         'tradicionesDescripcion',
-        'tipoFuentesDescripcion'
+        'tipoFuentesDescripcion',
+        'ruido',
+        'precipitaciones'
     ];
 
     /**

@@ -148,7 +148,7 @@
 
 		{{--****Plan Manejo Ambiental****--}}
 
-		<li class="treeview {{ Request::is('tipoSuelos*','climas*','ecosistemas*','abastecimientoaguas*','caracteristicasEtnicas*','consolidacionAreaInfluencias*','paisajes*','religions*','lenguajes*','tradicions*','topologias*','usoSuelos*') ? 'active' : '' }}">
+		<li class="treeview {{ Request::is('tipoSuelos*','climas*','ecosistemas*','caracteristicasEtnicas*','paisajes*','religions*','lenguajes*','usoSuelos*','permeabilidadSuelos*') ? 'active' : '' }}">
 			<a href="#">
 				<i></i> <span>Manejo Ambiental</span>
 				<span class="pull-right-container">
@@ -160,15 +160,27 @@
 				<li class="{{ Request::is('tipoSuelos*') ? 'active' : '' }}"><a href="{!! route('tipoSuelos.index') !!}"><i class="fa fa-road"></i>Agregar Tipo de Suelo</a></li>
 				<li class="{{ Request::is('climas*') ? 'active' : '' }}"><a href="{!! route('climas.index') !!}"><i class="fa fa-snowflake-o"></i>Clima</a></li>
 				<li class="{{ Request::is('ecosistemas*') ? 'active' : '' }}"><a href="{!! route('ecosistemas.index') !!}"><i class="fa fa-cubes"></i>Ecosistema</a></li>
-				<li class="{{ Request::is('abastecimientoaguas*') ? 'active' : '' }}"><a href="{!! route('abastecimientoaguas.index') !!}"><i class="fa fa-tint"></i>Abastecimiento de Agua</a></li>
+				
 				<li class="{{ Request::is('caracteristicasEtnicas*') ? 'active' : '' }}"><a href="{!! route('caracteristicasEtnicas.index') !!}"><i class="fa fa-child"></i>Características Étnicas</a></li>
-				<li class="{{ Request::is('consolidacionAreaInfluencias*') ? 'active' : '' }}"><a href="{!! route('consolidacionAreaInfluencias.index') !!}"><i class="fa fa-edit"></i>Consolidación de Área<br/> &emsp; de Influencias</a></li>
+				
 				<li class="{{ Request::is('paisajes*') ? 'active' : '' }}"><a href="{!! route('paisajes.index') !!}"><i class="fa fa-certificate"></i>Paisaje</a></li>
 				<li class="{{ Request::is('religions*') ? 'active' : '' }}"><a href="{!! route('religions.index') !!}"><i class="fa fa-institution"></i>Religión</a></li>
 				<li class="{{ Request::is('lenguajes*') ? 'active' : '' }}"><a href="{!! route('lenguajes.index') !!}"><i class="fa fa-edit"></i>Lenguaje</a></li>
-				<li class="{{ Request::is('tradicions*') ? 'active' : '' }}"><a href="{!! route('tradicions.index') !!}"><i class="fa fa-group"></i>Tradiciones</a></li>
-				<li class="{{ Request::is('topologias*') ? 'active' : '' }}"><a href="{!! route('topologias.index') !!}"><i class="fa fa-bullseye"></i>Topologías</a></li>
+				<li class="{{ Request::is('permeabilidadSuelos*') ? 'active' : '' }}">
+    <a href="{!! route('permeabilidadSuelos.index') !!}"><i class="fa fa-edit"></i><span>Permeabilidad Suelos</span></a>
+</li>
+				
+				
 				<li class="{{ Request::is('usoSuelos*') ? 'active' : '' }}"><a href="{!! route('usoSuelos.index') !!}"><i class="glyphicon glyphicon-filter"></i>Uso de Suelos</a></li>
+				<li class="{{ Request::is('condicionesDrenajes*') ? 'active' : '' }}">
+    <a href="{!! route('condicionesDrenajes.index') !!}"><i class="fa fa-edit"></i><span>Condiciones Drenajes</span></a>
+</li>
+
+
+
+<li class="{{ Request::is('tipoVegetals*') ? 'active' : '' }}">
+    <a href="{!! route('tipoVegetals.index') !!}"><i class="fa fa-edit"></i><span>Tipo Vegetals</span></a>
+</li>
 			</ul>
         </li>
 
@@ -185,9 +197,6 @@
     <a href="{!! route('topologias.index') !!}"><i class="fa fa-edit"></i><span>Topologias</span></a>
 </li>--}}
 
-{{--<li class="{{ Request::is('tradicions*') ? 'active' : '' }}">
-    <a href="{!! route('tradicions.index') !!}"><i class="fa fa-edit"></i><span>Tradicions</span></a>
-</li>--}}
 
 {{--<li class="{{ Request::is('usosVegetacions*') ? 'active' : '' }}">
     <a href="{!! route('usosVegetacions.index') !!}"><i class="fa fa-edit"></i><span>Usos Vegetacions</span></a>
@@ -210,14 +219,6 @@
 </li>--}}
 
 
-<li class="{{ Request::is('condicionesDrenajes*') ? 'active' : '' }}">
-    <a href="{!! route('condicionesDrenajes.index') !!}"><i class="fa fa-edit"></i><span>Condiciones Drenajes</span></a>
-</li>
 
-<li class="{{ Request::is('ruidos*') ? 'active' : '' }}">
-    <a href="{!! route('ruidos.index') !!}"><i class="fa fa-edit"></i><span>Ruidos</span></a>
-</li>
 
-<li class="{{ Request::is('tipoVegetals*') ? 'active' : '' }}">
-    <a href="{!! route('tipoVegetals.index') !!}"><i class="fa fa-edit"></i><span>Tipo Vegetals</span></a>
-</li>
+
