@@ -6,12 +6,10 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class PlanDeGestionDeRiesgos
+ * Class PlanGestionRiesgos
  * @package App\Models
- * @version March 15, 2018, 1:35 am UTC
+ * @version March 15, 2018, 5:47 am UTC
  *
- * @property \App\Models\Agricultura agricultura
- * @property \App\Models\Origeningreso origeningreso
  * @property \App\Models\Tipoabono tipoabono
  * @property \App\Models\Tipocontrolplaga tipocontrolplaga
  * @property \App\Models\Tipocultivo tipocultivo
@@ -22,7 +20,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \Illuminate\Database\Eloquent\Collection desecho
  * @property \Illuminate\Database\Eloquent\Collection desechot
  * @property \Illuminate\Database\Eloquent\Collection origeningresos
+ * @property \Illuminate\Database\Eloquent\Collection plandegestionderiesgosHasAgricultura
  * @property \Illuminate\Database\Eloquent\Collection plandegestionderiesgosHasAmenazas
+ * @property \Illuminate\Database\Eloquent\Collection plandegestionderiesgosHasOrigeningresos
  * @property \Illuminate\Database\Eloquent\Collection plandegestionderiesgosHasTipoanimales
  * @property \Illuminate\Database\Eloquent\Collection plandegestionderiesgosHasVulnerabilidades
  * @property \Illuminate\Database\Eloquent\Collection Trabajadore
@@ -32,27 +32,25 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property integer TipoAbono_id
  * @property integer TipoControlPlaga_id
  * @property integer TipoCultivos_id
- * @property integer OrigenIngresos_id
- * @property integer Agricultura_id
  */
-class PlanDeGestionDeRiesgos extends Model
+class PlanGestionRiesgos extends Model
 {
     use SoftDeletes;
 
-    public $table = 'plandegestionderiesgos';
-
+    public $table = 'plangestionriesgos';
+    
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
+
     protected $dates = ['deleted_at'];
+
 
     public $fillable = [
         'nombre',
         'TipoAbono_id',
         'TipoControlPlaga_id',
-        'TipoCultivos_id',
-        'OrigenIngresos_id',
-        'Agricultura_id',
+        'TipoCultivos_id'
     ];
 
     /**
@@ -61,13 +59,11 @@ class PlanDeGestionDeRiesgos extends Model
      * @var array
      */
     protected $casts = [
-        'id'                  => 'integer',
-        'nombre'              => 'string',
-        'TipoAbono_id'        => 'integer',
+        'id' => 'integer',
+        'nombre' => 'string',
+        'TipoAbono_id' => 'integer',
         'TipoControlPlaga_id' => 'integer',
-        'TipoCultivos_id'     => 'integer',
-        'OrigenIngresos_id'   => 'integer',
-        'Agricultura_id'      => 'integer',
+        'TipoCultivos_id' => 'integer'
     ];
 
     /**
@@ -76,31 +72,15 @@ class PlanDeGestionDeRiesgos extends Model
      * @var array
      */
     public static $rules = [
-
+        
     ];
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     **/
-    public function agricultura()
-    {
-        return $this->belongsTo(\App\Models\Agricultura::class, 'Agricultura_id');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     **/
-    public function origeningreso()
-    {
-        return $this->belongsTo(\App\Models\Origeningreso::class, 'OrigenIngresos_id');
-    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
     public function tipoabono()
     {
-        return $this->belongsTo(\App\Models\Tipoabono::class, 'TipoAbono_id');
+        return $this->belongsTo(\App\Models\Tipoabono::class);
     }
 
     /**
@@ -108,7 +88,7 @@ class PlanDeGestionDeRiesgos extends Model
      **/
     public function tipocontrolplaga()
     {
-        return $this->belongsTo(\App\Models\Tipocontrolplaga::class, 'TipoControlPlaga_id');
+        return $this->belongsTo(\App\Models\Tipocontrolplaga::class);
     }
 
     /**
@@ -116,7 +96,15 @@ class PlanDeGestionDeRiesgos extends Model
      **/
     public function tipocultivo()
     {
-        return $this->belongsTo(\App\Models\Tipocultivo::class, 'TipoCultivos_id');
+        return $this->belongsTo(\App\Models\Tipocultivo::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     **/
+    public function agriculturas()
+    {
+        return $this->belongsToMany(\App\Models\Agricultura::class, 'plandegestionderiesgos_has_agricultura');
     }
 
     /**
@@ -125,6 +113,14 @@ class PlanDeGestionDeRiesgos extends Model
     public function amenazas()
     {
         return $this->belongsToMany(\App\Models\Amenaza::class, 'plandegestionderiesgos_has_amenazas');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     **/
+    public function origeningresos()
+    {
+        return $this->belongsToMany(\App\Models\Origeningreso::class, 'plandegestionderiesgos_has_origeningresos');
     }
 
     /**

@@ -3,9 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\PlanDeGestionDeRiesgos;
+use App\Models\PlanGestionRiesgos;
 
-class CreatePlanDeGestionDeRiesgosRequest extends FormRequest
+class CreatePlanGestionRiesgosRequest extends FormRequest
 {
 
     /**
@@ -25,6 +25,6 @@ class CreatePlanDeGestionDeRiesgosRequest extends FormRequest
      */
     public function rules()
     {
-        return PlanDeGestionDeRiesgos::$rules;
+        return PlanGestionRiesgos::$rules;
     }
 }
