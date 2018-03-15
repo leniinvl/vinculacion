@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Biodigestor
+            Condiciones Drenaje
         </h1>
     </section>
     <div class="content">
@@ -12,9 +12,9 @@
 
             <div class="box-body">
                 <div class="row">
-                    {!! Form::open(['route' => 'biodigestors.store', 'files' => true]) !!}
+                    {!! Form::open(['route' => 'condicionesDrenajes.store']) !!}
 
-                        @include('biodigestors.fields')
+                        @include('condiciones_drenajes.fields')
 
                     {!! Form::close() !!}
                 </div>
