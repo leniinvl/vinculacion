@@ -28,7 +28,7 @@
                         <thead>
                             <tr>
                                 <th>Nombre</th>
-                                <th colspan="3">Action</th>
+                                <th colspan="3">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -64,7 +64,7 @@
                         <thead>
                             <tr>
                                 <th>Nombre</th>
-                                <th colspan="3">Action</th>
+                                <th colspan="3">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -101,7 +101,7 @@
                         <thead>
                             <tr>
                                 <th>Nombre</th>
-                                <th colspan="3">Action</th>
+                                <th colspan="3">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -123,7 +123,7 @@
                     </table>
 
 
-                    <a href="{!! route('areaInfluencias.index') !!}" class="btn btn-default">Back</a>
+                    <a href="{!! route('areaInfluencias.index') !!}" class="btn btn-default">Atrás</a>
                 </div>
             </div>
         </div>
