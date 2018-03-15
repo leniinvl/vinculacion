@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Plan de Gestión de Riesgos
+            Ruido
         </h1>
     </section>
     <div class="content">
@@ -12,9 +12,9 @@
 
             <div class="box-body">
                 <div class="row">
-                    {!! Form::open(['route' => 'plandeGestiondeRiesgos.store']) !!}
+                    {!! Form::open(['route' => 'ruidos.store']) !!}
 
-                        @include('plande_gestionde_riesgos.fields')
+                        @include('ruidos.fields')
 
                     {!! Form::close() !!}
                 </div>

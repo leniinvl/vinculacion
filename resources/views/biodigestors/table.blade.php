@@ -22,7 +22,7 @@
         <tr>
             <td>{!! $biodigestor->ubicacion !!}</td>
             <td>{!! $biodigestor->tamañoPropiedad !!}</td>
-            <td>{!! $biodigestor->imagen !!}</td>
+            <td><img width="50px" src="./imagenes/{!! $biodigestor->imagen !!}"/></td>
             <td>{!! $biodigestor->video !!}</td>
             <td>{!! $biodigestor->anchoBio !!}</td>
             <td>{!! $biodigestor->largoBio !!}</td>

@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Planes de Riesgo
+            Tipo Vegetal
         </h1>
    </section>
    <div class="content">
@@ -11,9 +11,9 @@
        <div class="box box-primary">
            <div class="box-body">
                <div class="row">
-                   {!! Form::model($planRiesgos, ['route' => ['planRiesgos.update', $planRiesgos->id], 'method' => 'patch']) !!}
+                   {!! Form::model($tipoVegetal, ['route' => ['tipoVegetals.update', $tipoVegetal->id], 'method' => 'patch']) !!}
 
-                        @include('plan_riesgos.fields')
+                        @include('tipo_vegetals.fields')
 
                    {!! Form::close() !!}
                </div>
