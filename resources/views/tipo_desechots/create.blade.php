@@ -3,15 +3,20 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Taller
+            Tipo Desechos
         </h1>
     </section>
     <div class="content">
+        @include('adminlte-templates::common.errors')
         <div class="box box-primary">
+
             <div class="box-body">
-                <div class="row" style="padding-left: 20px">
-                    @include('tallers.show_fields')
-                    <a href="{!! route('tallers.index') !!}" class="btn btn-default">Volver</a>
+                <div class="row">
+                    {!! Form::open(['route' => 'tipoDesechots.store']) !!}
+
+                        @include('tipo_desechots.fields')
+
+                    {!! Form::close() !!}
                 </div>
             </div>
         </div>

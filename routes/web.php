@@ -310,6 +310,13 @@ Route::resource('usoSuelos', 'UsoSueloController');
 
 Route::resource('areaInfluencias', 'AreaInfluenciaController');
 
+
+Route::resource('tipoDesechots', 'TipoDesechotController');
+
+Route::resource('desechots', 'DesechotController');
+
+Route::resource('tallers', 'TallerController');
+
 Route::resource('condicionesDrenajes', 'CondicionesDrenajeController');
 
 Route::resource('ruidos', 'RuidoController');

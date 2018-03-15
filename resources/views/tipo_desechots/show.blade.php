@@ -3,15 +3,15 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Taller
+            Tipo Desechos
         </h1>
     </section>
     <div class="content">
         <div class="box box-primary">
             <div class="box-body">
                 <div class="row" style="padding-left: 20px">
-                    @include('tallers.show_fields')
-                    <a href="{!! route('tallers.index') !!}" class="btn btn-default">Volver</a>
+                    @include('tipo_desechots.show_fields')
+                    <a href="{!! route('tipoDesechots.index') !!}" class="btn btn-default">Volver</a>
                 </div>
             </div>
         </div>

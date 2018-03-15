@@ -45,8 +45,8 @@
 			</a>
 			<ul class="treeview-menu">
 				<li class="{{ Request::is('tallers*') ? 'active' : '' }}"><a href="{!! route('tallers.index') !!}"><i class="fa fa-book"></i>Talleres</a></li>
-				<li class="{{ Request::is('tipoRiesgos*') ? 'active' : '' }}"><a href="{!! route('tipoRiesgos.index') !!}"><i class="fa fa-warning"></i>Riesgos</a></li>
-				<li class="{{ Request::is('tipoDesechos*') ? 'active' : '' }}"><a href="{!! route('tipoDesechos.index') !!}"><i class="fa fa-trash"></i>Desechos</a></li>
+				<li class="{{ Request::is('desechots*') ? 'active' : '' }}"><a href="{!! route('desechots.index') !!}"><i class="fa fa-trash"></i>Desechos</a></li>
+				<li class="{{ Request::is('tipoDesechots*') ? 'active' : '' }}"><a href="{!! route('tipoDesechots.index') !!}"><i class="fa fa-trash"></i>Tipo de Desechos</a></li>
 			</ul>
         </li>
 
