@@ -37,7 +37,7 @@
         </div>
     </div>
 
-    {!! Form::label('peso', 'Total kg desechos generados:') !!}
+    
     <label id="total">
 
  
@@ -64,10 +64,10 @@
         
         if(suma!=undefined)
         {
-            document.getElementById("total").innerHTML=suma;
+            document.getElementById("total").innerHTML="Total desechos generados: "+suma+" kg";
         }
         else{
-            document.getElementById("total").innerHTML=0
+            document.getElementById("total").innerHTML=""
         }
         
         //totalfinal.value.innerHTML;
