@@ -119,7 +119,7 @@ Route::resource('tallerHasTipoDesechos', 'Taller_Has_TipoDesechoController');
 
 Route::resource('tallerHasTipoRiesgos', 'Taller_Has_TipoRiesgosController');
 
-Route::resource('tipoAbonos', 'TipoAbonoController');
+
 
 Route::resource('propietarios', 'PropietarioController');
 
@@ -173,7 +173,7 @@ Route::resource('consolidacionAreaInfluencias', 'ConsolidacionAreaInfluenciaCont
 
 Route::resource('ecosistemas', 'EcosistemaController');
 
-Route::resource('origenIngresos', 'OrigenIngresosController');
+
 
 Route::resource('tipoAgriculturas', 'TipoAgriculturaController');
 
@@ -181,11 +181,11 @@ Route::resource('tipoAlimentos', 'TipoAlimentosController');
 
 Route::resource('tipoAlimentosConsumos', 'TipoAlimentosConsumoController');
 
-Route::resource('tipoAnimales', 'TipoAnimalesController');
 
-Route::resource('tipoControlPlagas', 'TipoControlPlagaController');
 
-Route::resource('tipoCultivos', 'TipoCultivosController');
+
+
+
 
 Route::resource('tipoDesechos', 'TipoDesechoController');
 
@@ -201,41 +201,41 @@ Route::resource('areainfluencias', 'AreainfluenciaController');
 
 Route::resource('biodigestors', 'BiodigestorController');
 
-Route::resource('trabajadores', 'TrabajadoresController');
 
-Route::resource('tipoAnimales', 'TipoAnimalesController');
 
-Route::resource('origenIngresos', 'OrigenIngresosController');
 
-Route::resource('precuarias', 'PrecuariaController');
 
-Route::resource('destinos', 'DestinoController');
 
-Route::resource('tipoUnidads', 'TipoUnidadController');
 
-Route::resource('tipoProduccions', 'TipoProduccionController');
 
-Route::resource('amenazas', 'AmenazasController');
 
-Route::resource('vulnerabilidades', 'VulnerabilidadesController');
 
-Route::resource('ciudads', 'CiudadController');
 
-Route::resource('pais', 'PaisController');
 
-Route::resource('tipoAbonos', 'TipoAbonoController');
+
+
+
+
+
+
+
+
+
+
+
+
 
 Route::resource('desechos', 'DesechoController');
 
 Route::resource('tipodesechos', 'TipodesechoController');
 
-Route::resource('trabajadores', 'TrabajadoresController');
 
-Route::resource('agriculturas', 'AgriculturaController');
 
-Route::resource('agriculturas', 'AgriculturaController');
 
-Route::resource('agriculturas', 'AgriculturaController');
+
+
+
+
 
 Route::resource('generos', 'GeneroController');
 
@@ -257,7 +257,7 @@ Route::resource('condicionesDrenajes', 'CondicionesDrenajeController');
 Route::resource('tipoVegetals', 'TipoVegetalController');
 
 
-Route::resource('agriculturas', 'AgriculturaController');
+
 
 
 Route::resource('planGestionRiesgos', 'PlanGestionRiesgosController');
@@ -265,6 +265,14 @@ Route::resource('planGestionRiesgos', 'PlanGestionRiesgosController');
 Route::resource('areaInfluencias', 'AreaInfluenciaController');
 
 Route::resource('permeabilidadSuelos', 'PermeabilidadSueloController');
+
+
+
+
+
+
+
+
 
 
 
