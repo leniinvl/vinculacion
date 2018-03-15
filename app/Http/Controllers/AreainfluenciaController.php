@@ -83,7 +83,7 @@ class AreaInfluenciaController extends AppBaseController
             return redirect(route('areaInfluencias.index'));
         }
 
-        return view('area_influencias.show')->with('areaInfluencia', $areaInfluencia);
+        return view('area_influencias.show');
     }
 
     /**
