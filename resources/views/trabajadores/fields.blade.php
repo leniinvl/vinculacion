@@ -24,13 +24,15 @@
 
 <!-- Pais Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('Pais_id', 'Pais:') !!}
+    {!! Form::label('Pais_id', 'País:') !!}
+    <a href="{{route('pais.index')}}">(Añadir Nuevo)</a>
     {!! Form::select('Pais_id', $paises, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Ciudad Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('Ciudad_id', 'Ciudad:') !!}
+    <a href="{{route('ciudads.index')}}">(Añadir Nueva)</a>
     {!! Form::select('Ciudad_id', $ciudades, null, ['class' => 'form-control']) !!}
 </div>
 
@@ -55,6 +57,7 @@
 <!-- Plandegestionderiesgos Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('PlanDeGestionDeRiesgos_id', 'Plan de Gestión de Riesgos:') !!}
+    <a href="{{route('planDeGestionDeRiesgos.index')}}">(Añadir Nuevo)</a>
     {!! Form::select('PlanDeGestionDeRiesgos_id', $plandegestionderiesgos, null, ['class' => 'form-control']) !!}
 </div>
 
