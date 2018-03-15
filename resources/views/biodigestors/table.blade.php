@@ -2,16 +2,16 @@
     <thead>
         <tr>
             <th>Nombre</th>
-        <th>Tamaño de la Propiedad (m)</th>
+        <th>Tamaño de la Propiedad (m^2)</th>
         <th>Imagen</th>
         <th>Video</th>
         <th>Ancho Biodigestor (m)</th>
         <th>Largo Biodigestor (m)</th>
         <th>Profundidad Biodigestor (m)</th>
+        <th>Volumen Biodigestor (m^3)</th>
         <th>Ancho Caja AD (m)</th>
         <th>Largo Caja AD (m)</th>
         <th>Profundidad Caja AD (m)</th>
-        <th>Volumen Caja AD (m^3)</th>
         <th>Temperatura (°C)</th>
         <th>Unidad de Producción</th>
             <th colspan="3">Acciones</th>
@@ -27,10 +27,10 @@
             <td>{!! $biodigestor->anchoBio !!}</td>
             <td>{!! $biodigestor->largoBio !!}</td>
             <td>{!! $biodigestor->profundBio !!}</td>
+            <td>{!! $biodigestor->profundBio * $biodigestor->largoBio * $biodigestor->anchoBio !!}</td>
             <td>{!! $biodigestor->anchoCaja !!}</td>
             <td>{!! $biodigestor->largoCaja !!}</td>
             <td>{!! $biodigestor->profundCaja !!}</td>
-            <td>{!! $biodigestor->profundBio * $biodigestor->largoBio * $biodigestor->anchoBio !!}</td>
             <td>{!! $biodigestor->temperatura !!}</td>
             <td>{!! $biodigestor->unidadproduccion->nombre !!}</td>
             <td>

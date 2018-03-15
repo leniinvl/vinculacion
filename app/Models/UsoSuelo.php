@@ -6,10 +6,11 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class TipoVegetal
+ * Class UsoSuelo
  * @package App\Models
- * @version March 14, 2018, 9:47 pm UTC
+ * @version March 14, 2018, 3:18 am UTC
  *
+ * @property \Illuminate\Database\Eloquent\Collection Areainfluencium
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasLenguaje
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasReligion
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasTipovegetal
@@ -22,14 +23,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipocultivos
  * @property \Illuminate\Database\Eloquent\Collection unidadproduccion
  * @property \Illuminate\Database\Eloquent\Collection unidadproduccionHasPropietario
- * @property string nombre_comun
- * @property string nombre_cientifico
+ * @property string nombre
  */
-class TipoVegetal extends Model
+class UsoSuelo extends Model
 {
     use SoftDeletes;
 
-    public $table = 'tipovegetal';
+    public $table = 'usosuelo';
     
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
@@ -39,8 +39,7 @@ class TipoVegetal extends Model
 
 
     public $fillable = [
-        'nombre_comun',
-        'nombre_cientifico'
+        'nombre'
     ];
 
     /**
@@ -50,8 +49,7 @@ class TipoVegetal extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'nombre_comun' => 'string',
-        'nombre_cientifico' => 'string'
+        'nombre' => 'string'
     ];
 
     /**
@@ -64,10 +62,10 @@ class TipoVegetal extends Model
     ];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      **/
     public function areainfluencia()
     {
-        return $this->belongsToMany(\App\Models\Areainfluencium::class, 'areainfluencia_has_tipovegetal');
+        return $this->hasMany(\App\Models\Areainfluencium::class);
     }
 }

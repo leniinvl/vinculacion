@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Condiciones Drenaje
+            Uso Suelo
         </h1>
    </section>
    <div class="content">
@@ -11,9 +11,9 @@
        <div class="box box-primary">
            <div class="box-body">
                <div class="row">
-                   {!! Form::model($condicionesDrenaje, ['route' => ['condicionesDrenajes.update', $condicionesDrenaje->id], 'method' => 'patch']) !!}
+                   {!! Form::model($usoSuelo, ['route' => ['usoSuelos.update', $usoSuelo->id], 'method' => 'patch']) !!}
 
-                        @include('condiciones_drenajes.fields')
+                        @include('uso_suelos.fields')
 
                    {!! Form::close() !!}
                </div>

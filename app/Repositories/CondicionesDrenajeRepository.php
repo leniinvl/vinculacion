@@ -8,7 +8,7 @@ use InfyOm\Generator\Common\BaseRepository;
 /**
  * Class CondicionesDrenajeRepository
  * @package App\Repositories
- * @version January 23, 2018, 2:01 am UTC
+ * @version March 14, 2018, 5:42 am UTC
  *
  * @method CondicionesDrenaje findWithoutFail($id, $columns = ['*'])
  * @method CondicionesDrenaje find($id, $columns = ['*'])
@@ -21,7 +21,7 @@ class CondicionesDrenajeRepository extends BaseRepository
      */
     protected $fieldSearchable = [
         'nombre',
-        'descripcion'
+        'valor'
     ];
 
     /**

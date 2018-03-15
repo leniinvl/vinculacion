@@ -2,15 +2,15 @@
     <thead>
         <tr>
             <th>Nombre</th>
-        <th>Descripción</th>
-            <th colspan="3">Acciones</th>
+        <th>Valor</th>
+            <th colspan="3">Action</th>
         </tr>
     </thead>
     <tbody>
     @foreach($condicionesDrenajes as $condicionesDrenaje)
         <tr>
             <td>{!! $condicionesDrenaje->nombre !!}</td>
-            <td>{!! $condicionesDrenaje->descripcion !!}</td>
+            <td>{!! $condicionesDrenaje->valor !!}</td>
             <td>
                 {!! Form::open(['route' => ['condicionesDrenajes.destroy', $condicionesDrenaje->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>

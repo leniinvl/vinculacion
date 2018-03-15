@@ -8,7 +8,7 @@ use InfyOm\Generator\Common\BaseRepository;
 /**
  * Class RuidoRepository
  * @package App\Repositories
- * @version January 18, 2018, 2:42 pm UTC
+ * @version March 14, 2018, 6:49 am UTC
  *
  * @method Ruido findWithoutFail($id, $columns = ['*'])
  * @method Ruido find($id, $columns = ['*'])
@@ -20,7 +20,7 @@ class RuidoRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
-        'nombre'
+        'valor'
     ];
 
     /**

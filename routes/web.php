@@ -72,9 +72,6 @@ Route::post('storetopologia/{areainfluencia}', array('uses' => 'AreainfluenciaCo
 
 Route::delete('deletetopologia/{areainfluencia}/{id}',array('uses' => 'AreainfluenciaController@destroyTopologia', 'as' => 'destroyTopologia'));
 
-
-
-
 Route::post('storetipocultivos/{planriesgos}', array('uses' => 'PlanRiesgosController@storeTipoCultivos', 'as' => 'storeTipoCultivos'));
 
 Route::delete('deleteTipoCultivos/{planriesgos}/{id}',array('uses' => 'PlanRiesgosController@destroyTipoCultivos', 'as' => 'destroyTipoCultivos'));
@@ -112,12 +109,9 @@ Route::delete('deletegrupoalimentosproductos/{planRiesgos}/{id}',array('uses' =>
 
 Route::resource('planRiesgosHasGAProductos', 'PlanRiesgos_Has_GrupoAlimentosProductosController');
 
-
-
 Route::resource('asociacions', 'AsociacionController');
 
 Route::resource('planRiesgos', 'PlanRiesgosController');
-
 
 Route::resource('planRiesgosHasOrigenIngresos', 'PlanRiesgos_Has_OrigenIngresosController');
 
@@ -125,7 +119,7 @@ Route::resource('planRiesgosHasTipoAgriculturas', 'PlanRiesgos_Has_TipoAgricultu
 
 Route::resource('planRiesgosHasTipoAlimentos', 'PlanRiesgos_Has_TipoAlimentosController');
 
-Route::resource('evacuacionAguaLluvias', 'EvacuacionAguaLluviaController');
+
 
 Route::resource('grupoAlimentosProductos', 'GrupoAlimentosProductosController');
 
@@ -133,11 +127,11 @@ Route::resource('lenguajes', 'LenguajeController');
 
 Route::resource('manejoAmbientals', 'ManejoAmbientalController');
 
-Route::resource('nivelDeTraficos', 'NivelDeTraficoController');
+
 
 Route::resource('productos', 'ProductoController');
 
-Route::resource('precipitaciones', 'PrecipitacionesController');
+
 
 Route::resource('planRiesgosHasTipoAlimentos', 'PlanRiesgos_Has_TipoAlimentosController');
 
@@ -149,17 +143,17 @@ Route::resource('tallerHasTipoDesechos', 'Taller_Has_TipoDesechoController');
 
 Route::resource('tallerHasTipoRiesgos', 'Taller_Has_TipoRiesgosController');
 
-Route::resource('tendenciaTierras', 'TendenciaTierraController');
+
 
 Route::resource('tipoAbonos', 'TipoAbonoController');
 
 Route::resource('propietarios', 'PropietarioController');
 
-Route::resource('recirculacionAires', 'RecirculacionAireController');
+
 
 Route::resource('religions', 'ReligionController');
 
-Route::resource('ruidos', 'RuidoController');
+
 
 Route::resource('tallers', 'TallerController');
 
@@ -167,27 +161,25 @@ Route::resource('unidadproduccions', 'unidadproduccionController');
 
 Route::resource('tradicions', 'tradicionController');
 
-
-
 Route::resource('topologias', 'topologiaController');
 
-Route::resource('tipoFuentes', 'TipoFuentesController');
 
-Route::resource('tipoVegetals', 'TipoVegetalController');
 
-Route::resource('topologias', 'TopologiaController');
 
-Route::resource('tradicions', 'TradicionController');
 
-Route::resource('organizacionSocials', 'OrganizacionSocialController');
+
+
+
+
+
 
 Route::resource('planRiesgosHasOrigenIngresos', 'PlanRiesgos_Has_OrigenIngresosController');
 
 Route::resource('paisajes', 'PaisajeController');
 
-Route::resource('peligros', 'PeligrosController');
 
-Route::resource('permeabilidadSuelos', 'PermeabilidadSueloController');
+
+
 
 Route::resource('abastecimientoaguas', 'AbastecimientoaguaController');
 
@@ -199,17 +191,15 @@ Route::resource('areainfluenciaHasPeligros', 'Areainfluencia_has_peligrosControl
 
 Route::resource('areainfluenciaHasReligions', 'Areainfluencia_has_religionController');
 
-Route::resource('usoTierras', 'UsoTierraController');
 
-// Route::resource('usosVegetacionHasAreaInfluenciaHasTipovegetals', 'UsosVegetacion_Has_AreaInfluencia_Has_TipovegetalController');
 
-Route::resource('usosVegetacions', 'UsosVegetacionController');
+// 
 
-Route::resource('usosVegetacions', 'UsosVegetacionController');
+
+
+
 
 // Route::resource('unidadProduccionHasPropietarios', 'UnidadProduccion_Has_PropietarioController');
-
-
 
 Route::resource('areainfluenciaHasUsotierras', 'Areainfluencia_has_usotierraController');
 
@@ -225,7 +215,7 @@ Route::resource('areaInfluenciaHasTopologias', 'AreaInfluenciaHasTopologiaContro
 
 Route::resource('areaInfluenciaHasTradicions', 'AreaInfluenciaHasTradicionController');
 
-Route::resource('calidadAires', 'CalidadAireController');
+
 
 Route::resource('caracteristicasEtnicas', 'CaracteristicasEtnicasController');
 
@@ -233,13 +223,13 @@ Route::resource('categoriaProyectos', 'CategoriaProyectoController');
 
 Route::resource('climas', 'ClimaController');
 
-Route::resource('condicionesDrenajes', 'CondicionesDrenajeController');
+
 
 Route::resource('consolidacionAreaInfluencias', 'ConsolidacionAreaInfluenciaController');
 
 Route::resource('ecosistemas', 'EcosistemaController');
 
-Route::resource('evacuacionAguasServidas', 'EvacuacionAguasServidasController');
+
 
 Route::resource('origenIngresos', 'OrigenIngresosController');
 
@@ -265,52 +255,14 @@ Route::resource('tipoRiesgos', 'TipoRiesgosController');
 
 Route::resource('tipoSuelos', 'TipoSueloController');
 
-Route::resource('tipoTerrenos', 'TipoTerrenoController');
-
-
-
-
-
 
 
 Route::resource('areainfluencias', 'AreainfluenciaController');
 
-Route::resource('calidadSuelos', 'CalidadSueloController');
+
 
 
 Route::resource('biodigestors', 'BiodigestorController');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 Route::resource('trabajadores', 'TrabajadoresController');
 
@@ -351,3 +303,15 @@ Route::resource('agriculturas', 'AgriculturaController');
 Route::resource('agriculturas', 'AgriculturaController');
 
 Route::resource('generos', 'GeneroController');
+
+
+
+Route::resource('usoSuelos', 'UsoSueloController');
+
+Route::resource('areaInfluencias', 'AreaInfluenciaController');
+
+Route::resource('condicionesDrenajes', 'CondicionesDrenajeController');
+
+Route::resource('ruidos', 'RuidoController');
+
+Route::resource('tipoVegetals', 'TipoVegetalController');

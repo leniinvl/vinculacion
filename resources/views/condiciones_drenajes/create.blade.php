@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Condición de Drenaje
+            Condiciones Drenaje
         </h1>
     </section>
     <div class="content">

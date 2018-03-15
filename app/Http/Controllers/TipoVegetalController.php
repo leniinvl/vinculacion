@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreateTipoVegetalRequest;
 use App\Http\Requests\UpdateTipoVegetalRequest;
 use App\Repositories\TipoVegetalRepository;
-use Flash;
+use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 

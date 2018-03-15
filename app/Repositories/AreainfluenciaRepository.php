@@ -8,7 +8,7 @@ use InfyOm\Generator\Common\BaseRepository;
 /**
  * Class AreaInfluenciaRepository
  * @package App\Repositories
- * @version January 19, 2018, 7:27 pm UTC
+ * @version March 14, 2018, 3:59 am UTC
  *
  * @method AreaInfluencia findWithoutFail($id, $columns = ['*'])
  * @method AreaInfluencia find($id, $columns = ['*'])
@@ -25,28 +25,29 @@ class AreaInfluenciaRepository extends BaseRepository
         'detalleCalidadAire',
         'detalleRuido',
         'observacionesEcosistema',
+        'lat',
+        'long',
         'ManejoAmbiental_id',
-        'CalidadAire_id',
-        'TipoTerreno_id',
+        'UsoSuelo_id',
         'TipoSuelo_id',
-        'CalidadSuelo_id',
         'Precipitaciones_id',
-        'NivelFratico_id',
         'PermeabilidadSuelo_id',
         'Clima_id',
         'CondicionesDrenaje_id',
         'Ruido_id',
-        'RecirculacionAire_id',
         'Ecosistema_id',
-        'OrganizacionSocial_id',
-        'TendenciaTierra_id',
-        'AbastecimientoAgua_id',
-        'EvacuacoinAguaLluvia_id',
         'CaracteristicasEtnicas_id',
-        'ConsolidacionAreaInfluencia_id',
-        'EvacuacionAguasServidas_id',
-        'lat',
-        'long'
+        'nivelTraficoDescripcion',
+        'recirculacionAireDescripcion',
+        'organizacionSocialDescripcion',
+        'tendenciaTierraDescripcion',
+        'abastecimientoAguaDescripcion',
+        'evacuacionAguaLluviaDescripcion',
+        'consolidacionAreasInfluenciaDescripcion',
+        'evacuacionAguasServidasDescripcion',
+        'usoVegetacionDescripcion',
+        'tradicionesDescripcion',
+        'tipoFuentesDescripcion'
     ];
 
     /**

@@ -10,10 +10,10 @@
     <p>{!! $condicionesDrenaje->nombre !!}</p>
 </div>
 
-<!-- Descripcion Field -->
+<!-- Valor Field -->
 <div class="form-group">
-    {!! Form::label('descripcion', 'Descripcion:') !!}
-    <p>{!! $condicionesDrenaje->descripcion !!}</p>
+    {!! Form::label('valor', 'Valor:') !!}
+    <p>{!! $condicionesDrenaje->valor !!}</p>
 </div>
 
 <!-- Created At Field -->

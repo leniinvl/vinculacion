@@ -12,6 +12,7 @@ use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use App\Models\Biodigestor;
 use App\Models\TipoDesecho;
+use App\Models\Desecho;
 
 class DesechoController extends AppBaseController
 {
@@ -31,11 +32,13 @@ class DesechoController extends AppBaseController
      */
     public function index(Request $request)
     {
+        $biodigestor=Biodigestor::all()->pluck('ubicacion','id');
         $this->desechoRepository->pushCriteria(new RequestCriteria($request));
-        $desechos = $this->desechoRepository->all();
+        $desechos = Desecho::name($request->get('name'))->date($request->get('date1'))->date1($request->get('date2'))->orderBy('id','DESC')->paginate();
+        
 
         return view('desechos.index')
-            ->with('desechos', $desechos);
+            ->with('desechos', $desechos)->with('biodigestor',$biodigestor);
     }
 
     /**
@@ -159,4 +162,5 @@ class DesechoController extends AppBaseController
 
         return redirect(route('desechos.index'));
     }
+
 }

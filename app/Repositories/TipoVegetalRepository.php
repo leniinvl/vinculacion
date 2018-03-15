@@ -8,7 +8,7 @@ use InfyOm\Generator\Common\BaseRepository;
 /**
  * Class TipoVegetalRepository
  * @package App\Repositories
- * @version January 20, 2018, 4:28 am UTC
+ * @version March 14, 2018, 9:47 pm UTC
  *
  * @method TipoVegetal findWithoutFail($id, $columns = ['*'])
  * @method TipoVegetal find($id, $columns = ['*'])
@@ -20,7 +20,8 @@ class TipoVegetalRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
-        'nombre'
+        'nombre_comun',
+        'nombre_cientifico'
     ];
 
     /**

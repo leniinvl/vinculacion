@@ -6,7 +6,7 @@
 
 <!-- Tamañopropiedad Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('tamañoPropiedad', 'Tamaño de la Propiedad:') !!}
+    {!! Form::label('tamañoPropiedad', 'Tamaño de la Propiedad (m^2):') !!}
     {!! Form::number('tamañoPropiedad', null, ['class' => 'form-control','step'=>'0.1']) !!}
 </div>
 

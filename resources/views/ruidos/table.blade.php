@@ -1,14 +1,14 @@
 <table class="table table-responsive" id="ruidos-table">
     <thead>
         <tr>
-            <th>Nombre</th>
-            <th colspan="3">Acciones</th>
+            <th>Valor</th>
+            <th colspan="3">Action</th>
         </tr>
     </thead>
     <tbody>
     @foreach($ruidos as $ruido)
         <tr>
-            <td>{!! $ruido->nombre !!}</td>
+            <td>{!! $ruido->valor !!}</td>
             <td>
                 {!! Form::open(['route' => ['ruidos.destroy', $ruido->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>

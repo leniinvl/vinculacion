@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Ruido
+            Uso Suelo
         </h1>
     </section>
     <div class="content">
@@ -12,9 +12,9 @@
 
             <div class="box-body">
                 <div class="row">
-                    {!! Form::open(['route' => 'ruidos.store']) !!}
+                    {!! Form::open(['route' => 'usoSuelos.store']) !!}
 
-                        @include('ruidos.fields')
+                        @include('uso_suelos.fields')
 
                     {!! Form::close() !!}
                 </div>

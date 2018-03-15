@@ -47,7 +47,7 @@
 </div>
 
 <div class="form-group">
-    {!! Form::label('volumenCaja', 'Volumen de la caja de acumulación de desechos (m^3):') !!}
+    {!! Form::label('volumenCaja', 'Volumen del Biodigestor (m^3):') !!}
     <p>{!! $biodigestor->profundBio * $biodigestor->largoBio * $biodigestor->anchoBio !!}</p>
 </div>
 
