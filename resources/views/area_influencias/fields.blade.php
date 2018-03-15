@@ -49,19 +49,13 @@
 <!-- Usosuelo Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('UsoSuelo_id', 'Usosuelo Id:') !!}
-    {!! Form::select('UsoSuelo_id', $usosuelo ,null, ['class' => 'form-control']) !!}
+    {!! Form::number('UsoSuelo_id', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Tiposuelo Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('TipoSuelo_id', 'Tiposuelo Id:') !!}
     {!! Form::number('TipoSuelo_id', null, ['class' => 'form-control']) !!}
-</div>
-
-<!-- Precipitaciones Id Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('Precipitaciones_id', 'Precipitaciones Id:') !!}
-    {!! Form::number('Precipitaciones_id', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Permeabilidadsuelo Id Field -->
@@ -79,13 +73,7 @@
 <!-- Condicionesdrenaje Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('CondicionesDrenaje_id', 'Condicionesdrenaje Id:') !!}
-    {!! Form::select('CondicionesDrenaje_id', $condicionesdrenaje, null, ['class' => 'form-control']) !!}
-</div>
-
-<!-- Ruido Id Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('Ruido_id', 'Ruido Id:') !!}
-    {!! Form::select('Ruido_id', $ruido, null, ['class' => 'form-control']) !!}
+    {!! Form::number('CondicionesDrenaje_id', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Ecosistema Id Field -->
@@ -166,8 +154,20 @@
     {!! Form::textarea('tipoFuentesDescripcion', null, ['class' => 'form-control']) !!}
 </div>
 
+<!-- Ruido Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('ruido', 'Ruido:') !!}
+    {!! Form::number('ruido', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Precipitaciones Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('precipitaciones', 'Precipitaciones:') !!}
+    {!! Form::number('precipitaciones', null, ['class' => 'form-control']) !!}
+</div>
+
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
-    {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
-    <a href="{!! route('areaInfluencias.index') !!}" class="btn btn-default">Cancelar</a>
+    {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
+    <a href="{!! route('areaInfluencias.index') !!}" class="btn btn-default">Cancel</a>
 </div>

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class AreaInfluencia
  * @package App\Models
- * @version March 14, 2018, 3:59 am UTC
+ * @version March 15, 2018, 4:15 am UTC
  *
  * @property \App\Models\Caracteristicasetnica caracteristicasetnica
  * @property \App\Models\Clima clima
@@ -16,21 +16,23 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \App\Models\Ecosistema ecosistema
  * @property \App\Models\Manejoambiental manejoambiental
  * @property \App\Models\Permeabilidadsuelo permeabilidadsuelo
- * @property \App\Models\Precipitacione precipitacione
- * @property \App\Models\Ruido ruido
  * @property \App\Models\Tiposuelo tiposuelo
  * @property \App\Models\Usosuelo usosuelo
+ * @property \Illuminate\Database\Eloquent\Collection agricultura
+ * @property \Illuminate\Database\Eloquent\Collection agriculturaHasPlandegestionderiesgos
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasLenguaje
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasReligion
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasTipovegetal
  * @property \Illuminate\Database\Eloquent\Collection desecho
  * @property \Illuminate\Database\Eloquent\Collection desechot
  * @property \Illuminate\Database\Eloquent\Collection origeningresos
+ * @property \Illuminate\Database\Eloquent\Collection origeningresosHasPlandegestionderiesgos
  * @property \Illuminate\Database\Eloquent\Collection Paisaje
- * @property \Illuminate\Database\Eloquent\Collection planriesgosHasOrigeningresos
- * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipoagricultura
- * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipoanimales
- * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipocultivos
+ * @property \Illuminate\Database\Eloquent\Collection plandegestionderiesgos
+ * @property \Illuminate\Database\Eloquent\Collection plandegestionderiesgosHasAmenazas
+ * @property \Illuminate\Database\Eloquent\Collection plandegestionderiesgosHasTipocultivos
+ * @property \Illuminate\Database\Eloquent\Collection plandegestionderiesgosHasVulnerabilidades
+ * @property \Illuminate\Database\Eloquent\Collection tipoanimalesHasPlandegestionderiesgos
  * @property \Illuminate\Database\Eloquent\Collection unidadproduccion
  * @property \Illuminate\Database\Eloquent\Collection unidadproduccionHasPropietario
  * @property float altitud
@@ -43,11 +45,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property integer ManejoAmbiental_id
  * @property integer UsoSuelo_id
  * @property integer TipoSuelo_id
- * @property integer Precipitaciones_id
  * @property integer PermeabilidadSuelo_id
  * @property integer Clima_id
  * @property integer CondicionesDrenaje_id
- * @property integer Ruido_id
  * @property integer Ecosistema_id
  * @property integer CaracteristicasEtnicas_id
  * @property string nivelTraficoDescripcion
@@ -61,13 +61,15 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string usoVegetacionDescripcion
  * @property string tradicionesDescripcion
  * @property string tipoFuentesDescripcion
+ * @property float ruido
+ * @property float precipitaciones
  */
 class AreaInfluencia extends Model
 {
     use SoftDeletes;
 
     public $table = 'areainfluencia';
-
+    
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -86,11 +88,9 @@ class AreaInfluencia extends Model
         'ManejoAmbiental_id',
         'UsoSuelo_id',
         'TipoSuelo_id',
-        'Precipitaciones_id',
         'PermeabilidadSuelo_id',
         'Clima_id',
         'CondicionesDrenaje_id',
-        'Ruido_id',
         'Ecosistema_id',
         'CaracteristicasEtnicas_id',
         'nivelTraficoDescripcion',
@@ -103,7 +103,9 @@ class AreaInfluencia extends Model
         'evacuacionAguasServidasDescripcion',
         'usoVegetacionDescripcion',
         'tradicionesDescripcion',
-        'tipoFuentesDescripcion'
+        'tipoFuentesDescripcion',
+        'ruido',
+        'precipitaciones'
     ];
 
     /**
@@ -123,11 +125,9 @@ class AreaInfluencia extends Model
         'ManejoAmbiental_id' => 'integer',
         'UsoSuelo_id' => 'integer',
         'TipoSuelo_id' => 'integer',
-        'Precipitaciones_id' => 'integer',
         'PermeabilidadSuelo_id' => 'integer',
         'Clima_id' => 'integer',
         'CondicionesDrenaje_id' => 'integer',
-        'Ruido_id' => 'integer',
         'Ecosistema_id' => 'integer',
         'CaracteristicasEtnicas_id' => 'integer',
         'nivelTraficoDescripcion' => 'string',
@@ -140,7 +140,9 @@ class AreaInfluencia extends Model
         'evacuacionAguasServidasDescripcion' => 'string',
         'usoVegetacionDescripcion' => 'string',
         'tradicionesDescripcion' => 'string',
-        'tipoFuentesDescripcion' => 'string'
+        'tipoFuentesDescripcion' => 'string',
+        'ruido' => 'float',
+        'precipitaciones' => 'float'
     ];
 
     /**
@@ -149,7 +151,7 @@ class AreaInfluencia extends Model
      * @var array
      */
     public static $rules = [
-
+        
     ];
 
     /**
@@ -173,7 +175,7 @@ class AreaInfluencia extends Model
      **/
     public function condicionesdrenaje()
     {
-        return $this->belongsTo(\App\Models\Condicionesdrenaje::class,'CondicionesDrenaje_id');
+        return $this->belongsTo(\App\Models\Condicionesdrenaje::class);
     }
 
     /**
@@ -203,22 +205,6 @@ class AreaInfluencia extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function precipitacione()
-    {
-        return $this->belongsTo(\App\Models\Precipitacione::class);
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     **/
-    public function ruido()
-    {
-        return $this->belongsTo(\App\Models\Ruido::class,'Ruido_id');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     **/
     public function tiposuelo()
     {
         return $this->belongsTo(\App\Models\Tiposuelo::class);
@@ -229,7 +215,7 @@ class AreaInfluencia extends Model
      **/
     public function usosuelo()
     {
-        return $this->belongsTo(\App\Models\Usosuelo::class,'UsoSuelo_id');
+        return $this->belongsTo(\App\Models\Usosuelo::class);
     }
 
     /**
@@ -237,7 +223,7 @@ class AreaInfluencia extends Model
      **/
     public function lenguajes()
     {
-        return $this->belongsToMany(\App\Models\Lenguaje::class, 'areainfluencia_has_lenguaje', 'areainfluencia_id', 'lenguaje_id')->withTimestamps();
+        return $this->belongsToMany(\App\Models\Lenguaje::class, 'areainfluencia_has_lenguaje');
     }
 
     /**
@@ -245,7 +231,7 @@ class AreaInfluencia extends Model
      **/
     public function religions()
     {
-        return $this->belongsToMany(\App\Models\Religion::class, 'areainfluencia_has_religion', 'areainfluencia_id', 'religion_id')->withTimestamps();
+        return $this->belongsToMany(\App\Models\Religion::class, 'areainfluencia_has_religion');
     }
 
     /**
@@ -253,7 +239,7 @@ class AreaInfluencia extends Model
      **/
     public function tipovegetals()
     {
-        return $this->belongsToMany(\App\Models\Tipovegetal::class, 'areainfluencia_has_tipovegetal', 'areainfluencia_id', 'tipovegetal_id')->withTimestamps();
+        return $this->belongsToMany(\App\Models\Tipovegetal::class, 'areainfluencia_has_tipovegetal');
     }
 
     /**

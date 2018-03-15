@@ -6,19 +6,14 @@
         <th>Detallecalidadaire</th>
         <th>Detalleruido</th>
         <th>Observacionesecosistema</th>
-        <th>Religion</th>
-        <th>Lenguaje</th>
-        <th>Tipo Vegetal</th>
         <th>Lat</th>
         <th>Long</th>
         <th>Manejoambiental Id</th>
         <th>Usosuelo Id</th>
         <th>Tiposuelo Id</th>
-        <th>Precipitaciones Id</th>
         <th>Permeabilidadsuelo Id</th>
         <th>Clima Id</th>
         <th>Condicionesdrenaje Id</th>
-        <th>Ruido Id</th>
         <th>Ecosistema Id</th>
         <th>Caracteristicasetnicas Id</th>
         <th>Niveltraficodescripcion</th>
@@ -32,6 +27,8 @@
         <th>Usovegetaciondescripcion</th>
         <th>Tradicionesdescripcion</th>
         <th>Tipofuentesdescripcion</th>
+        <th>Ruido</th>
+        <th>Precipitaciones</th>
             <th colspan="3">Action</th>
         </tr>
     </thead>
@@ -43,37 +40,14 @@
             <td>{!! $areaInfluencia->detalleCalidadAire !!}</td>
             <td>{!! $areaInfluencia->detalleRuido !!}</td>
             <td>{!! $areaInfluencia->observacionesEcosistema !!}</td>
-            <td>
-            @foreach($areaInfluencia->religions as $areainfluenciaHasReligion)
-
-                    {!! $areainfluenciaHasReligion->nombre !!}
-
-            @endforeach
-            </td>
-            <td>
-            @foreach($areaInfluencia->lenguajes as $areainfluenciaHasLenguaje)
-
-                    {!! $areainfluenciaHasLenguaje->nombre !!}
-
-            @endforeach
-            </td>
-            <td>
-            @foreach($areaInfluencia->tipovegetals as $areaInfluenciaHasTipoVegetal)
-
-                    {!! $areaInfluenciaHasTipoVegetal->nombre_comun !!}
-
-            @endforeach
-            </td>
             <td>{!! $areaInfluencia->lat !!}</td>
             <td>{!! $areaInfluencia->long !!}</td>
             <td>{!! $areaInfluencia->ManejoAmbiental_id !!}</td>
-            <td>{!! $areaInfluencia->usosuelo->nombre !!}</td>
+            <td>{!! $areaInfluencia->UsoSuelo_id !!}</td>
             <td>{!! $areaInfluencia->TipoSuelo_id !!}</td>
-            <td>{!! $areaInfluencia->Precipitaciones_id !!}</td>
             <td>{!! $areaInfluencia->PermeabilidadSuelo_id !!}</td>
             <td>{!! $areaInfluencia->Clima_id !!}</td>
-            <td>{!! $areaInfluencia->CondicionesDrenaje->nombre !!}</td>
-            <td>{!! $areaInfluencia->Ruido->valor !!}</td>
+            <td>{!! $areaInfluencia->CondicionesDrenaje_id !!}</td>
             <td>{!! $areaInfluencia->Ecosistema_id !!}</td>
             <td>{!! $areaInfluencia->CaracteristicasEtnicas_id !!}</td>
             <td>{!! $areaInfluencia->nivelTraficoDescripcion !!}</td>
@@ -87,6 +61,8 @@
             <td>{!! $areaInfluencia->usoVegetacionDescripcion !!}</td>
             <td>{!! $areaInfluencia->tradicionesDescripcion !!}</td>
             <td>{!! $areaInfluencia->tipoFuentesDescripcion !!}</td>
+            <td>{!! $areaInfluencia->ruido !!}</td>
+            <td>{!! $areaInfluencia->precipitaciones !!}</td>
             <td>
                 {!! Form::open(['route' => ['areaInfluencias.destroy', $areaInfluencia->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
