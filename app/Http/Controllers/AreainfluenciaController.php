@@ -95,6 +95,7 @@ guardado exitosamente.');
             return redirect(route('areaInfluencias.index'));
         }
 
+
         return view('area_influencias.show')->with('areaInfluencia', $areaInfluencia)->with('tipovegetal', $tipovegetal)->with('religion', $religion)
             ->with('lenguaje', $lenguaje);
     }
