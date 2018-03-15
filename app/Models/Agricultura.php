@@ -8,31 +8,27 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class Agricultura
  * @package App\Models
- * @version March 12, 2018, 2:01 am UTC
+ * @version March 14, 2018, 11:23 pm UTC
  *
  * @property \App\Models\Unidadproduccion unidadproduccion
- * @property \App\Models\Usotierra usotierra
+ * @property \App\Models\Usosuelo usosuelo
+ * @property \Illuminate\Database\Eloquent\Collection agriculturaHasPlandegestionderiesgos
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasLenguaje
- * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasPeligros
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasReligion
- * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasTipofuentes
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasTipovegetal
- * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasTopologia
- * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasTradicion
- * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasUsotierra
  * @property \Illuminate\Database\Eloquent\Collection desecho
  * @property \Illuminate\Database\Eloquent\Collection desechot
  * @property \Illuminate\Database\Eloquent\Collection origeningresos
- * @property \Illuminate\Database\Eloquent\Collection Plandegestionderiesgo
- * @property \Illuminate\Database\Eloquent\Collection planriesgosHasOrigeningresos
- * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipoagricultura
- * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipoanimales
- * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipocultivos
+ * @property \Illuminate\Database\Eloquent\Collection origeningresosHasPlandegestionderiesgos
+ * @property \Illuminate\Database\Eloquent\Collection plandegestionderiesgos
+ * @property \Illuminate\Database\Eloquent\Collection plandegestionderiesgosHasAmenazas
+ * @property \Illuminate\Database\Eloquent\Collection plandegestionderiesgosHasTipocultivos
+ * @property \Illuminate\Database\Eloquent\Collection plandegestionderiesgosHasVulnerabilidades
+ * @property \Illuminate\Database\Eloquent\Collection tipoanimalesHasPlandegestionderiesgos
  * @property \Illuminate\Database\Eloquent\Collection unidadproduccion
  * @property \Illuminate\Database\Eloquent\Collection unidadproduccionHasPropietario
- * @property \Illuminate\Database\Eloquent\Collection usosvegetacionHasAreainfluenciaHasTipovegetal
- * @property integer UsoTierra_id
  * @property integer UnidadProduccion_id
+ * @property integer UsoSuelo_id
  */
 class Agricultura extends Model
 {
@@ -43,13 +39,11 @@ class Agricultura extends Model
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-
     protected $dates = ['deleted_at'];
 
-
     public $fillable = [
-        'UsoTierra_id',
-        'UnidadProduccion_id'
+        'UnidadProduccion_id',
+        'UsoSuelo_id',
     ];
 
     /**
@@ -58,9 +52,9 @@ class Agricultura extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
-        'UsoTierra_id' => 'integer',
-        'UnidadProduccion_id' => 'integer'
+        'id'                  => 'integer',
+        'UnidadProduccion_id' => 'integer',
+        'UsoSuelo_id'         => 'integer',
     ];
 
     /**
@@ -77,30 +71,22 @@ class Agricultura extends Model
      **/
     public function unidadproduccion()
     {
-        return $this->belongsTo(\App\Models\Unidadproduccion::class,'UnidadProduccion_id');
+        return $this->belongsTo(\App\Models\Unidadproduccion::class, 'UnidadProduccion_id');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function usotierra()
+    public function usosuelo()
     {
-        return $this->belongsTo(\App\Models\Usotierra::class,'UsoTierra_id');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     **/
-    public function plandegestionderiesgos()
-    {
-        return $this->hasMany(\App\Models\Plandegestionderiesgo::class);
+        return $this->belongsTo(\App\Models\Usosuelo::class, 'UsoSuelo_id');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      **/
-    public function planriesgos()
+    public function plandegestionderiesgos()
     {
-        return $this->belongsToMany(\App\Models\Planriesgo::class, 'planriesgos_has_tipoagricultura');
+        return $this->belongsToMany(\App\Models\Plandegestionderiesgo::class, 'agricultura_has_plandegestionderiesgos');
     }
 }

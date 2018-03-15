@@ -4,6 +4,18 @@
     <p>{!! $agricultura->id !!}</p>
 </div>
 
+<!-- Unidadproduccion Id Field -->
+<div class="form-group">
+    {!! Form::label('UnidadProduccion_id', 'Unidadproduccion Id:') !!}
+    <p>{!! $agricultura->unidadproduccion->nombre!!}</p>
+</div>
+
+<!-- Usosuelo Id Field -->
+<div class="form-group">
+    {!! Form::label('UsoSuelo_id', 'Usosuelo Id:') !!}
+    <p>{!! $agricultura->UsoSuelo->nombre !!}</p>
+</div>
+
 <!-- Created At Field -->
 <div class="form-group">
     {!! Form::label('created_at', 'Created At:') !!}
@@ -20,16 +32,4 @@
 <div class="form-group">
     {!! Form::label('deleted_at', 'Deleted At:') !!}
     <p>{!! $agricultura->deleted_at !!}</p>
-</div>
-
-<!-- Usotierra Id Field -->
-<div class="form-group">
-    {!! Form::label('UsoTierra_id', 'Usotierra:') !!}
-    <p>{!! $agricultura->UsoTierra->nombre !!}</p>
-</div>
-
-<!-- Unidadproduccion Id Field -->
-<div class="form-group">
-    {!! Form::label('UnidadProduccion_id', 'Unidadproduccion:') !!}
-    <p>{!! $agricultura->unidadproduccion->nombre!!}</p>
 </div>

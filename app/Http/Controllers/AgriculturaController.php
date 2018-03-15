@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreateAgriculturaRequest;
 use App\Http\Requests\UpdateAgriculturaRequest;
 use App\Repositories\AgriculturaRepository;
-use App\Http\Controllers\AppBaseController;
-use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
-use\App\Models\UsoTierra;
-use\App\Models\unidadproduccion;
+use \App\Models\unidadproduccion;
+use \App\Models\UsoSuelo;
 
 class AgriculturaController extends AppBaseController
 {
@@ -45,9 +45,9 @@ class AgriculturaController extends AppBaseController
      */
     public function create()
     {
-      $UsoTierra=UsoTierra::all()->pluck('nombre','id');
-        $unidadproduccion=unidadproduccion::all()->pluck('nombre','id');
-        return view('agriculturas.create',['UsoTierra'=>$UsoTierra,'unidadproduccion'=>$unidadproduccion]);
+        $UsoSuelo         = UsoSuelo::all()->pluck('nombre', 'id');
+        $unidadproduccion = unidadproduccion::all()->pluck('nombre', 'id');
+        return view('agriculturas.create', ['UsoSuelo' => $UsoSuelo, 'unidadproduccion' => $unidadproduccion]);
     }
 
     /**
@@ -97,9 +97,10 @@ class AgriculturaController extends AppBaseController
      */
     public function edit($id)
     {
-      $UsoTierra=UsoTierra::all()->pluck('nombre','id');
-        $unidadproduccion=unidadproduccion::all()->pluck('nombre','id');
-        $agricultura = $this->agriculturaRepository->findWithoutFail($id);
+
+        $UsoSuelo         = UsoSuelo::all()->pluck('nombre', 'id');
+        $unidadproduccion = unidadproduccion::all()->pluck('nombre', 'id');
+        $agricultura      = $this->agriculturaRepository->findWithoutFail($id);
 
         if (empty($agricultura)) {
             Flash::error('Agricultura not found');
@@ -107,7 +108,7 @@ class AgriculturaController extends AppBaseController
             return redirect(route('agriculturas.index'));
         }
 
-        return view('agriculturas.edit')->with('agricultura', $agricultura)->with('UsoTierra',$UsoTierra)->with('unidadproduccion',$unidadproduccion);
+        return view('agriculturas.edit')->with('agricultura', $agricultura)->with('UsoSuelo', $UsoSuelo)->with('unidadproduccion', $unidadproduccion);
     }
 
     /**
