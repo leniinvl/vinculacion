@@ -108,7 +108,10 @@
 				<li class="{{ Request::is('vulnerabilidades*') ? 'active' : '' }}"><a href="{!! route('vulnerabilidades.index') !!}"><i class="fa fa-edit"></i><span>Vulnerabilidades</span></a></li>
 				<li class="{{ Request::is('ciudads*') ? 'active' : '' }}"><a href="{!! route('ciudads.index') !!}"><i class="fa fa-bank"></i><span>Ciudades</span></a></li>
 				<li class="{{ Request::is('pais*') ? 'active' : '' }}"><a href="{!! route('pais.index') !!}"><i class="fa fa-road"></i><span>País</span></a></li>
-				<li class="{{ Request::is('planDeGestionDeRiesgos*') ? 'active' : '' }}"><a href="{!! route('planDeGestionDeRiesgos.index') !!}"><i class="fa fa-pencil-square-o"></i><span>Plan de Gestión de Riesgos</span></a></li>
+				<li class="{{ Request::is('planGestionRiesgos*') ? 'active' : '' }}">
+    <a href="{!! route('planGestionRiesgos.index') !!}"><i class="fa fa-edit"></i><span>Plan Gestion Riesgos</span></a>
+</li>
+
 			</ul>
         </li>
 
@@ -221,7 +224,3 @@
 <li class="{{ Request::is('tipoVegetals*') ? 'active' : '' }}">
     <a href="{!! route('tipoVegetals.index') !!}"><i class="fa fa-edit"></i><span>Tipo Vegetals</span></a>
 </li>
-<li class="{{ Request::is('planDeGestionDeRiesgos*') ? 'active' : '' }}">
-    <a href="{!! route('planDeGestionDeRiesgos.index') !!}"><i class="fa fa-edit"></i><span>Plan De Gestion De Riesgos</span></a>
-</li>
-
