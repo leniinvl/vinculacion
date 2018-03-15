@@ -266,3 +266,6 @@ Route::resource('areaInfluencias', 'AreaInfluenciaController');
 
 Route::resource('permeabilidadSuelos', 'PermeabilidadSueloController');
 
+
+
+
