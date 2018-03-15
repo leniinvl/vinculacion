@@ -11,9 +11,11 @@
 </div>
 
 <!-- Imagen Field -->
-<div class="form-group col-sm-12 col-lg-12">
+<div class="form-group">
     {!! Form::label('imagen', 'Imagen:') !!}
-    {!! Form::textarea('imagen', null, ['class' => 'form-control']) !!}
+    <span class="btn btn-default btn-file">
+       Selecciona un archivo {!! Form::file('imagen') !!}
+    </span>
 </div>
 
 <!-- Video Field -->

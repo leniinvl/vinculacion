@@ -16,6 +16,12 @@
     <p>{!! $biodigestor->tamañoPropiedad !!}</p>
 </div>
 
+<!-- Imagen Field -->
+<div class="form-group">
+    {!! Form::label('imagen', 'Imagen:') !!}
+    <p><img width="300px" src="../imagenes/{!! $biodigestor->imagen !!}"/></p>
+</div>
+
 <!-- Video Field -->
 <div class="form-group">
     {!! Form::label('video', 'Video:') !!}

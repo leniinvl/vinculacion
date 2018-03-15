@@ -6,11 +6,10 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class Taller
+ * Class TipoDesechot
  * @package App\Models
- * @version March 14, 2018, 9:40 pm UTC
+ * @version March 14, 2018, 9:37 pm UTC
  *
- * @property \App\Models\Unidadproduccion unidadproduccion
  * @property \Illuminate\Database\Eloquent\Collection agricultura
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasLenguaje
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasPeligros
@@ -32,16 +31,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \Illuminate\Database\Eloquent\Collection usosvegetacionHasAreainfluenciaHasTipovegetal
  * @property string nombre
  * @property string descripcion
- * @property string riesgo
- * @property string imagen
- * @property string video
- * @property integer UnidadProduccion_id
  */
-class Taller extends Model
+class TipoDesechot extends Model
 {
     use SoftDeletes;
 
-    public $table = 'taller';
+    public $table = 'tipodesechot';
     
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
@@ -52,11 +47,7 @@ class Taller extends Model
 
     public $fillable = [
         'nombre',
-        'descripcion',
-        'riesgo',
-        'imagen',
-        'video',
-        'UnidadProduccion_id'
+        'descripcion'
     ];
 
     /**
@@ -67,11 +58,7 @@ class Taller extends Model
     protected $casts = [
         'id' => 'integer',
         'nombre' => 'string',
-        'descripcion' => 'string',
-        'riesgo' => 'string',
-        'imagen' => 'string',
-        'video' => 'string',
-        'UnidadProduccion_id' => 'integer'
+        'descripcion' => 'string'
     ];
 
     /**
@@ -82,14 +69,6 @@ class Taller extends Model
     public static $rules = [
         
     ];
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     **/
-    public function unidadproduccion()
-    {
-        return $this->belongsTo(\App\Models\Unidadproduccion::class,'UnidadProduccion_id');
-    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

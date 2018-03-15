@@ -11,6 +11,8 @@ use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use App\Models\unidadproduccion;
+use Illuminate\Support\Facades\Input;
+use App\Models\Biodigestor;
 
 class BiodigestorController extends AppBaseController
 {
@@ -59,9 +61,42 @@ class BiodigestorController extends AppBaseController
      */
     public function store(CreateBiodigestorRequest $request)
     {
-        $input = $request->all();
-
-        $biodigestor = $this->biodigestorRepository->create($input);
+        
+        if(!Input::file("imagen"))
+        {
+            return redirect('uploads')->with('error-message', 'File has required field');
+        }
+     
+        $mime = Input::file('imagen')->getMimeType();
+        $extension = strtolower(Input::file('imagen')->getClientOriginalExtension());
+        $fileName = uniqid().'.'.$extension;
+        $path = "imagenes";
+     
+        switch ($mime)
+        {
+            case "image/jpeg":
+            case "image/png":
+            case "image/gif":
+                if (\Request::file('imagen')->isValid())
+                {
+                    \Request::file('imagen')->move($path, $fileName);
+                    $biodigestor = new Biodigestor();
+                    $biodigestor->ubicacion=$request->get('ubicacion');
+                    $biodigestor->tamañoPropiedad=$request->get('tamañoPropiedad');
+                    $biodigestor->video=$request->get('video');
+                    $biodigestor->anchoBio=$request->get('anchoBio');
+                    $biodigestor->largoBio=$request->get('largoBio');
+                    $biodigestor->profundBio=$request->get('profundBio');
+                    $biodigestor->anchoCaja=$request->get('anchoCaja');
+                    $biodigestor->largoCaja=$request->get('largoCaja');
+                    $biodigestor->profundCaja=$request->get('profundCaja');
+                    $biodigestor->temperatura=$request->get('temperatura');
+                    $biodigestor->UnidadProduccion_id=$request->get('UnidadProduccion_id');
+                    $biodigestor->imagen = $fileName;
+                    $biodigestor->save();
+                }
+            break;
+        }
 
         Flash::success('Biodigestor saved successfully.');
 

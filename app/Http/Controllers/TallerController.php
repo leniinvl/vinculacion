@@ -2,16 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreateTallerRequest;
 use App\Http\Requests\UpdateTallerRequest;
-use App\Models\Taller;
-use App\Models\TipoDesecho;
-use App\Models\TipoRiesgos;
-use App\Models\Unidadproduccion;
 use App\Repositories\TallerRepository;
-use Flash;
+use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+use Flash;
+use App\Models\unidadproduccion;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
@@ -47,9 +44,9 @@ class TallerController extends AppBaseController
      */
     public function create()
     {
-        $unidadproduccion = Unidadproduccion::all()->pluck('nombre', 'id');
-        return view('tallers.create', [
-            'unidadproduccion' => $unidadproduccion,
+        $unidadproducion= unidadproduccion::all()->pluck('nombre','id');
+        return view('tallers.create',[
+            'unidadproduccion'=>$unidadproducion
         ]);
     }
 
@@ -80,9 +77,8 @@ class TallerController extends AppBaseController
      */
     public function show($id)
     {
-        $taller      = $this->tallerRepository->findWithoutFail($id);
-        $tipodesecho = TipoDesecho::all()->pluck('nombre', 'id');
-        $tiporiesgos = TipoRiesgos::all()->pluck('nombre', 'id');
+        $unidadproducion= unidadproduccion::all()->pluck('nombre','id');
+        $taller = $this->tallerRepository->findWithoutFail($id);
 
         if (empty($taller)) {
             Flash::error('Taller not found');
@@ -90,7 +86,7 @@ class TallerController extends AppBaseController
             return redirect(route('tallers.index'));
         }
 
-        return view('tallers.show')->with('taller', $taller)->with('tipodesecho', $tipodesecho)->with('tiporiesgos', $tiporiesgos);
+        return view('tallers.show')->with('taller', $taller)->with('unidadproducion',$unidadproducion);
     }
 
     /**
@@ -102,8 +98,8 @@ class TallerController extends AppBaseController
      */
     public function edit($id)
     {
-        $taller           = $this->tallerRepository->findWithoutFail($id);
-        $unidadproduccion = Unidadproduccion::all()->pluck('nombre', 'id');
+        $unidadproduccion= unidadproduccion::all()->pluck('nombre','id');
+        $taller = $this->tallerRepository->findWithoutFail($id);
 
         if (empty($taller)) {
             Flash::error('Taller not found');
@@ -111,8 +107,7 @@ class TallerController extends AppBaseController
             return redirect(route('tallers.index'));
         }
 
-        return view('tallers.edit')->with('taller', $taller)
-            ->with('unidadproduccion', $unidadproduccion);
+        return view('tallers.edit')->with('taller', $taller)->with('unidadproduccion',$unidadproduccion);
     }
 
     /**
@@ -162,40 +157,5 @@ class TallerController extends AppBaseController
         Flash::success('Taller deleted successfully.');
 
         return redirect(route('tallers.index'));
-    }
-
-    public function storeTipoDesecho(Request $request, $idtaller)
-    {
-        $taller = Taller::find($idtaller);
-        $taller->tipodesechos()->attach($request->TipoDesecho_id);
-
-        Flash::success('Taller  Has  Tipo Desecho saved successfully.');
-
-        return redirect(url('tallers/' . $taller->id));
-    }
-
-    public function destroyTipoDesecho($idtaller, $id)
-    {
-
-        $taller = Taller::find($idtaller);
-        $taller->tipodesechos()->detach($id);
-        return redirect(url('tallers/' . $taller->id));
-    }
-
-    public function storeTipoRiesgos(Request $request, $idtaller)
-    {
-        $taller = Taller::find($idtaller);
-        $taller->tipoRiesgos()->attach($request->TipoRiesgos_id);
-
-        Flash::success('Taller  Has  Tipo Riesgo saved successfully.');
-
-        return redirect(url('tallers/' . $taller->id));
-    }
-
-    public function destroyTipoRiesgos($idtaller, $id)
-    {
-        $taller = Taller::find($idtaller);
-        $taller->tipoRiesgos()->detach($id);
-        return redirect(url('tallers/' . $taller->id));
     }
 }
