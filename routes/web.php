@@ -259,5 +259,5 @@ Route::resource('tipoVegetals', 'TipoVegetalController');
 
 Route::resource('agriculturas', 'AgriculturaController');
 
-Route::resource('planDeGestionDeRiesgos', 'PlanDeGestionDeRiesgosController');
+
 
