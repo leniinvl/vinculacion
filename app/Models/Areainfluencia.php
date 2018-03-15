@@ -69,7 +69,7 @@ class AreaInfluencia extends Model
     use SoftDeletes;
 
     public $table = 'areainfluencia';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -151,7 +151,7 @@ class AreaInfluencia extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**
@@ -175,7 +175,7 @@ class AreaInfluencia extends Model
      **/
     public function condicionesdrenaje()
     {
-        return $this->belongsTo(\App\Models\Condicionesdrenaje::class);
+        return $this->belongsTo(\App\Models\Condicionesdrenaje::class, 'CondicionesDrenaje_id');
     }
 
     /**
@@ -223,7 +223,7 @@ class AreaInfluencia extends Model
      **/
     public function lenguajes()
     {
-        return $this->belongsToMany(\App\Models\Lenguaje::class, 'areainfluencia_has_lenguaje');
+        return $this->belongsToMany(\App\Models\Lenguaje::class, 'areainfluencia_has_lenguaje', 'areainfluencia_id', 'lenguaje_id')->withTimestamps();
     }
 
     /**
@@ -231,7 +231,7 @@ class AreaInfluencia extends Model
      **/
     public function religions()
     {
-        return $this->belongsToMany(\App\Models\Religion::class, 'areainfluencia_has_religion');
+        return $this->belongsToMany(\App\Models\Religion::class, 'areainfluencia_has_religion', 'areainfluencia_id', 'religion_id')->withTimestamps();
     }
 
     /**
@@ -239,7 +239,7 @@ class AreaInfluencia extends Model
      **/
     public function tipovegetals()
     {
-        return $this->belongsToMany(\App\Models\Tipovegetal::class, 'areainfluencia_has_tipovegetal');
+        return $this->belongsToMany(\App\Models\Tipovegetal::class, 'areainfluencia_has_tipovegetal', 'areainfluencia_id', 'tipovegetal_id')->withTimestamps();
     }
 
     /**
