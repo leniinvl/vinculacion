@@ -3,9 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\Ruido;
+use App\Models\PlanGestionRiesgos;
 
-class UpdateRuidoRequest extends FormRequest
+class CreatePlanGestionRiesgosRequest extends FormRequest
 {
 
     /**
@@ -25,6 +25,6 @@ class UpdateRuidoRequest extends FormRequest
      */
     public function rules()
     {
-        return Ruido::$rules;
+        return PlanGestionRiesgos::$rules;
     }
 }
