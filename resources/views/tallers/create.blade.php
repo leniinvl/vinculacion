@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
     <section class="content-header">
         <h1>
@@ -12,7 +11,7 @@
 
             <div class="box-body">
                 <div class="row">
-                    {!! Form::open(['route' => 'tallers.store']) !!}
+                    {!! Form::open(['route' => 'tallers.store', 'files'=> true]) !!}
                         @include('tallers.fields')
                     {!! Form::close() !!}
                 </div>

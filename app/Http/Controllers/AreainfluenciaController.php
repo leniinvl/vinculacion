@@ -96,8 +96,12 @@ class AreaInfluenciaController extends AppBaseController
             return redirect(route('areaInfluencias.index'));
         }
 
+<<<<<<< HEAD
+        return view('area_influencias.show');
+=======
         return view('area_influencias.show')->with('areaInfluencia', $areaInfluencia)->with('tipovegetal', $tipovegetal)->with('religion', $religion)
         ->with('lenguaje', $lenguaje);
+>>>>>>> upstream/master
     }
 
     /**

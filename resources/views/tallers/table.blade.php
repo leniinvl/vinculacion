@@ -16,7 +16,12 @@
             <td>{!! $taller->nombre !!}</td>
             <td>{!! $taller->descripcion !!}</td>
             <td>{!! $taller->riesgo !!}</td>
-            <td>{!! $taller->imagen !!}</td>
+            <td >
+                @if($taller->imagen!=null)
+                    <p><img class="img-responsive"  width="20%" height="30%" src="{!! $taller->imagen !!}"/></p></td>
+                @else
+                    {!! $taller->imagen !!}
+                @endif
             <td>{!! $taller->video !!}</td>
             <td>{!! $taller->unidadproduccion->nombre !!}</td>
             <td>
