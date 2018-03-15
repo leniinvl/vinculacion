@@ -59,7 +59,8 @@ class TipoProductoController extends AppBaseController
 
         $tipoProducto = $this->tipoProductoRepository->create($input);
 
-        Flash::success('Tipo Producto saved successfully.');
+        Flash::success('Tipo Producto
+guardado exitosamente.');
 
         return redirect(route('tipoProductos.index'));
     }

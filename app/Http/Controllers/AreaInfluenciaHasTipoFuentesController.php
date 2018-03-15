@@ -59,7 +59,8 @@ class AreaInfluenciaHasTipoFuentesController extends AppBaseController
 
         $areaInfluenciaHasTipoFuentes = $this->areaInfluenciaHasTipoFuentesRepository->create($input);
 
-        Flash::success('Area Influencia Has Tipo Fuentes saved successfully.');
+        Flash::success('Area Influencia Has Tipo Fuentes
+guardado exitosamente.');
 
         return redirect(route('areaInfluenciaHasTipoFuentes.index'));
     }

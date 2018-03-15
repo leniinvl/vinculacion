@@ -241,7 +241,7 @@ Route::resource('generos', 'GeneroController');
 
 Route::resource('usoSuelos', 'UsoSueloController');
 
-Route::resource('areaInfluencias', 'AreaInfluenciaController');
+
 
 
 Route::resource('tipoDesechots', 'TipoDesechotController');
@@ -252,7 +252,7 @@ Route::resource('tallers', 'TallerController');
 
 Route::resource('condicionesDrenajes', 'CondicionesDrenajeController');
 
-Route::resource('ruidos', 'RuidoController');
+
 
 Route::resource('tipoVegetals', 'TipoVegetalController');
 
@@ -262,5 +262,11 @@ Route::resource('agriculturas', 'AgriculturaController');
 
 
 
+<<<<<<< HEAD
 
 Route::resource('planGestionRiesgos', 'PlanGestionRiesgosController');
+=======
+Route::resource('areaInfluencias', 'AreaInfluenciaController');
+
+Route::resource('permeabilidadSuelos', 'PermeabilidadSueloController');
+>>>>>>> upstream/master

@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreateTipoAbonoRequest;
 use App\Http\Requests\UpdateTipoAbonoRequest;
 use App\Repositories\TipoAbonoRepository;
-use App\Http\Controllers\AppBaseController;
-use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
@@ -59,7 +59,8 @@ class TipoAbonoController extends AppBaseController
 
         $tipoAbono = $this->tipoAbonoRepository->create($input);
 
-        Flash::success('Tipo Abono saved successfully.');
+        Flash::success('Tipo Abono
+guardado exitosamente.');
 
         return redirect(route('tipoAbonos.index'));
     }

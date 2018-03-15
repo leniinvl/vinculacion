@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreateGeneroRequest;
 use App\Http\Requests\UpdateGeneroRequest;
 use App\Repositories\GeneroRepository;
-use App\Http\Controllers\AppBaseController;
-use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
@@ -59,7 +59,8 @@ class GeneroController extends AppBaseController
 
         $genero = $this->generoRepository->create($input);
 
-        Flash::success('Genero saved successfully.');
+        Flash::success('Genero
+guardado exitosamente.');
 
         return redirect(route('generos.index'));
     }

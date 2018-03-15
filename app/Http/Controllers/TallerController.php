@@ -3,13 +3,30 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\AppBaseController;
+<<<<<<< HEAD
 use App\Http\Requests\CreateTallerRequest;
 use App\Http\Requests\UpdateTallerRequest;
-use App\Models\Taller;
+=======
+use App\Http\Controllers\ChromePhp;
+use App\Http\Requests\CreateTallerRequest;
+use App\Http\Requests\UpdateTallerRequest;
 use App\Models\unidadproduccion;
 use App\Repositories\TallerRepository;
 use Flash;
 use Illuminate\Http\Request;
+use App\Http\Controllers\AppBaseController;
+>>>>>>> upstream/master
+use App\Models\Taller;
+use App\Models\unidadproduccion;
+<<<<<<< HEAD
+use App\Repositories\TallerRepository;
+use Flash;
+use Illuminate\Http\Request;
+=======
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Log;
+
+>>>>>>> upstream/master
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
@@ -46,9 +63,16 @@ class TallerController extends AppBaseController
     public function create()
     {
 
+<<<<<<< HEAD
         $unidadproducion = unidadproduccion::all()->pluck('nombre', 'id');
         return view('tallers.create', [
             'unidadproduccion' => $unidadproducion,
+=======
+
+        $unidadproducion= unidadproduccion::all()->pluck('nombre','id');
+        return view('tallers.create',[
+            'unidadproduccion'=>$unidadproducion
+>>>>>>> upstream/master
         ]);
     }
 
@@ -61,6 +85,14 @@ class TallerController extends AppBaseController
      */
     public function store(CreateTallerRequest $request)
     {
+
+        $input = $request->all();
+
+        $taller = $this->tallerRepository->create($input);
+
+        Flash::success('Taller
+guardado exitosamente.');
+
 
         //$input = $request->all();
         $base64Photo = null;

@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreateUsoSueloRequest;
 use App\Http\Requests\UpdateUsoSueloRequest;
 use App\Repositories\UsoSueloRepository;
-use App\Http\Controllers\AppBaseController;
-use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
@@ -59,7 +59,8 @@ class UsoSueloController extends AppBaseController
 
         $usoSuelo = $this->usoSueloRepository->create($input);
 
-        Flash::success('Uso Suelo saved successfully.');
+        Flash::success('Uso Suelo
+guardado exitosamente.');
 
         return redirect(route('usoSuelos.index'));
     }

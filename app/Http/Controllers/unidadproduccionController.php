@@ -66,7 +66,8 @@ class unidadproduccionController extends AppBaseController
 
         $unidadproduccion = $this->unidadproduccionRepository->create($input);
 
-        Flash::success('Unidadproduccion saved successfully.');
+        Flash::success('Unidadproduccion
+guardado exitosamente.');
 
         return redirect(route('unidadproduccions.index'));
     }

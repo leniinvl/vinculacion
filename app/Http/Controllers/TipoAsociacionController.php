@@ -59,7 +59,8 @@ class TipoAsociacionController extends AppBaseController
 
         $tipoAsociacion = $this->tipoAsociacionRepository->create($input);
 
-        Flash::success('Tipo Asociacion saved successfully.');
+        Flash::success('Tipo Asociacion
+guardado exitosamente.');
 
         return redirect(route('tipoAsociacions.index'));
     }

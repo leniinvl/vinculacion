@@ -59,7 +59,8 @@ class Areainfluencia_has_lenguajeController extends AppBaseController
 
         $areainfluenciaHasLenguaje = $this->areainfluenciaHasLenguajeRepository->create($input);
 
-        Flash::success('Areainfluencia Has Lenguaje saved successfully.');
+        Flash::success('Areainfluencia Has Lenguaje
+guardado exitosamente.');
 
         return redirect(route('areainfluenciaHasLenguajes.index'));
     }

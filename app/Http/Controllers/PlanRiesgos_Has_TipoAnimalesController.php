@@ -59,7 +59,8 @@ class PlanRiesgos_Has_TipoAnimalesController extends AppBaseController
 
         $planRiesgosHasTipoAnimales = $this->planRiesgosHasTipoAnimalesRepository->create($input);
 
-        Flash::success('Plan Riesgos  Has  Tipo Animales saved successfully.');
+        Flash::success('Plan Riesgos  Has  Tipo Animales
+guardado exitosamente.');
 
         return redirect(route('planRiesgosHasTipoAnimales.index'));
     }
