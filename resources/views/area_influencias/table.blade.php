@@ -6,6 +6,9 @@
         <th>Detallecalidadaire</th>
         <th>Detalleruido</th>
         <th>Observacionesecosistema</th>
+        <th>Religion</th>
+        <th>Lenguaje</th>
+        <th>Tipo Vegetal</th>
         <th>Lat</th>
         <th>Long</th>
         <th>Manejoambiental Id</th>
@@ -40,6 +43,27 @@
             <td>{!! $areaInfluencia->detalleCalidadAire !!}</td>
             <td>{!! $areaInfluencia->detalleRuido !!}</td>
             <td>{!! $areaInfluencia->observacionesEcosistema !!}</td>
+            <td>
+            @foreach($areaInfluencia->religions as $areainfluenciaHasReligion)
+
+                    {!! $areainfluenciaHasReligion->nombre !!}
+
+            @endforeach
+            </td>
+            <td>
+            @foreach($areaInfluencia->lenguajes as $areainfluenciaHasLenguaje)
+
+                    {!! $areainfluenciaHasLenguaje->nombre !!}
+
+            @endforeach
+            </td>
+            <td>
+            @foreach($areaInfluencia->tipovegetals as $areaInfluenciaHasTipoVegetal)
+
+                    {!! $areaInfluenciaHasTipoVegetal->nombre_comun !!}
+
+            @endforeach
+            </td>
             <td>{!! $areaInfluencia->lat !!}</td>
             <td>{!! $areaInfluencia->long !!}</td>
             <td>{!! $areaInfluencia->ManejoAmbiental_id !!}</td>
