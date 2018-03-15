@@ -5,7 +5,7 @@
         <th>Peso (kg)</th>
         <th>Biodigestor</th>
         <th>Tipo de Desecho</th>
-            <th colspan="3">Action</th>
+            <th colspan="3">Acciones</th>
         </tr>
     </thead>
     <tbody>

@@ -260,7 +260,7 @@ Route::resource('tipoVegetals', 'TipoVegetalController');
 
 
 
-Route::resource('planGestionRiesgos', 'PlanGestionRiesgosController');
+
 
 Route::resource('areaInfluencias', 'AreaInfluenciaController');
 
@@ -277,3 +277,38 @@ Route::resource('permeabilidadSuelos', 'PermeabilidadSueloController');
 
 
 
+
+
+Route::resource('tipoAbonos', 'TipoAbonoController');
+
+Route::resource('tipoControlPlagas', 'TipoControlPlagaController');
+
+Route::resource('trabajadores', 'TrabajadoresController');
+
+Route::resource('pais', 'PaisController');
+
+Route::resource('ciudads', 'CiudadController');
+
+Route::resource('tipoCultivos', 'TipoCultivosController');
+
+Route::resource('tipoAnimales', 'TipoAnimalesController');
+
+Route::resource('precuarias', 'PrecuariaController');
+
+Route::resource('destinos', 'DestinoController');
+
+Route::resource('tipoProduccions', 'TipoProduccionController');
+
+Route::resource('tipoUnidads', 'TipoUnidadController');
+
+Route::resource('origenIngresos', 'OrigenIngresosController');
+
+Route::resource('agriculturas', 'AgriculturaController');
+
+Route::resource('amenazas', 'AmenazasController');
+
+Route::resource('vulnerabilidades', 'VulnerabilidadesController');
+
+
+
+Route::resource('planDeGestionDeRiesgos', 'PlanDeGestionDeRiesgosController');

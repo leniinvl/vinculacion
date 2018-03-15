@@ -33,7 +33,7 @@
         <th>Tipofuentesdescripcion</th>
         <th>Ruido</th>
         <th>Precipitaciones</th>
-            <th colspan="3">Action</th>
+            <th colspan="3">Acciones</th>
         </tr>
     </thead>
     <tbody>
