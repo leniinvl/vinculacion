@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreateAmenazasRequest;
 use App\Http\Requests\UpdateAmenazasRequest;
 use App\Repositories\AmenazasRepository;
-use App\Http\Controllers\AppBaseController;
-use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
@@ -59,7 +59,8 @@ class AmenazasController extends AppBaseController
 
         $amenazas = $this->amenazasRepository->create($input);
 
-        Flash::success('Amenazas saved successfully.');
+        Flash::success('Amenazas
+guardado exitosamente.');
 
         return redirect(route('amenazas.index'));
     }

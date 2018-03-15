@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class PlanGestionRiesgos
  * @package App\Models
- * @version March 15, 2018, 7:39 am UTC
+ * @version March 15, 2018, 5:47 am UTC
  *
  * @property \App\Models\Tipoabono tipoabono
  * @property \App\Models\Tipocontrolplaga tipocontrolplaga

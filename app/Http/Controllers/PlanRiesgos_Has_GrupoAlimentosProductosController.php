@@ -59,7 +59,8 @@ class PlanRiesgos_Has_GrupoAlimentosProductosController extends AppBaseControlle
 
         $planRiesgosHasGrupoAlimentosProductos = $this->planRiesgosHasGrupoAlimentosProductosRepository->create($input);
 
-        Flash::success('Plan Riesgos  Has  Grupo Alimentos Productos saved successfully.');
+        Flash::success('Plan Riesgos  Has  Grupo Alimentos Productos
+guardado exitosamente.');
 
         return redirect(route('planRiesgosHasGrupoAlimentosProductos.index'));
     }

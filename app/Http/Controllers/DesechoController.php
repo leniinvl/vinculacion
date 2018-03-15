@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreateDesechoRequest;
 use App\Http\Requests\UpdateDesechoRequest;
+use App\Models\Biodigestor;
+use App\Models\Desecho;
+use App\Models\TipoDesecho;
 use App\Repositories\DesechoRepository;
-use App\Http\Controllers\AppBaseController;
-use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
-use App\Models\Biodigestor;
-use App\Models\TipoDesecho;
-use App\Models\Desecho;
 
 class DesechoController extends AppBaseController
 {
@@ -32,13 +32,12 @@ class DesechoController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $biodigestor=Biodigestor::all()->pluck('ubicacion','id');
+        $biodigestor = Biodigestor::all()->pluck('ubicacion', 'id');
         $this->desechoRepository->pushCriteria(new RequestCriteria($request));
-        $desechos = Desecho::name($request->get('name'))->date($request->get('date1'))->date1($request->get('date2'))->orderBy('id','DESC')->paginate();
-        
+        $desechos = Desecho::name($request->get('name'))->date($request->get('date1'))->date1($request->get('date2'))->orderBy('id', 'DESC')->paginate();
 
         return view('desechos.index')
-            ->with('desechos', $desechos)->with('biodigestor',$biodigestor);
+            ->with('desechos', $desechos)->with('biodigestor', $biodigestor);
     }
 
     /**
@@ -48,10 +47,10 @@ class DesechoController extends AppBaseController
      */
     public function create()
     {
-        
-        $biodigestor=Biodigestor::all()->pluck('ubicacion','id');
-        $tipodesecho=TipoDesecho::all()->pluck('nombre','id');
-        return view('desechos.create',['biodigestor' => $biodigestor],['tipodesecho' => $tipodesecho]);
+
+        $biodigestor = Biodigestor::all()->pluck('ubicacion', 'id');
+        $tipodesecho = TipoDesecho::all()->pluck('nombre', 'id');
+        return view('desechos.create', ['biodigestor' => $biodigestor], ['tipodesecho' => $tipodesecho]);
     }
 
     /**
@@ -67,7 +66,8 @@ class DesechoController extends AppBaseController
 
         $desecho = $this->desechoRepository->create($input);
 
-        Flash::success('Desecho saved successfully.');
+        Flash::success('Desecho
+guardado exitosamente.');
 
         return redirect(route('desechos.index'));
     }
@@ -101,9 +101,9 @@ class DesechoController extends AppBaseController
      */
     public function edit($id)
     {
-        $desecho = $this->desechoRepository->findWithoutFail($id);
-        $biodigestor=Biodigestor::all()->pluck('ubicacion','id');
-        $tipodesecho=TipoDesecho::all()->pluck('nombre','id');
+        $desecho     = $this->desechoRepository->findWithoutFail($id);
+        $biodigestor = Biodigestor::all()->pluck('ubicacion', 'id');
+        $tipodesecho = TipoDesecho::all()->pluck('nombre', 'id');
 
         if (empty($desecho)) {
             Flash::error('Desecho not found');
@@ -111,7 +111,7 @@ class DesechoController extends AppBaseController
             return redirect(route('desechos.index'));
         }
 
-        return view('desechos.edit')->with('desecho', $desecho)->with('biodigestor',$biodigestor)->with('tipodesecho',$tipodesecho);
+        return view('desechos.edit')->with('desecho', $desecho)->with('biodigestor', $biodigestor)->with('tipodesecho', $tipodesecho);
     }
 
     /**

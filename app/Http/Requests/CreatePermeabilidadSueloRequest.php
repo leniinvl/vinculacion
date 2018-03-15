@@ -3,9 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\Ruido;
+use App\Models\PermeabilidadSuelo;
 
-class CreateRuidoRequest extends FormRequest
+class CreatePermeabilidadSueloRequest extends FormRequest
 {
 
     /**
@@ -25,6 +25,6 @@ class CreateRuidoRequest extends FormRequest
      */
     public function rules()
     {
-        return Ruido::$rules;
+        return PermeabilidadSuelo::$rules;
     }
 }

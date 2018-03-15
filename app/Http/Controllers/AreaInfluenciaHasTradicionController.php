@@ -59,7 +59,8 @@ class AreaInfluenciaHasTradicionController extends AppBaseController
 
         $areaInfluenciaHasTradicion = $this->areaInfluenciaHasTradicionRepository->create($input);
 
-        Flash::success('Area Influencia Has Tradicion saved successfully.');
+        Flash::success('Area Influencia Has Tradicion
+guardado exitosamente.');
 
         return redirect(route('areaInfluenciaHasTradicions.index'));
     }

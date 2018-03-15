@@ -59,7 +59,8 @@ class Areainfluencia_has_usotierraController extends AppBaseController
 
         $areainfluenciaHasUsotierra = $this->areainfluenciaHasUsotierraRepository->create($input);
 
-        Flash::success('Areainfluencia Has Usotierra saved successfully.');
+        Flash::success('Areainfluencia Has Usotierra
+guardado exitosamente.');
 
         return redirect(route('areainfluenciaHasUsotierras.index'));
     }

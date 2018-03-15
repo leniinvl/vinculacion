@@ -59,7 +59,8 @@ class PropietarioController extends AppBaseController
 
         $propietario = $this->propietarioRepository->create($input);
 
-        Flash::success('Propietario saved successfully.');
+        Flash::success('Propietario
+guardado exitosamente.');
 
         return redirect(route('propietarios.index'));
     }

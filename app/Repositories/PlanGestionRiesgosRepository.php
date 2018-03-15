@@ -8,8 +8,7 @@ use InfyOm\Generator\Common\BaseRepository;
 /**
  * Class PlanGestionRiesgosRepository
  * @package App\Repositories
- * @version March 15, 2018, 7:39 am UTC
- *
+ * @version March 15, 2018, 5:47 am UTC
  * @method PlanGestionRiesgos findWithoutFail($id, $columns = ['*'])
  * @method PlanGestionRiesgos find($id, $columns = ['*'])
  * @method PlanGestionRiesgos first($columns = ['*'])

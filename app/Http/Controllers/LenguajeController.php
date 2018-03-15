@@ -59,7 +59,8 @@ class LenguajeController extends AppBaseController
 
         $lenguaje = $this->lenguajeRepository->create($input);
 
-        Flash::success('Lenguaje saved successfully.');
+        Flash::success('Lenguaje
+guardado exitosamente.');
 
         return redirect(route('lenguajes.index'));
     }

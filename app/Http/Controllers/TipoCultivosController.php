@@ -59,7 +59,8 @@ class TipoCultivosController extends AppBaseController
 
         $tipoCultivos = $this->tipoCultivosRepository->create($input);
 
-        Flash::success('Tipo Cultivos saved successfully.');
+        Flash::success('Tipo Cultivos
+guardado exitosamente.');
 
         return redirect(route('tipoCultivos.index'));
     }

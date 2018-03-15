@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreateBiodigestorRequest;
 use App\Http\Requests\UpdateBiodigestorRequest;
+use App\Models\Biodigestor;
+use App\Models\unidadproduccion;
 use App\Repositories\BiodigestorRepository;
-use App\Http\Controllers\AppBaseController;
-use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
-use App\Models\unidadproduccion;
-use Illuminate\Support\Facades\Input;
-use App\Models\Biodigestor;
 
 class BiodigestorController extends AppBaseController
 {
@@ -46,8 +46,8 @@ class BiodigestorController extends AppBaseController
      */
     public function create()
     {
-        $unidadproduccion=unidadproduccion::all()->pluck('nombre','id');
-        return view('biodigestors.create',[
+        $unidadproduccion = unidadproduccion::all()->pluck('nombre', 'id');
+        return view('biodigestors.create', [
             'unidadproduccion' => $unidadproduccion,
         ]);
     }
@@ -61,44 +61,42 @@ class BiodigestorController extends AppBaseController
      */
     public function store(CreateBiodigestorRequest $request)
     {
-        
-        if(!Input::file("imagen"))
-        {
+
+        if (!Input::file("imagen")) {
             return redirect('uploads')->with('error-message', 'File has required field');
         }
-     
-        $mime = Input::file('imagen')->getMimeType();
+
+        $mime      = Input::file('imagen')->getMimeType();
         $extension = strtolower(Input::file('imagen')->getClientOriginalExtension());
-        $fileName = uniqid().'.'.$extension;
-        $path = "imagenes";
-     
-        switch ($mime)
-        {
+        $fileName  = uniqid() . '.' . $extension;
+        $path      = "imagenes";
+
+        switch ($mime) {
             case "image/jpeg":
             case "image/png":
             case "image/gif":
-                if (\Request::file('imagen')->isValid())
-                {
+                if (\Request::file('imagen')->isValid()) {
                     \Request::file('imagen')->move($path, $fileName);
-                    $biodigestor = new Biodigestor();
-                    $biodigestor->ubicacion=$request->get('ubicacion');
-                    $biodigestor->tamañoPropiedad=$request->get('tamañoPropiedad');
-                    $biodigestor->video=$request->get('video');
-                    $biodigestor->anchoBio=$request->get('anchoBio');
-                    $biodigestor->largoBio=$request->get('largoBio');
-                    $biodigestor->profundBio=$request->get('profundBio');
-                    $biodigestor->anchoCaja=$request->get('anchoCaja');
-                    $biodigestor->largoCaja=$request->get('largoCaja');
-                    $biodigestor->profundCaja=$request->get('profundCaja');
-                    $biodigestor->temperatura=$request->get('temperatura');
-                    $biodigestor->UnidadProduccion_id=$request->get('UnidadProduccion_id');
-                    $biodigestor->imagen = $fileName;
+                    $biodigestor                      = new Biodigestor();
+                    $biodigestor->ubicacion           = $request->get('ubicacion');
+                    $biodigestor->tamañoPropiedad    = $request->get('tamañoPropiedad');
+                    $biodigestor->video               = $request->get('video');
+                    $biodigestor->anchoBio            = $request->get('anchoBio');
+                    $biodigestor->largoBio            = $request->get('largoBio');
+                    $biodigestor->profundBio          = $request->get('profundBio');
+                    $biodigestor->anchoCaja           = $request->get('anchoCaja');
+                    $biodigestor->largoCaja           = $request->get('largoCaja');
+                    $biodigestor->profundCaja         = $request->get('profundCaja');
+                    $biodigestor->temperatura         = $request->get('temperatura');
+                    $biodigestor->UnidadProduccion_id = $request->get('UnidadProduccion_id');
+                    $biodigestor->imagen              = $fileName;
                     $biodigestor->save();
                 }
-            break;
+                break;
         }
 
-        Flash::success('Biodigestor saved successfully.');
+        Flash::success('Biodigestor
+guardado exitosamente.');
 
         return redirect(route('biodigestors.index'));
     }
@@ -132,8 +130,8 @@ class BiodigestorController extends AppBaseController
      */
     public function edit($id)
     {
-        $unidadproduccion=unidadproduccion::all()->pluck('nombre','id');
-        $biodigestor = $this->biodigestorRepository->findWithoutFail($id);
+        $unidadproduccion = unidadproduccion::all()->pluck('nombre', 'id');
+        $biodigestor      = $this->biodigestorRepository->findWithoutFail($id);
 
         if (empty($biodigestor)) {
             Flash::error('Biodigestor not found');

@@ -59,7 +59,8 @@ class PlanRiesgos_Has_TipoAlimentosController extends AppBaseController
 
         $planRiesgosHasTipoAlimentos = $this->planRiesgosHasTipoAlimentosRepository->create($input);
 
-        Flash::success('Plan Riesgos  Has  Tipo Alimentos saved successfully.');
+        Flash::success('Plan Riesgos  Has  Tipo Alimentos
+guardado exitosamente.');
 
         return redirect(route('planRiesgosHasTipoAlimentos.index'));
     }

@@ -64,12 +64,6 @@
     <p>{!! $areaInfluencia->TipoSuelo_id !!}</p>
 </div>
 
-<!-- Precipitaciones Id Field -->
-<div class="form-group">
-    {!! Form::label('Precipitaciones_id', 'Precipitaciones Id:') !!}
-    <p>{!! $areaInfluencia->Precipitaciones_id !!}</p>
-</div>
-
 <!-- Permeabilidadsuelo Id Field -->
 <div class="form-group">
     {!! Form::label('PermeabilidadSuelo_id', 'Permeabilidadsuelo Id:') !!}
@@ -86,12 +80,6 @@
 <div class="form-group">
     {!! Form::label('CondicionesDrenaje_id', 'Condicionesdrenaje Id:') !!}
     <p>{!! $areaInfluencia->CondicionesDrenaje_id !!}</p>
-</div>
-
-<!-- Ruido Id Field -->
-<div class="form-group">
-    {!! Form::label('Ruido_id', 'Ruido Id:') !!}
-    <p>{!! $areaInfluencia->Ruido_id !!}</p>
 </div>
 
 <!-- Ecosistema Id Field -->
@@ -170,6 +158,18 @@
 <div class="form-group">
     {!! Form::label('tipoFuentesDescripcion', 'Tipofuentesdescripcion:') !!}
     <p>{!! $areaInfluencia->tipoFuentesDescripcion !!}</p>
+</div>
+
+<!-- Ruido Field -->
+<div class="form-group">
+    {!! Form::label('ruido', 'Ruido:') !!}
+    <p>{!! $areaInfluencia->ruido !!}</p>
+</div>
+
+<!-- Precipitaciones Field -->
+<div class="form-group">
+    {!! Form::label('precipitaciones', 'Precipitaciones:') !!}
+    <p>{!! $areaInfluencia->precipitaciones !!}</p>
 </div>
 
 <!-- Created At Field -->

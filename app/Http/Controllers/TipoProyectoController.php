@@ -59,7 +59,8 @@ class TipoProyectoController extends AppBaseController
 
         $tipoProyecto = $this->tipoProyectoRepository->create($input);
 
-        Flash::success('Tipo Proyecto saved successfully.');
+        Flash::success('Tipo Proyecto
+guardado exitosamente.');
 
         return redirect(route('tipoProyectos.index'));
     }

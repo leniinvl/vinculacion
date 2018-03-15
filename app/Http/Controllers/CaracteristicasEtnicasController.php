@@ -59,7 +59,8 @@ class CaracteristicasEtnicasController extends AppBaseController
 
         $caracteristicasEtnicas = $this->caracteristicasEtnicasRepository->create($input);
 
-        Flash::success('Caracteristicas Etnicas saved successfully.');
+        Flash::success('Caracteristicas Etnicas
+guardado exitosamente.');
 
         return redirect(route('caracteristicasEtnicas.index'));
     }

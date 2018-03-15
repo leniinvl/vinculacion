@@ -63,7 +63,8 @@ class AgriculturaController extends AppBaseController
 
         $agricultura = $this->agriculturaRepository->create($input);
 
-        Flash::success('Agricultura saved successfully.');
+        Flash::success('Agricultura
+guardado exitosamente.');
 
         return redirect(route('agriculturas.index'));
     }
