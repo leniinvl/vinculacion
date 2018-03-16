@@ -12,25 +12,25 @@
 
 <!-- Precuaria Id Field -->
 <div class="form-group">
-    {!! Form::label('Precuaria_id', 'Precuaria Id:') !!}
+    {!! Form::label('Precuaria_id', 'Precuaria:') !!}
     <p>{!! $tipoAnimales->nombre !!}</p>
 </div>
 
 <!-- Tipounidad Id Field -->
 <div class="form-group">
-    {!! Form::label('TipoUnidad_id', 'Tipounidad Id:') !!}
+    {!! Form::label('TipoUnidad_id', 'Tipo de Unidad:') !!}
     <p>{!! $tipoAnimales->nombre !!}</p>
 </div>
 
 <!-- Tipoproduccion Id Field -->
 <div class="form-group">
-    {!! Form::label('TipoProduccion_id', 'Tipoproduccion Id:') !!}
+    {!! Form::label('TipoProduccion_id', 'Tipo de Producción:') !!}
     <p>{!! $tipoAnimales->nombre !!}</p>
 </div>
 
 <!-- Destino Id Field -->
 <div class="form-group">
-    {!! Form::label('Destino_id', 'Destino Id:') !!}
+    {!! Form::label('Destino_id', 'Destino:') !!}
     <p>{!! $tipoAnimales->nombre !!}</p>
 </div>
 
