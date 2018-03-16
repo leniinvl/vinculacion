@@ -117,7 +117,7 @@ class PlanDeGestionDeRiesgosController extends AppBaseController
         return view('plan_de_gestion_de_riesgos.edit')->with('planDeGestionDeRiesgos', $planDeGestionDeRiesgos)
             ->with('abono', $abono)
             ->with('controlPlaga', $controlPlaga)
-            ->with('cultivos', $cultivos);
+            ->with('cultivo', $cultivo);
     }
 
     /**
