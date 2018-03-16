@@ -7,18 +7,21 @@
 <!-- Tipoabono Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('TipoAbono_id', 'Tipo abono:') !!}
+    <a href="{{route('tipoAbonos.index')}}">(Añadir Nuevo)</a>
     {!! Form::select('TipoAbono_id',$abono, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Tipocontrolplaga Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('TipoControlPlaga_id', 'Tipo control plaga:') !!}
+    <a href="{{route('tipoControlPlagas.index')}}">(Añadir Nuevo)</a>
     {!! Form::select('TipoControlPlaga_id',$controlPlaga, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Tipocultivos Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('TipoCultivos_id', 'Tipo cultivos:') !!}
+    <a href="{{route('tipoCultivos.index')}}">(Añadir Nuevo)</a>
     {!! Form::select('TipoCultivos_id',$cultivo, null, ['class' => 'form-control']) !!}
 </div>
 
