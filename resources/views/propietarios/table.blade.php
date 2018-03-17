@@ -3,11 +3,11 @@
         <tr>
             <th>CI</th>
         <th>Nombre</th>
+        <th>Género</th>
         <th>Correo</th>
-        <th>Fecha de nacimiento</th>
+        <th>Fecha de Nacimiento</th>
         <th>Teléfono</th>
         <th>Observaciones</th>
-        <th>Género</th>
             <th colspan="3">Acciones</th>
         </tr>
     </thead>
@@ -16,11 +16,11 @@
         <tr>
             <td>{!! $propietario->ci !!}</td>
             <td>{!! $propietario->nombre !!}</td>
+            <td>{!! $propietario->genero->nombre!!}</td>
             <td>{!! $propietario->correo !!}</td>
             <td>{!! $propietario->fechaNacimiento !!}</td>
             <td>{!! $propietario->telefono !!}</td>
             <td>{!! $propietario->observaciones !!}</td>
-            <td>{!! $propietario->genero !!}</td>
             <td>
                 {!! Form::open(['route' => ['propietarios.destroy', $propietario->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
