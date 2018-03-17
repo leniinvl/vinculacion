@@ -60,7 +60,7 @@
 
 <!-- Plandegestionderiesgos Id Field -->
 <div class="form-group">
-    {!! Form::label('PlanDeGestionDeRiesgos_id', 'Plandegestionderiesgos Id:') !!}
+    {!! Form::label('PlanDeGestionDeRiesgos_id', 'Plan de Gestión de Riesgos:') !!}
     <p>{!! $trabajadores->plandegestionderiesgos->nombre !!}</p>
 </div>
 
