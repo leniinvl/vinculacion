@@ -121,7 +121,7 @@ Route::resource('tallerHasTipoRiesgos', 'Taller_Has_TipoRiesgosController');
 
 
 
-Route::resource('propietarios', 'PropietarioController');
+
 
 Route::resource('religions', 'ReligionController');
 
@@ -312,3 +312,5 @@ Route::resource('vulnerabilidades', 'VulnerabilidadesController');
 
 
 Route::resource('planDeGestionDeRiesgos', 'PlanDeGestionDeRiesgosController');
+
+Route::resource('propietarios', 'PropietarioController');

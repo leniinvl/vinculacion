@@ -8,7 +8,7 @@ use InfyOm\Generator\Common\BaseRepository;
 /**
  * Class PropietarioRepository
  * @package App\Repositories
- * @version January 18, 2018, 2:40 pm UTC
+ * @version March 17, 2018, 6:47 pm UTC
  *
  * @method Propietario findWithoutFail($id, $columns = ['*'])
  * @method Propietario find($id, $columns = ['*'])
@@ -22,11 +22,11 @@ class PropietarioRepository extends BaseRepository
     protected $fieldSearchable = [
         'ci',
         'nombre',
+        'Genero_id',
         'correo',
         'fechaNacimiento',
         'telefono',
-        'observaciones',
-        'genero'
+        'observaciones'
     ];
 
     /**
