@@ -6,7 +6,7 @@
 
 <!-- Ci Field -->
 <div class="form-group">
-    {!! Form::label('ci', 'Ci:') !!}
+    {!! Form::label('ci', 'CI:') !!}
     <p>{!! $propietario->ci !!}</p>
 </div>
 

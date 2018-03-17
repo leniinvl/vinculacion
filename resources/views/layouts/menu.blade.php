@@ -561,7 +561,3 @@
         </li>
     </li>
 </ul>
-<li class="{{ Request::is('propietarios*') ? 'active' : '' }}">
-    <a href="{!! route('propietarios.index') !!}"><i class="fa fa-edit"></i><span>Propietarios</span></a>
-</li>
-
