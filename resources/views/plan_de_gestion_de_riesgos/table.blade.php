@@ -3,7 +3,7 @@
         <tr>
             <th>Nombre</th>
         <th>Tipo de Abono</th>
-        <th>Tipo de Control de Plagas</th>
+        <th>Tipo de Control de Plaga</th>
         <th>Tipo de Cultivo</th>
             <th colspan="3">Acciones</th>
         </tr>
