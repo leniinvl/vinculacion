@@ -18,13 +18,13 @@
 
 <!-- Tipocontrolplaga Id Field -->
 <div class="form-group">
-    {!! Form::label('TipoControlPlaga_id', 'Tipo Control Plaga:') !!}
+    {!! Form::label('TipoControlPlaga_id', 'Tipo de Control de Plaga:') !!}
     <p>{!! $planDeGestionDeRiesgos->TipoControlPlaga->nombre !!}</p>
 </div>
 
 <!-- Tipocultivos Id Field -->
 <div class="form-group">
-    {!! Form::label('TipoCultivos_id', 'Tipo Cultivos:') !!}
+    {!! Form::label('TipoCultivos_id', 'Tipo de Cultivo:') !!}
     <p>{!! $planDeGestionDeRiesgos->TipoCultivos->nombre !!}</p>
 </div>
 
