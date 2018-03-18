@@ -39,19 +39,17 @@ class Desecho extends Model
     use SoftDeletes;
 
     public $table = 'desecho';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-
     protected $dates = ['deleted_at'];
-
 
     public $fillable = [
         'fecha',
         'peso',
         'Biodigestor_id',
-        'TipoDesecho_id'
+        'TipoDesecho_id',
     ];
 
     /**
@@ -60,10 +58,10 @@ class Desecho extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
-        'fecha' => 'date',
+        'id'             => 'integer',
+        'fecha'          => 'date',
         'Biodigestor_id' => 'integer',
-        'TipoDesecho_id' => 'integer'
+        'TipoDesecho_id' => 'integer',
     ];
 
     /**
@@ -72,7 +70,7 @@ class Desecho extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**
@@ -80,7 +78,7 @@ class Desecho extends Model
      **/
     public function biodigestor()
     {
-        return $this->belongsTo(\App\Models\Biodigestor::class,'Biodigestor_id');
+        return $this->belongsTo(\App\Models\Biodigestor::class, 'Biodigestor_id');
     }
 
     /**
@@ -88,34 +86,31 @@ class Desecho extends Model
      **/
     public function tipodesecho()
     {
-        return $this->belongsTo(\App\Models\Tipodesecho::class,'TipoDesecho_id');
+        return $this->belongsTo(\App\Models\Tipodesecho::class, 'TipoDesecho_id');
     }
 
-    public function scopeName($query,$name)
+    public function scopeName($query, $name)
     {
-        if($name != "")
-        {
-           $query->where('Biodigestor_id',$name); 
-        }
-        
-    }
-
-    public function scopeDate($query, $date1){
-
-   
-   if($date1 != "")
-        {
-           $query->where('fecha','>=', $date1); 
+        if ($name != "") {
+            $query->where('Biodigestor_id', $name);
         }
 
     }
 
-    public function scopeDate1($query, $date2){
+    public function scopeDate($query, $date1)
+    {
 
-   
-   if($date2 != "")
-        {
-           $query->where('fecha','<=', $date2); 
+        if ($date1 != "") {
+            $query->where('fecha', '>=', $date1);
+        }
+
+    }
+
+    public function scopeDate1($query, $date2)
+    {
+
+        if ($date2 != "") {
+            $query->where('fecha', '<=', $date2);
         }
 
     }

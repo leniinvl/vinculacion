@@ -37,17 +37,15 @@ class TipoDesechot extends Model
     use SoftDeletes;
 
     public $table = 'tipodesechot';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-
     protected $dates = ['deleted_at'];
-
 
     public $fillable = [
         'nombre',
-        'descripcion'
+        'descripcion',
     ];
 
     /**
@@ -56,9 +54,9 @@ class TipoDesechot extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
-        'nombre' => 'string',
-        'descripcion' => 'string'
+        'id'          => 'integer',
+        'nombre'      => 'string',
+        'descripcion' => 'string',
     ];
 
     /**
@@ -67,7 +65,7 @@ class TipoDesechot extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**

@@ -18,17 +18,15 @@ class Pais extends Model
     use SoftDeletes;
 
     public $table = 'pais';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-
     protected $dates = ['deleted_at'];
-
 
     public $fillable = [
         'nombre',
-        'nacionalidad'
+        'nacionalidad',
     ];
 
     /**
@@ -37,9 +35,9 @@ class Pais extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
-        'nombre' => 'string',
-        'nacionalidad' => 'string'
+        'id'           => 'integer',
+        'nombre'       => 'string',
+        'nacionalidad' => 'string',
     ];
 
     /**
@@ -48,8 +46,7 @@ class Pais extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
-    
 }

@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Http\Requests\CreateAreaInfluenciaRequest;
 use App\Http\Requests\UpdateAreaInfluenciaRequest;
 use App\Repositories\AreaInfluenciaRepository;
@@ -21,18 +19,14 @@ use App\Models\CaracteristicasEtnicas;
 use App\Models\TipoSuelo;
 use App\Models\Clima;
 use App\Models\Ecosistema;
-
-
 class AreaInfluenciaController extends AppBaseController
 {
     /** @var  AreaInfluenciaRepository */
     private $areaInfluenciaRepository;
-
     public function __construct(AreaInfluenciaRepository $areaInfluenciaRepo)
     {
         $this->areaInfluenciaRepository = $areaInfluenciaRepo;
     }
-
     /**
      * Display a listing of the AreaInfluencia.
      *
@@ -43,11 +37,9 @@ class AreaInfluenciaController extends AppBaseController
     {
         $this->areaInfluenciaRepository->pushCriteria(new RequestCriteria($request));
         $areaInfluencias = $this->areaInfluenciaRepository->all();
-
         return view('area_influencias.index')
             ->with('areaInfluencias', $areaInfluencias);
     }
-
     /**
      * Show the form for creating a new AreaInfluencia.
      *
@@ -65,7 +57,6 @@ class AreaInfluenciaController extends AppBaseController
         return view('area_influencias.create')->with('condicionesdrenaje', $condicionesdrenaje)->with
         ('permeabilidadsuelo', $permeabilidadsuelo)->with('usosuelo', $usosuelo)->with('caracteristicasetnicas', $caracteristicasetnicas)  ->with('tiposuelo', $tiposuelo)->with('clima', $clima)->with('ecosistema', $ecosistema);
     }
-
     /**
      * Store a newly created AreaInfluencia in storage.
      *
@@ -76,14 +67,10 @@ class AreaInfluenciaController extends AppBaseController
     public function store(CreateAreaInfluenciaRequest $request)
     {
         $input = $request->all();
-
         $areaInfluencia = $this->areaInfluenciaRepository->create($input);
-
         Flash::success('Area Influencia saved successfully.');
-
         return redirect(route('areaInfluencias.index'));
     }
-
     /**
      * Display the specified AreaInfluencia.
      *
@@ -97,17 +84,13 @@ class AreaInfluenciaController extends AppBaseController
         $tipovegetal = TipoVegetal::all()->pluck('nombre_comun', 'id');
         $religion = Religion::all()->pluck('nombre', 'id');
         $lenguaje = Lenguaje::all()->pluck('nombre', 'id');
-
         if (empty($areaInfluencia)) {
             Flash::error('Area Influencia not found');
-
             return redirect(route('areaInfluencias.index'));
         }
-
         return view('area_influencias.show')->with('areaInfluencia', $areaInfluencia)->with('tipovegetal', $tipovegetal)->with('religion', $religion)
         ->with('lenguaje', $lenguaje);
     }
-
     /**
      * Show the form for editing the specified AreaInfluencia.
      *
@@ -125,16 +108,12 @@ class AreaInfluenciaController extends AppBaseController
         $tiposuelo=TipoSuelo::all()->pluck('nombre','id');
         $clima=Clima::all()->pluck('nombre','id');
         $ecosistema=Ecosistema::all()->pluck('nombre','id');
-
         if (empty($areaInfluencia)) {
             Flash::error('Area Influencia not found');
-
             return redirect(route('areaInfluencias.index'));
         }
-
         return view('area_influencias.edit')->with('areaInfluencia', $areaInfluencia)->with('condicionesdrenaje', $condicionesdrenaje)->with('permeabilidadsuelo', $permeabilidadsuelo)->with('usosuelo', $usosuelo)->with('caracteristicasetnicas', $caracteristicasetnicas)->with('tiposuelo', $tiposuelo)->with('clima', $clima)->with('ecosistema', $ecosistema);
     }
-
     /**
      * Update the specified AreaInfluencia in storage.
      *
@@ -146,20 +125,14 @@ class AreaInfluenciaController extends AppBaseController
     public function update($id, UpdateAreaInfluenciaRequest $request)
     {
         $areaInfluencia = $this->areaInfluenciaRepository->findWithoutFail($id);
-
         if (empty($areaInfluencia)) {
             Flash::error('Area Influencia not found');
-
             return redirect(route('areaInfluencias.index'));
         }
-
         $areaInfluencia = $this->areaInfluenciaRepository->update($request->all(), $id);
-
         Flash::success('Area Influencia updated successfully.');
-
         return redirect(route('areaInfluencias.index'));
     }
-
     /**
      * Remove the specified AreaInfluencia from storage.
      *
@@ -170,21 +143,14 @@ class AreaInfluenciaController extends AppBaseController
     public function destroy($id)
     {
         $areaInfluencia = $this->areaInfluenciaRepository->findWithoutFail($id);
-
         if (empty($areaInfluencia)) {
             Flash::error('Area Influencia not found');
-
             return redirect(route('areaInfluencias.index'));
         }
-
         $this->areaInfluenciaRepository->delete($id);
-
         Flash::success('Area Influencia deleted successfully.');
-
         return redirect(route('areaInfluencias.index'));
     }
-
-
     public function storeTipoVegetal(Request $request, $idareainfluencia)
     {
         $areainfluencia = AreaInfluencia::find($idareainfluencia);

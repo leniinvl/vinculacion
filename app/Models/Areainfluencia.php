@@ -84,13 +84,11 @@ class AreaInfluencia extends Model
     use SoftDeletes;
 
     public $table = 'areainfluencia';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-
     protected $dates = ['deleted_at'];
-
 
     public $fillable = [
         'altitud',
@@ -119,7 +117,7 @@ class AreaInfluencia extends Model
         'ConsolidacionAreaInfluencia_id',
         'EvacuacionAguasServidas_id',
         'lat',
-        'long'
+        'long',
     ];
 
     /**
@@ -128,34 +126,34 @@ class AreaInfluencia extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
-        'altitud' => 'float',
-        'tipoTerrenoDescripcion' => 'string',
-        'detalleCalidadAire' => 'string',
-        'detalleRuido' => 'string',
-        'observacionesEcosistema' => 'string',
-        'ManejoAmbiental_id' => 'integer',
-        'CalidadAire_id' => 'integer',
-        'TipoTerreno_id' => 'integer',
-        'TipoSuelo_id' => 'integer',
-        'CalidadSuelo_id' => 'integer',
-        'Precipitaciones_id' => 'integer',
-        'NivelFratico_id' => 'integer',
-        'PermeabilidadSuelo_id' => 'integer',
-        'Clima_id' => 'integer',
-        'CondicionesDrenaje_id' => 'integer',
-        'Ruido_id' => 'integer',
-        'RecirculacionAire_id' => 'integer',
-        'Ecosistema_id' => 'integer',
-        'OrganizacionSocial_id' => 'integer',
-        'TendenciaTierra_id' => 'integer',
-        'AbastecimientoAgua_id' => 'integer',
-        'EvacuacoinAguaLluvia_id' => 'integer',
-        'CaracteristicasEtnicas_id' => 'integer',
+        'id'                             => 'integer',
+        'altitud'                        => 'float',
+        'tipoTerrenoDescripcion'         => 'string',
+        'detalleCalidadAire'             => 'string',
+        'detalleRuido'                   => 'string',
+        'observacionesEcosistema'        => 'string',
+        'ManejoAmbiental_id'             => 'integer',
+        'CalidadAire_id'                 => 'integer',
+        'TipoTerreno_id'                 => 'integer',
+        'TipoSuelo_id'                   => 'integer',
+        'CalidadSuelo_id'                => 'integer',
+        'Precipitaciones_id'             => 'integer',
+        'NivelFratico_id'                => 'integer',
+        'PermeabilidadSuelo_id'          => 'integer',
+        'Clima_id'                       => 'integer',
+        'CondicionesDrenaje_id'          => 'integer',
+        'Ruido_id'                       => 'integer',
+        'RecirculacionAire_id'           => 'integer',
+        'Ecosistema_id'                  => 'integer',
+        'OrganizacionSocial_id'          => 'integer',
+        'TendenciaTierra_id'             => 'integer',
+        'AbastecimientoAgua_id'          => 'integer',
+        'EvacuacoinAguaLluvia_id'        => 'integer',
+        'CaracteristicasEtnicas_id'      => 'integer',
         'ConsolidacionAreaInfluencia_id' => 'integer',
-        'EvacuacionAguasServidas_id' => 'integer',
-        'lat' => 'string',
-        'long' => 'string'
+        'EvacuacionAguasServidas_id'     => 'integer',
+        'lat'                            => 'string',
+        'long'                           => 'string',
     ];
 
     /**
@@ -164,7 +162,7 @@ class AreaInfluencia extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**
