@@ -550,14 +550,5 @@
             </a>
         </li>
         --}}
-        <li class="{{ Request::is('tipoVegetals*') ? 'active' : '' }}">
-            <a href="{!! route('tipoVegetals.index') !!}">
-                <i class="fa fa-edit">
-                </i>
-                <span>
-                    Tipo Vegetals
-                </span>
-            </a>
         </li>
-    </li>
 </ul>
