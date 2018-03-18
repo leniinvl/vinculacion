@@ -196,7 +196,7 @@ class AreaInfluencia extends Model
      **/
     public function caracteristicasetnica()
     {
-        return $this->belongsTo(\App\Models\Caracteristicasetnica::class);
+        return $this->belongsTo(\App\Models\Caracteristicasetnica::class, 'CaracteristicasEtnicas_id');
     }
 
     /**
@@ -204,7 +204,7 @@ class AreaInfluencia extends Model
      **/
     public function clima()
     {
-        return $this->belongsTo(\App\Models\Clima::class);
+        return $this->belongsTo(\App\Models\Clima::class, 'Clima_id');
     }
 
     /**
@@ -228,7 +228,7 @@ class AreaInfluencia extends Model
      **/
     public function ecosistema()
     {
-        return $this->belongsTo(\App\Models\Ecosistema::class);
+        return $this->belongsTo(\App\Models\Ecosistema::class, 'Ecosistema_id');
     }
 
     /**
@@ -276,7 +276,7 @@ class AreaInfluencia extends Model
      **/
     public function permeabilidadsuelo()
     {
-        return $this->belongsTo(\App\Models\Permeabilidadsuelo::class);
+        return $this->belongsTo(\App\Models\Permeabilidadsuelo::class, 'PermeabilidadSuelo_id');
     }
 
     /**
@@ -316,7 +316,7 @@ class AreaInfluencia extends Model
      **/
     public function tiposuelo()
     {
-        return $this->belongsTo(\App\Models\Tiposuelo::class);
+        return $this->belongsTo(\App\Models\Tiposuelo::class, 'TipoSuelo_id');
     }
 
     /**
@@ -397,5 +397,10 @@ class AreaInfluencia extends Model
     public function paisajes()
     {
         return $this->hasMany(\App\Models\Paisaje::class);
+    }
+
+    public function usosuelo()
+    {
+        return $this->belongsTo(\App\Models\UsoSuelo::class,'UsoSuelo_id');
     }
 }

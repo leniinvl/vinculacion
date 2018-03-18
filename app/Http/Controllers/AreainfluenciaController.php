@@ -15,6 +15,13 @@ use App\Models\TipoVegetal;
 use App\Models\Religion;
 use App\Models\Lenguaje;
 use App\Models\Areainfluencia;
+use App\Models\PermeabilidadSuelo;
+use App\Models\UsoSuelo;
+use App\Models\CaracteristicasEtnicas;
+use App\Models\TipoSuelo;
+use App\Models\Clima;
+use App\Models\Ecosistema;
+
 
 class AreaInfluenciaController extends AppBaseController
 {
@@ -49,7 +56,14 @@ class AreaInfluenciaController extends AppBaseController
     public function create()
     {
         $condicionesdrenaje=CondicionesDrenaje::all()->pluck('nombre','id');
-        return view('area_influencias.create')->with('condicionesdrenaje', $condicionesdrenaje);
+        $permeabilidadsuelo=PermeabilidadSuelo::all()->pluck('nombre','id');
+        $usosuelo=UsoSuelo::all()->pluck('nombre','id');
+        $caracteristicasetnicas=CaracteristicasEtnicas::all()->pluck('nombre','id');
+        $tiposuelo=TipoSuelo::all()->pluck('nombre','id');
+        $clima=Clima::all()->pluck('nombre','id');
+        $ecosistema=Ecosistema::all()->pluck('nombre','id');
+        return view('area_influencias.create')->with('condicionesdrenaje', $condicionesdrenaje)->with
+        ('permeabilidadsuelo', $permeabilidadsuelo)->with('usosuelo', $usosuelo)->with('caracteristicasetnicas', $caracteristicasetnicas)  ->with('tiposuelo', $tiposuelo)->with('clima', $clima)->with('ecosistema', $ecosistema);
     }
 
     /**
@@ -105,6 +119,12 @@ class AreaInfluenciaController extends AppBaseController
     {
         $areaInfluencia = $this->areaInfluenciaRepository->findWithoutFail($id);
         $condicionesdrenaje=CondicionesDrenaje::all()->pluck('nombre','id');
+        $permeabilidadsuelo=PermeabilidadSuelo::all()->pluck('nombre','id');
+        $usosuelo=UsoSuelo::all()->pluck('nombre','id');
+        $caracteristicasetnicas=CaracteristicasEtnicas::all()->pluck('nombre','id');
+        $tiposuelo=TipoSuelo::all()->pluck('nombre','id');
+        $clima=Clima::all()->pluck('nombre','id');
+        $ecosistema=Ecosistema::all()->pluck('nombre','id');
 
         if (empty($areaInfluencia)) {
             Flash::error('Area Influencia not found');
@@ -112,7 +132,7 @@ class AreaInfluenciaController extends AppBaseController
             return redirect(route('areaInfluencias.index'));
         }
 
-        return view('area_influencias.edit')->with('areaInfluencia', $areaInfluencia)->with('condicionesdrenaje', $condicionesdrenaje);
+        return view('area_influencias.edit')->with('areaInfluencia', $areaInfluencia)->with('condicionesdrenaje', $condicionesdrenaje)->with('permeabilidadsuelo', $permeabilidadsuelo)->with('usosuelo', $usosuelo)->with('caracteristicasetnicas', $caracteristicasetnicas)->with('tiposuelo', $tiposuelo)->with('clima', $clima)->with('ecosistema', $ecosistema);
     }
 
     /**
