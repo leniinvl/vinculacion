@@ -35,17 +35,15 @@ class PermeabilidadSuelo extends Model
     use SoftDeletes;
 
     public $table = 'permeabilidadsuelo';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-
     protected $dates = ['deleted_at'];
-
 
     public $fillable = [
         'nombre',
-        'valor'
+        'valor',
     ];
 
     /**
@@ -54,9 +52,9 @@ class PermeabilidadSuelo extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
+        'id'     => 'integer',
         'nombre' => 'string',
-        'valor' => 'float'
+        'valor'  => 'float',
     ];
 
     /**
@@ -65,7 +63,7 @@ class PermeabilidadSuelo extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**

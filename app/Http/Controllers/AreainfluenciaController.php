@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreateAreaInfluenciaRequest;
 use App\Http\Requests\UpdateAreaInfluenciaRequest;
+use App\Models\Areainfluencia;
+use App\Models\CondicionesDrenaje;
+use App\Models\Lenguaje;
+use App\Models\Religion;
+use App\Models\TipoVegetal;
 use App\Repositories\AreaInfluenciaRepository;
-use App\Http\Controllers\AppBaseController;
-use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
-use App\Models\CondicionesDrenaje;
-use App\Models\TipoVegetal;
-use App\Models\Religion;
-use App\Models\Lenguaje;
-use App\Models\Areainfluencia;
 
 class AreaInfluenciaController extends AppBaseController
 {
@@ -48,7 +48,7 @@ class AreaInfluenciaController extends AppBaseController
      */
     public function create()
     {
-        $condicionesdrenaje=CondicionesDrenaje::all()->pluck('nombre','id');
+        $condicionesdrenaje = CondicionesDrenaje::all()->pluck('nombre', 'id');
         return view('area_influencias.create')->with('condicionesdrenaje', $condicionesdrenaje);
     }
 
@@ -80,9 +80,9 @@ class AreaInfluenciaController extends AppBaseController
     public function show($id)
     {
         $areaInfluencia = $this->areaInfluenciaRepository->findWithoutFail($id);
-        $tipovegetal = TipoVegetal::all()->pluck('nombre_comun', 'id');
-        $religion = Religion::all()->pluck('nombre', 'id');
-        $lenguaje = Lenguaje::all()->pluck('nombre', 'id');
+        $tipovegetal    = TipoVegetal::all()->pluck('nombre_comun', 'id');
+        $religion       = Religion::all()->pluck('nombre', 'id');
+        $lenguaje       = Lenguaje::all()->pluck('nombre', 'id');
 
         if (empty($areaInfluencia)) {
             Flash::error('Area Influencia not found');
@@ -91,7 +91,7 @@ class AreaInfluenciaController extends AppBaseController
         }
 
         return view('area_influencias.show')->with('areaInfluencia', $areaInfluencia)->with('tipovegetal', $tipovegetal)->with('religion', $religion)
-        ->with('lenguaje', $lenguaje);
+            ->with('lenguaje', $lenguaje);
     }
 
     /**
@@ -103,8 +103,8 @@ class AreaInfluenciaController extends AppBaseController
      */
     public function edit($id)
     {
-        $areaInfluencia = $this->areaInfluenciaRepository->findWithoutFail($id);
-        $condicionesdrenaje=CondicionesDrenaje::all()->pluck('nombre','id');
+        $areaInfluencia     = $this->areaInfluenciaRepository->findWithoutFail($id);
+        $condicionesdrenaje = CondicionesDrenaje::all()->pluck('nombre', 'id');
 
         if (empty($areaInfluencia)) {
             Flash::error('Area Influencia not found');
@@ -163,7 +163,6 @@ class AreaInfluenciaController extends AppBaseController
 
         return redirect(route('areaInfluencias.index'));
     }
-
 
     public function storeTipoVegetal(Request $request, $idareainfluencia)
     {

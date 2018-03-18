@@ -30,17 +30,15 @@ class TipoVegetal extends Model
     use SoftDeletes;
 
     public $table = 'tipovegetal';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-
     protected $dates = ['deleted_at'];
-
 
     public $fillable = [
         'nombre_comun',
-        'nombre_cientifico'
+        'nombre_cientifico',
     ];
 
     /**
@@ -49,9 +47,9 @@ class TipoVegetal extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
-        'nombre_comun' => 'string',
-        'nombre_cientifico' => 'string'
+        'id'                => 'integer',
+        'nombre_comun'      => 'string',
+        'nombre_cientifico' => 'string',
     ];
 
     /**
@@ -60,7 +58,7 @@ class TipoVegetal extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**

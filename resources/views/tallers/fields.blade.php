@@ -36,6 +36,6 @@
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
-    {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
-    <a href="{!! route('tallers.index') !!}" class="btn btn-default">Cancelar</a>
+    {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
+    <a href="{!! route('tallers.index') !!}" class="btn btn-default">Cancel</a>
 </div>

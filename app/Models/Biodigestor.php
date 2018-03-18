@@ -50,13 +50,11 @@ class Biodigestor extends Model
     use SoftDeletes;
 
     public $table = 'biodigestor';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-
     protected $dates = ['deleted_at'];
-
 
     public $fillable = [
         'ubicacion',
@@ -70,7 +68,7 @@ class Biodigestor extends Model
         'largoCaja',
         'profundCaja',
         'temperatura',
-        'UnidadProduccion_id'
+        'UnidadProduccion_id',
     ];
 
     /**
@@ -79,13 +77,13 @@ class Biodigestor extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
-        'ubicacion' => 'string',
-        'tamañoPropiedad' => 'float',
-        'imagen' => 'string',
-        'video' => 'string',
-        'temperatura' => 'float',
-        'UnidadProduccion_id' => 'integer'
+        'id'                  => 'integer',
+        'ubicacion'           => 'string',
+        'tamañoPropiedad'     => 'float',
+        'imagen'              => 'string',
+        'video'               => 'string',
+        'temperatura'         => 'float',
+        'UnidadProduccion_id' => 'integer',
     ];
 
     /**
@@ -94,7 +92,7 @@ class Biodigestor extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**

@@ -8,7 +8,7 @@
 <!-- Usosuelo Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('UsoSuelo_id', 'Uso de Suelo:') !!}
-      <a href="{{route('usoSuelos.index')}}">(Añadir Nueva)</a>
+      <a href="{{route('usoSuelos.index')}}">(Añadir Nuevo)</a>
     {!! Form::select('UsoSuelo_id',$UsoSuelo, null, ['class' => 'form-control']) !!}
 </div>
 
