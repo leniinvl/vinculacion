@@ -6,7 +6,7 @@
 
 <!-- Unidadproduccion Id Field -->
 <div class="form-group">
-    {!! Form::label('UnidadProduccion_id', 'Unidadproducción:') !!}
+    {!! Form::label('UnidadProduccion_id', 'Unidad de Producción:') !!}
     <p>{!! $origenIngresos->UnidadProduccion->nombre!!}</p>
 </div>
 

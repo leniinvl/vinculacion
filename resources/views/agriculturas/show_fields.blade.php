@@ -6,13 +6,13 @@
 
 <!-- Unidadproduccion Id Field -->
 <div class="form-group">
-    {!! Form::label('UnidadProduccion_id', 'Unidadproduccion:') !!}
+    {!! Form::label('UnidadProduccion_id', 'Unidad de Producción:') !!}
     <p>{!! $agricultura->UnidadProduccion->nombre !!}</p>
 </div>
 
 <!-- Usosuelo Id Field -->
 <div class="form-group">
-    {!! Form::label('UsoSuelo_id', 'Usosuelo:') !!}
+    {!! Form::label('UsoSuelo_id', 'Uso de Suelo:') !!}
     <p>{!! $agricultura->UsoSuelo->nombre !!}</p>
 </div>
 
