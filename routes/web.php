@@ -75,9 +75,16 @@ Route::post('storetipoalimentosconsumo/{planriesgos}', array('uses' => 'PlanRies
 
 Route::delete('deletetipoalimentosconsumo/{planRiesgos}/{id}', array('uses' => 'PlanRiesgosController@destroyTipoAlimentosConsumo', 'as' => 'destroyTipoAlimentosConsumo'));
 
-Route::post('storetipoanimales/{planriesgos}', array('uses' => 'PlanRiesgosController@storeTipoAnimales', 'as' => 'storeTipoAnimales'));
 
-Route::delete('deletetipoanimales/{planRiesgos}/{id}', array('uses' => 'PlanRiesgosController@destroyTipoAnimales', 'as' => 'destroyTipoAnimales'));
+
+
+
+Route::post('storetipoanimales/{planriesgos}', array('uses' => 'PlanDeGestionDeRiesgosController@storeTipoAnimales', 'as' => 'storeTipoAnimales'));
+
+Route::delete('deletetipoanimales/{planRiesgos}/{id}', array('uses' => 'PlanDeGestionDeRiesgosController@destroyTipoAnimales', 'as' => 'destroyTipoAnimales'));
+
+
+
 
 Route::post('storetipoagricultura/{planriesgos}', array('uses' => 'PlanRiesgosController@storeTipoAgricultura', 'as' => 'storeTipoAgricultura'));
 
