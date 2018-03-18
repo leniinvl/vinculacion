@@ -54,6 +54,7 @@ class TallerController extends AppBaseController
      */
     public function store(CreateTallerRequest $request)
     {
+		//modificacion alguna;
         //$input = $request->all();
         $base64Photo = null;
         if ($request->hasFile('file')) {
