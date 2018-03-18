@@ -3,34 +3,34 @@
     <thead>
         <tr>
             <th>Altitud</th>
-        <th>Tipoterrenodescripcion</th>
-        <th>Detallecalidadaire</th>
-        <th>Detalleruido</th>
-        <th>Observacionesecosistema</th>
-        <th>Religion</th>
+        <th>Descripción del tipo de terreno</th>
+        <th>Detalle de calidad de aire</th>
+        <th>Detalle de ruido</th>
+        <th>Observaciones de ecosistema</th>
+        <th>Religión</th>
         <th>Lenguaje</th>
         <th>Tipo Vegetal</th>
         <th>Lat</th>
         <th>Long</th>
-        <th>Manejoambiental Id</th>
-        <th>Usosuelo Id</th>
-        <th>Tiposuelo Id</th>
-        <th>Permeabilidadsuelo Id</th>
-        <th>Clima Id</th>
-        <th>Condicionesdrenaje Id</th>
-        <th>Ecosistema Id</th>
-        <th>Caracteristicasetnicas Id</th>
-        <th>Niveltraficodescripcion</th>
-        <th>Recirculacionairedescripcion</th>
-        <th>Organizacionsocialdescripcion</th>
-        <th>Tendenciatierradescripcion</th>
-        <th>Abastecimientoaguadescripcion</th>
-        <th>Evacuacionagualluviadescripcion</th>
-        <th>Consolidacionareasinfluenciadescripcion</th>
-        <th>Evacuacionaguasservidasdescripcion</th>
-        <th>Usovegetaciondescripcion</th>
-        <th>Tradicionesdescripcion</th>
-        <th>Tipofuentesdescripcion</th>
+        <th>Manejo ambiental</th>
+        <th>Uso de suelo </th>
+        <th>Tipo de suelo </th>
+        <th>Permeabilidad de suelo </th>
+        <th>Clima </th>
+        <th>Condiciones de drenaje</th>
+        <th>Ecosistema</th>
+        <th>Caracteristicas étnicas </th>
+        <th>Descripción de nivel de tráfico </th>
+        <th>Descripción de recirculación de aire</th>
+        <th>Descripción de organización social </th>
+        <th>Descripción de tendencia de tierra</th>
+        <th>Descripción de abastecimiento de agua</th>
+        <th>Descripción de evacuación de agua lluvia</th>
+        <th>Descripción de consolidación de areas de influencia</th>
+        <th>Descripción de evacuación de aguas servidas</th>
+        <th>Descripción de uso vegetación </th>
+        <th>Descripción de tradiciones </th>
+        <th>Descripción de tipo de fuentes </th>
         <th>Ruido</th>
         <th>Precipitaciones</th>
             <th colspan="3">Acciones</th>

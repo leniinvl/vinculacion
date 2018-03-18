@@ -414,13 +414,13 @@
                         Características Étnicas
                     </a>
                 </li>
-                <li class="{{ Request::is('paisajes*') ? 'active' : '' }}">
+               <!-- <li class="{{ Request::is('paisajes*') ? 'active' : '' }}">
                     <a href="{!! route('paisajes.index') !!}">
                         <i class="fa fa-certificate">
                         </i>
                         Paisaje
                     </a>
-                </li>
+                </li>-->
                 <li class="{{ Request::is('religions*') ? 'active' : '' }}">
                     <a href="{!! route('religions.index') !!}">
                         <i class="fa fa-institution">
@@ -451,6 +451,13 @@
                         Uso de Suelos
                     </a>
                 </li>
+                <li class="{{ Request::is('tipoSuelos*') ? 'active' : '' }}">
+                    <a href="{!! route('tipoSuelos.index') !!}">
+                        <i class="glyphicon glyphicon-filter">
+                        </i>
+                        Tipo de Suelos
+                    </a>
+                </li>
                 <li class="{{ Request::is('condicionesDrenajes*') ? 'active' : '' }}">
                     <a href="{!! route('condicionesDrenajes.index') !!}">
                         <i class="fa fa-edit">
@@ -465,7 +472,7 @@
                         <i class="fa fa-edit">
                         </i>
                         <span>
-                            Tipo Vegetals
+                            Tipo de Vegetales
                         </span>
                     </a>
                 </li>
