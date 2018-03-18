@@ -11,8 +11,10 @@
             <div class="box-body">
                 <div class="row" style="padding-left: 20px">
                     @include('area_influencias.show_fields')
+                    <div>
+                    <h3>Tipo Vegetal</h3><a href="{{route('tipoVegetals.index')}}">(Añadir Nueva)</a>
+                    </div>
 
-                    <h3>Tipo Vegetal</h3>
                     <div class="form-group col-sm-6">
 
                         {!! Form::open(['route' => ['storeTipoVegetal', $areaInfluencia->id], 'method' => 'post']) !!}
@@ -49,7 +51,9 @@
                         </tbody>
                     </table>
 
-                    <h3>Religion</h3>
+                    <div>
+                    <h3>Religion</h3><a href="{{route('religions.index')}}">(Añadir Nueva)</a>
+                    </div>
                     <div class="form-group col-sm-6">
 
                       {!! Form::open(['route' => ['storeReligion', $areaInfluencia->id], 'method' => 'post']) !!}
@@ -85,7 +89,9 @@
                         </tbody>
                     </table>
 
-                    <h3>Lenguaje</h3>
+                    <div>
+                    <h3>Lenguaje</h3><a href="{{route('lenguajes.index')}}">(Añadir Nueva)</a>
+                    </div>
                     <div class="form-group col-sm-6">
 
                         {!! Form::open(['route' => ['storeLenguaje', $areaInfluencia->id], 'method' => 'post']) !!}
