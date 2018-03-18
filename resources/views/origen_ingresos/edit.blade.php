@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Origen de Ingresos
+            Orígen de Ingresos
         </h1>
    </section>
    <div class="content">

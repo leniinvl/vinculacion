@@ -27,4 +27,3 @@
     {!! Form::label('deleted_at', 'Deleted At:') !!}
     <p>{!! $usoSuelo->deleted_at !!}</p>
 </div>
-
