@@ -67,7 +67,7 @@
             </td>
             <td>{!! $areaInfluencia->lat !!}</td>
             <td>{!! $areaInfluencia->long !!}</td>
-            <td>{!! $areaInfluencia->ManejoAmbiental_id !!}</td>
+            <td>{!! $areaInfluencia->ManejoAmbiental->nombre !!}</td>
             <td>{!! $areaInfluencia->UsoSuelo_id !!}</td>
             <td>{!! $areaInfluencia->TipoSuelo_id !!}</td>
             <td>{!! $areaInfluencia->PermeabilidadSuelo_id !!}</td>

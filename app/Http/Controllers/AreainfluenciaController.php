@@ -15,6 +15,7 @@ use App\Models\TipoVegetal;
 use App\Models\Religion;
 use App\Models\Lenguaje;
 use App\Models\Areainfluencia;
+use App\Models\ManejoAmbiental;
 
 class AreaInfluenciaController extends AppBaseController
 {
@@ -49,7 +50,8 @@ class AreaInfluenciaController extends AppBaseController
     public function create()
     {
         $condicionesdrenaje=CondicionesDrenaje::all()->pluck('nombre','id');
-        return view('area_influencias.create')->with('condicionesdrenaje', $condicionesdrenaje);
+        $manejoambiental=ManejoAmbiental::all()->pluck('nombre','id');
+        return view('area_influencias.create')->with('condicionesdrenaje', $condicionesdrenaje)->with('manejoambiental', $manejoambiental);
     }
 
     /**
@@ -105,6 +107,7 @@ class AreaInfluenciaController extends AppBaseController
     {
         $areaInfluencia = $this->areaInfluenciaRepository->findWithoutFail($id);
         $condicionesdrenaje=CondicionesDrenaje::all()->pluck('nombre','id');
+        $manejoambiental=ManejoAmbiental::all()->pluck('nombre','id');
 
         if (empty($areaInfluencia)) {
             Flash::error('Area Influencia not found');
@@ -112,7 +115,7 @@ class AreaInfluenciaController extends AppBaseController
             return redirect(route('areaInfluencias.index'));
         }
 
-        return view('area_influencias.edit')->with('areaInfluencia', $areaInfluencia)->with('condicionesdrenaje', $condicionesdrenaje);
+        return view('area_influencias.edit')->with('areaInfluencia', $areaInfluencia)->with('condicionesdrenaje', $condicionesdrenaje)->with('manejoambiental', $manejoambiental);
     }
 
     /**

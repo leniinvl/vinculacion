@@ -13,6 +13,9 @@ use Flash;
 use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Models\TipoAnimales;
+use App\Models\OrigenIngresos;
+use App\Models\PlanDeGestionDeRiesgos;
 
 class PlanDeGestionDeRiesgosController extends AppBaseController
 {
@@ -84,6 +87,8 @@ class PlanDeGestionDeRiesgosController extends AppBaseController
     public function show($id)
     {
         $planDeGestionDeRiesgos = $this->planDeGestionDeRiesgosRepository->findWithoutFail($id);
+        $tipoanimales = TipoAnimales::all()->pluck('nombre', 'id');
+        $origeningresos = OrigenIngresos::all()->pluck('nombre', 'id');
 
         if (empty($planDeGestionDeRiesgos)) {
             Flash::error('Plan De Gestion De Riesgos not found');
@@ -91,7 +96,8 @@ class PlanDeGestionDeRiesgosController extends AppBaseController
             return redirect(route('planDeGestionDeRiesgos.index'));
         }
 
-        return view('plan_de_gestion_de_riesgos.show')->with('planDeGestionDeRiesgos', $planDeGestionDeRiesgos);
+        return view('plan_de_gestion_de_riesgos.show')->with('planDeGestionDeRiesgos', $planDeGestionDeRiesgos)->with('tipoanimales', $tipoanimales)
+        ->with('origeningresos', $origeningresos);
     }
 
     /**
@@ -167,5 +173,33 @@ class PlanDeGestionDeRiesgosController extends AppBaseController
         Flash::success('Plan De Gestion De Riesgos deleted successfully.');
 
         return redirect(route('planDeGestionDeRiesgos.index'));
+    }
+
+    public function storeTipoAnimales(Request $request, $idplanriesgos)
+    {
+        $planriesgos = PlanDeGestionDeRiesgos::find($idplanriesgos);
+        $planriesgos->TipoAnimales()->attach($request->TipoAnimales_id);
+        Flash::success('PlanRiesgos  Has  Tipo Animales saved successfully.');
+        return redirect(url('planDeGestionDeRiesgos/' . $planriesgos->id));
+    }
+    public function destroyTipoAnimales($idplanriesgos, $id)
+    {
+        $planriesgos = PlanDeGestionDeRiesgos::find($idplanriesgos);
+        $planriesgos->TipoAnimales()->detach($id);
+        return redirect(url('planDeGestionDeRiesgos/' . $planriesgos->id));
+    }
+
+    public function storeOrigenIngresos(Request $request, $idplanriesgos)
+    {
+        $planriesgos = PlanDeGestionDeRiesgos::find($idplanriesgos);
+        $planriesgos->OrigenIngresos()->attach($request->OrigenIngresos_id);
+        Flash::success('PlanRiesgos  Has  Origen Ingresos saved successfully.');
+        return redirect(url('planDeGestionDeRiesgos/' . $planriesgos->id));
+    }
+    public function destroyOrigenIngresos($idplanriesgos, $id)
+    {
+        $planriesgos = PlanDeGestionDeRiesgos::find($idplanriesgos);
+        $planriesgos->OrigenIngresos()->detach($id);
+        return redirect(url('planDeGestionDeRiesgos/' . $planriesgos->id));
     }
 }

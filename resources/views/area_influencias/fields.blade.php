@@ -43,7 +43,7 @@
 <!-- Manejoambiental Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('ManejoAmbiental_id', 'Manejoambiental Id:') !!}
-    {!! Form::number('ManejoAmbiental_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('ManejoAmbiental_id', $manejoambiental, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Usosuelo Id Field -->
