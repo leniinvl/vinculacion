@@ -56,44 +56,7 @@
             </li>
         </span>
     </li>
-    {{--****Talleres***--}}
-    <li class="treeview {{ Request::is('tallers*','tipoRiesgos*','tipoDesechos*') ? 'active' : '' }}">
-        <a href="#">
-            <i>
-            </i>
-            <span>
-                Talleres
-            </span>
-            <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right">
-                </i>
-            </span>
-        </a>
-        <ul class="treeview-menu">
-            <li class="{{ Request::is('tallers*') ? 'active' : '' }}">
-                <a href="{!! route('tallers.index') !!}">
-                    <i class="fa fa-book">
-                    </i>
-                    Talleres
-                </a>
-            </li>
-            <li class="{{ Request::is('desechots*') ? 'active' : '' }}">
-                <a href="{!! route('desechots.index') !!}">
-                    <i class="fa fa-trash">
-                    </i>
-                    Desechos
-                </a>
-            </li>
-            <li class="{{ Request::is('tipoDesechots*') ? 'active' : '' }}">
-                <a href="{!! route('tipoDesechots.index') !!}">
-                    <i class="fa fa-trash">
-                    </i>
-                    Tipo de Desechos
-                </a>
-            </li>
-        </ul>
-    </li>
-    {{--****Fin Talleres****--}}
+
     <li class="treeview">
         <span class="pull-right-container">
             <li class="{{ Request::is('unidadproduccions*') ? 'active' : '' }}">
@@ -116,28 +79,7 @@
             </li>
         </span>
     </li>
-    <li class="treeview">
-        <span class="pull-right-container">
-            <li class="{{ Request::is('tipoProyectos*') ? 'active' : '' }}">
-                <a href="{!! route('tipoProyectos.index') !!}">
-                    <i class="fa fa-line-chart">
-                    </i>
-                    Tipo de Proyectos
-                </a>
-            </li>
-        </span>
-    </li>
-    <li class="treeview">
-        <span class="pull-right-container">
-            <li class="{{ Request::is('categoriaProyectos*') ? 'active' : '' }}">
-                <a href="{!! route('categoriaProyectos.index') !!}">
-                    <i class="fa fa-plus">
-                    </i>
-                    Categoría de Proyectos
-                </a>
-            </li>
-        </span>
-    </li>
+
     <li class="treeview">
         <span class="pull-right-container">
             <li class="{{ Request::is('propietarios*') ? 'active' : '' }}">
@@ -149,6 +91,117 @@
             </li>
         </span>
     </li>
+    {{--****Plan Manejo Ambiental****--}}
+    <li class="treeview {{ Request::is('tipoSuelos*','climas*','ecosistemas*','caracteristicasEtnicas*','paisajes*','religions*','lenguajes*','usoSuelos*','permeabilidadSuelos*') ? 'active' : '' }}">
+        <a href="#">
+            <i>
+            </i>
+            <span>
+                Plan Manejo Ambiental
+            </span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right">
+                </i>
+            </span>
+        </a>
+        <ul class="treeview-menu" style="">
+
+          <li class="{{ Request::is('tipoProyectos*') ? 'active' : '' }}">
+              <a href="{!! route('tipoProyectos.index') !!}">
+                  <i class="fa fa-line-chart">
+                  </i>
+                  Tipo de Proyectos
+              </a>
+          </li>
+          <li class="{{ Request::is('categoriaProyectos*') ? 'active' : '' }}">
+              <a href="{!! route('categoriaProyectos.index') !!}">
+                  <i class="fa fa-plus">
+                  </i>
+                  Categoría de Proyectos
+              </a>
+          </li>
+            <li class="{{ Request::is('tipoSuelos*') ? 'active' : '' }}">
+                <a href="{!! route('tipoSuelos.index') !!}">
+                    <i class="fa fa-road">
+                    </i>
+                    Tipos de Suelo
+                </a>
+            </li>
+            <li class="{{ Request::is('climas*') ? 'active' : '' }}">
+                <a href="{!! route('climas.index') !!}">
+                    <i class="fa fa-snowflake-o">
+                    </i>
+                    Clima
+                </a>
+            </li>
+            <li class="{{ Request::is('ecosistemas*') ? 'active' : '' }}">
+                <a href="{!! route('ecosistemas.index') !!}">
+                    <i class="fa fa-cubes">
+                    </i>
+                    Ecosistema
+                </a>
+            </li>
+            <li class="{{ Request::is('caracteristicasEtnicas*') ? 'active' : '' }}">
+                <a href="{!! route('caracteristicasEtnicas.index') !!}">
+                    <i class="fa fa-child">
+                    </i>
+                    Características Étnicas
+                </a>
+            </li>
+
+            <li class="{{ Request::is('religions*') ? 'active' : '' }}">
+                <a href="{!! route('religions.index') !!}">
+                    <i class="fa fa-institution">
+                    </i>
+                    Religión
+                </a>
+            </li>
+            <li class="{{ Request::is('lenguajes*') ? 'active' : '' }}">
+                <a href="{!! route('lenguajes.index') !!}">
+                    <i class="fa fa-edit">
+                    </i>
+                    Lenguaje
+                </a>
+            </li>
+            <li class="{{ Request::is('permeabilidadSuelos*') ? 'active' : '' }}">
+                <a href="{!! route('permeabilidadSuelos.index') !!}">
+                    <i class="fa fa-edit">
+                    </i>
+                    <span>
+                        Permeabilidad Suelos
+                    </span>
+                </a>
+            </li>
+            <li class="{{ Request::is('usoSuelos*') ? 'active' : '' }}">
+                <a href="{!! route('usoSuelos.index') !!}">
+                    <i class="glyphicon glyphicon-filter">
+                    </i>
+                    Uso de Suelos
+                </a>
+            </li>
+            <li class="{{ Request::is('condicionesDrenajes*') ? 'active' : '' }}">
+                <a href="{!! route('condicionesDrenajes.index') !!}">
+                    <i class="fa fa-edit">
+                    </i>
+                    <span>
+                        Condiciones Drenajes
+                    </span>
+                </a>
+            </li>
+            <li class="{{ Request::is('tipoVegetals*') ? 'active' : '' }}">
+                <a href="{!! route('tipoVegetals.index') !!}">
+                    <i class="fa fa-edit">
+                    </i>
+                    <span>
+                        Tipos Vegetal
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    {{--****Fin Plan Manejo Ambiental****--}}
+
+
     {{--****Plan de Gestion de Riesgos ****--}}
     <li class="treeview {{ Request::is('tipoAbonos*','tipoControlPlagas*','trabajadores*','pais*','ciudads*','tipoCultivos*','tipoAnimales*','precuarias*','destinos*','tipoProduccions*','tipoUnidads*','origenIngresos*','agriculturas*','amenazas*','vulnerabilidades*','planDeGestionDeRiesgos*') ? 'active' : '' }}">
         <a href="#">
@@ -310,6 +363,45 @@
         </ul>
         {{--****Fin Plan de Gestion de Riesgos****--}}
 
+        {{--****Talleres***--}}
+        <li class="treeview {{ Request::is('tallers*','tipoRiesgos*','tipoDesechos*') ? 'active' : '' }}">
+            <a href="#">
+                <i>
+                </i>
+                <span>
+                    Talleres
+                </span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right">
+                    </i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                <li class="{{ Request::is('tallers*') ? 'active' : '' }}">
+                    <a href="{!! route('tallers.index') !!}">
+                        <i class="fa fa-book">
+                        </i>
+                        Talleres
+                    </a>
+                </li>
+                <li class="{{ Request::is('desechots*') ? 'active' : '' }}">
+                    <a href="{!! route('desechots.index') !!}">
+                        <i class="fa fa-trash">
+                        </i>
+                        Desechos
+                    </a>
+                </li>
+                <li class="{{ Request::is('tipoDesechots*') ? 'active' : '' }}">
+                    <a href="{!! route('tipoDesechots.index') !!}">
+                        <i class="fa fa-trash">
+                        </i>
+                        Tipo de Desechos
+                    </a>
+                </li>
+            </ul>
+        </li>
+        {{--****Fin Talleres****--}}
+
 
         {{--****Linea Base****--}}
         <li class="treeview {{ Request::is('tipoProductos*','productos*') ? 'active' : '' }}">
@@ -371,108 +463,6 @@
             </ul>
         </li>
         {{--****Fin Linea Base****--}}
-
-        {{--****Plan Manejo Ambiental****--}}
-        <li class="treeview {{ Request::is('tipoSuelos*','climas*','ecosistemas*','caracteristicasEtnicas*','paisajes*','religions*','lenguajes*','usoSuelos*','permeabilidadSuelos*') ? 'active' : '' }}">
-            <a href="#">
-                <i>
-                </i>
-                <span>
-                    Manejo Ambiental
-                </span>
-                <span class="pull-right-container">
-                    <i class="fa fa-angle-left pull-right">
-                    </i>
-                </span>
-            </a>
-            <ul class="treeview-menu" style="">
-                <li class="{{ Request::is('tipoSuelos*') ? 'active' : '' }}">
-                    <a href="{!! route('tipoSuelos.index') !!}">
-                        <i class="fa fa-road">
-                        </i>
-                        Agregar Tipo de Suelo
-                    </a>
-                </li>
-                <li class="{{ Request::is('climas*') ? 'active' : '' }}">
-                    <a href="{!! route('climas.index') !!}">
-                        <i class="fa fa-snowflake-o">
-                        </i>
-                        Clima
-                    </a>
-                </li>
-                <li class="{{ Request::is('ecosistemas*') ? 'active' : '' }}">
-                    <a href="{!! route('ecosistemas.index') !!}">
-                        <i class="fa fa-cubes">
-                        </i>
-                        Ecosistema
-                    </a>
-                </li>
-                <li class="{{ Request::is('caracteristicasEtnicas*') ? 'active' : '' }}">
-                    <a href="{!! route('caracteristicasEtnicas.index') !!}">
-                        <i class="fa fa-child">
-                        </i>
-                        Características Étnicas
-                    </a>
-                </li>
-                <li class="{{ Request::is('paisajes*') ? 'active' : '' }}">
-                    <a href="{!! route('paisajes.index') !!}">
-                        <i class="fa fa-certificate">
-                        </i>
-                        Paisaje
-                    </a>
-                </li>
-                <li class="{{ Request::is('religions*') ? 'active' : '' }}">
-                    <a href="{!! route('religions.index') !!}">
-                        <i class="fa fa-institution">
-                        </i>
-                        Religión
-                    </a>
-                </li>
-                <li class="{{ Request::is('lenguajes*') ? 'active' : '' }}">
-                    <a href="{!! route('lenguajes.index') !!}">
-                        <i class="fa fa-edit">
-                        </i>
-                        Lenguaje
-                    </a>
-                </li>
-                <li class="{{ Request::is('permeabilidadSuelos*') ? 'active' : '' }}">
-                    <a href="{!! route('permeabilidadSuelos.index') !!}">
-                        <i class="fa fa-edit">
-                        </i>
-                        <span>
-                            Permeabilidad Suelos
-                        </span>
-                    </a>
-                </li>
-                <li class="{{ Request::is('usoSuelos*') ? 'active' : '' }}">
-                    <a href="{!! route('usoSuelos.index') !!}">
-                        <i class="glyphicon glyphicon-filter">
-                        </i>
-                        Uso de Suelos
-                    </a>
-                </li>
-                <li class="{{ Request::is('condicionesDrenajes*') ? 'active' : '' }}">
-                    <a href="{!! route('condicionesDrenajes.index') !!}">
-                        <i class="fa fa-edit">
-                        </i>
-                        <span>
-                            Condiciones Drenajes
-                        </span>
-                    </a>
-                </li>
-                <li class="{{ Request::is('tipoVegetals*') ? 'active' : '' }}">
-                    <a href="{!! route('tipoVegetals.index') !!}">
-                        <i class="fa fa-edit">
-                        </i>
-                        <span>
-                            Tipo Vegetals
-                        </span>
-                    </a>
-                </li>
-            </ul>
-        </li>
-        {{--****Fin Plan Manejo Ambiental****--}}
-
 
 
 {{--
