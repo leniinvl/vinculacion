@@ -58,8 +58,7 @@ class AreaInfluenciaController extends AppBaseController
         $tiposuelo=TipoSuelo::all()->pluck('nombre','id');
         $clima=Clima::all()->pluck('nombre','id');
         $ecosistema=Ecosistema::all()->pluck('nombre','id');
-        return view('area_influencias.create')->with('condicionesdrenaje', $condicionesdrenaje)->with
-        ('permeabilidadsuelo', $permeabilidadsuelo)->with('usosuelo', $usosuelo)->with('caracteristicasetnicas', $caracteristicasetnicas)  ->with('tiposuelo', $tiposuelo)->with('clima', $clima)->with('ecosistema', $ecosistema)->with('manejoambiental', $manejoambiental);
+        return view('area_influencias.create')->with('condicionesdrenaje', $condicionesdrenaje)->with('permeabilidadsuelo', $permeabilidadsuelo)->with('usosuelo', $usosuelo)->with('caracteristicasetnicas', $caracteristicasetnicas)  ->with('tiposuelo', $tiposuelo)->with('clima', $clima)->with('ecosistema', $ecosistema)->with('manejoambiental', $manejoambiental);
     }
     /**
      * Store a newly created AreaInfluencia in storage.

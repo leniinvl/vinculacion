@@ -43,48 +43,56 @@
 <!-- Manejoambiental Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('ManejoAmbiental_id', 'Manejoambiental Id:') !!}
+    <a href="{{route('manejoAmbientals.index')}}">(Añadir Nueva)</a>
     {!! Form::select('ManejoAmbiental_id', $manejoambiental, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Usosuelo Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('UsoSuelo_id', 'Usosuelo Id:') !!}
+    <a href="{{route('usoSuelos.index')}}">(Añadir Nueva)</a>
     {!! Form::select('UsoSuelo_id', $usosuelo, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Tiposuelo Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('TipoSuelo_id', 'Tiposuelo Id:') !!}
+    <a href="{{route('tipoSuelos.index')}}">(Añadir Nueva)</a>
     {!! Form::select('TipoSuelo_id', $tiposuelo, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Permeabilidadsuelo Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('PermeabilidadSuelo_id', 'Permeabilidadsuelo Id:') !!}
+    <a href="{{route('permeabilidadSuelos.index')}}">(Añadir Nueva)</a>
     {!! Form::select('PermeabilidadSuelo_id', $permeabilidadsuelo, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Clima Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('Clima_id', 'Clima Id:') !!}
+    <a href="{{route('climas.index')}}">(Añadir Nueva)</a>
     {!! Form::select('Clima_id', $clima, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Condicionesdrenaje Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('CondicionesDrenaje_id', 'Condicionesdrenaje Id:') !!}
+    <a href="{{route('condicionesDrenajes.index')}}">(Añadir Nueva)</a>
     {!! Form::select('CondicionesDrenaje_id', $condicionesdrenaje, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Ecosistema Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('Ecosistema_id', 'Ecosistema Id:') !!}
+    <a href="{{route('ecosistemas.index')}}">(Añadir Nueva)</a>
     {!! Form::select('Ecosistema_id', $ecosistema, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Caracteristicasetnicas Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('CaracteristicasEtnicas_id', 'Caracteristicasetnicas Id:') !!}
+    <a href="{{route('caracteristicasEtnicas.index')}}">(Añadir Nueva)</a>
     {!! Form::select('CaracteristicasEtnicas_id',  $caracteristicasetnicas, null, ['class' => 'form-control']) !!}
 </div>
 
