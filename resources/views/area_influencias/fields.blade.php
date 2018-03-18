@@ -49,25 +49,25 @@
 <!-- Usosuelo Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('UsoSuelo_id', 'Usosuelo Id:') !!}
-    {!! Form::number('UsoSuelo_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('UsoSuelo_id', $usosuelo, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Tiposuelo Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('TipoSuelo_id', 'Tiposuelo Id:') !!}
-    {!! Form::number('TipoSuelo_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('TipoSuelo_id', $tiposuelo, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Permeabilidadsuelo Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('PermeabilidadSuelo_id', 'Permeabilidadsuelo Id:') !!}
-    {!! Form::number('PermeabilidadSuelo_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('PermeabilidadSuelo_id', $permeabilidadsuelo, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Clima Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('Clima_id', 'Clima Id:') !!}
-    {!! Form::number('Clima_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('Clima_id', $clima, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Condicionesdrenaje Id Field -->
@@ -79,13 +79,13 @@
 <!-- Ecosistema Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('Ecosistema_id', 'Ecosistema Id:') !!}
-    {!! Form::number('Ecosistema_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('Ecosistema_id', $ecosistema, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Caracteristicasetnicas Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('CaracteristicasEtnicas_id', 'Caracteristicasetnicas Id:') !!}
-    {!! Form::number('CaracteristicasEtnicas_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('CaracteristicasEtnicas_id',  $caracteristicasetnicas, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Niveltraficodescripcion Field -->

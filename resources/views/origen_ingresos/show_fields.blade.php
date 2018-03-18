@@ -6,14 +6,14 @@
 
 <!-- Unidadproduccion Id Field -->
 <div class="form-group">
-    {!! Form::label('UnidadProduccion_id', 'Unidadproduccion Id:') !!}
-    <p>{!! $origenIngresos->UnidadProduccion_id !!}</p>
+    {!! Form::label('UnidadProduccion_id', 'Unidad de Producción:') !!}
+    <p>{!! $origenIngresos->UnidadProduccion->nombre!!}</p>
 </div>
 
 <!-- Propietario Id Field -->
 <div class="form-group">
-    {!! Form::label('Propietario_id', 'Propietario Id:') !!}
-    <p>{!! $origenIngresos->Propietario_id !!}</p>
+    {!! Form::label('Propietario_id', 'Propietario:') !!}
+    <p>{!! $origenIngresos->Propietario->nombre !!}</p>
 </div>
 
 <!-- Created At Field -->
@@ -33,4 +33,3 @@
     {!! Form::label('deleted_at', 'Deleted At:') !!}
     <p>{!! $origenIngresos->deleted_at !!}</p>
 </div>
-

@@ -17,16 +17,14 @@ class Precuaria extends Model
     use SoftDeletes;
 
     public $table = 'precuaria';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-
     protected $dates = ['deleted_at'];
 
-
     public $fillable = [
-        'nombre'
+        'nombre',
     ];
 
     /**
@@ -35,8 +33,8 @@ class Precuaria extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
-        'nombre' => 'string'
+        'id'     => 'integer',
+        'nombre' => 'string',
     ];
 
     /**
@@ -45,8 +43,7 @@ class Precuaria extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
-    
 }

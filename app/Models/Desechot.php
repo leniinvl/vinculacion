@@ -40,19 +40,17 @@ class Desechot extends Model
     use SoftDeletes;
 
     public $table = 'desechot';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-
     protected $dates = ['deleted_at'];
-
 
     public $fillable = [
         'fecha',
         'peso',
         'Taller_id',
-        'TipoDesechoT_id'
+        'TipoDesechoT_id',
     ];
 
     /**
@@ -61,10 +59,10 @@ class Desechot extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
-        'fecha' => 'date',
-        'Taller_id' => 'integer',
-        'TipoDesechoT_id' => 'integer'
+        'id'              => 'integer',
+        'fecha'           => 'date',
+        'Taller_id'       => 'integer',
+        'TipoDesechoT_id' => 'integer',
     ];
 
     /**
@@ -73,7 +71,7 @@ class Desechot extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**
@@ -81,7 +79,7 @@ class Desechot extends Model
      **/
     public function taller()
     {
-        return $this->belongsTo(\App\Models\Taller::class,'Taller_id');
+        return $this->belongsTo(\App\Models\Taller::class, 'Taller_id');
     }
 
     /**
@@ -89,6 +87,6 @@ class Desechot extends Model
      **/
     public function tipodesechot()
     {
-        return $this->belongsTo(\App\Models\Tipodesechot::class,'TipoDesechoT_id');
+        return $this->belongsTo(\App\Models\Tipodesechot::class, 'TipoDesechoT_id');
     }
 }

@@ -84,13 +84,11 @@ class AreaInfluencia extends Model
     use SoftDeletes;
 
     public $table = 'areainfluencia';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-
     protected $dates = ['deleted_at'];
-
 
     public $fillable = [
         'altitud',
@@ -119,7 +117,7 @@ class AreaInfluencia extends Model
         'ConsolidacionAreaInfluencia_id',
         'EvacuacionAguasServidas_id',
         'lat',
-        'long'
+        'long',
     ];
 
     /**
@@ -128,34 +126,34 @@ class AreaInfluencia extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
-        'altitud' => 'float',
-        'tipoTerrenoDescripcion' => 'string',
-        'detalleCalidadAire' => 'string',
-        'detalleRuido' => 'string',
-        'observacionesEcosistema' => 'string',
-        'ManejoAmbiental_id' => 'integer',
-        'CalidadAire_id' => 'integer',
-        'TipoTerreno_id' => 'integer',
-        'TipoSuelo_id' => 'integer',
-        'CalidadSuelo_id' => 'integer',
-        'Precipitaciones_id' => 'integer',
-        'NivelFratico_id' => 'integer',
-        'PermeabilidadSuelo_id' => 'integer',
-        'Clima_id' => 'integer',
-        'CondicionesDrenaje_id' => 'integer',
-        'Ruido_id' => 'integer',
-        'RecirculacionAire_id' => 'integer',
-        'Ecosistema_id' => 'integer',
-        'OrganizacionSocial_id' => 'integer',
-        'TendenciaTierra_id' => 'integer',
-        'AbastecimientoAgua_id' => 'integer',
-        'EvacuacoinAguaLluvia_id' => 'integer',
-        'CaracteristicasEtnicas_id' => 'integer',
+        'id'                             => 'integer',
+        'altitud'                        => 'float',
+        'tipoTerrenoDescripcion'         => 'string',
+        'detalleCalidadAire'             => 'string',
+        'detalleRuido'                   => 'string',
+        'observacionesEcosistema'        => 'string',
+        'ManejoAmbiental_id'             => 'integer',
+        'CalidadAire_id'                 => 'integer',
+        'TipoTerreno_id'                 => 'integer',
+        'TipoSuelo_id'                   => 'integer',
+        'CalidadSuelo_id'                => 'integer',
+        'Precipitaciones_id'             => 'integer',
+        'NivelFratico_id'                => 'integer',
+        'PermeabilidadSuelo_id'          => 'integer',
+        'Clima_id'                       => 'integer',
+        'CondicionesDrenaje_id'          => 'integer',
+        'Ruido_id'                       => 'integer',
+        'RecirculacionAire_id'           => 'integer',
+        'Ecosistema_id'                  => 'integer',
+        'OrganizacionSocial_id'          => 'integer',
+        'TendenciaTierra_id'             => 'integer',
+        'AbastecimientoAgua_id'          => 'integer',
+        'EvacuacoinAguaLluvia_id'        => 'integer',
+        'CaracteristicasEtnicas_id'      => 'integer',
         'ConsolidacionAreaInfluencia_id' => 'integer',
-        'EvacuacionAguasServidas_id' => 'integer',
-        'lat' => 'string',
-        'long' => 'string'
+        'EvacuacionAguasServidas_id'     => 'integer',
+        'lat'                            => 'string',
+        'long'                           => 'string',
     ];
 
     /**
@@ -164,7 +162,7 @@ class AreaInfluencia extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**
@@ -196,7 +194,7 @@ class AreaInfluencia extends Model
      **/
     public function caracteristicasetnica()
     {
-        return $this->belongsTo(\App\Models\Caracteristicasetnica::class);
+        return $this->belongsTo(\App\Models\Caracteristicasetnica::class, 'CaracteristicasEtnicas_id');
     }
 
     /**
@@ -204,7 +202,7 @@ class AreaInfluencia extends Model
      **/
     public function clima()
     {
-        return $this->belongsTo(\App\Models\Clima::class);
+        return $this->belongsTo(\App\Models\Clima::class, 'Clima_id');
     }
 
     /**
@@ -228,7 +226,7 @@ class AreaInfluencia extends Model
      **/
     public function ecosistema()
     {
-        return $this->belongsTo(\App\Models\Ecosistema::class);
+        return $this->belongsTo(\App\Models\Ecosistema::class, 'Ecosistema_id');
     }
 
     /**
@@ -276,7 +274,7 @@ class AreaInfluencia extends Model
      **/
     public function permeabilidadsuelo()
     {
-        return $this->belongsTo(\App\Models\Permeabilidadsuelo::class);
+        return $this->belongsTo(\App\Models\Permeabilidadsuelo::class, 'PermeabilidadSuelo_id');
     }
 
     /**
@@ -316,7 +314,7 @@ class AreaInfluencia extends Model
      **/
     public function tiposuelo()
     {
-        return $this->belongsTo(\App\Models\Tiposuelo::class);
+        return $this->belongsTo(\App\Models\Tiposuelo::class, 'TipoSuelo_id');
     }
 
     /**
@@ -397,5 +395,10 @@ class AreaInfluencia extends Model
     public function paisajes()
     {
         return $this->hasMany(\App\Models\Paisaje::class);
+    }
+
+    public function usosuelo()
+    {
+        return $this->belongsTo(\App\Models\UsoSuelo::class,'UsoSuelo_id');
     }
 }

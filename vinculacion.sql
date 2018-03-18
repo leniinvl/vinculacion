@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-03-2018 a las 13:28:53
+-- Tiempo de generación: 18-03-2018 a las 19:20:11
 -- Versión del servidor: 5.7.14
 -- Versión de PHP: 7.0.10
 
@@ -327,8 +327,8 @@ CREATE TABLE `genero` (
 --
 
 INSERT INTO `genero` (`id`, `nombre`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Femenino', '2018-03-15 13:28:29', '2018-03-15 13:28:29', NULL),
-(2, 'Masculino', '2018-03-15 13:28:29', '2018-03-15 13:28:29', NULL);
+(1, 'Femenino', '2018-03-18 19:19:37', '2018-03-18 19:19:37', NULL),
+(2, 'Masculino', '2018-03-18 19:19:37', '2018-03-18 19:19:37', NULL);
 
 -- --------------------------------------------------------
 
@@ -494,7 +494,10 @@ CREATE TABLE `plandegestionderiesgos` (
 
 CREATE TABLE `plandegestionderiesgos_has_agricultura` (
   `PlanDeGestionDeRiesgos_id` int(11) NOT NULL,
-  `Agricultura_id` int(11) NOT NULL
+  `Agricultura_id` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -505,7 +508,10 @@ CREATE TABLE `plandegestionderiesgos_has_agricultura` (
 
 CREATE TABLE `plandegestionderiesgos_has_amenazas` (
   `PlanDeGestionDeRiesgos_id` int(11) NOT NULL,
-  `Amenazas_id` int(11) NOT NULL
+  `Amenazas_id` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -516,7 +522,10 @@ CREATE TABLE `plandegestionderiesgos_has_amenazas` (
 
 CREATE TABLE `plandegestionderiesgos_has_origeningresos` (
   `PlanDeGestionDeRiesgos_id` int(11) NOT NULL,
-  `OrigenIngresos_id` int(11) NOT NULL
+  `OrigenIngresos_id` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -528,7 +537,10 @@ CREATE TABLE `plandegestionderiesgos_has_origeningresos` (
 CREATE TABLE `plandegestionderiesgos_has_tipoanimales` (
   `PlanDeGestionDeRiesgos_id` int(11) NOT NULL,
   `TipoAnimales_id` int(11) NOT NULL,
-  `cantidad_animales` int(11) DEFAULT NULL
+  `cantidad_animales` int(11) DEFAULT NULL,
+  `created_at` timestamp NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -539,7 +551,10 @@ CREATE TABLE `plandegestionderiesgos_has_tipoanimales` (
 
 CREATE TABLE `plandegestionderiesgos_has_vulnerabilidades` (
   `PlanDeGestionDeRiesgos_id` int(11) NOT NULL,
-  `Vulnerabilidades_id` int(11) NOT NULL
+  `Vulnerabilidades_id` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -921,7 +936,9 @@ CREATE TABLE `vulnerabilidades` (
 -- Indices de la tabla `agricultura`
 --
 ALTER TABLE `agricultura`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_Agricultura_UnidadProduccion1_idx` (`UnidadProduccion_id`),
+  ADD KEY `fk_Agricultura_UsoSuelo1_idx` (`UsoSuelo_id`);
 
 --
 -- Indices de la tabla `amenazas`
@@ -933,37 +950,53 @@ ALTER TABLE `amenazas`
 -- Indices de la tabla `areainfluencia`
 --
 ALTER TABLE `areainfluencia`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_AreaInfluencia_ManejoAmbiental1_idx` (`ManejoAmbiental_id`),
+  ADD KEY `fk_AreaInfluencia_TipoTerreno1_idx` (`UsoSuelo_id`),
+  ADD KEY `fk_AreaInfluencia_TipoSuelo1_idx` (`TipoSuelo_id`),
+  ADD KEY `fk_AreaInfluencia_PermeabilidadSuelo1_idx` (`PermeabilidadSuelo_id`),
+  ADD KEY `fk_AreaInfluencia_Clima1_idx` (`Clima_id`),
+  ADD KEY `fk_AreaInfluencia_CondicionesDrenaje1_idx` (`CondicionesDrenaje_id`),
+  ADD KEY `fk_AreaInfluencia_Ecosistema1_idx` (`Ecosistema_id`),
+  ADD KEY `fk_AreaInfluencia_CaracteristicasEtnicas1_idx` (`CaracteristicasEtnicas_id`);
 
 --
 -- Indices de la tabla `areainfluencia_has_lenguaje`
 --
 ALTER TABLE `areainfluencia_has_lenguaje`
-  ADD PRIMARY KEY (`AreaInfluencia_id`,`Lenguaje_id`);
+  ADD PRIMARY KEY (`AreaInfluencia_id`,`Lenguaje_id`),
+  ADD KEY `fk_AreaInfluencia_has_Lenguaje_Lenguaje1_idx` (`Lenguaje_id`),
+  ADD KEY `fk_AreaInfluencia_has_Lenguaje_AreaInfluencia1_idx` (`AreaInfluencia_id`);
 
 --
 -- Indices de la tabla `areainfluencia_has_religion`
 --
 ALTER TABLE `areainfluencia_has_religion`
-  ADD PRIMARY KEY (`AreaInfluencia_id`,`Religion_id`);
+  ADD PRIMARY KEY (`AreaInfluencia_id`,`Religion_id`),
+  ADD KEY `fk_AreaInfluencia_has_Religion_Religion1_idx` (`Religion_id`),
+  ADD KEY `fk_AreaInfluencia_has_Religion_AreaInfluencia1_idx` (`AreaInfluencia_id`);
 
 --
 -- Indices de la tabla `areainfluencia_has_tipovegetal`
 --
 ALTER TABLE `areainfluencia_has_tipovegetal`
-  ADD PRIMARY KEY (`AreaInfluencia_id`,`TipoVegetal_id`);
+  ADD PRIMARY KEY (`AreaInfluencia_id`,`TipoVegetal_id`),
+  ADD KEY `fk_AreaInfluencia_has_TipoVegetal_TipoVegetal1_idx` (`TipoVegetal_id`),
+  ADD KEY `fk_AreaInfluencia_has_TipoVegetal_AreaInfluencia1_idx` (`AreaInfluencia_id`);
 
 --
 -- Indices de la tabla `asociacion`
 --
 ALTER TABLE `asociacion`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_Asociacion_TipoAsociacion1_idx` (`TipoAsociacion_id`);
 
 --
 -- Indices de la tabla `biodigestor`
 --
 ALTER TABLE `biodigestor`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_Biodigestor_UnidadProduccion1_idx` (`UnidadProduccion_id`);
 
 --
 -- Indices de la tabla `caracteristicasetnicas`
@@ -981,7 +1014,8 @@ ALTER TABLE `categoriaproyecto`
 -- Indices de la tabla `ciudad`
 --
 ALTER TABLE `ciudad`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_Ciudad_Pais1_idx` (`Pais_id`);
 
 --
 -- Indices de la tabla `clima`
@@ -999,13 +1033,17 @@ ALTER TABLE `condicionesdrenaje`
 -- Indices de la tabla `desecho`
 --
 ALTER TABLE `desecho`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_Desecho_Biodigestor1_idx` (`Biodigestor_id`),
+  ADD KEY `fk_Desecho_TipoDesecho1_idx` (`TipoDesecho_id`);
 
 --
 -- Indices de la tabla `desechot`
 --
 ALTER TABLE `desechot`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_DesechoT_Taller1_idx` (`Taller_id`),
+  ADD KEY `fk_DesechoT_TipoDesechoT1_idx` (`TipoDesechoT_id`);
 
 --
 -- Indices de la tabla `destino`
@@ -1035,7 +1073,10 @@ ALTER TABLE `lenguaje`
 -- Indices de la tabla `manejoambiental`
 --
 ALTER TABLE `manejoambiental`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_ManejoAmbiental_TipoProyecto1_idx` (`TipoProyecto_id`),
+  ADD KEY `fk_ManejoAmbiental_CategoriaProyecto1_idx` (`CategoriaProyecto_id`),
+  ADD KEY `fk_ManejoAmbiental_UnidadProduccion1_idx` (`UnidadProduccion_id`);
 
 --
 -- Indices de la tabla `migrations`
@@ -1047,7 +1088,9 @@ ALTER TABLE `migrations`
 -- Indices de la tabla `origeningresos`
 --
 ALTER TABLE `origeningresos`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_OrigenIngresos_UnidadProduccion1_idx` (`UnidadProduccion_id`),
+  ADD KEY `fk_OrigenIngresos_Propietario1_idx` (`Propietario_id`);
 
 --
 -- Indices de la tabla `pais`
@@ -1059,7 +1102,8 @@ ALTER TABLE `pais`
 -- Indices de la tabla `paisaje`
 --
 ALTER TABLE `paisaje`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_Paisaje_AreaInfluencia1_idx` (`AreaInfluencia_id`);
 
 --
 -- Indices de la tabla `password_resets`
@@ -1083,37 +1127,50 @@ ALTER TABLE `permeabilidadsuelo`
 -- Indices de la tabla `plandegestionderiesgos`
 --
 ALTER TABLE `plandegestionderiesgos`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_PlanDeGestionDeRiesgos_TipoAbono1_idx` (`TipoAbono_id`),
+  ADD KEY `fk_PlanDeGestionDeRiesgos_TipoControlPlaga1_idx` (`TipoControlPlaga_id`),
+  ADD KEY `fk_PlanDeGestionDeRiesgos_TipoCultivos1_idx` (`TipoCultivos_id`);
 
 --
 -- Indices de la tabla `plandegestionderiesgos_has_agricultura`
 --
 ALTER TABLE `plandegestionderiesgos_has_agricultura`
-  ADD PRIMARY KEY (`PlanDeGestionDeRiesgos_id`,`Agricultura_id`);
+  ADD PRIMARY KEY (`PlanDeGestionDeRiesgos_id`,`Agricultura_id`),
+  ADD KEY `fk_PlanDeGestionDeRiesgos_has_Agricultura_Agricultura1_idx` (`Agricultura_id`),
+  ADD KEY `fk_PlanDeGestionDeRiesgos_has_Agricultura_PlanDeGestionDeRi_idx` (`PlanDeGestionDeRiesgos_id`);
 
 --
 -- Indices de la tabla `plandegestionderiesgos_has_amenazas`
 --
 ALTER TABLE `plandegestionderiesgos_has_amenazas`
-  ADD PRIMARY KEY (`PlanDeGestionDeRiesgos_id`,`Amenazas_id`);
+  ADD PRIMARY KEY (`PlanDeGestionDeRiesgos_id`,`Amenazas_id`),
+  ADD KEY `fk_PlanDeGestionDeRiesgos_has_Amenazas_Amenazas1_idx` (`Amenazas_id`),
+  ADD KEY `fk_PlanDeGestionDeRiesgos_has_Amenazas_PlanDeGestionDeRiesg_idx` (`PlanDeGestionDeRiesgos_id`);
 
 --
 -- Indices de la tabla `plandegestionderiesgos_has_origeningresos`
 --
 ALTER TABLE `plandegestionderiesgos_has_origeningresos`
-  ADD PRIMARY KEY (`PlanDeGestionDeRiesgos_id`,`OrigenIngresos_id`);
+  ADD PRIMARY KEY (`PlanDeGestionDeRiesgos_id`,`OrigenIngresos_id`),
+  ADD KEY `fk_PlanDeGestionDeRiesgos_has_OrigenIngresos_OrigenIngresos_idx` (`OrigenIngresos_id`),
+  ADD KEY `fk_PlanDeGestionDeRiesgos_has_OrigenIngresos_PlanDeGestionD_idx` (`PlanDeGestionDeRiesgos_id`);
 
 --
 -- Indices de la tabla `plandegestionderiesgos_has_tipoanimales`
 --
 ALTER TABLE `plandegestionderiesgos_has_tipoanimales`
-  ADD PRIMARY KEY (`PlanDeGestionDeRiesgos_id`,`TipoAnimales_id`);
+  ADD PRIMARY KEY (`PlanDeGestionDeRiesgos_id`,`TipoAnimales_id`),
+  ADD KEY `fk_PlanDeGestionDeRiesgos_has_TipoAnimales_TipoAnimales1_idx` (`TipoAnimales_id`),
+  ADD KEY `fk_PlanDeGestionDeRiesgos_has_TipoAnimales_PlanDeGestionDeR_idx` (`PlanDeGestionDeRiesgos_id`);
 
 --
 -- Indices de la tabla `plandegestionderiesgos_has_vulnerabilidades`
 --
 ALTER TABLE `plandegestionderiesgos_has_vulnerabilidades`
-  ADD PRIMARY KEY (`PlanDeGestionDeRiesgos_id`,`Vulnerabilidades_id`);
+  ADD PRIMARY KEY (`PlanDeGestionDeRiesgos_id`,`Vulnerabilidades_id`),
+  ADD KEY `fk_PlanDeGestionDeRiesgos_has_Vulnerabilidades_Vulnerabilid_idx` (`Vulnerabilidades_id`),
+  ADD KEY `fk_PlanDeGestionDeRiesgos_has_Vulnerabilidades_PlanDeGestio_idx` (`PlanDeGestionDeRiesgos_id`);
 
 --
 -- Indices de la tabla `precuaria`
@@ -1125,14 +1182,16 @@ ALTER TABLE `precuaria`
 -- Indices de la tabla `producto`
 --
 ALTER TABLE `producto`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_Producto_TipoProducto1_idx` (`TipoProducto_id`);
 
 --
 -- Indices de la tabla `propietario`
 --
 ALTER TABLE `propietario`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `ci_UNIQUE` (`ci`);
+  ADD UNIQUE KEY `ci_UNIQUE` (`ci`),
+  ADD KEY `fk_Propietario_Genero1_idx` (`Genero_id`);
 
 --
 -- Indices de la tabla `religion`
@@ -1144,7 +1203,8 @@ ALTER TABLE `religion`
 -- Indices de la tabla `taller`
 --
 ALTER TABLE `taller`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_Taller_UnidadProduccion1_idx` (`UnidadProduccion_id`);
 
 --
 -- Indices de la tabla `tipoabono`
@@ -1156,7 +1216,11 @@ ALTER TABLE `tipoabono`
 -- Indices de la tabla `tipoanimales`
 --
 ALTER TABLE `tipoanimales`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_TipoAnimales_TipoProduccion1_idx` (`TipoProduccion_id`),
+  ADD KEY `fk_TipoAnimales_TipoUnidad1_idx` (`TipoUnidad_id`),
+  ADD KEY `fk_TipoAnimales_Destino1_idx` (`Destino_id`),
+  ADD KEY `fk_TipoAnimales_Precuaria1_idx` (`Precuaria_id`);
 
 --
 -- Indices de la tabla `tipoasociacion`
@@ -1228,19 +1292,27 @@ ALTER TABLE `tipovegetal`
 -- Indices de la tabla `trabajadores`
 --
 ALTER TABLE `trabajadores`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_Trabajadores_PlanDeGestionDeRiesgos1_idx` (`PlanDeGestionDeRiesgos_id`),
+  ADD KEY `fk_Trabajadores_Genero1_idx` (`Genero_id`),
+  ADD KEY `fk_Trabajadores_Pais1_idx` (`Pais_id`),
+  ADD KEY `fk_Trabajadores_Ciudad1_idx` (`Ciudad_id`);
 
 --
 -- Indices de la tabla `unidadproduccion`
 --
 ALTER TABLE `unidadproduccion`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_UnidadProduccion_Asociacion1_idx` (`Asociacion_id`),
+  ADD KEY `fk_UnidadProduccion_Producto1_idx` (`Producto_id`);
 
 --
 -- Indices de la tabla `unidadproduccion_has_propietario`
 --
 ALTER TABLE `unidadproduccion_has_propietario`
-  ADD PRIMARY KEY (`UnidadProduccion_id`);
+  ADD PRIMARY KEY (`UnidadProduccion_id`),
+  ADD KEY `fk_UnidadProduccion_has_Propietario_Propietario1_idx` (`Propietario_ci`),
+  ADD KEY `fk_UnidadProduccion_has_Propietario_UnidadProduccion1_idx` (`UnidadProduccion_id`);
 
 --
 -- Indices de la tabla `users`
@@ -1500,6 +1572,197 @@ ALTER TABLE `usosuelo`
 --
 ALTER TABLE `vulnerabilidades`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `agricultura`
+--
+ALTER TABLE `agricultura`
+  ADD CONSTRAINT `fk_Agricultura_UnidadProduccion1` FOREIGN KEY (`UnidadProduccion_id`) REFERENCES `unidadproduccion` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_Agricultura_UsoSuelo1` FOREIGN KEY (`UsoSuelo_id`) REFERENCES `usosuelo` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `areainfluencia`
+--
+ALTER TABLE `areainfluencia`
+  ADD CONSTRAINT `fk_AreaInfluencia_CaracteristicasEtnicas1` FOREIGN KEY (`CaracteristicasEtnicas_id`) REFERENCES `caracteristicasetnicas` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_AreaInfluencia_Clima1` FOREIGN KEY (`Clima_id`) REFERENCES `clima` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_AreaInfluencia_CondicionesDrenaje1` FOREIGN KEY (`CondicionesDrenaje_id`) REFERENCES `condicionesdrenaje` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_AreaInfluencia_Ecosistema1` FOREIGN KEY (`Ecosistema_id`) REFERENCES `ecosistema` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_AreaInfluencia_ManejoAmbiental1` FOREIGN KEY (`ManejoAmbiental_id`) REFERENCES `manejoambiental` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_AreaInfluencia_PermeabilidadSuelo1` FOREIGN KEY (`PermeabilidadSuelo_id`) REFERENCES `permeabilidadsuelo` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_AreaInfluencia_TipoSuelo1` FOREIGN KEY (`TipoSuelo_id`) REFERENCES `tiposuelo` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_AreaInfluencia_TipoTerreno1` FOREIGN KEY (`UsoSuelo_id`) REFERENCES `usosuelo` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `areainfluencia_has_lenguaje`
+--
+ALTER TABLE `areainfluencia_has_lenguaje`
+  ADD CONSTRAINT `fk_AreaInfluencia_has_Lenguaje_AreaInfluencia1` FOREIGN KEY (`AreaInfluencia_id`) REFERENCES `areainfluencia` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_AreaInfluencia_has_Lenguaje_Lenguaje1` FOREIGN KEY (`Lenguaje_id`) REFERENCES `lenguaje` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `areainfluencia_has_religion`
+--
+ALTER TABLE `areainfluencia_has_religion`
+  ADD CONSTRAINT `fk_AreaInfluencia_has_Religion_AreaInfluencia1` FOREIGN KEY (`AreaInfluencia_id`) REFERENCES `areainfluencia` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_AreaInfluencia_has_Religion_Religion1` FOREIGN KEY (`Religion_id`) REFERENCES `religion` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `areainfluencia_has_tipovegetal`
+--
+ALTER TABLE `areainfluencia_has_tipovegetal`
+  ADD CONSTRAINT `fk_AreaInfluencia_has_TipoVegetal_AreaInfluencia1` FOREIGN KEY (`AreaInfluencia_id`) REFERENCES `areainfluencia` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_AreaInfluencia_has_TipoVegetal_TipoVegetal1` FOREIGN KEY (`TipoVegetal_id`) REFERENCES `tipovegetal` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `asociacion`
+--
+ALTER TABLE `asociacion`
+  ADD CONSTRAINT `fk_Asociacion_TipoAsociacion1` FOREIGN KEY (`TipoAsociacion_id`) REFERENCES `tipoasociacion` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `biodigestor`
+--
+ALTER TABLE `biodigestor`
+  ADD CONSTRAINT `fk_Biodigestor_UnidadProduccion1` FOREIGN KEY (`UnidadProduccion_id`) REFERENCES `unidadproduccion` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `ciudad`
+--
+ALTER TABLE `ciudad`
+  ADD CONSTRAINT `fk_Ciudad_Pais1` FOREIGN KEY (`Pais_id`) REFERENCES `pais` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `desecho`
+--
+ALTER TABLE `desecho`
+  ADD CONSTRAINT `fk_Desecho_Biodigestor1` FOREIGN KEY (`Biodigestor_id`) REFERENCES `biodigestor` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_Desecho_TipoDesecho1` FOREIGN KEY (`TipoDesecho_id`) REFERENCES `tipodesecho` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `desechot`
+--
+ALTER TABLE `desechot`
+  ADD CONSTRAINT `fk_DesechoT_Taller1` FOREIGN KEY (`Taller_id`) REFERENCES `taller` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_DesechoT_TipoDesechoT1` FOREIGN KEY (`TipoDesechoT_id`) REFERENCES `tipodesechot` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `manejoambiental`
+--
+ALTER TABLE `manejoambiental`
+  ADD CONSTRAINT `fk_ManejoAmbiental_CategoriaProyecto1` FOREIGN KEY (`CategoriaProyecto_id`) REFERENCES `categoriaproyecto` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_ManejoAmbiental_TipoProyecto1` FOREIGN KEY (`TipoProyecto_id`) REFERENCES `tipoproyecto` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_ManejoAmbiental_UnidadProduccion1` FOREIGN KEY (`UnidadProduccion_id`) REFERENCES `unidadproduccion` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `origeningresos`
+--
+ALTER TABLE `origeningresos`
+  ADD CONSTRAINT `fk_OrigenIngresos_Propietario1` FOREIGN KEY (`Propietario_id`) REFERENCES `propietario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_OrigenIngresos_UnidadProduccion1` FOREIGN KEY (`UnidadProduccion_id`) REFERENCES `unidadproduccion` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `paisaje`
+--
+ALTER TABLE `paisaje`
+  ADD CONSTRAINT `fk_Paisaje_AreaInfluencia1` FOREIGN KEY (`AreaInfluencia_id`) REFERENCES `areainfluencia` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `plandegestionderiesgos`
+--
+ALTER TABLE `plandegestionderiesgos`
+  ADD CONSTRAINT `fk_PlanDeGestionDeRiesgos_TipoAbono1` FOREIGN KEY (`TipoAbono_id`) REFERENCES `tipoabono` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_PlanDeGestionDeRiesgos_TipoControlPlaga1` FOREIGN KEY (`TipoControlPlaga_id`) REFERENCES `tipocontrolplaga` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_PlanDeGestionDeRiesgos_TipoCultivos1` FOREIGN KEY (`TipoCultivos_id`) REFERENCES `tipocultivos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `plandegestionderiesgos_has_agricultura`
+--
+ALTER TABLE `plandegestionderiesgos_has_agricultura`
+  ADD CONSTRAINT `fk_PlanDeGestionDeRiesgos_has_Agricultura_Agricultura1` FOREIGN KEY (`Agricultura_id`) REFERENCES `agricultura` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_PlanDeGestionDeRiesgos_has_Agricultura_PlanDeGestionDeRies1` FOREIGN KEY (`PlanDeGestionDeRiesgos_id`) REFERENCES `plandegestionderiesgos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `plandegestionderiesgos_has_amenazas`
+--
+ALTER TABLE `plandegestionderiesgos_has_amenazas`
+  ADD CONSTRAINT `fk_PlanDeGestionDeRiesgos_has_Amenazas_Amenazas1` FOREIGN KEY (`Amenazas_id`) REFERENCES `amenazas` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_PlanDeGestionDeRiesgos_has_Amenazas_PlanDeGestionDeRiesgos1` FOREIGN KEY (`PlanDeGestionDeRiesgos_id`) REFERENCES `plandegestionderiesgos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `plandegestionderiesgos_has_origeningresos`
+--
+ALTER TABLE `plandegestionderiesgos_has_origeningresos`
+  ADD CONSTRAINT `fk_PlanDeGestionDeRiesgos_has_OrigenIngresos_OrigenIngresos1` FOREIGN KEY (`OrigenIngresos_id`) REFERENCES `origeningresos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_PlanDeGestionDeRiesgos_has_OrigenIngresos_PlanDeGestionDeR1` FOREIGN KEY (`PlanDeGestionDeRiesgos_id`) REFERENCES `plandegestionderiesgos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `plandegestionderiesgos_has_tipoanimales`
+--
+ALTER TABLE `plandegestionderiesgos_has_tipoanimales`
+  ADD CONSTRAINT `fk_PlanDeGestionDeRiesgos_has_TipoAnimales_PlanDeGestionDeRie1` FOREIGN KEY (`PlanDeGestionDeRiesgos_id`) REFERENCES `plandegestionderiesgos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_PlanDeGestionDeRiesgos_has_TipoAnimales_TipoAnimales1` FOREIGN KEY (`TipoAnimales_id`) REFERENCES `tipoanimales` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `plandegestionderiesgos_has_vulnerabilidades`
+--
+ALTER TABLE `plandegestionderiesgos_has_vulnerabilidades`
+  ADD CONSTRAINT `fk_PlanDeGestionDeRiesgos_has_Vulnerabilidades_PlanDeGestionD1` FOREIGN KEY (`PlanDeGestionDeRiesgos_id`) REFERENCES `plandegestionderiesgos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_PlanDeGestionDeRiesgos_has_Vulnerabilidades_Vulnerabilidad1` FOREIGN KEY (`Vulnerabilidades_id`) REFERENCES `vulnerabilidades` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `producto`
+--
+ALTER TABLE `producto`
+  ADD CONSTRAINT `fk_Producto_TipoProducto1` FOREIGN KEY (`TipoProducto_id`) REFERENCES `tipoproducto` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `propietario`
+--
+ALTER TABLE `propietario`
+  ADD CONSTRAINT `fk_Propietario_Genero1` FOREIGN KEY (`Genero_id`) REFERENCES `genero` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `taller`
+--
+ALTER TABLE `taller`
+  ADD CONSTRAINT `fk_Taller_UnidadProduccion1` FOREIGN KEY (`UnidadProduccion_id`) REFERENCES `unidadproduccion` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `tipoanimales`
+--
+ALTER TABLE `tipoanimales`
+  ADD CONSTRAINT `fk_TipoAnimales_Destino1` FOREIGN KEY (`Destino_id`) REFERENCES `destino` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_TipoAnimales_Precuaria1` FOREIGN KEY (`Precuaria_id`) REFERENCES `precuaria` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_TipoAnimales_TipoProduccion1` FOREIGN KEY (`TipoProduccion_id`) REFERENCES `tipoproduccion` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_TipoAnimales_TipoUnidad1` FOREIGN KEY (`TipoUnidad_id`) REFERENCES `tipounidad` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `trabajadores`
+--
+ALTER TABLE `trabajadores`
+  ADD CONSTRAINT `fk_Trabajadores_Ciudad1` FOREIGN KEY (`Ciudad_id`) REFERENCES `ciudad` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_Trabajadores_Genero1` FOREIGN KEY (`Genero_id`) REFERENCES `genero` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_Trabajadores_Pais1` FOREIGN KEY (`Pais_id`) REFERENCES `pais` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_Trabajadores_PlanDeGestionDeRiesgos1` FOREIGN KEY (`PlanDeGestionDeRiesgos_id`) REFERENCES `plandegestionderiesgos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `unidadproduccion`
+--
+ALTER TABLE `unidadproduccion`
+  ADD CONSTRAINT `fk_UnidadProduccion_Asociacion1` FOREIGN KEY (`Asociacion_id`) REFERENCES `asociacion` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_UnidadProduccion_Producto1` FOREIGN KEY (`Producto_id`) REFERENCES `producto` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `unidadproduccion_has_propietario`
+--
+ALTER TABLE `unidadproduccion_has_propietario`
+  ADD CONSTRAINT `fk_UnidadProduccion_has_Propietario_Propietario1` FOREIGN KEY (`Propietario_ci`) REFERENCES `propietario` (`ci`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_UnidadProduccion_has_Propietario_UnidadProduccion1` FOREIGN KEY (`UnidadProduccion_id`) REFERENCES `unidadproduccion` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

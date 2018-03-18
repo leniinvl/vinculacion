@@ -69,12 +69,12 @@
             <td>{!! $areaInfluencia->long !!}</td>
             <td>{!! $areaInfluencia->ManejoAmbiental->nombre !!}</td>
             <td>{!! $areaInfluencia->UsoSuelo_id !!}</td>
-            <td>{!! $areaInfluencia->TipoSuelo_id !!}</td>
-            <td>{!! $areaInfluencia->PermeabilidadSuelo_id !!}</td>
-            <td>{!! $areaInfluencia->Clima_id !!}</td>
+            <td>{!! $areaInfluencia->TipoSuelo_id->nombre !!}</td>
+            <td>{!! $areaInfluencia->permeabilidadsuelo->nombre !!}</td>
+            <td>{!! $areaInfluencia->Clima_id->nombre !!}</td>
             <td>{!! $areaInfluencia->CondicionesDrenaje->nombre !!}</td>
-            <td>{!! $areaInfluencia->Ecosistema_id !!}</td>
-            <td>{!! $areaInfluencia->CaracteristicasEtnicas_id !!}</td>
+            <td>{!! $areaInfluencia->Ecosistema_id->nombre !!}</td>
+            <td>{!! $areaInfluencia->CaracteristicasEtnicas_id->nombre !!}</td>
             <td>{!! $areaInfluencia->nivelTraficoDescripcion !!}</td>
             <td>{!! $areaInfluencia->recirculacionAireDescripcion !!}</td>
             <td>{!! $areaInfluencia->organizacionSocialDescripcion !!}</td>
