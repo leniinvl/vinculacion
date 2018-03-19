@@ -93,4 +93,15 @@ class PlanDeGestionDeRiesgos extends Model
         return $this->belongsToMany(\App\Models\Amenazas::class, 'plandegestionderiesgos_has_Amenazas','plandegestionderiesgos_id', 'amenazas_id')->withTimestamps();
      }
 
+     public function vulnerabilidades()
+     {
+        return $this->belongsToMany(\App\Models\Vulnerabilidades::class, 'plandegestionderiesgos_has_Vulnerabilidades','plandegestionderiesgos_id', 'vulnerabilidades_id')->withTimestamps();
+     }
+
+     public function agriculturas()
+     {
+        return $this->belongsToMany(\App\Models\Agricultura::class, 'plandegestionderiesgos_has_Agricultura','plandegestionderiesgos_id', 'agricultura_id')->withTimestamps();
+     }
+
+
 }

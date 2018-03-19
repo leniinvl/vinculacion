@@ -12,6 +12,8 @@ use App\Models\TipoAnimales;
 use App\Models\TipoControlPlaga;
 use App\Models\TipoCultivos;
 use App\Models\Amenazas;
+use App\Models\Vulnerabilidades;
+use App\Models\Agricultura;
 use App\Repositories\PlanDeGestionDeRiesgosRepository;
 use Flash;
 use Illuminate\Http\Request;
@@ -91,6 +93,8 @@ class PlanDeGestionDeRiesgosController extends AppBaseController
         $tipoanimales           = TipoAnimales::all()->pluck('nombre', 'id');
         $origeningresos         = OrigenIngresos::all()->pluck('nombre', 'id');
         $amenazas               = Amenazas::all()->pluck('nombre','id');
+        $vulnerabilidades       = Vulnerabilidades::all()->pluck('nombre','id');
+        $agriculturas           = Agricultura::all()->pluck('nombre','id');
 
         if (empty($planDeGestionDeRiesgos)) {
             Flash::error('Plan De Gestion De Riesgos not found');
@@ -102,7 +106,9 @@ class PlanDeGestionDeRiesgosController extends AppBaseController
             ->with('planDeGestionDeRiesgos', $planDeGestionDeRiesgos)
             ->with('tipoanimales', $tipoanimales)
             ->with('origeningresos', $origeningresos)
-            ->with('amenazas',$amenazas);
+            ->with('amenazas',$amenazas)
+            ->with('vulnerabilidades',$vulnerabilidades)
+            ->with('agriculturas',$agriculturas);
     }
 
     /**
@@ -220,5 +226,30 @@ class PlanDeGestionDeRiesgosController extends AppBaseController
         $planriesgos->amenazas()->detach($id);
         return redirect(url('planDeGestionDeRiesgos/' . $planriesgos->id));
     }
-
+    public function storeVulnerabilidades(Request $request, $idplanriesgos)
+    {
+        $planriesgos = PlanDeGestionDeRiesgos::find($idplanriesgos);
+        $planriesgos->vulnerabilidades()->attach($request->vulnerabilidades_id);
+        Flash::success('Vulnerabilidad guardada exitosamente.');
+        return redirect(url('planDeGestionDeRiesgos/' . $planriesgos->id));
+    }
+    public function destroyVulnerabilidades($idplanriesgos, $id)
+    {
+        $planriesgos = PlanDeGestionDeRiesgos::find($idplanriesgos);
+        $planriesgos->vulnerabilidades()->detach($id);
+        return redirect(url('planDeGestionDeRiesgos/' . $planriesgos->id));
+    }
+    public function storeAgriculturas(Request $request, $idplanriesgos)
+    {
+        $planriesgos = PlanDeGestionDeRiesgos::find($idplanriesgos);
+        $planriesgos->agriculturas()->attach($request->agricultura_id);
+        Flash::success('Agricultura agregada exitosamente.');
+        return redirect(url('planDeGestionDeRiesgos/' . $planriesgos->id));
+    }
+    public function destroyAgriculturas($idplanriesgos, $id)
+    {
+        $planriesgos = PlanDeGestionDeRiesgos::find($idplanriesgos);
+        $planriesgos->agriculturas()->detach($id);
+        return redirect(url('planDeGestionDeRiesgos/' . $planriesgos->id));
+    }
 }

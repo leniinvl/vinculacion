@@ -97,7 +97,7 @@
                         {!! Form::close() !!}
 
 
-                    <table class="table table-responsive" id="planRiesgosHasOrigenIngresos-table">
+                    <table class="table table-responsive" id="planRiesgosHasAmenazas-table">
                         <thead>
                             <tr>
                                 <th>Nombre</th>
@@ -121,6 +121,79 @@
                         </tbody>
                     </table>
 
+                    <h5>Vulnerabilidades</h5>
+                    <div class="form-group col-sm-6">
+
+                        {!! Form::open(['route' => ['storeVulnerabilidades', $planDeGestionDeRiesgos->id], 'method' => 'post']) !!}
+                        {{ csrf_field() }}
+                        {!! Form::select('vulnerabilidades_id', $vulnerabilidades, null, ['class' => 'form-control']) !!}
+
+                    </div>
+                        {!! Form::submit('Agregar', ['class' => 'btn btn-primary']) !!}
+
+                        {!! Form::close() !!}
+
+
+                    <table class="table table-responsive" id="planRiesgosHasVulnerabilidades-table">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th colspan="3">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($planDeGestionDeRiesgos->vulnerabilidades as $planRiesgosHasVulnerabilidades)
+                            <tr>
+                                <td>{!! $planRiesgosHasVulnerabilidades->nombre !!}</td>
+                                <td>
+                                    {!! Form::open(['route' => ['destroyVulnerabilidades', $planDeGestionDeRiesgos->id, $planRiesgosHasVulnerabilidades->id], 'method' => 'delete']) !!}
+                                    <div class='btn-group'>
+
+                                        {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                                    </div>
+                                    {!! Form::close() !!}
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+
+                    <h5>Agricultura</h5>
+                    <div class="form-group col-sm-6">
+
+                        {!! Form::open(['route' => ['storeAgriculturas', $planDeGestionDeRiesgos->id], 'method' => 'post']) !!}
+                        {{ csrf_field() }}
+                        {!! Form::select('agricultura_id', $agriculturas, null, ['class' => 'form-control']) !!}
+
+                    </div>
+                        {!! Form::submit('Agregar', ['class' => 'btn btn-primary']) !!}
+
+                        {!! Form::close() !!}
+
+
+                    <table class="table table-responsive" id="planRiesgosHasAgriculturas-table">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th colspan="3">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($planDeGestionDeRiesgos->agriculturas as $planRiesgosHasAgriculturas)
+                            <tr>
+                                <td>{!! $planRiesgosHasAgriculturas->nombre !!}</td>
+                                <td>
+                                    {!! Form::open(['route' => ['destroyAgriculturas', $planDeGestionDeRiesgos->id, $planRiesgosHasAgriculturas  ->id], 'method' => 'delete']) !!}
+                                    <div class='btn-group'>
+
+                                        {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                                    </div>
+                                    {!! Form::close() !!}
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
                     <a href="{!! route('planDeGestionDeRiesgos.index') !!}" class="btn btn-default">Atrás</a>
                 </div>
             </div>
