@@ -6,12 +6,12 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class PlanRiesgos_Has_OrigenIngresos
+ * Class PlanDeGestionDeRiesgos_Has_TipoAnimales
  * @package App\Models
- * @version March 19, 2018, 8:19 am UTC
+ * @version March 19, 2018, 5:23 am UTC
  *
- * @property \App\Models\Origeningreso origeningreso
  * @property \App\Models\Plandegestionderiesgo plandegestionderiesgo
+ * @property \App\Models\Tipoanimale tipoanimale
  * @property \Illuminate\Database\Eloquent\Collection agricultura
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasLenguaje
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasReligion
@@ -21,17 +21,18 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \Illuminate\Database\Eloquent\Collection origeningresos
  * @property \Illuminate\Database\Eloquent\Collection plandegestionderiesgosHasAgricultura
  * @property \Illuminate\Database\Eloquent\Collection plandegestionderiesgosHasAmenazas
- * @property \Illuminate\Database\Eloquent\Collection plandegestionderiesgosHasTipoanimales
+ * @property \Illuminate\Database\Eloquent\Collection plandegestionderiesgosHasOrigeningresos
  * @property \Illuminate\Database\Eloquent\Collection plandegestionderiesgosHasVulnerabilidades
  * @property \Illuminate\Database\Eloquent\Collection unidadproduccion
  * @property \Illuminate\Database\Eloquent\Collection unidadproduccionHasPropietario
- * @property integer OrigenIngresos_id
+ * @property integer TipoAnimales_id
+ * @property integer cantidad_animales
  */
-class PlanRiesgos_Has_OrigenIngresos extends Model
+class PlanDeGestionDeRiesgos_Has_TipoAnimales extends Model
 {
     use SoftDeletes;
 
-    public $table = 'plandegestionderiesgos_has_origeningresos';
+    public $table = 'plandegestionderiesgos_has_tipoanimales';
     
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
@@ -41,7 +42,8 @@ class PlanRiesgos_Has_OrigenIngresos extends Model
 
 
     public $fillable = [
-        'OrigenIngresos_id'
+        'TipoAnimales_id',
+        'cantidad_animales'
     ];
 
     /**
@@ -51,7 +53,8 @@ class PlanRiesgos_Has_OrigenIngresos extends Model
      */
     protected $casts = [
         'PlanDeGestionDeRiesgos_id' => 'integer',
-        'OrigenIngresos_id' => 'integer'
+        'TipoAnimales_id' => 'integer',
+        'cantidad_animales' => 'integer'
     ];
 
     /**
@@ -66,16 +69,16 @@ class PlanRiesgos_Has_OrigenIngresos extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function origeningreso()
+    public function plandegestionderiesgo()
     {
-        return $this->belongsTo(\App\Models\Origeningreso::class);
+        return $this->belongsTo(\App\Models\Plandegestionderiesgo::class);
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function plandegestionderiesgo()
+    public function tipoanimale()
     {
-        return $this->belongsTo(\App\Models\Plandegestionderiesgo::class);
+        return $this->belongsTo(\App\Models\Tipoanimale::class);
     }
 }

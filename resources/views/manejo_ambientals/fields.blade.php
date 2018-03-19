@@ -12,21 +12,21 @@
 
 <!-- Tipoproyecto Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('TipoProyecto_id', 'Tipoproyecto Id:') !!}
+    {!! Form::label('TipoProyecto_id', 'Tipo de Proyecto:') !!}
     <a href="{{route('tipoProyectos.index')}}">(Añadir Nueva)</a>
     {!! Form::select('TipoProyecto_id',$tipoproyecto,null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Categoriaproyecto Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('CategoriaProyecto_id', 'Categoriaproyecto Id:') !!}
+    {!! Form::label('CategoriaProyecto_id', 'Categoria del Proyecto:') !!}
     <a href="{{route('categoriaProyectos.index')}}">(Añadir Nueva)</a>
     {!! Form::select('CategoriaProyecto_id',$categoriaproyecto,null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Unidadproduccion Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('UnidadProduccion_id', 'Unidadproduccion Id:') !!}
+    {!! Form::label('UnidadProduccion_id', 'Unidad de Produccion:') !!}
     <a href="{{route('unidadproduccions.index')}}">(Añadir Nueva)</a>
     {!! Form::select('UnidadProduccion_id',$unidadproduccion,null, ['class' => 'form-control']) !!}
 </div>

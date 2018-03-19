@@ -3,9 +3,9 @@
         <tr>
             <th>Nombre</th>
         <th>Descripción</th>
-        <th>Tipoproyecto Id</th>
-        <th>Categoriaproyecto Id</th>
-        <th>Unidadproduccion Id</th>
+        <th>Tipo de Proyecto</th>
+        <th>Categoria Proyecto</th>
+        <th>Unidad Produccion</th>
             <th colspan="3">Acciones</th>
         </tr>
     </thead>

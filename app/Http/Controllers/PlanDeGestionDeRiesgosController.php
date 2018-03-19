@@ -5,17 +5,20 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreatePlanDeGestionDeRiesgosRequest;
 use App\Http\Requests\UpdatePlanDeGestionDeRiesgosRequest;
+use App\Models\OrigenIngresos;
+use App\Models\PlanDeGestionDeRiesgos;
 use App\Models\TipoAbono;
+use App\Models\TipoAnimales;
 use App\Models\TipoControlPlaga;
 use App\Models\TipoCultivos;
+use App\Models\Amenazas;
+use App\Models\Vulnerabilidades;
+use App\Models\Agricultura;
 use App\Repositories\PlanDeGestionDeRiesgosRepository;
 use Flash;
 use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
-use App\Models\TipoAnimales;
-use App\Models\OrigenIngresos;
-use App\Models\PlanDeGestionDeRiesgos;
 
 class PlanDeGestionDeRiesgosController extends AppBaseController
 {
@@ -87,8 +90,11 @@ class PlanDeGestionDeRiesgosController extends AppBaseController
     public function show($id)
     {
         $planDeGestionDeRiesgos = $this->planDeGestionDeRiesgosRepository->findWithoutFail($id);
-        $tipoanimales = TipoAnimales::all()->pluck('nombre', 'id');
-        $origeningresos = OrigenIngresos::all()->pluck('nombre', 'id');
+        $tipoanimales           = TipoAnimales::all()->pluck('nombre', 'id');
+        $origeningresos         = OrigenIngresos::all()->pluck('nombre', 'id');
+        $amenazas               = Amenazas::all()->pluck('nombre','id');
+        $vulnerabilidades       = Vulnerabilidades::all()->pluck('nombre','id');
+        $agriculturas           = Agricultura::all()->pluck('nombre','id');
 
         if (empty($planDeGestionDeRiesgos)) {
             Flash::error('Plan De Gestion De Riesgos not found');
@@ -96,8 +102,13 @@ class PlanDeGestionDeRiesgosController extends AppBaseController
             return redirect(route('planDeGestionDeRiesgos.index'));
         }
 
-        return view('plan_de_gestion_de_riesgos.show')->with('planDeGestionDeRiesgos', $planDeGestionDeRiesgos)->with('tipoanimales', $tipoanimales)
-        ->with('origeningresos', $origeningresos);
+        return view('plan_de_gestion_de_riesgos.show')
+            ->with('planDeGestionDeRiesgos', $planDeGestionDeRiesgos)
+            ->with('tipoanimales', $tipoanimales)
+            ->with('origeningresos', $origeningresos)
+            ->with('amenazas',$amenazas)
+            ->with('vulnerabilidades',$vulnerabilidades)
+            ->with('agriculturas',$agriculturas);
     }
 
     /**
@@ -200,6 +211,45 @@ class PlanDeGestionDeRiesgosController extends AppBaseController
     {
         $planriesgos = PlanDeGestionDeRiesgos::find($idplanriesgos);
         $planriesgos->OrigenIngresos()->detach($id);
+        return redirect(url('planDeGestionDeRiesgos/' . $planriesgos->id));
+    }
+    public function storeAmenazas(Request $request, $idplanriesgos)
+    {
+        $planriesgos = PlanDeGestionDeRiesgos::find($idplanriesgos);
+        $planriesgos->amenazas()->attach($request->amenazas_id);
+        Flash::success('Amenaza saved successfully.');
+        return redirect(url('planDeGestionDeRiesgos/' . $planriesgos->id));
+    }
+    public function destroyAmenazas($idplanriesgos, $id)
+    {
+        $planriesgos = PlanDeGestionDeRiesgos::find($idplanriesgos);
+        $planriesgos->amenazas()->detach($id);
+        return redirect(url('planDeGestionDeRiesgos/' . $planriesgos->id));
+    }
+    public function storeVulnerabilidades(Request $request, $idplanriesgos)
+    {
+        $planriesgos = PlanDeGestionDeRiesgos::find($idplanriesgos);
+        $planriesgos->vulnerabilidades()->attach($request->vulnerabilidades_id);
+        Flash::success('Vulnerabilidad guardada exitosamente.');
+        return redirect(url('planDeGestionDeRiesgos/' . $planriesgos->id));
+    }
+    public function destroyVulnerabilidades($idplanriesgos, $id)
+    {
+        $planriesgos = PlanDeGestionDeRiesgos::find($idplanriesgos);
+        $planriesgos->vulnerabilidades()->detach($id);
+        return redirect(url('planDeGestionDeRiesgos/' . $planriesgos->id));
+    }
+    public function storeAgriculturas(Request $request, $idplanriesgos)
+    {
+        $planriesgos = PlanDeGestionDeRiesgos::find($idplanriesgos);
+        $planriesgos->agriculturas()->attach($request->agricultura_id);
+        Flash::success('Agricultura agregada exitosamente.');
+        return redirect(url('planDeGestionDeRiesgos/' . $planriesgos->id));
+    }
+    public function destroyAgriculturas($idplanriesgos, $id)
+    {
+        $planriesgos = PlanDeGestionDeRiesgos::find($idplanriesgos);
+        $planriesgos->agriculturas()->detach($id);
         return redirect(url('planDeGestionDeRiesgos/' . $planriesgos->id));
     }
 }

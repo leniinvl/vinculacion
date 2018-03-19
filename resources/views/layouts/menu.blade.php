@@ -56,7 +56,6 @@
             </li>
         </span>
     </li>
-
     <li class="treeview">
         <span class="pull-right-container">
             <li class="{{ Request::is('unidadproduccions*') ? 'active' : '' }}">
@@ -79,7 +78,6 @@
             </li>
         </span>
     </li>
-
     <li class="treeview">
         <span class="pull-right-container">
             <li class="{{ Request::is('propietarios*') ? 'active' : '' }}">
@@ -106,6 +104,7 @@
         </a>
         <ul class="treeview-menu" style="">
 
+
           <li class="{{ Request::is('tipoProyectos*') ? 'active' : '' }}">
               <a href="{!! route('tipoProyectos.index') !!}">
                   <i class="fa fa-line-chart">
@@ -120,6 +119,22 @@
                   Categoría de Proyectos
               </a>
           </li>
+           <li class="{{ Request::is('caracteristicasEtnicas*') ? 'active' : '' }}">
+
+            <li class="{{ Request::is('tipoProyectos*') ? 'active' : '' }}">
+                <a href="{!! route('tipoProyectos.index') !!}">
+                    <i class="fa fa-line-chart">
+                    </i>
+                    Tipo de Proyectos
+                </a>
+            </li>
+            <li class="{{ Request::is('categoriaProyectos*') ? 'active' : '' }}">
+                <a href="{!! route('categoriaProyectos.index') !!}">
+                    <i class="fa fa-plus">
+                    </i>
+                    Categoría de Proyectos
+                </a>
+            </li>
             <li class="{{ Request::is('tipoSuelos*') ? 'active' : '' }}">
                 <a href="{!! route('tipoSuelos.index') !!}">
                     <i class="fa fa-road">
@@ -142,13 +157,13 @@
                 </a>
             </li>
             <li class="{{ Request::is('caracteristicasEtnicas*') ? 'active' : '' }}">
+
                 <a href="{!! route('caracteristicasEtnicas.index') !!}">
-                    <i class="fa fa-child">
+                    <i class="fa fa-users">
                     </i>
                     Características Étnicas
                 </a>
             </li>
-
             <li class="{{ Request::is('religions*') ? 'active' : '' }}">
                 <a href="{!! route('religions.index') !!}">
                     <i class="fa fa-institution">
@@ -158,18 +173,21 @@
             </li>
             <li class="{{ Request::is('lenguajes*') ? 'active' : '' }}">
                 <a href="{!! route('lenguajes.index') !!}">
-                    <i class="fa fa-edit">
+                    <i class="fa fa-language">
                     </i>
                     Lenguaje
                 </a>
             </li>
-            <li class="{{ Request::is('permeabilidadSuelos*') ? 'active' : '' }}">
-                <a href="{!! route('permeabilidadSuelos.index') !!}">
-                    <i class="fa fa-edit">
+            <li>
+                <a>
+                    SUELO
+                </a>
+            </li>
+            <li class="{{ Request::is('tipoSuelos*') ? 'active' : '' }}">
+                <a href="{!! route('tipoSuelos.index') !!}">
+                    <i class="fa fa-road">
                     </i>
-                    <span>
-                        Permeabilidad Suelos
-                    </span>
+                    Tipos de Suelo
                 </a>
             </li>
             <li class="{{ Request::is('usoSuelos*') ? 'active' : '' }}">
@@ -179,21 +197,59 @@
                     Uso de Suelos
                 </a>
             </li>
-            <li class="{{ Request::is('condicionesDrenajes*') ? 'active' : '' }}">
+             <li class="{{ Request::is('permeabilidadSuelos*') ? 'active' : '' }}">
+                <a href="{!! route('permeabilidadSuelos.index') !!}">
+                    <i class="fa fa-bars">
+                    </i>
+                    <span>
+                        Permeabilidad Suelos
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    AGUA
+                </a>
+            </li>
+             <li class="{{ Request::is('condicionesDrenajes*') ? 'active' : '' }}">
                 <a href="{!! route('condicionesDrenajes.index') !!}">
-                    <i class="fa fa-edit">
+                    <i class="fa fa-stack-overflow">
                     </i>
                     <span>
                         Condiciones Drenajes
                     </span>
                 </a>
             </li>
+            <li>
+                <a>
+                    AIRE
+                </a>
+            </li>
+            <li class="{{ Request::is('climas*') ? 'active' : '' }}">
+                <a href="{!! route('climas.index') !!}">
+                    <i class="fa fa-snowflake-o">
+                    </i>
+                    Clima
+                </a>
+            </li>
+             <li>
+                <a>
+                    BIODIVERSIDAD
+                </a>
+            </li>
+            <li class="{{ Request::is('ecosistemas*') ? 'active' : '' }}">
+                <a href="{!! route('ecosistemas.index') !!}">
+                    <i class="fa fa-cubes">
+                    </i>
+                    Ecosistema
+                </a>
+            </li>         
             <li class="{{ Request::is('tipoVegetals*') ? 'active' : '' }}">
                 <a href="{!! route('tipoVegetals.index') !!}">
-                    <i class="fa fa-edit">
+                    <i class="fa fa-lemon-o">
                     </i>
                     <span>
-                        Tipos Vegetal
+                        Tipos de Vegetales
                     </span>
                 </a>
             </li>
@@ -216,102 +272,12 @@
             </span>
         </a>
         <ul class="treeview-menu" style="">
-            <li class="{{ Request::is('tipoAbonos*') ? 'active' : '' }}">
-                <a href="{!! route('tipoAbonos.index') !!}">
-                    <i class="fa fa-pagelines">
-                    </i>
-                    <span>
-                        Tipos de Abonos
-                    </span>
-                </a>
-            </li>
-            <li class="{{ Request::is('tipoControlPlagas*') ? 'active' : '' }}">
-                <a href="{!! route('tipoControlPlagas.index') !!}">
-                    <i class="fa fa-bug">
-                    </i>
-                    <span>
-                        Tipos de Control de Plagas
-                    </span>
-                </a>
-            </li>
-            <li class="{{ Request::is('trabajadores*') ? 'active' : '' }}">
-                <a href="{!! route('trabajadores.index') !!}">
-                    <i class="fa fa-users">
-                    </i>
-                    <span>
-                        Trabajadores
-                    </span>
-                </a>
-            </li>
-            <li class="{{ Request::is('pais*') ? 'active' : '' }}">
-                <a href="{!! route('pais.index') !!}">
-                    <i class="fa fa-globe">
-                    </i>
-                    <span>
-                        Paises
-                    </span>
-                </a>
-            </li>
-            <li class="{{ Request::is('ciudads*') ? 'active' : '' }}">
-                <a href="{!! route('ciudads.index') !!}">
-                    <i class="fa fa-map">
-                    </i>
-                    <span>
-                        Ciudades
-                    </span>
-                </a>
-            </li>
-            <li class="{{ Request::is('tipoCultivos*') ? 'active' : '' }}">
-                <a href="{!! route('tipoCultivos.index') !!}">
-                    <i class="fa fa-tree">
-                    </i>
-                    <span>
-                        Tipos de Cultivos
-                    </span>
-                </a>
-            </li>
             <li class="{{ Request::is('tipoAnimales*') ? 'active' : '' }}">
                 <a href="{!! route('tipoAnimales.index') !!}">
                     <i class="fa fa-paw">
                     </i>
                     <span>
                         Tipos de Animales
-                    </span>
-                </a>
-            </li>
-            <li class="{{ Request::is('precuarias*') ? 'active' : '' }}">
-                <a href="{!! route('precuarias.index') !!}">
-                    <i class="fa fa-first-order">
-                    </i>
-                    <span>
-                        Precuarias
-                    </span>
-                </a>
-            </li>
-            <li class="{{ Request::is('destinos*') ? 'active' : '' }}">
-                <a href="{!! route('destinos.index') !!}">
-                    <i class="fa fa-location-arrow">
-                    </i>
-                    <span>
-                        Destinos
-                    </span>
-                </a>
-            </li>
-            <li class="{{ Request::is('tipoProduccions*') ? 'active' : '' }}">
-                <a href="{!! route('tipoProduccions.index') !!}">
-                    <i class="fa fa-circle-o-notch">
-                    </i>
-                    <span>
-                        Tipos de Producciones
-                    </span>
-                </a>
-            </li>
-            <li class="{{ Request::is('tipoUnidads*') ? 'active' : '' }}">
-                <a href="{!! route('tipoUnidads.index') !!}">
-                    <i class="fa fa-info">
-                    </i>
-                    <span>
-                        Tipos de Unidades
                     </span>
                 </a>
             </li>
@@ -333,24 +299,6 @@
                     </span>
                 </a>
             </li>
-            <li class="{{ Request::is('amenazas*') ? 'active' : '' }}">
-                <a href="{!! route('amenazas.index') !!}">
-                    <i class="fa fa-fire">
-                    </i>
-                    <span>
-                        Amenazas
-                    </span>
-                </a>
-            </li>
-            <li class="{{ Request::is('vulnerabilidades*') ? 'active' : '' }}">
-                <a href="{!! route('vulnerabilidades.index') !!}">
-                    <i class="fa fa-tint">
-                    </i>
-                    <span>
-                        Vulnerabilidades
-                    </span>
-                </a>
-            </li>
             <li class="{{ Request::is('planDeGestionDeRiesgos*') ? 'active' : '' }}">
                 <a href="{!! route('planDeGestionDeRiesgos.index') !!}">
                     <i class="fa fa-book">
@@ -360,6 +308,131 @@
                     </span>
                 </a>
             </li>
+            <li class="{{ Request::is('trabajadores*') ? 'active' : '' }}">
+                <a href="{!! route('trabajadores.index') !!}">
+                    <i class="fa fa-users">
+                    </i>
+                    <span>
+                        Trabajadores
+                    </span>
+                </a>
+            </li>
+            {{--****Fin Sub-Menú Gestión de Riesgos****--}}
+            <li class="treeview {{ Request::is('tipoAbonos*','tipoControlPlagas*','tipoCultivos*','precuarias*','destinos*','tipoProduccions*','tipoUnidads*','amenazas*','vulnerabilidades*','pais*','ciudads*') ? 'active' : '' }}">
+                <a href="#">
+                    <i class="fa fa-plus">
+                    </i>
+                    <span>
+                        Añadir
+                    </span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right">
+                        </i>
+                    </span>
+                </a>
+                <ul class="treeview-menu" style="">
+                    <li class="{{ Request::is('tipoAbonos*') ? 'active' : '' }}">
+                        <a href="{!! route('tipoAbonos.index') !!}">
+                            <i class="fa fa-pagelines">
+                            </i>
+                            <span>
+                                Tipos de Abonos
+                            </span>
+                        </a>
+                    </li>
+                    <li class="{{ Request::is('tipoControlPlagas*') ? 'active' : '' }}">
+                        <a href="{!! route('tipoControlPlagas.index') !!}">
+                            <i class="fa fa-bug">
+                            </i>
+                            <span>
+                                Tipos de Control de Plagas
+                            </span>
+                        </a>
+                    </li>
+                    <li class="{{ Request::is('tipoCultivos*') ? 'active' : '' }}">
+                        <a href="{!! route('tipoCultivos.index') !!}">
+                            <i class="fa fa-tree">
+                            </i>
+                            <span>
+                                Tipos de Cultivos
+                            </span>
+                        </a>
+                    </li>
+                    <li class="{{ Request::is('precuarias*') ? 'active' : '' }}">
+                        <a href="{!! route('precuarias.index') !!}">
+                            <i class="fa fa-first-order">
+                            </i>
+                            <span>
+                                Precuarias
+                            </span>
+                        </a>
+                    </li>
+                    <li class="{{ Request::is('destinos*') ? 'active' : '' }}">
+                        <a href="{!! route('destinos.index') !!}">
+                            <i class="fa fa-location-arrow">
+                            </i>
+                            <span>
+                                Destinos
+                            </span>
+                        </a>
+                    </li>
+                    <li class="{{ Request::is('tipoProduccions*') ? 'active' : '' }}">
+                        <a href="{!! route('tipoProduccions.index') !!}">
+                            <i class="fa fa-circle-o-notch">
+                            </i>
+                            <span>
+                                Tipos de Producciones
+                            </span>
+                        </a>
+                    </li>
+                    <li class="{{ Request::is('tipoUnidads*') ? 'active' : '' }}">
+                        <a href="{!! route('tipoUnidads.index') !!}">
+                            <i class="fa fa-info">
+                            </i>
+                            <span>
+                                Tipos de Unidades
+                            </span>
+                        </a>
+                    </li>
+                    <li class="{{ Request::is('amenazas*') ? 'active' : '' }}">
+                        <a href="{!! route('amenazas.index') !!}">
+                            <i class="fa fa-fire">
+                            </i>
+                            <span>
+                                Amenazas
+                            </span>
+                        </a>
+                    </li>
+                    <li class="{{ Request::is('vulnerabilidades*') ? 'active' : '' }}">
+                        <a href="{!! route('vulnerabilidades.index') !!}">
+                            <i class="fa fa-tint">
+                            </i>
+                            <span>
+                                Vulnerabilidades
+                            </span>
+                        </a>
+                    </li>
+                    <li class="{{ Request::is('pais*') ? 'active' : '' }}">
+                        <a href="{!! route('pais.index') !!}">
+                            <i class="fa fa-globe">
+                            </i>
+                            <span>
+                                Paises
+                            </span>
+                        </a>
+                    </li>
+                    <li class="{{ Request::is('ciudads*') ? 'active' : '' }}">
+                        <a href="{!! route('ciudads.index') !!}">
+                            <i class="fa fa-map">
+                            </i>
+                            <span>
+                                Ciudades
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            {{--****Fin Sub-Menú Gestión de Riesgos****--}}
         </ul>
         {{--****Fin Plan de Gestion de Riesgos****--}}
 
@@ -464,117 +537,7 @@
         </li>
         {{--****Fin Linea Base****--}}
 
-        {{--****Plan Manejo Ambiental****--}}
-    <li class="treeview {{ Request::is('tipoSuelos*','climas*','ecosistemas*','caracteristicasEtnicas*','paisajes*','religions*','lenguajes*','usoSuelos*','permeabilidadSuelos*') ? 'active' : '' }}">
-        <a href="#">
-            <i>
-            </i>
-            <span>
-                Plan Manejo Ambiental
-            </span>
-            <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right">
-                </i>
-            </span>
-        </a>
-        <ul class="treeview-menu" style="">
 
-          <li class="{{ Request::is('tipoProyectos*') ? 'active' : '' }}">
-              <a href="{!! route('tipoProyectos.index') !!}">
-                  <i class="fa fa-line-chart">
-                  </i>
-                  Tipo de Proyectos
-              </a>
-          </li>
-          <li class="{{ Request::is('categoriaProyectos*') ? 'active' : '' }}">
-              <a href="{!! route('categoriaProyectos.index') !!}">
-                  <i class="fa fa-plus">
-                  </i>
-                  Categoría de Proyectos
-              </a>
-          </li>
-            <li class="{{ Request::is('tipoSuelos*') ? 'active' : '' }}">
-                <a href="{!! route('tipoSuelos.index') !!}">
-                    <i class="fa fa-road">
-                    </i>
-                    Tipos de Suelo
-                </a>
-            </li>
-            <li class="{{ Request::is('climas*') ? 'active' : '' }}">
-                <a href="{!! route('climas.index') !!}">
-                    <i class="fa fa-snowflake-o">
-                    </i>
-                    Clima
-                </a>
-            </li>
-            <li class="{{ Request::is('ecosistemas*') ? 'active' : '' }}">
-                <a href="{!! route('ecosistemas.index') !!}">
-                    <i class="fa fa-cubes">
-                    </i>
-                    Ecosistema
-                </a>
-            </li>
-            <li class="{{ Request::is('caracteristicasEtnicas*') ? 'active' : '' }}">
-                <a href="{!! route('caracteristicasEtnicas.index') !!}">
-                    <i class="fa fa-child">
-                    </i>
-                    Características Étnicas
-                </a>
-            </li>
-
-            <li class="{{ Request::is('religions*') ? 'active' : '' }}">
-                <a href="{!! route('religions.index') !!}">
-                    <i class="fa fa-institution">
-                    </i>
-                    Religión
-                </a>
-            </li>
-            <li class="{{ Request::is('lenguajes*') ? 'active' : '' }}">
-                <a href="{!! route('lenguajes.index') !!}">
-                    <i class="fa fa-edit">
-                    </i>
-                    Lenguaje
-                </a>
-            </li>
-            <li class="{{ Request::is('permeabilidadSuelos*') ? 'active' : '' }}">
-                <a href="{!! route('permeabilidadSuelos.index') !!}">
-                    <i class="fa fa-edit">
-                    </i>
-                    <span>
-                        Permeabilidad Suelos
-                    </span>
-                </a>
-            </li>
-            <li class="{{ Request::is('usoSuelos*') ? 'active' : '' }}">
-                <a href="{!! route('usoSuelos.index') !!}">
-                    <i class="glyphicon glyphicon-filter">
-                    </i>
-                    Uso de Suelos
-                </a>
-            </li>
-            <li class="{{ Request::is('condicionesDrenajes*') ? 'active' : '' }}">
-                <a href="{!! route('condicionesDrenajes.index') !!}">
-                    <i class="fa fa-edit">
-                    </i>
-                    <span>
-                        Condiciones Drenajes
-                    </span>
-                </a>
-            </li>
-            <li class="{{ Request::is('tipoVegetals*') ? 'active' : '' }}">
-                <a href="{!! route('tipoVegetals.index') !!}">
-                    <i class="fa fa-edit">
-                    </i>
-                    <span>
-                        Tipos Vegetal
-                    </span>
-                </a>
-            </li>
-        </ul>
-    </li>
-    {{--****Fin Plan Manejo Ambiental****--}}
-    
-    
 {{--
         <li class="{{ Request::is('unidadproduccions*') ? 'active' : '' }}">
             <a href="{!! route('unidadproduccions.index') !!}">
@@ -606,7 +569,7 @@
                 <i class="fa fa-edit">
                 </i>
                 <span>
-                    Usos Vegetacions
+                    Usos de la Vegetacion
                 </span>
             </a>
         </li>
@@ -650,5 +613,6 @@
             </a>
         </li>
         --}}
-        </li>
+    </li>
 </ul>
+
