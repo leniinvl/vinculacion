@@ -321,3 +321,6 @@ Route::resource('vulnerabilidades', 'VulnerabilidadesController');
 Route::resource('planDeGestionDeRiesgos', 'PlanDeGestionDeRiesgosController');
 
 Route::resource('propietarios', 'PropietarioController');
+
+
+Route::resource('planDeGestionDeRiesgosHasTipoAnimales', 'PlanDeGestionDeRiesgos_Has_TipoAnimalesController');

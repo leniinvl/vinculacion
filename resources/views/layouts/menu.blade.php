@@ -615,3 +615,7 @@
         --}}
     </li>
 </ul>
+<li class="{{ Request::is('planDeGestionDeRiesgosHasTipoAnimales*') ? 'active' : '' }}">
+    <a href="{!! route('planDeGestionDeRiesgosHasTipoAnimales.index') !!}"><i class="fa fa-edit"></i><span>Plan De Gestion De Riesgos  Has  Tipo Animales</span></a>
+</li>
+
