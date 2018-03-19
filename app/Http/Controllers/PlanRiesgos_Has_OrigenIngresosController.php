@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreatePlanRiesgos_Has_OrigenIngresosRequest;
 use App\Http\Requests\UpdatePlanRiesgos_Has_OrigenIngresosRequest;
 use App\Repositories\PlanRiesgos_Has_OrigenIngresosRepository;
-use Flash;
+use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
@@ -59,8 +59,7 @@ class PlanRiesgos_Has_OrigenIngresosController extends AppBaseController
 
         $planRiesgosHasOrigenIngresos = $this->planRiesgosHasOrigenIngresosRepository->create($input);
 
-        Flash::success('Plan Riesgos  Has  Origen Ingresos
-guardado exitosamente.');
+        Flash::success('Plan Riesgos  Has  Origen Ingresos saved successfully.');
 
         return redirect(route('planRiesgosHasOrigenIngresos.index'));
     }

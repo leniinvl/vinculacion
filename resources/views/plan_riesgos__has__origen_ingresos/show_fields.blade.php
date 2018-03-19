@@ -1,7 +1,7 @@
-<!-- Planriesgos Id Field -->
+<!-- Plandegestionderiesgos Id Field -->
 <div class="form-group">
-    {!! Form::label('PlanRiesgos_id', 'Planriesgos Id:') !!}
-    <p>{!! $planRiesgosHasOrigenIngresos->PlanRiesgos_id !!}</p>
+    {!! Form::label('PlanDeGestionDeRiesgos_id', 'Plandegestionderiesgos Id:') !!}
+    <p>{!! $planRiesgosHasOrigenIngresos->PlanDeGestionDeRiesgos_id !!}</p>
 </div>
 
 <!-- Origeningresos Id Field -->

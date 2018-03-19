@@ -66,7 +66,7 @@ class OrigenIngresosController extends AppBaseController
 
         $origenIngresos = $this->origenIngresosRepository->create($input);
 
-        Flash::success('Origen Ingresos guardado exitosamente.');
+        Flash::success('Origen Ingresos saved successfully.');
 
         return redirect(route('origenIngresos.index'));
     }

@@ -1,7 +1,8 @@
 <table class="table table-responsive" id="origenIngresos-table">
     <thead>
         <tr>
-            <th>Unidad de Producción</th>
+            <th>Nombre</th>
+        <th>Unidad de Producción</th>
             <th>Propietario</th>
             <th colspan="3">Acciones</th>
         </tr>
@@ -9,6 +10,7 @@
     <tbody>
     @foreach($origenIngresos as $origenIngresos)
         <tr>
+            <td>{!! $origenIngresos->nombre !!}</td>
             <td>{!! $origenIngresos->unidadproduccion->nombre !!}</td>
             <td>{!! $origenIngresos->Propietario->nombre !!}</td>
             <td>
