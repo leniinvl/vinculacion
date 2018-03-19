@@ -12,16 +12,14 @@
                 <div class="row" style="padding-left: 20px">
                     @include('plan_de_gestion_de_riesgos.show_fields')
 
-                    <h3>Tipo Animales</h3>
+                    <h5>Tipos de Animales</h5>
                     <div class="form-group col-sm-6">
 
                         {!! Form::open(['route' => ['storeTipoAnimales', $planDeGestionDeRiesgos->id], 'method' => 'post']) !!}
                         {{ csrf_field() }}
                         {!! Form::select('TipoAnimales_id', $tipoanimales, null, ['class' => 'form-control']) !!}
-
                     </div>
                         {!! Form::submit('Agregar', ['class' => 'btn btn-primary']) !!}
-
                         {!! Form::close() !!}
                     <table class="table table-responsive" id="planRiesgosHasTipoAnimales-table">
                         <thead>
@@ -48,7 +46,7 @@
                     </table>
 
 
-                    <h3>Origen Ingresos</h3>
+                    <h5>Orígen de Ingresos</h5>
                     <div class="form-group col-sm-6">
 
                         {!! Form::open(['route' => ['storeOrigenIngresos', $planDeGestionDeRiesgos->id], 'method' => 'post']) !!}

@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreatePlanDeGestionDeRiesgosRequest;
 use App\Http\Requests\UpdatePlanDeGestionDeRiesgosRequest;
+use App\Models\OrigenIngresos;
+use App\Models\PlanDeGestionDeRiesgos;
 use App\Models\TipoAbono;
+use App\Models\TipoAnimales;
 use App\Models\TipoControlPlaga;
 use App\Models\TipoCultivos;
 use App\Repositories\PlanDeGestionDeRiesgosRepository;
@@ -13,9 +16,6 @@ use Flash;
 use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
-use App\Models\TipoAnimales;
-use App\Models\OrigenIngresos;
-use App\Models\PlanDeGestionDeRiesgos;
 
 class PlanDeGestionDeRiesgosController extends AppBaseController
 {
@@ -87,8 +87,8 @@ class PlanDeGestionDeRiesgosController extends AppBaseController
     public function show($id)
     {
         $planDeGestionDeRiesgos = $this->planDeGestionDeRiesgosRepository->findWithoutFail($id);
-        $tipoanimales = TipoAnimales::all()->pluck('nombre', 'id');
-        $origeningresos = OrigenIngresos::all()->pluck('nombre', 'id');
+        $tipoanimales           = TipoAnimales::all()->pluck('nombre', 'id');
+        $origeningresos         = OrigenIngresos::all()->pluck('nombre', 'id');
 
         if (empty($planDeGestionDeRiesgos)) {
             Flash::error('Plan De Gestion De Riesgos not found');
@@ -97,7 +97,7 @@ class PlanDeGestionDeRiesgosController extends AppBaseController
         }
 
         return view('plan_de_gestion_de_riesgos.show')->with('planDeGestionDeRiesgos', $planDeGestionDeRiesgos)->with('tipoanimales', $tipoanimales)
-        ->with('origeningresos', $origeningresos);
+            ->with('origeningresos', $origeningresos);
     }
 
     /**
