@@ -8,7 +8,7 @@ use InfyOm\Generator\Common\BaseRepository;
 /**
  * Class PlanRiesgos_Has_OrigenIngresosRepository
  * @package App\Repositories
- * @version January 22, 2018, 5:08 pm UTC
+ * @version March 19, 2018, 8:19 am UTC
  *
  * @method PlanRiesgos_Has_OrigenIngresos findWithoutFail($id, $columns = ['*'])
  * @method PlanRiesgos_Has_OrigenIngresos find($id, $columns = ['*'])

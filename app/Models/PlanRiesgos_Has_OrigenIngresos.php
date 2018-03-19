@@ -8,44 +8,40 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class PlanRiesgos_Has_OrigenIngresos
  * @package App\Models
- * @version January 22, 2018, 5:08 pm UTC
+ * @version March 19, 2018, 8:19 am UTC
  *
  * @property \App\Models\Origeningreso origeningreso
- * @property \App\Models\Planriesgo planriesgo
+ * @property \App\Models\Plandegestionderiesgo plandegestionderiesgo
+ * @property \Illuminate\Database\Eloquent\Collection agricultura
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasLenguaje
- * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasPeligros
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasReligion
- * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasTipofuentes
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasTipovegetal
- * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasTopologia
- * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasTradicion
- * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasUsotierra
- * @property \Illuminate\Database\Eloquent\Collection planriesgosHasGrupoalimentosproductos
- * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipoagricultura
- * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipoalimentos
- * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipoalimentosconsumo
- * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipoanimales
- * @property \Illuminate\Database\Eloquent\Collection planriesgosHasTipocultivos
- * @property \Illuminate\Database\Eloquent\Collection tallerHasTipodesecho
- * @property \Illuminate\Database\Eloquent\Collection tallerHasTiporiesgos
+ * @property \Illuminate\Database\Eloquent\Collection desecho
+ * @property \Illuminate\Database\Eloquent\Collection desechot
+ * @property \Illuminate\Database\Eloquent\Collection origeningresos
+ * @property \Illuminate\Database\Eloquent\Collection plandegestionderiesgosHasAgricultura
+ * @property \Illuminate\Database\Eloquent\Collection plandegestionderiesgosHasAmenazas
+ * @property \Illuminate\Database\Eloquent\Collection plandegestionderiesgosHasTipoanimales
+ * @property \Illuminate\Database\Eloquent\Collection plandegestionderiesgosHasVulnerabilidades
  * @property \Illuminate\Database\Eloquent\Collection unidadproduccion
  * @property \Illuminate\Database\Eloquent\Collection unidadproduccionHasPropietario
- * @property \Illuminate\Database\Eloquent\Collection usosvegetacionHasAreainfluenciaHasTipovegetal
  * @property integer OrigenIngresos_id
  */
 class PlanRiesgos_Has_OrigenIngresos extends Model
 {
     use SoftDeletes;
 
-    public $table = 'planriesgos_has_origeningresos';
-
+    public $table = 'plandegestionderiesgos_has_origeningresos';
+    
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
+
     protected $dates = ['deleted_at'];
 
+
     public $fillable = [
-        'OrigenIngresos_id',
+        'OrigenIngresos_id'
     ];
 
     /**
@@ -54,8 +50,8 @@ class PlanRiesgos_Has_OrigenIngresos extends Model
      * @var array
      */
     protected $casts = [
-        'PlanRiesgos_id'    => 'integer',
-        'OrigenIngresos_id' => 'integer',
+        'PlanDeGestionDeRiesgos_id' => 'integer',
+        'OrigenIngresos_id' => 'integer'
     ];
 
     /**
@@ -64,7 +60,7 @@ class PlanRiesgos_Has_OrigenIngresos extends Model
      * @var array
      */
     public static $rules = [
-
+        
     ];
 
     /**
@@ -78,8 +74,8 @@ class PlanRiesgos_Has_OrigenIngresos extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function planriesgo()
+    public function plandegestionderiesgo()
     {
-        return $this->belongsTo(\App\Models\Planriesgo::class);
+        return $this->belongsTo(\App\Models\Plandegestionderiesgo::class);
     }
 }
