@@ -1,32 +1,14 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\AppBaseController;
-<<<<<<< HEAD
 use App\Http\Requests\CreateTallerRequest;
 use App\Http\Requests\UpdateTallerRequest;
-=======
-use App\Http\Controllers\ChromePhp;
-use App\Http\Requests\CreateTallerRequest;
-use App\Http\Requests\UpdateTallerRequest;
-use App\Models\unidadproduccion;
-use App\Repositories\TallerRepository;
-use Flash;
-use Illuminate\Http\Request;
-use App\Http\Controllers\AppBaseController;
->>>>>>> upstream/master
 use App\Models\Taller;
 use App\Models\unidadproduccion;
-<<<<<<< HEAD
 use App\Repositories\TallerRepository;
 use Flash;
 use Illuminate\Http\Request;
-=======
-use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Log;
-
->>>>>>> upstream/master
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
@@ -34,12 +16,10 @@ class TallerController extends AppBaseController
 {
     /** @var  TallerRepository */
     private $tallerRepository;
-
     public function __construct(TallerRepository $tallerRepo)
     {
         $this->tallerRepository = $tallerRepo;
     }
-
     /**
      * Display a listing of the Taller.
      *
@@ -50,11 +30,9 @@ class TallerController extends AppBaseController
     {
         $this->tallerRepository->pushCriteria(new RequestCriteria($request));
         $tallers = $this->tallerRepository->all();
-
         return view('tallers.index')
             ->with('tallers', $tallers);
     }
-
     /**
      * Show the form for creating a new Taller.
      *
@@ -62,20 +40,11 @@ class TallerController extends AppBaseController
      */
     public function create()
     {
-
-<<<<<<< HEAD
         $unidadproducion = unidadproduccion::all()->pluck('nombre', 'id');
         return view('tallers.create', [
             'unidadproduccion' => $unidadproducion,
-=======
-
-        $unidadproducion= unidadproduccion::all()->pluck('nombre','id');
-        return view('tallers.create',[
-            'unidadproduccion'=>$unidadproducion
->>>>>>> upstream/master
         ]);
     }
-
     /**
      * Store a newly created Taller in storage.
      *
@@ -85,15 +54,7 @@ class TallerController extends AppBaseController
      */
     public function store(CreateTallerRequest $request)
     {
-
-        $input = $request->all();
-
-        $taller = $this->tallerRepository->create($input);
-
-        Flash::success('Taller
-guardado exitosamente.');
-
-
+		//modificacion alguna;
         //$input = $request->all();
         $base64Photo = null;
         if ($request->hasFile('file')) {
@@ -116,11 +77,9 @@ guardado exitosamente.');
         $taller->video               = $request->get('video');
         $taller->UnidadProduccion_id = $request->get('UnidadProduccion_id');
         $taller->save();
-        Flash::success('Taller saved successfully.');
+        Flash::success('Guardado Satisfactoriamente.');
         return redirect(route('tallers.index'));
-
     }
-
     /**
      * Display the specified Taller.
      *
@@ -132,16 +91,12 @@ guardado exitosamente.');
     {
         $unidadproducion = unidadproduccion::all()->pluck('nombre', 'id');
         $taller          = $this->tallerRepository->findWithoutFail($id);
-
         if (empty($taller)) {
             Flash::error('Taller not found');
-
             return redirect(route('tallers.index'));
         }
-
         return view('tallers.show')->with('taller', $taller)->with('unidadproducion', $unidadproducion);
     }
-
     /**
      * Show the form for editing the specified Taller.
      *
@@ -153,16 +108,12 @@ guardado exitosamente.');
     {
         $unidadproduccion = unidadproduccion::all()->pluck('nombre', 'id');
         $taller           = $this->tallerRepository->findWithoutFail($id);
-
         if (empty($taller)) {
             Flash::error('Taller not found');
-
             return redirect(route('tallers.index'));
         }
-
         return view('tallers.edit')->with('taller', $taller)->with('unidadproduccion', $unidadproduccion);
     }
-
     /**
      * Update the specified Taller in storage.
      *
@@ -174,20 +125,14 @@ guardado exitosamente.');
     public function update($id, UpdateTallerRequest $request)
     {
         $taller = $this->tallerRepository->findWithoutFail($id);
-
         if (empty($taller)) {
             Flash::error('Taller not found');
-
             return redirect(route('tallers.index'));
         }
-
         $taller = $this->tallerRepository->update($request->all(), $id);
-
         Flash::success('Taller updated successfully.');
-
         return redirect(route('tallers.index'));
     }
-
     /**
      * Remove the specified Taller from storage.
      *
@@ -198,17 +143,12 @@ guardado exitosamente.');
     public function destroy($id)
     {
         $taller = $this->tallerRepository->findWithoutFail($id);
-
         if (empty($taller)) {
             Flash::error('Taller not found');
-
             return redirect(route('tallers.index'));
         }
-
         $this->tallerRepository->delete($id);
-
         Flash::success('Taller deleted successfully.');
-
         return redirect(route('tallers.index'));
     }
 }

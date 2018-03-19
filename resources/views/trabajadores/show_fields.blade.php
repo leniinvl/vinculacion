@@ -24,31 +24,31 @@
 
 <!-- Genero Id Field -->
 <div class="form-group">
-    {!! Form::label('Genero_id', 'Genero Id:') !!}
-    <p>{!! $trabajadores->Genero_id !!}</p>
+    {!! Form::label('Genero_id', 'Género:') !!}
+    <p>{!! $trabajadores->genero->nombre !!}</p>
 </div>
 
 <!-- Pais Id Field -->
 <div class="form-group">
-    {!! Form::label('Pais_id', 'Pais Id:') !!}
-    <p>{!! $trabajadores->Pais_id !!}</p>
+    {!! Form::label('Pais_id', 'País:') !!}
+    <p>{!! $trabajadores->pais->nombre !!}</p>
 </div>
 
 <!-- Ciudad Id Field -->
 <div class="form-group">
-    {!! Form::label('Ciudad_id', 'Ciudad Id:') !!}
-    <p>{!! $trabajadores->Ciudad_id !!}</p>
+    {!! Form::label('Ciudad_id', 'Ciudad:') !!}
+    <p>{!! $trabajadores->ciudad->nombre !!}</p>
 </div>
 
 <!-- Instruccionformal Field -->
 <div class="form-group">
-    {!! Form::label('instruccionFormal', 'Instruccionformal:') !!}
+    {!! Form::label('instruccionFormal', 'Instrucción Formal:') !!}
     <p>{!! $trabajadores->instruccionFormal !!}</p>
 </div>
 
 <!-- Horastrabajo Field -->
 <div class="form-group">
-    {!! Form::label('horasTrabajo', 'Horastrabajo:') !!}
+    {!! Form::label('horasTrabajo', 'Horas de Trabajo:') !!}
     <p>{!! $trabajadores->horasTrabajo !!}</p>
 </div>
 
@@ -60,8 +60,8 @@
 
 <!-- Plandegestionderiesgos Id Field -->
 <div class="form-group">
-    {!! Form::label('PlanDeGestionDeRiesgos_id', 'Plandegestionderiesgos Id:') !!}
-    <p>{!! $trabajadores->PlanDeGestionDeRiesgos_id !!}</p>
+    {!! Form::label('PlanDeGestionDeRiesgos_id', 'Plan de Gestión de Riesgos:') !!}
+    <p>{!! $trabajadores->plandegestionderiesgos->nombre !!}</p>
 </div>
 
 <!-- Created At Field -->

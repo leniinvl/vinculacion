@@ -113,7 +113,7 @@ class TrabajadoresController extends AppBaseController
             return redirect(route('trabajadores.index'));
         }
 
-        return view('trabajadores.edit')->with('trabajadores', $trabajadores)->with('paises', $paises)->with('ciudades', $ciudades)->with('planDeGestionDeRiesgos', $plandegestionderiesgos)->with('generos', $generos);
+        return view('trabajadores.edit')->with('trabajadores', $trabajadores)->with('paises', $paises)->with('ciudades', $ciudades)->with('plandegestionderiesgos', $plandegestionderiesgos)->with('generos', $generos);
     }
 
     /**

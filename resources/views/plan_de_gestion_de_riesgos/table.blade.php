@@ -3,8 +3,9 @@
         <tr>
             <th>Nombre</th>
         <th>Tipo de Abono</th>
-        <th>Tipo de Control de Plagas</th>
+        <th>Tipo de Control de Plaga</th>
         <th>Tipo de Cultivo</th>
+        <th>Tipo Animales</th>
             <th colspan="3">Acciones</th>
         </tr>
     </thead>
@@ -15,6 +16,13 @@
             <td>{!! $planDeGestionDeRiesgos->tipoabono->nombre!!}</td>
             <td>{!! $planDeGestionDeRiesgos->tipocontrolplaga->nombre !!}</td>
             <td>{!! $planDeGestionDeRiesgos->tipocultivos->nombre !!}</td>
+            <td>
+              @foreach($planDeGestionDeRiesgos->tipoanimales as $planRiesgosHasTipoAnimales)
+
+                    {!! $planRiesgosHasTipoAnimales->nombre !!}
+
+              @endforeach
+            </td>
             <td>
                 {!! Form::open(['route' => ['planDeGestionDeRiesgos.destroy', $planDeGestionDeRiesgos->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>

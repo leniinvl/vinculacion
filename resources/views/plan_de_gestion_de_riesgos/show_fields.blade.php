@@ -12,20 +12,20 @@
 
 <!-- Tipoabono Id Field -->
 <div class="form-group">
-    {!! Form::label('TipoAbono_id', 'Tipoabono Id:') !!}
-    <p>{!! $planDeGestionDeRiesgos->TipoAbono_id !!}</p>
+    {!! Form::label('TipoAbono_id', 'Tipo de Abono:') !!}
+    <p>{!! $planDeGestionDeRiesgos->TipoAbono->nombre !!}</p>
 </div>
 
 <!-- Tipocontrolplaga Id Field -->
 <div class="form-group">
-    {!! Form::label('TipoControlPlaga_id', 'Tipocontrolplaga Id:') !!}
-    <p>{!! $planDeGestionDeRiesgos->TipoControlPlaga_id !!}</p>
+    {!! Form::label('TipoControlPlaga_id', 'Tipo de Control de Plaga:') !!}
+    <p>{!! $planDeGestionDeRiesgos->TipoControlPlaga->nombre !!}</p>
 </div>
 
 <!-- Tipocultivos Id Field -->
 <div class="form-group">
-    {!! Form::label('TipoCultivos_id', 'Tipocultivos Id:') !!}
-    <p>{!! $planDeGestionDeRiesgos->TipoCultivos_id !!}</p>
+    {!! Form::label('TipoCultivos_id', 'Tipo de Cultivo:') !!}
+    <p>{!! $planDeGestionDeRiesgos->TipoCultivos->nombre !!}</p>
 </div>
 
 <!-- Created At Field -->
@@ -45,4 +45,3 @@
     {!! Form::label('deleted_at', 'Deleted At:') !!}
     <p>{!! $planDeGestionDeRiesgos->deleted_at !!}</p>
 </div>
-

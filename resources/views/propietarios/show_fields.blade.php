@@ -6,7 +6,7 @@
 
 <!-- Ci Field -->
 <div class="form-group">
-    {!! Form::label('ci', 'Ci:') !!}
+    {!! Form::label('ci', 'CI:') !!}
     <p>{!! $propietario->ci !!}</p>
 </div>
 
@@ -14,6 +14,12 @@
 <div class="form-group">
     {!! Form::label('nombre', 'Nombre:') !!}
     <p>{!! $propietario->nombre !!}</p>
+</div>
+
+<!-- Genero Id Field -->
+<div class="form-group">
+    {!! Form::label('Genero_id', 'Género:') !!}
+    <p>{!! $propietario->genero->nombre!!}</p>
 </div>
 
 <!-- Correo Field -->
@@ -24,13 +30,13 @@
 
 <!-- Fechanacimiento Field -->
 <div class="form-group">
-    {!! Form::label('fechaNacimiento', 'Fechanacimiento:') !!}
+    {!! Form::label('fechaNacimiento', 'Fecha de Nacimiento:') !!}
     <p>{!! $propietario->fechaNacimiento !!}</p>
 </div>
 
 <!-- Telefono Field -->
 <div class="form-group">
-    {!! Form::label('telefono', 'Telefono:') !!}
+    {!! Form::label('telefono', 'Teléfono:') !!}
     <p>{!! $propietario->telefono !!}</p>
 </div>
 
@@ -38,12 +44,6 @@
 <div class="form-group">
     {!! Form::label('observaciones', 'Observaciones:') !!}
     <p>{!! $propietario->observaciones !!}</p>
-</div>
-
-<!-- Genero Field -->
-<div class="form-group">
-    {!! Form::label('genero', 'Genero:') !!}
-    <p>{!! $propietario->genero !!}</p>
 </div>
 
 <!-- Created At Field -->
@@ -63,4 +63,3 @@
     {!! Form::label('deleted_at', 'Deleted At:') !!}
     <p>{!! $propietario->deleted_at !!}</p>
 </div>
-

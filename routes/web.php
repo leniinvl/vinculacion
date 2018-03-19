@@ -75,9 +75,16 @@ Route::post('storetipoalimentosconsumo/{planriesgos}', array('uses' => 'PlanRies
 
 Route::delete('deletetipoalimentosconsumo/{planRiesgos}/{id}', array('uses' => 'PlanRiesgosController@destroyTipoAlimentosConsumo', 'as' => 'destroyTipoAlimentosConsumo'));
 
-Route::post('storetipoanimales/{planriesgos}', array('uses' => 'PlanRiesgosController@storeTipoAnimales', 'as' => 'storeTipoAnimales'));
 
-Route::delete('deletetipoanimales/{planRiesgos}/{id}', array('uses' => 'PlanRiesgosController@destroyTipoAnimales', 'as' => 'destroyTipoAnimales'));
+
+
+
+Route::post('storetipoanimales/{planriesgos}', array('uses' => 'PlanDeGestionDeRiesgosController@storeTipoAnimales', 'as' => 'storeTipoAnimales'));
+
+Route::delete('deletetipoanimales/{planRiesgos}/{id}', array('uses' => 'PlanDeGestionDeRiesgosController@destroyTipoAnimales', 'as' => 'destroyTipoAnimales'));
+
+
+
 
 Route::post('storetipoagricultura/{planriesgos}', array('uses' => 'PlanRiesgosController@storeTipoAgricultura', 'as' => 'storeTipoAgricultura'));
 
@@ -111,7 +118,7 @@ Route::resource('productos', 'ProductoController');
 
 Route::resource('planRiesgosHasTipoAlimentos', 'PlanRiesgos_Has_TipoAlimentosController');
 
-Route::resource('planRiesgosHasTipoAnimales', 'PlanRiesgos_Has_TipoAnimalesController');
+
 
 Route::resource('planRiesgosHasTipoCultivos', 'PlanRiesgos_Has_TipoCultivosController');
 
@@ -121,7 +128,7 @@ Route::resource('tallerHasTipoRiesgos', 'Taller_Has_TipoRiesgosController');
 
 
 
-Route::resource('propietarios', 'PropietarioController');
+
 
 Route::resource('religions', 'ReligionController');
 
@@ -312,3 +319,5 @@ Route::resource('vulnerabilidades', 'VulnerabilidadesController');
 
 
 Route::resource('planDeGestionDeRiesgos', 'PlanDeGestionDeRiesgosController');
+
+Route::resource('propietarios', 'PropietarioController');

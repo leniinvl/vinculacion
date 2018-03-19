@@ -78,4 +78,14 @@ class PlanDeGestionDeRiesgos extends Model
         return $this->belongsTo(\App\Models\TipoCultivos::class, 'TipoCultivos_id');
     }
 
+    public function origeningresos()
+     {
+       return $this->belongsToMany(\App\Models\Origeningresos::class, 'plandegestionderiesgos_has_origeningresos', 'plandegestionderiesgos_id', 'origeningresos_id')->withTimestamps();
+     }
+
+     public function tipoanimales()
+     {
+       return $this->belongsToMany(\App\Models\Tipoanimales::class, 'plandegestionderiesgos_has_tipoanimales', 'plandegestionderiesgos_id', 'tipoanimales_id')->withTimestamps();
+     }
+
 }

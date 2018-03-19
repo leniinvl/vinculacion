@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreatePropietarioRequest;
 use App\Http\Requests\UpdatePropietarioRequest;
+use App\Models\Genero;
 use App\Repositories\PropietarioRepository;
 use Flash;
 use Illuminate\Http\Request;
@@ -43,7 +44,8 @@ class PropietarioController extends AppBaseController
      */
     public function create()
     {
-        return view('propietarios.create');
+        $generos = Genero::all()->pluck('nombre', 'id');
+        return view('propietarios.create', ['generos' => $generos]);
     }
 
     /**
@@ -59,8 +61,7 @@ class PropietarioController extends AppBaseController
 
         $propietario = $this->propietarioRepository->create($input);
 
-        Flash::success('Propietario
-guardado exitosamente.');
+        Flash::success('Propietario saved successfully.');
 
         return redirect(route('propietarios.index'));
     }
@@ -95,6 +96,7 @@ guardado exitosamente.');
     public function edit($id)
     {
         $propietario = $this->propietarioRepository->findWithoutFail($id);
+        $generos     = Genero::all()->pluck('nombre', 'id');
 
         if (empty($propietario)) {
             Flash::error('Propietario not found');
@@ -102,7 +104,7 @@ guardado exitosamente.');
             return redirect(route('propietarios.index'));
         }
 
-        return view('propietarios.edit')->with('propietario', $propietario);
+        return view('propietarios.edit')->with('propietario', $propietario)->with('generos', $generos);
     }
 
     /**

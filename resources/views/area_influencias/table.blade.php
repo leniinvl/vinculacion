@@ -3,34 +3,34 @@
     <thead>
         <tr>
             <th>Altitud</th>
-        <th>Tipoterrenodescripcion</th>
-        <th>Detallecalidadaire</th>
-        <th>Detalleruido</th>
-        <th>Observacionesecosistema</th>
-        <th>Religion</th>
+            <th>Lat</th>
+            <th>Long</th>
+        <th>Descripción del tipo de terreno</th>
+        <th>Calidad de aire</th>
+        <th>Detalle de ruido</th>
+        <th>Observaciones de ecosistema</th>
+        <th>Religión</th>
         <th>Lenguaje</th>
         <th>Tipo Vegetal</th>
-        <th>Lat</th>
-        <th>Long</th>
-        <th>Manejoambiental Id</th>
-        <th>Usosuelo Id</th>
-        <th>Tiposuelo Id</th>
-        <th>Permeabilidadsuelo Id</th>
-        <th>Clima Id</th>
-        <th>Condicionesdrenaje Id</th>
-        <th>Ecosistema Id</th>
-        <th>Caracteristicasetnicas Id</th>
-        <th>Niveltraficodescripcion</th>
-        <th>Recirculacionairedescripcion</th>
-        <th>Organizacionsocialdescripcion</th>
-        <th>Tendenciatierradescripcion</th>
-        <th>Abastecimientoaguadescripcion</th>
-        <th>Evacuacionagualluviadescripcion</th>
-        <th>Consolidacionareasinfluenciadescripcion</th>
-        <th>Evacuacionaguasservidasdescripcion</th>
-        <th>Usovegetaciondescripcion</th>
-        <th>Tradicionesdescripcion</th>
-        <th>Tipofuentesdescripcion</th>
+        <th>Manejo ambiental</th>
+        <th>Uso de suelo </th>
+        <th>Tipo de suelo </th>
+        <th>Permeabilidad de suelo </th>
+        <th>Clima </th>
+        <th>Condiciones de drenaje</th>
+        <th>Ecosistema</th>
+        <th>Caracteristicas étnicas </th>
+        <th>Nivel de tráfico </th>
+        <th>Recirculación de aire</th>
+        <th>Organización social </th>
+        <th>Tendencia de tierra</th>
+        <th>Abastecimiento de agua</th>
+        <th>Evacuación de agua lluvia</th>
+        <th>Consolidación de areas de influencia</th>
+        <th>Evacuación de aguas servidas</th>
+        <th>Uso vegetación </th>
+        <th>Descripción de tradiciones </th>
+        <th>Descripción de tipo de fuentes </th>
         <th>Ruido</th>
         <th>Precipitaciones</th>
             <th colspan="3">Acciones</th>
@@ -40,6 +40,8 @@
     @foreach($areaInfluencias as $areaInfluencia)
         <tr>
             <td>{!! $areaInfluencia->altitud !!}</td>
+            <td>{!! $areaInfluencia->lat !!}</td>
+            <td>{!! $areaInfluencia->long !!}</td>
             <td>{!! $areaInfluencia->tipoTerrenoDescripcion !!}</td>
             <td>{!! $areaInfluencia->detalleCalidadAire !!}</td>
             <td>{!! $areaInfluencia->detalleRuido !!}</td>
@@ -65,16 +67,14 @@
 
             @endforeach
             </td>
-            <td>{!! $areaInfluencia->lat !!}</td>
-            <td>{!! $areaInfluencia->long !!}</td>
-            <td>{!! $areaInfluencia->ManejoAmbiental_id !!}</td>
-            <td>{!! $areaInfluencia->UsoSuelo_id !!}</td>
-            <td>{!! $areaInfluencia->TipoSuelo_id !!}</td>
-            <td>{!! $areaInfluencia->PermeabilidadSuelo_id !!}</td>
-            <td>{!! $areaInfluencia->Clima_id !!}</td>
+            <td>{!! $areaInfluencia->ManejoAmbiental->nombre !!}</td>
+            <td>{!! $areaInfluencia->UsoSuelo->nombre !!}</td>
+            <td>{!! $areaInfluencia->TipoSuelo->nombre !!}</td>
+            <td>{!! $areaInfluencia->PermeabilidadSuelo->nombre !!}</td>
+            <td>{!! $areaInfluencia->Clima->nombre !!}</td>
             <td>{!! $areaInfluencia->CondicionesDrenaje->nombre !!}</td>
-            <td>{!! $areaInfluencia->Ecosistema_id !!}</td>
-            <td>{!! $areaInfluencia->CaracteristicasEtnicas_id !!}</td>
+            <td>{!! $areaInfluencia->Ecosistema->nombre !!}</td>
+            <td>{!! $areaInfluencia->caracteristicasetnica->nombre !!}</td>
             <td>{!! $areaInfluencia->nivelTraficoDescripcion !!}</td>
             <td>{!! $areaInfluencia->recirculacionAireDescripcion !!}</td>
             <td>{!! $areaInfluencia->organizacionSocialDescripcion !!}</td>

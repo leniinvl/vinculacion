@@ -1,6 +1,6 @@
 <!-- Ci Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('ci', 'Ci:') !!}
+    {!! Form::label('ci', 'CI:') !!}
     {!! Form::number('ci', null, ['class' => 'form-control']) !!}
 </div>
 
@@ -8,6 +8,12 @@
 <div class="form-group col-sm-6">
     {!! Form::label('nombre', 'Nombre:') !!}
     {!! Form::text('nombre', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Genero Id Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('Genero_id', 'Género:') !!}
+    {!! Form::select('Genero_id', $generos, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Correo Field -->
@@ -18,13 +24,13 @@
 
 <!-- Fechanacimiento Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('fechaNacimiento', 'Fechanacimiento:') !!}
+    {!! Form::label('fechaNacimiento', 'Fecha de Nacimiento:') !!}
     {!! Form::date('fechaNacimiento', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Telefono Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('telefono', 'Telefono:') !!}
+    {!! Form::label('telefono', 'Teléfono:') !!}
     {!! Form::text('telefono', null, ['class' => 'form-control']) !!}
 </div>
 
@@ -32,12 +38,6 @@
 <div class="form-group col-sm-12 col-lg-12">
     {!! Form::label('observaciones', 'Observaciones:') !!}
     {!! Form::textarea('observaciones', null, ['class' => 'form-control']) !!}
-</div>
-
-<!-- Genero Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('genero', 'Genero:') !!}
-    {!! Form::text('genero', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->

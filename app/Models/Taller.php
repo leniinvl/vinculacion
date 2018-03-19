@@ -42,13 +42,11 @@ class Taller extends Model
     use SoftDeletes;
 
     public $table = 'taller';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-
     protected $dates = ['deleted_at'];
-
 
     public $fillable = [
         'nombre',
@@ -56,7 +54,7 @@ class Taller extends Model
         'riesgo',
         'imagen',
         'video',
-        'UnidadProduccion_id'
+        'UnidadProduccion_id',
     ];
 
     /**
@@ -65,13 +63,13 @@ class Taller extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
-        'nombre' => 'string',
-        'descripcion' => 'string',
-        'riesgo' => 'string',
-        'imagen' => 'string',
-        'video' => 'string',
-        'UnidadProduccion_id' => 'integer'
+        'id'                  => 'integer',
+        'nombre'              => 'string',
+        'descripcion'         => 'string',
+        'riesgo'              => 'string',
+        'imagen'              => 'string',
+        'video'               => 'string',
+        'UnidadProduccion_id' => 'integer',
     ];
 
     /**
@@ -80,7 +78,7 @@ class Taller extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**
@@ -88,7 +86,7 @@ class Taller extends Model
      **/
     public function unidadproduccion()
     {
-        return $this->belongsTo(\App\Models\Unidadproduccion::class,'UnidadProduccion_id');
+        return $this->belongsTo(\App\Models\Unidadproduccion::class, 'UnidadProduccion_id');
     }
 
     /**

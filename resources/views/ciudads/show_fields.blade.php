@@ -10,6 +10,12 @@
     <p>{!! $ciudad->nombre !!}</p>
 </div>
 
+<!-- Pais Id Field -->
+<div class="form-group">
+    {!! Form::label('Pais_id', 'País:') !!}
+    <p>{!! $ciudad->pais->nombre !!}</p>
+</div>
+
 <!-- Created At Field -->
 <div class="form-group">
     {!! Form::label('created_at', 'Created At:') !!}
@@ -27,10 +33,3 @@
     {!! Form::label('deleted_at', 'Deleted At:') !!}
     <p>{!! $ciudad->deleted_at !!}</p>
 </div>
-
-<!-- Pais Id Field -->
-<div class="form-group">
-    {!! Form::label('Pais_id', 'Pais Id:') !!}
-    <p>{!! $ciudad->Pais_id !!}</p>
-</div>
-
