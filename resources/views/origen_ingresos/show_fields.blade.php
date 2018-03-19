@@ -4,6 +4,12 @@
     <p>{!! $origenIngresos->id !!}</p>
 </div>
 
+<!-- Nombre Field -->
+<div class="form-group">
+    {!! Form::label('nombre', 'Nombre:') !!}
+    <p>{!! $origenIngresos->nombre !!}</p>
+</div>
+
 <!-- Unidadproduccion Id Field -->
 <div class="form-group">
     {!! Form::label('UnidadProduccion_id', 'Unidad de Producción:') !!}

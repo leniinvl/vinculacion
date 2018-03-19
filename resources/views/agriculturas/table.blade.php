@@ -1,7 +1,8 @@
 <table class="table table-responsive" id="agriculturas-table">
     <thead>
         <tr>
-            <th>Unidad de Producción</th>
+            <th>Nombre</th>
+        <th>Unidad de Producción</th>
         <th>Uso de suelo</th>
             <th colspan="3">Acciones</th>
         </tr>
@@ -9,6 +10,7 @@
     <tbody>
     @foreach($agriculturas as $agricultura)
         <tr>
+            <td>{!! $agricultura->nombre !!}</td>
             <td>{!! $agricultura->UnidadProduccion->nombre !!}</td>
             <td>{!! $agricultura->UsoSuelo->nombre !!}</td>
             <td>

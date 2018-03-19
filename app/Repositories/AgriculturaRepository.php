@@ -8,7 +8,7 @@ use InfyOm\Generator\Common\BaseRepository;
 /**
  * Class AgriculturaRepository
  * @package App\Repositories
- * @version March 15, 2018, 4:45 pm UTC
+ * @version March 19, 2018, 8:55 am UTC
  *
  * @method Agricultura findWithoutFail($id, $columns = ['*'])
  * @method Agricultura find($id, $columns = ['*'])
@@ -20,6 +20,7 @@ class AgriculturaRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
+        'nombre',
         'UnidadProduccion_id',
         'UsoSuelo_id'
     ];

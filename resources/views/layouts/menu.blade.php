@@ -555,7 +555,11 @@
         --}}
     </li>
 </ul>
-<li class="{{ Request::is('planDeGestionDeRiesgosHasTipoAnimales*') ? 'active' : '' }}">
-    <a href="{!! route('planDeGestionDeRiesgosHasTipoAnimales.index') !!}"><i class="fa fa-edit"></i><span>Plan De Gestion De Riesgos  Has  Tipo Animales</span></a>
+<li class="{{ Request::is('origenIngresos*') ? 'active' : '' }}">
+    <a href="{!! route('origenIngresos.index') !!}"><i class="fa fa-edit"></i><span>Origen Ingresos</span></a>
+</li>
+
+<li class="{{ Request::is('agriculturas*') ? 'active' : '' }}">
+    <a href="{!! route('agriculturas.index') !!}"><i class="fa fa-edit"></i><span>Agriculturas</span></a>
 </li>
 

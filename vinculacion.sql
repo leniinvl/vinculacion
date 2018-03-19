@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-03-2018 a las 19:20:11
+-- Tiempo de generación: 19-03-2018 a las 08:42:46
 -- Versión del servidor: 5.7.14
 -- Versión de PHP: 7.0.10
 
@@ -28,6 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `agricultura` (
   `id` int(11) NOT NULL,
+  `nombre` varchar(50) DEFAULT NULL,
   `UnidadProduccion_id` int(11) NOT NULL,
   `UsoSuelo_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL,
@@ -327,8 +328,8 @@ CREATE TABLE `genero` (
 --
 
 INSERT INTO `genero` (`id`, `nombre`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Femenino', '2018-03-18 19:19:37', '2018-03-18 19:19:37', NULL),
-(2, 'Masculino', '2018-03-18 19:19:37', '2018-03-18 19:19:37', NULL);
+(1, 'Femenino', '2018-03-19 08:42:29', '2018-03-19 08:42:29', NULL),
+(2, 'Masculino', '2018-03-19 08:42:29', '2018-03-19 08:42:29', NULL);
 
 -- --------------------------------------------------------
 
@@ -390,6 +391,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 
 CREATE TABLE `origeningresos` (
   `id` int(11) NOT NULL,
+  `nombre` varchar(50) DEFAULT NULL,
   `UnidadProduccion_id` int(11) NOT NULL,
   `Propietario_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL,

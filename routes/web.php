@@ -75,24 +75,17 @@ Route::post('storetipoalimentosconsumo/{planriesgos}', array('uses' => 'PlanRies
 
 Route::delete('deletetipoalimentosconsumo/{planRiesgos}/{id}', array('uses' => 'PlanRiesgosController@destroyTipoAlimentosConsumo', 'as' => 'destroyTipoAlimentosConsumo'));
 
-
-
-
-
 Route::post('storetipoanimales/{planriesgos}', array('uses' => 'PlanDeGestionDeRiesgosController@storeTipoAnimales', 'as' => 'storeTipoAnimales'));
 
 Route::delete('deletetipoanimales/{planRiesgos}/{id}', array('uses' => 'PlanDeGestionDeRiesgosController@destroyTipoAnimales', 'as' => 'destroyTipoAnimales'));
-
-
-
 
 Route::post('storetipoagricultura/{planriesgos}', array('uses' => 'PlanRiesgosController@storeTipoAgricultura', 'as' => 'storeTipoAgricultura'));
 
 Route::delete('deletetipoagricultura/{planRiesgos}/{id}', array('uses' => 'PlanRiesgosController@destroyTipoAgricultura', 'as' => 'destroyTipoAgricultura'));
 
-Route::post('storeorigeningresos/{planriesgos}', array('uses' => 'PlanRiesgosController@storeOrigenIngresos', 'as' => 'storeOrigenIngresos'));
+Route::post('storeorigeningresos/{planriesgos}', array('uses' => 'PlanDeGestionDeRiesgosController@storeOrigenIngresos', 'as' => 'storeOrigenIngresos'));
 
-Route::delete('deleteorigeningresos/{planRiesgos}/{id}', array('uses' => 'PlanRiesgosController@destroyOrigenIngresos', 'as' => 'destroyOrigenIngresos'));
+Route::delete('deleteorigeningresos/{planRiesgos}/{id}', array('uses' => 'PlanDeGestionDeRiesgosController@destroyOrigenIngresos', 'as' => 'destroyOrigenIngresos'));
 
 Route::post('storegrupoalimentosproductos/{planriesgos}', array('uses' => 'PlanRiesgosController@storeGrupoAlimentosProductos', 'as' => 'storeGrupoAlimentosProductos'));
 
@@ -118,17 +111,11 @@ Route::resource('productos', 'ProductoController');
 
 Route::resource('planRiesgosHasTipoAlimentos', 'PlanRiesgos_Has_TipoAlimentosController');
 
-
-
 Route::resource('planRiesgosHasTipoCultivos', 'PlanRiesgos_Has_TipoCultivosController');
 
 Route::resource('tallerHasTipoDesechos', 'Taller_Has_TipoDesechoController');
 
 Route::resource('tallerHasTipoRiesgos', 'Taller_Has_TipoRiesgosController');
-
-
-
-
 
 Route::resource('religions', 'ReligionController');
 
@@ -180,19 +167,11 @@ Route::resource('consolidacionAreaInfluencias', 'ConsolidacionAreaInfluenciaCont
 
 Route::resource('ecosistemas', 'EcosistemaController');
 
-
-
 Route::resource('tipoAgriculturas', 'TipoAgriculturaController');
 
 Route::resource('tipoAlimentos', 'TipoAlimentosController');
 
 Route::resource('tipoAlimentosConsumos', 'TipoAlimentosConsumoController');
-
-
-
-
-
-
 
 Route::resource('tipoDesechos', 'TipoDesechoController');
 
@@ -208,48 +187,13 @@ Route::resource('areainfluencias', 'AreainfluenciaController');
 
 Route::resource('biodigestors', 'BiodigestorController');
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Route::resource('desechos', 'DesechoController');
 
 Route::resource('tipodesechos', 'TipodesechoController');
 
-
-
-
-
-
-
-
-
 Route::resource('generos', 'GeneroController');
 
 Route::resource('usoSuelos', 'UsoSueloController');
-
-
-
 
 Route::resource('tipoDesechots', 'TipoDesechotController');
 
@@ -259,32 +203,11 @@ Route::resource('tallers', 'TallerController');
 
 Route::resource('condicionesDrenajes', 'CondicionesDrenajeController');
 
-
-
 Route::resource('tipoVegetals', 'TipoVegetalController');
-
-
-
-
-
-
 
 Route::resource('areaInfluencias', 'AreaInfluenciaController');
 
 Route::resource('permeabilidadSuelos', 'PermeabilidadSueloController');
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 Route::resource('tipoAbonos', 'TipoAbonoController');
 
@@ -316,11 +239,17 @@ Route::resource('amenazas', 'AmenazasController');
 
 Route::resource('vulnerabilidades', 'VulnerabilidadesController');
 
-
-
 Route::resource('planDeGestionDeRiesgos', 'PlanDeGestionDeRiesgosController');
 
 Route::resource('propietarios', 'PropietarioController');
 
-
 Route::resource('planDeGestionDeRiesgosHasTipoAnimales', 'PlanDeGestionDeRiesgos_Has_TipoAnimalesController');
+
+
+
+
+Route::resource('planRiesgosHasOrigenIngresos', 'PlanRiesgos_Has_OrigenIngresosController');
+
+Route::resource('origenIngresos', 'OrigenIngresosController');
+
+Route::resource('agriculturas', 'AgriculturaController');

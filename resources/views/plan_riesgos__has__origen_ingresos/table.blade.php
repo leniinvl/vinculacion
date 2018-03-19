@@ -2,7 +2,7 @@
     <thead>
         <tr>
             <th>Origeningresos Id</th>
-            <th colspan="3">Acciones</th>
+            <th colspan="3">Action</th>
         </tr>
     </thead>
     <tbody>
