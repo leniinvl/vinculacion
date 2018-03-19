@@ -3,15 +3,15 @@
     <thead>
         <tr>
             <th>Altitud</th>
+            <th>Lat</th>
+            <th>Long</th>
         <th>Descripción del tipo de terreno</th>
-        <th>Detalle de calidad de aire</th>
+        <th>Calidad de aire</th>
         <th>Detalle de ruido</th>
         <th>Observaciones de ecosistema</th>
         <th>Religión</th>
         <th>Lenguaje</th>
         <th>Tipo Vegetal</th>
-        <th>Lat</th>
-        <th>Long</th>
         <th>Manejo ambiental</th>
         <th>Uso de suelo </th>
         <th>Tipo de suelo </th>
@@ -20,15 +20,15 @@
         <th>Condiciones de drenaje</th>
         <th>Ecosistema</th>
         <th>Caracteristicas étnicas </th>
-        <th>Descripción de nivel de tráfico </th>
-        <th>Descripción de recirculación de aire</th>
-        <th>Descripción de organización social </th>
-        <th>Descripción de tendencia de tierra</th>
-        <th>Descripción de abastecimiento de agua</th>
-        <th>Descripción de evacuación de agua lluvia</th>
-        <th>Descripción de consolidación de areas de influencia</th>
-        <th>Descripción de evacuación de aguas servidas</th>
-        <th>Descripción de uso vegetación </th>
+        <th>Nivel de tráfico </th>
+        <th>Recirculación de aire</th>
+        <th>Organización social </th>
+        <th>Tendencia de tierra</th>
+        <th>Abastecimiento de agua</th>
+        <th>Evacuación de agua lluvia</th>
+        <th>Consolidación de areas de influencia</th>
+        <th>Evacuación de aguas servidas</th>
+        <th>Uso vegetación </th>
         <th>Descripción de tradiciones </th>
         <th>Descripción de tipo de fuentes </th>
         <th>Ruido</th>
@@ -40,6 +40,8 @@
     @foreach($areaInfluencias as $areaInfluencia)
         <tr>
             <td>{!! $areaInfluencia->altitud !!}</td>
+            <td>{!! $areaInfluencia->lat !!}</td>
+            <td>{!! $areaInfluencia->long !!}</td>
             <td>{!! $areaInfluencia->tipoTerrenoDescripcion !!}</td>
             <td>{!! $areaInfluencia->detalleCalidadAire !!}</td>
             <td>{!! $areaInfluencia->detalleRuido !!}</td>
@@ -65,8 +67,6 @@
 
             @endforeach
             </td>
-            <td>{!! $areaInfluencia->lat !!}</td>
-            <td>{!! $areaInfluencia->long !!}</td>
             <td>{!! $areaInfluencia->ManejoAmbiental->nombre !!}</td>
             <td>{!! $areaInfluencia->UsoSuelo->nombre !!}</td>
             <td>{!! $areaInfluencia->TipoSuelo->nombre !!}</td>
