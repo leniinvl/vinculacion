@@ -88,4 +88,9 @@ class PlanDeGestionDeRiesgos extends Model
        return $this->belongsToMany(\App\Models\Tipoanimales::class, 'plandegestionderiesgos_has_tipoanimales', 'plandegestionderiesgos_id', 'tipoanimales_id')->withTimestamps();
      }
 
+     public function amenazas()
+     {
+        return $this->belongsToMany(\App\Models\Amenazas::class, 'plandegestionderiesgos_has_Amenazas','plandegestionderiesgos_id', 'amenazas_id')->withTimestamps();
+     }
+
 }

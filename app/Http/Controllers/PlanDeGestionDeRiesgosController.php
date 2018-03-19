@@ -11,6 +11,7 @@ use App\Models\TipoAbono;
 use App\Models\TipoAnimales;
 use App\Models\TipoControlPlaga;
 use App\Models\TipoCultivos;
+use App\Models\Amenazas;
 use App\Repositories\PlanDeGestionDeRiesgosRepository;
 use Flash;
 use Illuminate\Http\Request;
@@ -89,6 +90,7 @@ class PlanDeGestionDeRiesgosController extends AppBaseController
         $planDeGestionDeRiesgos = $this->planDeGestionDeRiesgosRepository->findWithoutFail($id);
         $tipoanimales           = TipoAnimales::all()->pluck('nombre', 'id');
         $origeningresos         = OrigenIngresos::all()->pluck('nombre', 'id');
+        $amenazas               = Amenazas::all()->pluck('nombre','id');
 
         if (empty($planDeGestionDeRiesgos)) {
             Flash::error('Plan De Gestion De Riesgos not found');
@@ -96,8 +98,11 @@ class PlanDeGestionDeRiesgosController extends AppBaseController
             return redirect(route('planDeGestionDeRiesgos.index'));
         }
 
-        return view('plan_de_gestion_de_riesgos.show')->with('planDeGestionDeRiesgos', $planDeGestionDeRiesgos)->with('tipoanimales', $tipoanimales)
-            ->with('origeningresos', $origeningresos);
+        return view('plan_de_gestion_de_riesgos.show')
+            ->with('planDeGestionDeRiesgos', $planDeGestionDeRiesgos)
+            ->with('tipoanimales', $tipoanimales)
+            ->with('origeningresos', $origeningresos)
+            ->with('amenazas',$amenazas);
     }
 
     /**
@@ -202,4 +207,18 @@ class PlanDeGestionDeRiesgosController extends AppBaseController
         $planriesgos->OrigenIngresos()->detach($id);
         return redirect(url('planDeGestionDeRiesgos/' . $planriesgos->id));
     }
+    public function storeAmenazas(Request $request, $idplanriesgos)
+    {
+        $planriesgos = PlanDeGestionDeRiesgos::find($idplanriesgos);
+        $planriesgos->amenazas()->attach($request->amenazas_id);
+        Flash::success('Amenaza saved successfully.');
+        return redirect(url('planDeGestionDeRiesgos/' . $planriesgos->id));
+    }
+    public function destroyAmenazas($idplanriesgos, $id)
+    {
+        $planriesgos = PlanDeGestionDeRiesgos::find($idplanriesgos);
+        $planriesgos->amenazas()->detach($id);
+        return redirect(url('planDeGestionDeRiesgos/' . $planriesgos->id));
+    }
+
 }

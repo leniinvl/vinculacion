@@ -83,7 +83,8 @@ Route::post('storetipoanimales/{planriesgos}', array('uses' => 'PlanDeGestionDeR
 
 Route::delete('deletetipoanimales/{planRiesgos}/{id}', array('uses' => 'PlanDeGestionDeRiesgosController@destroyTipoAnimales', 'as' => 'destroyTipoAnimales'));
 
-
+Route::post('storeAmenazas/{planriesgos}',array('uses'=>'PlanDeGestionDeRiesgosController@storeAmenazas', 'as'=>'storeAmenazas'));
+Route::delete('deleteAmenazas/{planriesgos}/{id}',array('uses'=>'PlanDeGestionDeRiesgosController@destroyAmenazas', 'as'=> 'destroyAmenazas'));
 
 
 Route::post('storetipoagricultura/{planriesgos}', array('uses' => 'PlanRiesgosController@storeTipoAgricultura', 'as' => 'storeTipoAgricultura'));

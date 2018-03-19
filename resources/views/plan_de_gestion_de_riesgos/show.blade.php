@@ -83,6 +83,44 @@
                         </tbody>
                     </table>
 
+
+                    <h5>Amenazas</h5>
+                    <div class="form-group col-sm-6">
+
+                        {!! Form::open(['route' => ['storeAmenazas', $planDeGestionDeRiesgos->id], 'method' => 'post']) !!}
+                        {{ csrf_field() }}
+                        {!! Form::select('amenazas_id', $amenazas, null, ['class' => 'form-control']) !!}
+
+                    </div>
+                        {!! Form::submit('Agregar', ['class' => 'btn btn-primary']) !!}
+
+                        {!! Form::close() !!}
+
+
+                    <table class="table table-responsive" id="planRiesgosHasOrigenIngresos-table">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th colspan="3">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($planDeGestionDeRiesgos->amenazas as $planRiesgosHasAmenazas)
+                            <tr>
+                                <td>{!! $planRiesgosHasAmenazas->nombre !!}</td>
+                                <td>
+                                    {!! Form::open(['route' => ['destroyAmenazas', $planDeGestionDeRiesgos->id, $planRiesgosHasAmenazas->id], 'method' => 'delete']) !!}
+                                    <div class='btn-group'>
+
+                                        {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                                    </div>
+                                    {!! Form::close() !!}
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+
                     <a href="{!! route('planDeGestionDeRiesgos.index') !!}" class="btn btn-default">Atrás</a>
                 </div>
             </div>
