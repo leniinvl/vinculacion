@@ -6,6 +6,10 @@
         <th>Tipo de Control de Plaga</th>
         <th>Tipo de Cultivo</th>
         <th>Tipos de Animales</th>
+        <th>Orígenes de Ingresos</th>
+        <th>Agricultura</th>
+        <th>Amenazas</th>
+        <th>Vulnerabilidades</th>
             <th colspan="3">Acciones</th>
         </tr>
     </thead>
@@ -19,6 +23,26 @@
             <td>
               @foreach($planDeGestionDeRiesgos->tipoanimales as $planRiesgosHasTipoAnimales)
                     <p>{!! $planRiesgosHasTipoAnimales->nombre !!}</p>
+              @endforeach
+            </td>
+            <td>
+              @foreach($planDeGestionDeRiesgos->origeningresos as $planRiesgosHasOrigenIngresos)
+                    <p>{!! $planRiesgosHasOrigenIngresos->nombre !!}</p>
+              @endforeach
+            </td>
+            <td>
+              @foreach($planDeGestionDeRiesgos->agriculturas as $planRiesgosHasAgriculturas)
+                    <p>{!! $planRiesgosHasAgriculturas->nombre !!}</p>
+              @endforeach
+            </td>
+            <td>
+              @foreach($planDeGestionDeRiesgos->amenazas as $planRiesgosHasAmenazas)
+                    <p>{!! $planRiesgosHasAmenazas->nombre !!}</p>
+              @endforeach
+            </td>
+             <td>
+              @foreach($planDeGestionDeRiesgos->vulnerabilidades as $planRiesgosHasVulnerabilidades)
+                    <p>{!! $planRiesgosHasVulnerabilidades->nombre !!}</p>
               @endforeach
             </td>
             <td>
