@@ -34,18 +34,16 @@ class OrigenIngresos extends Model
     use SoftDeletes;
 
     public $table = 'origeningresos';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-
     protected $dates = ['deleted_at'];
-
 
     public $fillable = [
         'nombre',
         'UnidadProduccion_id',
-        'Propietario_id'
+        'Propietario_id',
     ];
 
     /**
@@ -54,10 +52,10 @@ class OrigenIngresos extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
-        'nombre' => 'string',
+        'id'                  => 'integer',
+        'nombre'              => 'string',
         'UnidadProduccion_id' => 'integer',
-        'Propietario_id' => 'integer'
+        'Propietario_id'      => 'integer',
     ];
 
     /**
@@ -66,23 +64,23 @@ class OrigenIngresos extends Model
      * @var array
      */
     public static $rules = [
-        
-    ];
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     **/
-    public function propietario()
-    {
-        return $this->belongsTo(\App\Models\Propietario::class);
-    }
+    ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
     public function unidadproduccion()
     {
-        return $this->belongsTo(\App\Models\Unidadproduccion::class);
+        return $this->belongsTo(\App\Models\Unidadproduccion::class, 'UnidadProduccion_id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     **/
+    public function propietario()
+    {
+        return $this->belongsTo(\App\Models\Propietario::class, 'Propietario_id');
     }
 
     /**

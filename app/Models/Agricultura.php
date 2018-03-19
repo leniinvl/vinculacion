@@ -34,18 +34,16 @@ class Agricultura extends Model
     use SoftDeletes;
 
     public $table = 'agricultura';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-
     protected $dates = ['deleted_at'];
-
 
     public $fillable = [
         'nombre',
         'UnidadProduccion_id',
-        'UsoSuelo_id'
+        'UsoSuelo_id',
     ];
 
     /**
@@ -54,10 +52,10 @@ class Agricultura extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
-        'nombre' => 'string',
+        'id'                  => 'integer',
+        'nombre'              => 'string',
         'UnidadProduccion_id' => 'integer',
-        'UsoSuelo_id' => 'integer'
+        'UsoSuelo_id'         => 'integer',
     ];
 
     /**
@@ -66,7 +64,7 @@ class Agricultura extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**
@@ -74,7 +72,7 @@ class Agricultura extends Model
      **/
     public function unidadproduccion()
     {
-        return $this->belongsTo(\App\Models\Unidadproduccion::class);
+        return $this->belongsTo(\App\Models\Unidadproduccion::class, 'UnidadProduccion_id');
     }
 
     /**
@@ -82,9 +80,8 @@ class Agricultura extends Model
      **/
     public function usosuelo()
     {
-        return $this->belongsTo(\App\Models\Usosuelo::class);
+        return $this->belongsTo(\App\Models\Usosuelo::class, 'UsoSuelo_id');
     }
-
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      **/
