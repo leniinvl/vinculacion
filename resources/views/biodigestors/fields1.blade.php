@@ -11,46 +11,6 @@
     {!! Form::number('tamañoPropiedad', null, ['class' => 'form-control','step'=>'0.01']) !!}
 </div>
 
-<!-- Imagen Field -->
-<div class="form-group col-sm-6 col-lg-6">
-    {!! Form::label('imagen', 'Imagen:') !!}
-    <span class="btn btn-default btn-file">
-       Selecciona un archivo {!! Form::file('imagen',null,['required' => 'required']) !!}
-    </span>
-</div>
-
-<div class="col-sm-6 col-lg-6">
-    <img id="imgSalida" width="300px" height="auto" src="" />
-</div>
-
-@section('scripts')
-<script>
-    $(function() {
-        $('#imagen').change(function(e) {
-            addImage(e); 
-        });
-
-        function addImage(e){
-            var file = e.target.files[0],
-            imageType = /image.*/;
-
-            if (!file.type.match(imageType))
-                return;
-
-            var reader = new FileReader();
-            reader.onload = fileOnload;
-            reader.readAsDataURL(file);
-            
-        }
-
-        function fileOnload(e) {
-            var result=e.target.result;
-            $('#imgSalida').attr("src",result);
-        }
-    });
-</script>
-@endsection
-
 <!-- Video Field -->
 <div class="form-group col-sm-12 col-lg-12">
     {!! Form::label('video', 'Video:') !!}
