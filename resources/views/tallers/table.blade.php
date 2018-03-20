@@ -4,7 +4,7 @@
             <th>Nombre</th>
         <th>Descripcion</th>
         <th>Riesgo</th>
-        <th>Imagen</th>
+        <th width="20%">Imágen</th>
         <th>Video</th>
         <th>Unidad de producción</th>
             <th colspan="3">Acciones</th>
@@ -17,11 +17,14 @@
             <td>{!! $taller->descripcion !!}</td>
             <td>{!! $taller->riesgo !!}</td>
             <td >
-                @if($taller->imagen!=null)
-                    <p><img class="img-responsive"  width="20%" height="30%" src="{!! $taller->imagen !!}"/></p></td>
-                @else
-                    {!! $taller->imagen !!}
-                @endif
+                    @if($taller->imagen!=null)
+                            <img class="img-responsive"  width="80%" height="30%" src="{!! $taller->imagen !!}"/></p>
+                    @else
+                        <div class="col-sm-12">
+                        {!! $taller->imagen !!}
+                        </div>
+                    @endif
+            </td>
             <td>{!! $taller->video !!}</td>
             <td>{!! $taller->unidadproduccion->nombre !!}</td>
             <td>

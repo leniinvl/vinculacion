@@ -67,8 +67,7 @@ class DesechotController extends AppBaseController
 
         $desechot = $this->desechotRepository->create($input);
 
-        Flash::success('Desechot
-guardado exitosamente.');
+        Flash::success('Guardado exitosamente.');
 
         return redirect(route('desechots.index'));
     }
@@ -109,7 +108,7 @@ guardado exitosamente.');
         $desechot     = $this->desechotRepository->findWithoutFail($id);
 
         if (empty($desechot)) {
-            Flash::error('Desechot not found');
+            Flash::error('No se ha encontrado');
 
             return redirect(route('desechots.index'));
         }
@@ -130,14 +129,14 @@ guardado exitosamente.');
         $desechot = $this->desechotRepository->findWithoutFail($id);
 
         if (empty($desechot)) {
-            Flash::error('Desechot not found');
+            Flash::error('No se ha encontrado');
 
             return redirect(route('desechots.index'));
         }
 
         $desechot = $this->desechotRepository->update($request->all(), $id);
 
-        Flash::success('Desechot updated successfully.');
+        Flash::success('Actualizado exitosamente.');
 
         return redirect(route('desechots.index'));
     }
@@ -154,14 +153,14 @@ guardado exitosamente.');
         $desechot = $this->desechotRepository->findWithoutFail($id);
 
         if (empty($desechot)) {
-            Flash::error('Desechot not found');
+            Flash::error('No se ha encontrado');
 
             return redirect(route('desechots.index'));
         }
 
         $this->desechotRepository->delete($id);
 
-        Flash::success('Desechot deleted successfully.');
+        Flash::success('Eliminado exitosamente.');
 
         return redirect(route('desechots.index'));
     }

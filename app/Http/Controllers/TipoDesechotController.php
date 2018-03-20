@@ -59,8 +59,7 @@ class TipoDesechotController extends AppBaseController
 
         $tipoDesechot = $this->tipoDesechotRepository->create($input);
 
-        Flash::success('Tipo Desechot
-guardado exitosamente.');
+        Flash::success('Guardado exitosamente.');
 
         return redirect(route('tipoDesechots.index'));
     }
@@ -77,7 +76,7 @@ guardado exitosamente.');
         $tipoDesechot = $this->tipoDesechotRepository->findWithoutFail($id);
 
         if (empty($tipoDesechot)) {
-            Flash::error('Tipo Desechot not found');
+            Flash::error('No se ha encontrado');
 
             return redirect(route('tipoDesechots.index'));
         }
@@ -97,7 +96,7 @@ guardado exitosamente.');
         $tipoDesechot = $this->tipoDesechotRepository->findWithoutFail($id);
 
         if (empty($tipoDesechot)) {
-            Flash::error('Tipo Desechot not found');
+            Flash::error('No se ha encontrado');
 
             return redirect(route('tipoDesechots.index'));
         }
@@ -118,14 +117,14 @@ guardado exitosamente.');
         $tipoDesechot = $this->tipoDesechotRepository->findWithoutFail($id);
 
         if (empty($tipoDesechot)) {
-            Flash::error('Tipo Desechot not found');
+            Flash::error('No se he econtrado');
 
             return redirect(route('tipoDesechots.index'));
         }
 
         $tipoDesechot = $this->tipoDesechotRepository->update($request->all(), $id);
 
-        Flash::success('Tipo Desechot updated successfully.');
+        Flash::success('Actualizado exitosamente.');
 
         return redirect(route('tipoDesechots.index'));
     }
@@ -142,14 +141,14 @@ guardado exitosamente.');
         $tipoDesechot = $this->tipoDesechotRepository->findWithoutFail($id);
 
         if (empty($tipoDesechot)) {
-            Flash::error('Tipo Desechot not found');
+            Flash::error('No se ha encontrado');
 
             return redirect(route('tipoDesechots.index'));
         }
 
         $this->tipoDesechotRepository->delete($id);
 
-        Flash::success('Tipo Desechot deleted successfully.');
+        Flash::success('Eliminado  exitosamente.');
 
         return redirect(route('tipoDesechots.index'));
     }

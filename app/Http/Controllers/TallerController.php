@@ -8,6 +8,7 @@ use App\Models\Taller;
 use App\Models\unidadproduccion;
 use App\Repositories\TallerRepository;
 use Flash;
+use Validator;
 use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
@@ -54,31 +55,32 @@ class TallerController extends AppBaseController
      */
     public function store(CreateTallerRequest $request)
     {
-		//modificacion alguna;
-        //$input = $request->all();
+
         $base64Photo = null;
         if ($request->hasFile('file')) {
             $this->validate($request, [
-                'file' => 'required|image|mimes:jpeg,png,jpg,gif|max:1024',
+                'file' =>'required|image|mimes:jpeg,png,jpg,gif|max:1024',
             ]);
-            $image       = $request->file('file');
-            $extension   = $image->getClientOriginalExtension();
-            $im          = file_get_contents($image);
-            $data        = base64_encode($im);
-            $base64Photo = 'data:image/' . $extension . ';base64,' . $data;
-        } else {
-            $base64Photo = null;
+            $image = $request->file('file');
+            $extension = $image->getClientOriginalExtension();
+                $im = file_get_contents($image);
+                $data = base64_encode($im);
+                $base64Photo = 'data:image/' . $extension . ';base64,' . $data;
         }
-        $taller                      = new Taller();
-        $taller->nombre              = $request->get('nombre');
-        $taller->descripcion         = $request->get('descripcion');
-        $taller->riesgo              = $request->get('riesgo');
-        $taller->imagen              = $base64Photo;
-        $taller->video               = $request->get('video');
-        $taller->UnidadProduccion_id = $request->get('UnidadProduccion_id');
-        $taller->save();
-        Flash::success('Guardado Satisfactoriamente.');
-        return redirect(route('tallers.index'));
+        else {
+                $base64Photo = null;
+            }
+
+                $taller = new Taller();
+                $taller->nombre = $request->get('nombre');
+                $taller->descripcion = $request->get('descripcion');
+                $taller->riesgo = $request->get('riesgo');
+                $taller->imagen = $base64Photo;
+                $taller->video = $request->get('video');
+                $taller->UnidadProduccion_id = $request->get('UnidadProduccion_id');
+                $taller->save();
+                Flash::success('Guardado Satisfactoriamente.');
+                return redirect(route('tallers.index'));
     }
     /**
      * Display the specified Taller.
@@ -126,11 +128,29 @@ class TallerController extends AppBaseController
     {
         $taller = $this->tallerRepository->findWithoutFail($id);
         if (empty($taller)) {
-            Flash::error('Taller not found');
+            Flash::error('Error al actualizar');
             return redirect(route('tallers.index'));
         }
-        $taller = $this->tallerRepository->update($request->all(), $id);
-        Flash::success('Taller updated successfully.');
+        $base64Photo = null;
+        if ($request->hasFile('file')) {
+            $this->validate($request, [
+                'file' => 'required|image|mimes:jpeg,png,jpg,gif|max:1024',
+            ]);
+            $image       = $request->file('file');
+            $extension   = $image->getClientOriginalExtension();
+            $im          = file_get_contents($image);
+            $data        = base64_encode($im);
+            $base64Photo = 'data:image/' . $extension . ';base64,' . $data;
+        } else {
+            $base64Photo = null;
+        }
+        if($base64Photo!=null)
+            $request['imagen']=$base64Photo;
+        else{
+            $request['imagen']=$taller['imagen'];
+        }
+        $response= $this->tallerRepository->update($request->all(), $id);
+        Flash::success('Actualizado Correctamente.');
         return redirect(route('tallers.index'));
     }
     /**
@@ -144,11 +164,11 @@ class TallerController extends AppBaseController
     {
         $taller = $this->tallerRepository->findWithoutFail($id);
         if (empty($taller)) {
-            Flash::error('Taller not found');
+            Flash::error('No se ha podido eliminar');
             return redirect(route('tallers.index'));
         }
         $this->tallerRepository->delete($id);
-        Flash::success('Taller deleted successfully.');
+        Flash::success('Eliminado Correctamente.');
         return redirect(route('tallers.index'));
     }
 }
