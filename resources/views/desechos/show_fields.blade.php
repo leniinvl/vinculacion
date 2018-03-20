@@ -18,19 +18,19 @@
 
 <!-- Created At Field -->
 <div class="form-group">
-    {!! Form::label('created_at', 'Creado el:') !!}
+    {!! Form::label('created_at', 'Creado:') !!}
     <p>{!! $desecho->created_at !!}</p>
 </div>
 
 <!-- Updated At Field -->
 <div class="form-group">
-    {!! Form::label('updated_at', 'Actualizado el:') !!}
+    {!! Form::label('updated_at', 'Actualizado:') !!}
     <p>{!! $desecho->updated_at !!}</p>
 </div>
 
 <!-- Deleted At Field -->
 <div class="form-group">
-    {!! Form::label('deleted_at', 'Eliminado el:') !!}
+    {!! Form::label('deleted_at', 'Eliminado:') !!}
     <p>{!! $desecho->deleted_at !!}</p>
 </div>
 
@@ -42,7 +42,7 @@
 
 <!-- Tipodesecho Id Field -->
 <div class="form-group">
-    {!! Form::label('TipoDesecho_id', 'Tipodesecho:') !!}
+    {!! Form::label('TipoDesecho_id', 'Tipo de Desecho:') !!}
     <p>{!! $desecho->tipodesecho->nombre !!}</p>
 </div>
 
