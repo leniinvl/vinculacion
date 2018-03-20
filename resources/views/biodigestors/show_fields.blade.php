@@ -30,7 +30,7 @@
 
 <!-- Largobio Field -->
 <div class="form-group">
-    {!! Form::label('largoBio', 'Largo del Biodigestor (m):') !!}
+    {!! Form::label('largoBio', 'Altura del Biodigestor (m):') !!}
     <p>{!! $biodigestor->largoBio !!}</p>
 </div>
 
@@ -42,7 +42,7 @@
 
 <div class="form-group">
     {!! Form::label('volumenCaja', 'Volumen del Biodigestor (m^3):') !!}
-    <p>{!! $biodigestor->profundBio * $biodigestor->largoBio * $biodigestor->anchoBio !!}</p>
+    <p>{!! $biodigestor->profundBio/2 * $biodigestor->profundBio/2 * $biodigestor->largoBio * 3.141592654 !!}</p>
 </div>
 
 <!-- Anchocaja Field -->
@@ -61,6 +61,11 @@
 <div class="form-group">
     {!! Form::label('profundCaja', 'Profundidad de la caja de acumulación de desechos (m):') !!}
     <p>{!! $biodigestor->profundCaja !!}</p>
+</div>
+
+<div class="form-group">
+    {!! Form::label('volumenCaja', 'Volumen de la caja de acumulación de desechos (m^3):') !!}
+    <p>{!! $biodigestor->profundCaja * $biodigestor->largoCaja * $biodigestor->anchoCaja !!}</p>
 </div>
 
 <!-- Temperatura Field -->

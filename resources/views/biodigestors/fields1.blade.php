@@ -25,7 +25,7 @@
 
 <!-- Largobio Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('largoBio', 'Largo del Biodigestor (m):') !!}
+    {!! Form::label('largoBio', 'Altura del Biodigestor (m):') !!}
     {!! Form::number('largoBio', null, ['class' => 'form-control','step'=>'0.01','required' => 'required']) !!}
 </div>
 
