@@ -11,9 +11,9 @@
        <div class="box box-primary">
            <div class="box-body">
                <div class="row">
-                   {!! Form::model($biodigestor, ['route' => ['biodigestors.update', $biodigestor->id], 'method' => 'patch']) !!}
+                   {!! Form::model($biodigestor, ['route' => ['biodigestors.update', $biodigestor->id], 'method' => 'patch', 'files' => true]) !!}
 
-                        @include('biodigestors.fields1')
+                        @include('biodigestors.fields')
 
                    {!! Form::close() !!}
                </div>

@@ -1,3 +1,4 @@
+<div style="overflow-x:auto;">
 <table class="table table-responsive" id="biodigestors-table">
     <thead>
         <tr>
@@ -24,7 +25,7 @@
         <tr>
             <td>{!! $biodigestor->ubicacion !!}</td>
             <td>{!! $biodigestor->tamañoPropiedad !!}</td>
-            <td><img width="50px" src="./imagenes/{!! $biodigestor->imagen !!}"/></td>
+            <td><img width="50px" src="{{ Storage::url($biodigestor->imagen) }}"/></td>
             <td>{!! $biodigestor->video !!}</td>
             <td>{!! $biodigestor->anchoBio !!}</td>
             <td>{!! $biodigestor->largoBio !!}</td>
@@ -50,3 +51,4 @@
     @endforeach
     </tbody>
 </table>
+</div>

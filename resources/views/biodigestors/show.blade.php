@@ -16,7 +16,7 @@
                 <div class="col-md-6" style="padding-left: 20px">
                     <div class="form-group">
                         {!! Form::label('imagen','Imagen:') !!}
-                        <p><img width="500px" src="../imagenes/{!! $biodigestor->imagen !!}"/></p>
+                        <p><img width="500px" src="{{ Storage::url($biodigestor->imagen) }}"/></p>
                         <a href="{!! $biodigestor->video !!}" target="_blank">Ir al Video</a>
                     </div>
                 </div>

@@ -79,34 +79,21 @@ class BiodigestorController extends AppBaseController
             $biodigestor->save();
         }
         else{
-            $mime      = Input::file('imagen')->getMimeType();
-            $extension = strtolower(Input::file('imagen')->getClientOriginalExtension());
-            $fileName  = uniqid() . '.' . $extension;
-            $path      = "imagenes";
-
-            switch ($mime) {
-                case "image/jpeg":
-                case "image/png":
-                case "image/gif":
-                    if (\Request::file('imagen')->isValid()) {
-                        \Request::file('imagen')->move($path, $fileName);
-                        $biodigestor                      = new Biodigestor();
-                        $biodigestor->ubicacion           = $request->get('ubicacion');
-                        $biodigestor->tamañoPropiedad    = $request->get('tamañoPropiedad');
-                        $biodigestor->video               = $request->get('video');
-                        $biodigestor->anchoBio            = $request->get('anchoBio');
-                        $biodigestor->largoBio            = $request->get('largoBio');
-                        $biodigestor->profundBio          = $request->get('profundBio');
-                        $biodigestor->anchoCaja           = $request->get('anchoCaja');
-                        $biodigestor->largoCaja           = $request->get('largoCaja');
-                        $biodigestor->profundCaja         = $request->get('profundCaja');
-                        $biodigestor->temperatura         = $request->get('temperatura');
-                        $biodigestor->UnidadProduccion_id = $request->get('UnidadProduccion_id');
-                        $biodigestor->imagen              = $fileName;
-                        $biodigestor->save();
-                    }
-                    break;
-            }
+             $biodigestor                      = new Biodigestor();
+            $biodigestor->ubicacion           = $request->get('ubicacion');
+            $biodigestor->tamañoPropiedad    = $request->get('tamañoPropiedad');
+            $biodigestor->video               = $request->get('video');
+            $biodigestor->anchoBio            = $request->get('anchoBio');
+            $biodigestor->largoBio            = $request->get('largoBio');
+            $biodigestor->profundBio          = $request->get('profundBio');
+            $biodigestor->anchoCaja           = $request->get('anchoCaja');
+            $biodigestor->largoCaja           = $request->get('largoCaja');
+            $biodigestor->profundCaja         = $request->get('profundCaja');
+            $biodigestor->temperatura         = $request->get('temperatura');
+            $biodigestor->UnidadProduccion_id = $request->get('UnidadProduccion_id');
+            $biodigestor->imagen              = $request->imagen->store('public/imagenes');
+            $biodigestor->save();
+           
         }
         Flash::success('Biodigestor guardado exitosamente.');
 
@@ -176,7 +163,6 @@ class BiodigestorController extends AppBaseController
         }
 
         if (!Input::file("imagen")) {
-            Flash::success('1');
             $biodigestor->ubicacion           = $request->get('ubicacion');
             $biodigestor->tamañoPropiedad    = $request->get('tamañoPropiedad');
             $biodigestor->video               = $request->get('video');
@@ -191,34 +177,22 @@ class BiodigestorController extends AppBaseController
             $biodigestor->update();
         }
         else{
-            Flash::success('2');
-            $mime      = Input::file('imagen')->getMimeType();
-            $extension = strtolower(Input::file('imagen')->getClientOriginalExtension());
-            $fileName  = uniqid() . '.' . $extension;
-            $path      = "imagenes";
+            \Storage::delete($biodigestor->imagen);
+            $biodigestor->ubicacion           = $request->get('ubicacion');
+            $biodigestor->tamañoPropiedad    = $request->get('tamañoPropiedad');
+            $biodigestor->video               = $request->get('video');
+            $biodigestor->anchoBio            = $request->get('anchoBio');
+            $biodigestor->largoBio            = $request->get('largoBio');
+            $biodigestor->profundBio          = $request->get('profundBio');
+            $biodigestor->anchoCaja           = $request->get('anchoCaja');
+            $biodigestor->largoCaja           = $request->get('largoCaja');
+            $biodigestor->profundCaja         = $request->get('profundCaja');
+            $biodigestor->temperatura         = $request->get('temperatura');
+            $biodigestor->UnidadProduccion_id = $request->get('UnidadProduccion_id');
+            $biodigestor->imagen              = $request->imagen->store('public/imagenes');
+            $biodigestor->update();
 
-            switch ($mime) {
-                case "image/jpeg":
-                case "image/png":
-                case "image/gif":
-                    if (\Request::file('imagen')->isValid()) {
-                        \Request::file('imagen')->move($path, $fileName);
-                        $biodigestor->ubicacion           = $request->get('ubicacion');
-                        $biodigestor->tamañoPropiedad    = $request->get('tamañoPropiedad');
-                        $biodigestor->video               = $request->get('video');
-                        $biodigestor->anchoBio            = $request->get('anchoBio');
-                        $biodigestor->largoBio            = $request->get('largoBio');
-                        $biodigestor->profundBio          = $request->get('profundBio');
-                        $biodigestor->anchoCaja           = $request->get('anchoCaja');
-                        $biodigestor->largoCaja           = $request->get('largoCaja');
-                        $biodigestor->profundCaja         = $request->get('profundCaja');
-                        $biodigestor->temperatura         = $request->get('temperatura');
-                        $biodigestor->UnidadProduccion_id = $request->get('UnidadProduccion_id');
-                        $biodigestor->imagen              = $fileName;
-                        $biodigestor->update();
-                    }
-                    break;
-            }
+
         }
         return redirect(route('biodigestors.index'));
     }
