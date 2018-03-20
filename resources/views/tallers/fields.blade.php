@@ -24,7 +24,7 @@
 <!-- Video Field -->
 <div class="form-group col-sm-12 col-lg-12">
     {!! Form::label('video', 'Video:') !!}
-    {!! Form::textarea('video', null, ['class' => 'form-control']) !!}
+    {!! Form::text('video', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Unidadproduccion Id Field -->
@@ -36,6 +36,6 @@
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
-    {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-    <a href="{!! route('tallers.index') !!}" class="btn btn-default">Cancel</a>
+    {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
+    <a href="{!! route('tallers.index') !!}" class="btn btn-default">Cancelar</a>
 </div>
