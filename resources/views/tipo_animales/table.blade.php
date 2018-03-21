@@ -2,7 +2,7 @@
     <thead>
         <tr>
             <th>Nombre</th>
-        <th>Precuaria </th>
+        <th>Pecuaria </th>
         <th>Tipo de Unidad </th>
         <th>Tipo de Producción </th>
         <th>Destino </th>
