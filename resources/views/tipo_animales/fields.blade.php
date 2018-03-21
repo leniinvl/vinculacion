@@ -6,7 +6,7 @@
 
 <!-- Precuaria Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('Precuaria_id', 'Precuaria:') !!}
+    {!! Form::label('Precuaria_id', 'Pecuaria:') !!}
     <a href="{{route('precuarias.index')}}">(Añadir Nueva)</a>
     {!! Form::select('Precuaria_id',$precuaria, null, ['class' => 'form-control']) !!}
   </div>

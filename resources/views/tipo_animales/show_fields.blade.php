@@ -12,7 +12,7 @@
 
 <!-- Precuaria Id Field -->
 <div class="form-group">
-    {!! Form::label('Precuaria_id', 'Precuaria:') !!}
+    {!! Form::label('Precuaria_id', 'Pecuaria:') !!}
     <p>{!! $tipoAnimales->precuaria->nombre !!}</p>
 </div>
 
@@ -51,4 +51,3 @@
     {!! Form::label('deleted_at', 'Deleted At:') !!}
     <p>{!! $tipoAnimales->deleted_at !!}</p>
 </div>
-
