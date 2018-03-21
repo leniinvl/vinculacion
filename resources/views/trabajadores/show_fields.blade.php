@@ -31,7 +31,7 @@
 
 <!-- Nacionalidad Field -->
 <div class="form-group">
-    {!! Form::label('Pais_id', 'Nacionalidad:') !!}
+    {!! Form::label('nacionalidad', 'Nacionalidad:') !!}
     <p>{!! $trabajadores->nacionalidad !!}</p>
 </div>
 

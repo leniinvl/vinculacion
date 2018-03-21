@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-03-2018 a las 05:59:22
+-- Tiempo de generación: 21-03-2018 a las 06:40:41
 -- Versión del servidor: 10.1.31-MariaDB
 -- Versión de PHP: 7.0.28
 
@@ -315,8 +315,8 @@ CREATE TABLE `genero` (
 --
 
 INSERT INTO `genero` (`id`, `nombre`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Femenino', '2018-03-20 04:58:50', '2018-03-20 04:58:50', NULL),
-(2, 'Masculino', '2018-03-20 04:58:50', '2018-03-20 04:58:50', NULL);
+(1, 'Femenino', '2018-03-21 05:40:08', '2018-03-21 05:40:08', NULL),
+(2, 'Masculino', '2018-03-21 05:40:08', '2018-03-21 05:40:08', NULL);
 
 -- --------------------------------------------------------
 

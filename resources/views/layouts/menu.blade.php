@@ -363,7 +363,7 @@
                             <i class="fa fa-first-order">
                             </i>
                             <span>
-                                Precuarias
+                                Pecuarias
                             </span>
                         </a>
                     </li>
