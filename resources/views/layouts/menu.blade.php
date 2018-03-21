@@ -318,7 +318,7 @@
                 </a>
             </li>
             {{--****Fin Sub-Menú Gestión de Riesgos****--}}
-            <li class="treeview {{ Request::is('tipoAbonos*','tipoControlPlagas*','tipoCultivos*','precuarias*','destinos*','tipoProduccions*','tipoUnidads*','amenazas*','vulnerabilidades*','pais*','ciudads*') ? 'active' : '' }}">
+            <li class="treeview {{ Request::is('tipoAbonos*','tipoControlPlagas*','tipoCultivos*','precuarias*','destinos*','tipoProduccions*','tipoUnidads*','amenazas*','vulnerabilidades*','pais*') ? 'active' : '' }}">
                 <a href="#">
                     <i class="fa fa-plus">
                     </i>
@@ -418,15 +418,6 @@
                             </i>
                             <span>
                                 Paises
-                            </span>
-                        </a>
-                    </li>
-                    <li class="{{ Request::is('ciudads*') ? 'active' : '' }}">
-                        <a href="{!! route('ciudads.index') !!}">
-                            <i class="fa fa-map">
-                            </i>
-                            <span>
-                                Ciudades
                             </span>
                         </a>
                     </li>

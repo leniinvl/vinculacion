@@ -11,7 +11,7 @@
             <div class="box-body">
                 <div class="row" style="padding-left: 20px">
                     @include('pais.show_fields')
-                    <a href="{!! route('pais.index') !!}" class="btn btn-default">Atrás</a>
+                    <a href="{!! route('pais.index') !!}" class="btn btn-default">regresar</a>
                 </div>
             </div>
         </div>

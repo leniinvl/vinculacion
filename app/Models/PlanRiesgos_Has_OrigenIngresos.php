@@ -21,7 +21,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \Illuminate\Database\Eloquent\Collection origeningresos
  * @property \Illuminate\Database\Eloquent\Collection plandegestionderiesgosHasAgricultura
  * @property \Illuminate\Database\Eloquent\Collection plandegestionderiesgosHasAmenazas
- * @property \Illuminate\Database\Eloquent\Collection plandegestionderiesgosHasTipoanimales
+ * @property \Illuminate\Database\Eloquent\Collection planRiesgosHasTipoAnimales
  * @property \Illuminate\Database\Eloquent\Collection plandegestionderiesgosHasVulnerabilidades
  * @property \Illuminate\Database\Eloquent\Collection unidadproduccion
  * @property \Illuminate\Database\Eloquent\Collection unidadproduccionHasPropietario

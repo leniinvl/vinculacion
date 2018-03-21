@@ -29,12 +29,12 @@
     {!! Form::select('Pais_id', $paises, null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Ciudad Id Field -->
+<!-- Nacionalidad Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('Ciudad_id', 'Ciudad:') !!}
-    <a href="{{route('ciudads.index')}}">(Añadir Nueva)</a>
-    {!! Form::select('Ciudad_id', $ciudades, null, ['class' => 'form-control']) !!}
+    {!! Form::label('nacionalidad', 'Nacionalidad:') !!}
+    {!! Form::text('nacionalidad', null, ['class' => 'form-control']) !!}
 </div>
+
 
 <!-- Instruccionformal Field -->
 <div class="form-group col-sm-6">

@@ -224,11 +224,11 @@ Route::resource('tipoAbonos', 'TipoAbonoController');
 
 Route::resource('tipoControlPlagas', 'TipoControlPlagaController');
 
-Route::resource('trabajadores', 'TrabajadoresController');
 
-Route::resource('pais', 'PaisController');
 
-Route::resource('ciudads', 'CiudadController');
+
+
+
 
 Route::resource('tipoCultivos', 'TipoCultivosController');
 
@@ -254,7 +254,7 @@ Route::resource('planDeGestionDeRiesgos', 'PlanDeGestionDeRiesgosController');
 
 Route::resource('propietarios', 'PropietarioController');
 
-Route::resource('planDeGestionDeRiesgosHasTipoAnimales', 'PlanDeGestionDeRiesgos_Has_TipoAnimalesController');
+Route::resource('planRiesgosHasTipoAnimales', 'PlanDeGestionDeRiesgos_Has_TipoAnimalesController');
 
 
 
@@ -264,3 +264,7 @@ Route::resource('planRiesgosHasOrigenIngresos', 'PlanRiesgos_Has_OrigenIngresosC
 Route::resource('origenIngresos', 'OrigenIngresosController');
 
 Route::resource('agriculturas', 'AgriculturaController');
+
+Route::resource('pais', 'PaisController');
+
+Route::resource('trabajadores', 'TrabajadoresController');

@@ -38,11 +38,11 @@ class Trabajadores extends Model
         'fechaDeNacimiento',
         'Genero_id',
         'Pais_id',
-        'Ciudad_id',
         'instruccionFormal',
         'horasTrabajo',
         'salario',
         'PlanDeGestionDeRiesgos_id',
+        'nacionalidad',
     ];
 
     /**
@@ -57,11 +57,11 @@ class Trabajadores extends Model
         'fechaDeNacimiento'         => 'date',
         'Genero_id'                 => 'integer',
         'Pais_id'                   => 'integer',
-        'Ciudad_id'                 => 'integer',
         'instruccionFormal'         => 'string',
         'horasTrabajo'              => 'integer',
         'salario'                   => 'float',
         'PlanDeGestionDeRiesgos_id' => 'integer',
+        'nacionalidad'              => 'string',
     ];
 
     /**
@@ -72,13 +72,7 @@ class Trabajadores extends Model
     public static $rules = [
 
     ];
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     **/
-    public function ciudad()
-    {
-        return $this->belongsTo(\App\Models\Ciudad::class, 'Ciudad_id');
-    }
+    
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

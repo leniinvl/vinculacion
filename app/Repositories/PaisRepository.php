@@ -8,7 +8,7 @@ use InfyOm\Generator\Common\BaseRepository;
 /**
  * Class PaisRepository
  * @package App\Repositories
- * @version March 15, 2018, 4:40 pm UTC
+ * @version March 20, 2018, 5:03 am UTC
  *
  * @method Pais findWithoutFail($id, $columns = ['*'])
  * @method Pais find($id, $columns = ['*'])
@@ -20,8 +20,7 @@ class PaisRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
-        'nombre',
-        'nacionalidad'
+        'nombre'
     ];
 
     /**

@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.4
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-03-2018 a las 08:42:46
--- Versión del servidor: 5.7.14
--- Versión de PHP: 7.0.10
+-- Tiempo de generación: 20-03-2018 a las 05:59:22
+-- Versión del servidor: 10.1.31-MariaDB
+-- Versión de PHP: 7.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -31,7 +33,7 @@ CREATE TABLE `agricultura` (
   `nombre` varchar(50) DEFAULT NULL,
   `UnidadProduccion_id` int(11) NOT NULL,
   `UsoSuelo_id` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -45,7 +47,7 @@ CREATE TABLE `agricultura` (
 CREATE TABLE `amenazas` (
   `id` int(11) NOT NULL,
   `nombre` varchar(100) DEFAULT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -86,7 +88,7 @@ CREATE TABLE `areainfluencia` (
   `tipoFuentesDescripcion` text,
   `ruido` double DEFAULT NULL,
   `precipitaciones` double DEFAULT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -100,7 +102,7 @@ CREATE TABLE `areainfluencia` (
 CREATE TABLE `areainfluencia_has_lenguaje` (
   `AreaInfluencia_id` int(11) NOT NULL,
   `Lenguaje_id` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -114,7 +116,7 @@ CREATE TABLE `areainfluencia_has_lenguaje` (
 CREATE TABLE `areainfluencia_has_religion` (
   `AreaInfluencia_id` int(11) NOT NULL,
   `Religion_id` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -128,7 +130,7 @@ CREATE TABLE `areainfluencia_has_religion` (
 CREATE TABLE `areainfluencia_has_tipovegetal` (
   `AreaInfluencia_id` int(11) NOT NULL,
   `TipoVegetal_id` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -144,7 +146,7 @@ CREATE TABLE `asociacion` (
   `nombre` varchar(50) DEFAULT NULL,
   `personaEncargada` varchar(200) DEFAULT NULL,
   `TipoAsociacion_id` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -169,7 +171,7 @@ CREATE TABLE `biodigestor` (
   `profundCaja` decimal(10,4) DEFAULT NULL,
   `temperatura` double DEFAULT NULL,
   `UnidadProduccion_id` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -183,7 +185,7 @@ CREATE TABLE `biodigestor` (
 CREATE TABLE `caracteristicasetnicas` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) DEFAULT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -197,24 +199,9 @@ CREATE TABLE `caracteristicasetnicas` (
 CREATE TABLE `categoriaproyecto` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) DEFAULT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `ciudad`
---
-
-CREATE TABLE `ciudad` (
-  `id` int(10) UNSIGNED ZEROFILL NOT NULL,
-  `nombre` varchar(100) DEFAULT NULL,
-  `created_at` timestamp NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `deleted_at` timestamp NULL DEFAULT NULL,
-  `Pais_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -227,7 +214,7 @@ CREATE TABLE `clima` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) DEFAULT NULL,
   `mnsm` varchar(50) DEFAULT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -242,7 +229,7 @@ CREATE TABLE `condicionesdrenaje` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) DEFAULT NULL,
   `valor` double DEFAULT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -257,7 +244,7 @@ CREATE TABLE `desecho` (
   `id` int(11) NOT NULL,
   `fecha` date NOT NULL,
   `peso` decimal(10,4) NOT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   `Biodigestor_id` int(11) NOT NULL,
@@ -274,7 +261,7 @@ CREATE TABLE `desechot` (
   `id` int(11) NOT NULL,
   `fecha` date NOT NULL,
   `peso` decimal(10,4) NOT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   `Taller_id` int(11) NOT NULL,
@@ -290,7 +277,7 @@ CREATE TABLE `desechot` (
 CREATE TABLE `destino` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) DEFAULT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -304,7 +291,7 @@ CREATE TABLE `destino` (
 CREATE TABLE `ecosistema` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) DEFAULT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -318,7 +305,7 @@ CREATE TABLE `ecosistema` (
 CREATE TABLE `genero` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) DEFAULT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -328,8 +315,8 @@ CREATE TABLE `genero` (
 --
 
 INSERT INTO `genero` (`id`, `nombre`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Femenino', '2018-03-19 08:42:29', '2018-03-19 08:42:29', NULL),
-(2, 'Masculino', '2018-03-19 08:42:29', '2018-03-19 08:42:29', NULL);
+(1, 'Femenino', '2018-03-20 04:58:50', '2018-03-20 04:58:50', NULL),
+(2, 'Masculino', '2018-03-20 04:58:50', '2018-03-20 04:58:50', NULL);
 
 -- --------------------------------------------------------
 
@@ -340,7 +327,7 @@ INSERT INTO `genero` (`id`, `nombre`, `created_at`, `updated_at`, `deleted_at`) 
 CREATE TABLE `lenguaje` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) DEFAULT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -358,7 +345,7 @@ CREATE TABLE `manejoambiental` (
   `TipoProyecto_id` int(11) NOT NULL,
   `CategoriaProyecto_id` int(11) NOT NULL,
   `UnidadProduccion_id` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='									';
@@ -373,7 +360,7 @@ CREATE TABLE `migrations` (
   `id` int(10) UNSIGNED NOT NULL,
   `migration` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `migrations`
@@ -394,7 +381,7 @@ CREATE TABLE `origeningresos` (
   `nombre` varchar(50) DEFAULT NULL,
   `UnidadProduccion_id` int(11) NOT NULL,
   `Propietario_id` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -408,8 +395,7 @@ CREATE TABLE `origeningresos` (
 CREATE TABLE `pais` (
   `id` int(11) NOT NULL,
   `nombre` varchar(100) DEFAULT NULL,
-  `nacionalidad` varchar(200) DEFAULT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -425,7 +411,7 @@ CREATE TABLE `paisaje` (
   `nombre` varchar(50) DEFAULT NULL,
   `descripcion` text,
   `AreaInfluencia_id` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -440,7 +426,7 @@ CREATE TABLE `password_resets` (
   `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `token` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -451,7 +437,7 @@ CREATE TABLE `password_resets` (
 CREATE TABLE `peligros` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) DEFAULT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -466,7 +452,7 @@ CREATE TABLE `permeabilidadsuelo` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) DEFAULT NULL,
   `valor` double DEFAULT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -483,7 +469,7 @@ CREATE TABLE `plandegestionderiesgos` (
   `TipoAbono_id` int(11) NOT NULL,
   `TipoControlPlaga_id` int(11) NOT NULL,
   `TipoCultivos_id` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -497,7 +483,7 @@ CREATE TABLE `plandegestionderiesgos` (
 CREATE TABLE `plandegestionderiesgos_has_agricultura` (
   `PlanDeGestionDeRiesgos_id` int(11) NOT NULL,
   `Agricultura_id` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -511,7 +497,7 @@ CREATE TABLE `plandegestionderiesgos_has_agricultura` (
 CREATE TABLE `plandegestionderiesgos_has_amenazas` (
   `PlanDeGestionDeRiesgos_id` int(11) NOT NULL,
   `Amenazas_id` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -525,7 +511,7 @@ CREATE TABLE `plandegestionderiesgos_has_amenazas` (
 CREATE TABLE `plandegestionderiesgos_has_origeningresos` (
   `PlanDeGestionDeRiesgos_id` int(11) NOT NULL,
   `OrigenIngresos_id` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -540,7 +526,7 @@ CREATE TABLE `plandegestionderiesgos_has_tipoanimales` (
   `PlanDeGestionDeRiesgos_id` int(11) NOT NULL,
   `TipoAnimales_id` int(11) NOT NULL,
   `cantidad_animales` int(11) DEFAULT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -554,7 +540,7 @@ CREATE TABLE `plandegestionderiesgos_has_tipoanimales` (
 CREATE TABLE `plandegestionderiesgos_has_vulnerabilidades` (
   `PlanDeGestionDeRiesgos_id` int(11) NOT NULL,
   `Vulnerabilidades_id` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -568,7 +554,7 @@ CREATE TABLE `plandegestionderiesgos_has_vulnerabilidades` (
 CREATE TABLE `precuaria` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) DEFAULT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -583,7 +569,7 @@ CREATE TABLE `producto` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL,
   `TipoProducto_id` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='	';
@@ -603,7 +589,7 @@ CREATE TABLE `propietario` (
   `fechaNacimiento` date DEFAULT NULL,
   `telefono` varchar(10) DEFAULT NULL,
   `observaciones` text,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -617,7 +603,7 @@ CREATE TABLE `propietario` (
 CREATE TABLE `religion` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) DEFAULT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -636,7 +622,7 @@ CREATE TABLE `taller` (
   `imagen` text,
   `video` text,
   `UnidadProduccion_id` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -650,7 +636,7 @@ CREATE TABLE `taller` (
 CREATE TABLE `tipoabono` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) DEFAULT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -668,7 +654,7 @@ CREATE TABLE `tipoanimales` (
   `TipoUnidad_id` int(11) NOT NULL,
   `TipoProduccion_id` int(11) NOT NULL,
   `Destino_id` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -682,7 +668,7 @@ CREATE TABLE `tipoanimales` (
 CREATE TABLE `tipoasociacion` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) DEFAULT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -696,7 +682,7 @@ CREATE TABLE `tipoasociacion` (
 CREATE TABLE `tipocontrolplaga` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) DEFAULT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -710,7 +696,7 @@ CREATE TABLE `tipocontrolplaga` (
 CREATE TABLE `tipocultivos` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) DEFAULT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -725,7 +711,7 @@ CREATE TABLE `tipodesecho` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL,
   `descripcion` varchar(250) DEFAULT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -740,7 +726,7 @@ CREATE TABLE `tipodesechot` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL,
   `descripcion` varchar(250) DEFAULT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -754,7 +740,7 @@ CREATE TABLE `tipodesechot` (
 CREATE TABLE `tipoproduccion` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) DEFAULT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -768,7 +754,7 @@ CREATE TABLE `tipoproduccion` (
 CREATE TABLE `tipoproducto` (
   `id` int(11) NOT NULL,
   `nombre` varchar(45) NOT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -782,7 +768,7 @@ CREATE TABLE `tipoproducto` (
 CREATE TABLE `tipoproyecto` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) DEFAULT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='			';
@@ -796,7 +782,7 @@ CREATE TABLE `tipoproyecto` (
 CREATE TABLE `tiposuelo` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) DEFAULT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -810,7 +796,7 @@ CREATE TABLE `tiposuelo` (
 CREATE TABLE `tipounidad` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) DEFAULT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -824,7 +810,7 @@ CREATE TABLE `tipounidad` (
 CREATE TABLE `tipovegetal` (
   `id` int(11) NOT NULL,
   `nombre_comun` varchar(50) DEFAULT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   `nombre_cientifico` varchar(45) DEFAULT NULL
@@ -843,12 +829,12 @@ CREATE TABLE `trabajadores` (
   `fechaDeNacimiento` date DEFAULT NULL,
   `Genero_id` int(11) NOT NULL,
   `Pais_id` int(11) NOT NULL,
-  `Ciudad_id` int(10) UNSIGNED ZEROFILL NOT NULL,
+  `nacionalidad` varchar(200) DEFAULT NULL,
   `instruccionFormal` varchar(200) DEFAULT NULL,
   `horasTrabajo` int(11) DEFAULT NULL,
   `salario` double DEFAULT NULL,
   `PlanDeGestionDeRiesgos_id` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -867,7 +853,7 @@ CREATE TABLE `unidadproduccion` (
   `observaciones` text,
   `Asociacion_id` int(11) NOT NULL,
   `Producto_id` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -881,7 +867,7 @@ CREATE TABLE `unidadproduccion` (
 CREATE TABLE `unidadproduccion_has_propietario` (
   `UnidadProduccion_id` int(11) NOT NULL,
   `Propietario_ci` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -900,7 +886,7 @@ CREATE TABLE `users` (
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -911,7 +897,7 @@ CREATE TABLE `users` (
 CREATE TABLE `usosuelo` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) DEFAULT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -925,7 +911,7 @@ CREATE TABLE `usosuelo` (
 CREATE TABLE `vulnerabilidades` (
   `id` int(11) NOT NULL,
   `nombre` varchar(100) DEFAULT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -1011,13 +997,6 @@ ALTER TABLE `caracteristicasetnicas`
 --
 ALTER TABLE `categoriaproyecto`
   ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `ciudad`
---
-ALTER TABLE `ciudad`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_Ciudad_Pais1_idx` (`Pais_id`);
 
 --
 -- Indices de la tabla `clima`
@@ -1297,8 +1276,7 @@ ALTER TABLE `trabajadores`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_Trabajadores_PlanDeGestionDeRiesgos1_idx` (`PlanDeGestionDeRiesgos_id`),
   ADD KEY `fk_Trabajadores_Genero1_idx` (`Genero_id`),
-  ADD KEY `fk_Trabajadores_Pais1_idx` (`Pais_id`),
-  ADD KEY `fk_Trabajadores_Ciudad1_idx` (`Ciudad_id`);
+  ADD KEY `fk_Trabajadores_Pais1_idx` (`Pais_id`);
 
 --
 -- Indices de la tabla `unidadproduccion`
@@ -1344,236 +1322,277 @@ ALTER TABLE `vulnerabilidades`
 --
 ALTER TABLE `agricultura`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `amenazas`
 --
 ALTER TABLE `amenazas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `areainfluencia`
 --
 ALTER TABLE `areainfluencia`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `asociacion`
 --
 ALTER TABLE `asociacion`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `biodigestor`
 --
 ALTER TABLE `biodigestor`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `caracteristicasetnicas`
 --
 ALTER TABLE `caracteristicasetnicas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `categoriaproyecto`
 --
 ALTER TABLE `categoriaproyecto`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `ciudad`
---
-ALTER TABLE `ciudad`
-  MODIFY `id` int(10) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `clima`
 --
 ALTER TABLE `clima`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `condicionesdrenaje`
 --
 ALTER TABLE `condicionesdrenaje`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `desecho`
 --
 ALTER TABLE `desecho`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `desechot`
 --
 ALTER TABLE `desechot`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `destino`
 --
 ALTER TABLE `destino`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `ecosistema`
 --
 ALTER TABLE `ecosistema`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `genero`
 --
 ALTER TABLE `genero`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT de la tabla `lenguaje`
 --
 ALTER TABLE `lenguaje`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `manejoambiental`
 --
 ALTER TABLE `manejoambiental`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT de la tabla `origeningresos`
 --
 ALTER TABLE `origeningresos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `pais`
 --
 ALTER TABLE `pais`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `paisaje`
 --
 ALTER TABLE `paisaje`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `peligros`
 --
 ALTER TABLE `peligros`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `permeabilidadsuelo`
 --
 ALTER TABLE `permeabilidadsuelo`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `plandegestionderiesgos`
 --
 ALTER TABLE `plandegestionderiesgos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `precuaria`
 --
 ALTER TABLE `precuaria`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `propietario`
 --
 ALTER TABLE `propietario`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `religion`
 --
 ALTER TABLE `religion`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `taller`
 --
 ALTER TABLE `taller`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `tipoabono`
 --
 ALTER TABLE `tipoabono`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `tipoanimales`
 --
 ALTER TABLE `tipoanimales`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `tipoasociacion`
 --
 ALTER TABLE `tipoasociacion`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `tipocontrolplaga`
 --
 ALTER TABLE `tipocontrolplaga`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `tipocultivos`
 --
 ALTER TABLE `tipocultivos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `tipodesecho`
 --
 ALTER TABLE `tipodesecho`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `tipodesechot`
 --
 ALTER TABLE `tipodesechot`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `tipoproduccion`
 --
 ALTER TABLE `tipoproduccion`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `tipoproducto`
 --
 ALTER TABLE `tipoproducto`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `tipoproyecto`
 --
 ALTER TABLE `tipoproyecto`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `tiposuelo`
 --
 ALTER TABLE `tiposuelo`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `tipounidad`
 --
 ALTER TABLE `tipounidad`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `tipovegetal`
 --
 ALTER TABLE `tipovegetal`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `trabajadores`
 --
 ALTER TABLE `trabajadores`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `unidadproduccion`
 --
 ALTER TABLE `unidadproduccion`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `usosuelo`
 --
 ALTER TABLE `usosuelo`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `vulnerabilidades`
 --
 ALTER TABLE `vulnerabilidades`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- Restricciones para tablas volcadas
 --
@@ -1630,12 +1649,6 @@ ALTER TABLE `asociacion`
 --
 ALTER TABLE `biodigestor`
   ADD CONSTRAINT `fk_Biodigestor_UnidadProduccion1` FOREIGN KEY (`UnidadProduccion_id`) REFERENCES `unidadproduccion` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Filtros para la tabla `ciudad`
---
-ALTER TABLE `ciudad`
-  ADD CONSTRAINT `fk_Ciudad_Pais1` FOREIGN KEY (`Pais_id`) REFERENCES `pais` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `desecho`
@@ -1746,7 +1759,6 @@ ALTER TABLE `tipoanimales`
 -- Filtros para la tabla `trabajadores`
 --
 ALTER TABLE `trabajadores`
-  ADD CONSTRAINT `fk_Trabajadores_Ciudad1` FOREIGN KEY (`Ciudad_id`) REFERENCES `ciudad` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_Trabajadores_Genero1` FOREIGN KEY (`Genero_id`) REFERENCES `genero` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_Trabajadores_Pais1` FOREIGN KEY (`Pais_id`) REFERENCES `pais` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_Trabajadores_PlanDeGestionDeRiesgos1` FOREIGN KEY (`PlanDeGestionDeRiesgos_id`) REFERENCES `plandegestionderiesgos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
@@ -1764,6 +1776,7 @@ ALTER TABLE `unidadproduccion`
 ALTER TABLE `unidadproduccion_has_propietario`
   ADD CONSTRAINT `fk_UnidadProduccion_has_Propietario_Propietario1` FOREIGN KEY (`Propietario_ci`) REFERENCES `propietario` (`ci`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_UnidadProduccion_has_Propietario_UnidadProduccion1` FOREIGN KEY (`UnidadProduccion_id`) REFERENCES `unidadproduccion` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

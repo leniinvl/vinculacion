@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreateTrabajadoresRequest;
 use App\Http\Requests\UpdateTrabajadoresRequest;
-use App\Models\Ciudad;
 use App\Models\Genero;
 use App\Models\Pais;
 use App\Models\PlanDeGestionDeRiesgos;
@@ -48,10 +47,9 @@ class TrabajadoresController extends AppBaseController
     public function create()
     {
         $paises                 = Pais::all()->pluck('nombre', 'id');
-        $ciudades               = Ciudad::all()->pluck('nombre', 'id');
         $plandegestionderiesgos = PlanDeGestionDeRiesgos::all()->pluck('nombre', 'id');
         $generos                = Genero::all()->pluck('nombre', 'id');
-        return view('trabajadores.create', ['generos' => $generos, 'ciudades' => $ciudades, 'paises' => $paises, 'plandegestionderiesgos' => $plandegestionderiesgos]);
+        return view('trabajadores.create', ['generos' => $generos, 'paises' => $paises, 'plandegestionderiesgos' => $plandegestionderiesgos]);
     }
 
     /**
@@ -102,7 +100,6 @@ class TrabajadoresController extends AppBaseController
     public function edit($id)
     {
         $paises                 = Pais::all()->pluck('nombre', 'id');
-        $ciudades               = Ciudad::all()->pluck('nombre', 'id');
         $plandegestionderiesgos = PlanDeGestionDeRiesgos::all()->pluck('nombre', 'id');
         $generos                = Genero::all()->pluck('nombre', 'id');
         $trabajadores           = $this->trabajadoresRepository->findWithoutFail($id);
@@ -113,7 +110,7 @@ class TrabajadoresController extends AppBaseController
             return redirect(route('trabajadores.index'));
         }
 
-        return view('trabajadores.edit')->with('trabajadores', $trabajadores)->with('paises', $paises)->with('ciudades', $ciudades)->with('plandegestionderiesgos', $plandegestionderiesgos)->with('generos', $generos);
+        return view('trabajadores.edit')->with('trabajadores', $trabajadores)->with('paises', $paises)->with('plandegestionderiesgos', $plandegestionderiesgos)->with('generos', $generos);
     }
 
     /**
