@@ -243,7 +243,7 @@
                     </i>
                     Ecosistema
                 </a>
-            </li>         
+            </li>
             <li class="{{ Request::is('tipoVegetals*') ? 'active' : '' }}">
                 <a href="{!! route('tipoVegetals.index') !!}">
                     <i class="fa fa-lemon-o">
@@ -428,7 +428,7 @@
         {{--****Fin Plan de Gestion de Riesgos****--}}
 
         {{--****Talleres***--}}
-        <li class="treeview {{ Request::is('tallers*','tipoRiesgos*','tipoDesechos*') ? 'active' : '' }}">
+        <li class="treeview {{ Request::is('tallers*','desechots*','tipoDesechots*') ? 'active' : '' }}">
             <a href="#">
                 <i>
                 </i>
@@ -606,4 +606,3 @@
         --}}
     </li>
 </ul>
-
