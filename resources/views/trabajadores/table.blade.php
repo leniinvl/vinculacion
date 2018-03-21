@@ -6,6 +6,7 @@
         <th>Fecha de Nacimiento</th>
         <th>Género</th>
         <th>País</th>
+        <th>Nacionalidad</th>
         <th>Instrucción Formal</th>
         <th>Horas de Trabajo</th>
         <th>Salario</th>
@@ -21,6 +22,7 @@
             <td>{!! $trabajadores->fechaDeNacimiento !!}</td>
             <td>{!! $trabajadores->genero->nombre !!}</td>
             <td>{!! $trabajadores->pais->nombre!!}</td>
+            <td>{!! $trabajadores->nacionalidad!!}</td>
             <td>{!! $trabajadores->instruccionFormal !!}</td>
             <td>{!! $trabajadores->horasTrabajo !!}</td>
             <td>{!! $trabajadores->salario !!}</td>
