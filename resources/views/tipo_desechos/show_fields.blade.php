@@ -12,19 +12,19 @@
 
 <!-- Created At Field -->
 <div class="form-group">
-    {!! Form::label('created_at', 'Created At:') !!}
+    {!! Form::label('created_at', 'Creado:') !!}
     <p>{!! $tipoDesecho->created_at !!}</p>
 </div>
 
 <!-- Updated At Field -->
 <div class="form-group">
-    {!! Form::label('updated_at', 'Updated At:') !!}
+    {!! Form::label('updated_at', 'Modificado:') !!}
     <p>{!! $tipoDesecho->updated_at !!}</p>
 </div>
 
 <!-- Deleted At Field -->
 <div class="form-group">
-    {!! Form::label('deleted_at', 'Deleted At:') !!}
+    {!! Form::label('deleted_at', 'Eliminado:') !!}
     <p>{!! $tipoDesecho->deleted_at !!}</p>
 </div>
 

@@ -12,19 +12,19 @@
 
 <!-- Descripcion Field -->
 <div class="form-group">
-    {!! Form::label('descripcion', 'Descripcion:') !!}
+    {!! Form::label('descripcion', 'Descripción:') !!}
     <p>{!! $tipoDesechot->descripcion !!}</p>
 </div>
 
 <!-- Created At Field -->
 <div class="form-group">
-    {!! Form::label('created_at', 'Fecha Creacion:') !!}
+    {!! Form::label('created_at', 'Creado:') !!}
     <p>{!! $tipoDesechot->created_at !!}</p>
 </div>
 
 <!-- Updated At Field -->
 <div class="form-group">
-    {!! Form::label('updated_at', 'Acutalizado:') !!}
+    {!! Form::label('updated_at', 'Actualizado:') !!}
     <p>{!! $tipoDesechot->updated_at !!}</p>
 </div>
 

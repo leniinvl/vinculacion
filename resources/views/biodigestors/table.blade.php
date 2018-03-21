@@ -4,9 +4,9 @@
         <tr>
             <th>Nombre</th>
             <th>Tamaño Propiedad (m^2)</th>
-            <th>Imágen</th>
+            <th>Imagen</th>
             <th>Video</th>
-            <th>Ancho Biodigestor</th>
+            <th>Ancho Biodigestor (m)</th>
             <th>Altura Biodigestor (m)</th>
             <th>Radio Biodigestor (m)</th>
             <th>Profundidad Biodigestor (m)</th>
