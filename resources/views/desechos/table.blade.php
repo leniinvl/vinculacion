@@ -9,9 +9,9 @@
         </tr>
     </thead>
     <tbody>
-    @foreach($desechos as $desecho)
+    @foreach($desechos->sortByDesc('fecha') as $desecho)
         <tr>
-            <td>{!! $desecho->fecha !!}</td>
+            <td>{!! $desecho->fecha->format('d-m-Y') !!}</td>
             <td>{!! $desecho->peso !!}</td>
             <td>{!! $desecho->biodigestor->ubicacion !!}</td>
             <td>{!! $desecho->tipodesecho->nombre !!}</td>
