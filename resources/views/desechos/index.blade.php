@@ -8,19 +8,19 @@
         </h1>
     </section>
 
-    
+
         {!! Form::open(['route' => 'desechos.index', 'method' => 'GET','class' => 'navbar-form navbar-left pull-right', 'role' => 'search']) !!}
           <div class="form-group">
             {!! Form::label('peso', 'Fecha Inicio:') !!}
             {!! Form::date('date1',null, ['class' => 'form-control','placeholder'=>'Fecha Inicio']) !!}
             {!! Form::label('peso', 'Fecha Fin:') !!}
             {!! Form::date('date2', null, ['class' => 'form-control']) !!}
-            {!! Form::select('name', $biodigestor ,null, ['class' => 'form-control', 'placeholder'=>'Selecciona un Biodigestor']) !!}  
+            {!! Form::select('name', $biodigestor ,null, ['class' => 'form-control', 'placeholder'=>'Selecciona un Biodigestor']) !!}
           </div>
-          
+
           <button type="submit" class="btn btn-default">Buscar</button>
         {!! Form::close() !!}
- 
+
  <div class="content">
         <div class="clearfix"></div>
 
@@ -30,7 +30,7 @@
         <div class="box box-primary">
             <ul class="nav nav-tabs" role="tablist">
                 <li role="presentation" class="active"><a href="#list" aria-controls="list" role="tab" data-toggle="tab">Lista</a></li>
-                <li role="presentation"><a href="#graph" aria-controls="graph" role="tab" data-toggle="tab">Graficos</a></li>
+                <li role="presentation"><a href="#graph" aria-controls="graph" role="tab" data-toggle="tab">Gráfico</a></li>
             </ul>
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane active" id="list">
@@ -47,14 +47,14 @@
             </div>
         </div>
         <div class="text-center">
-        
+
         </div>
     </div>
 
-    
+
     <label id="total">
 
- 
+
 @endsection
 
 @section('scripts')
@@ -72,10 +72,10 @@
             cont_peso++;
         }
     }
-        var suma=(new Function("return " +peso.join('+')))(); 
-        
+        var suma=(new Function("return " +peso.join('+')))();
+
         //document.getElementsByName("test").value = 'suma';
-        
+
         if(suma!=undefined)
         {
             document.getElementById("total").innerHTML="Total desechos generados: "+suma+" kg";
@@ -83,12 +83,12 @@
         else{
             document.getElementById("total").innerHTML=""
         }
-        
+
         //totalfinal.value.innerHTML;
 
         //alert(totalfinal.value);
 
-        
+
 </script>
 
 @endsection

@@ -166,6 +166,8 @@ guardado exitosamente.');
     }
 
     public function createChart($desechos) {
+//dd($desechos);
+
         $preprocessedDataset = $desechos->sortBy('fecha');
         $preprocessedDataset = $preprocessedDataset->filter(function ($item) {
             return $item->fecha->diffInMonths(Carbon::now()) <= 12;
