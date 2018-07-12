@@ -16,7 +16,9 @@
   <div class="box box-primary">
     <ul class="nav nav-tabs" role="tablist">
       <li role="presentation" class="active"><a href="#list" aria-controls="list" role="tab" data-toggle="tab">Lista</a></li>
+      @if (!empty($chart) and  !empty($chart->datasets))
       <li role="presentation"><a href="#graph" aria-controls="graph" role="tab" data-toggle="tab">Gráfico</a></li>
+      @endif
     </ul>
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane active" id="list">
@@ -24,14 +26,14 @@
           @include('asociacions.table')
         </div>
       </div>
-
+      @if (!empty($chart) and  !empty($chart->datasets))
       <div role="tabpanel" class="tab-pane" id="graph">
         <div>{!! $chart->container() !!}</div>
         <div id="container"></div>
         <script src="//cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.6/highcharts.js" charset="utf-8"></script>
         {!! $chart->script() !!}
       </div>
-
+      @endif
     </div>
   </div>
   <div class="text-center">
