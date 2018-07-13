@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Charts\DefaultChart;
 use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreateDesechotRequest;
 use App\Http\Requests\UpdateDesechotRequest;
 use App\Models\Taller;
 use App\Models\TipoDesechot;
 use App\Repositories\DesechotRepository;
+use Carbon\Carbon;
 use Flash;
 use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
@@ -31,11 +33,14 @@ class DesechotController extends AppBaseController
      */
     public function index(Request $request)
     {
+        $tipodesechot = TipoDesechot::all()->pluck('nombre', 'id');
         $this->desechotRepository->pushCriteria(new RequestCriteria($request));
         $desechots = $this->desechotRepository->all();
 
         return view('desechots.index')
-            ->with('desechots', $desechots);
+            ->with('desechots', $desechots)
+            ->with('tipodesechot', $tipodesechot)
+            ->with('chart',$this->createChart($desechots));
     }
 
     /**
@@ -163,5 +168,41 @@ class DesechotController extends AppBaseController
         Flash::success('Eliminado exitosamente.');
 
         return redirect(route('desechots.index'));
+    }
+
+    public function createChart($desechos) {
+        $preprocessedDataset = $desechos->sortBy('fecha');
+        $preprocessedDataset = $preprocessedDataset->filter(function ($item) {
+            return $item->fecha->diffInMonths(Carbon::now()) <= 12;
+        });
+
+        $dataset = collect();
+        foreach ($preprocessedDataset as $desecho) {
+            $temp = [
+                'peso' => (float)$desecho->peso,
+                'fecha' => Carbon::parse($desecho->fecha)->format('M-Y') ,
+                'taller' => $desecho->taller->nombre
+            ];
+            $dataset->push($temp);
+        }
+        $dataset = $dataset->groupBy('taller');
+        $dataset = $dataset->map(function ($item) {
+            return $item->groupBy('fecha')->map(function ($item2){
+                return $item2->sum('peso');
+            });
+        });
+        $labels = $dataset->collapse()->toArray();
+        $labels = array_fill_keys(array_keys($labels), 0);
+
+        $dataset = $dataset->toArray();
+
+        $chart = new DefaultChart;
+        foreach ($dataset as $key => $item) {
+            $chart->dataset($key, 'column', array_values(array_merge($labels,$item)));
+        }
+        $chart->labels(array_keys($labels));
+        $chart->title('Total de Desechos Generados por Taller en los Últimos 12 Meses');
+        $chart->label("Cantidad de Desechos (Kg)");
+        return $chart;
     }
 }

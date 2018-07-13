@@ -9,9 +9,9 @@
         </tr>
     </thead>
     <tbody>
-    @foreach($desechots as $desechot)
+    @foreach($desechots->sortByDesc('fecha') as $desechot)
         <tr>
-            <td>{!! $desechot->fecha !!}</td>
+            <td>{!! $desechot->fecha->format('d-m-Y') !!}</td>
             <td>{!! $desechot->peso !!}</td>
             <td>{!! $desechot->taller->nombre !!}</td>
             <td>{!! $desechot->tipodesechot->nombre !!}</td>
