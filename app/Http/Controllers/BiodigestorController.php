@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Charts\DefaultChart;
 use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreateBiodigestorRequest;
 use App\Http\Requests\UpdateBiodigestorRequest;
@@ -34,9 +35,9 @@ class BiodigestorController extends AppBaseController
     {
         $this->biodigestorRepository->pushCriteria(new RequestCriteria($request));
         $biodigestors = $this->biodigestorRepository->all();
-
         return view('biodigestors.index')
-            ->with('biodigestors', $biodigestors);
+            ->with('biodigestors', $biodigestors)
+            ->with('chart',$this->createChart($biodigestors));
     }
 
     /**
@@ -220,4 +221,35 @@ class BiodigestorController extends AppBaseController
 
         return redirect(route('biodigestors.index'));
     }
+
+    public function createChart($biodigestors) {
+        $dataset = collect();
+        foreach ($biodigestors as $biodigestor) {
+            $temp = [
+                'ubicacion' => $biodigestor->ubicacion,
+                'profundBio' => $biodigestor->profundBio,   
+            ];
+            $dataset->push($temp);
+        }
+        $dataset = $dataset->groupBy('ubicacion');
+        $dataset = $dataset->map(function ($item) {
+            return $item->groupBy('profundBio')->map(function ($item2){
+                return $item2->count('ubicacion');
+            });
+        });
+        $labels = $dataset->collapse()->toArray();
+        $labels = array_fill_keys(array_keys($labels), 0);
+
+        $dataset = $dataset->toArray();
+        $chart = new DefaultChart;
+        foreach ($dataset as $key => $item) {
+            $chart->dataset($key, 'bar', array_values(array_merge($labels,$item)));
+        }
+
+        $chart->labels(array_keys($labels));
+        $chart->title('Dimensiones del Biodigestor');
+        $chart->label("Profundidad del Biodigestor m");
+        return $chart;
+    }
+
 }
