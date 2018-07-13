@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Charts\DefaultChart;
 use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreateTrabajadoresRequest;
 use App\Http\Requests\UpdateTrabajadoresRequest;
@@ -36,7 +37,8 @@ class TrabajadoresController extends AppBaseController
         $trabajadores = $this->trabajadoresRepository->all();
 
         return view('trabajadores.index')
-            ->with('trabajadores', $trabajadores);
+            ->with('trabajadores', $trabajadores)
+            ->with('chart', $this->createChart($trabajadores));
     }
 
     /**
@@ -161,6 +163,7 @@ class TrabajadoresController extends AppBaseController
 
         return redirect(route('trabajadores.index'));
     }
+
     public function trabajadoresHTMLPDF(Request $request)
     {
         $productos = $this->trabajadoresRepository->all();//OBTENGO TODOS MIS PRODUCTO
@@ -170,5 +173,35 @@ class TrabajadoresController extends AppBaseController
             return $pdf->download('Trabajadores.pdf');//SUGERIR NOMBRE A DESCARGAR
         }
         return view('trabajadores-pdf');//RETORNO A MI VISTA
+
+
+    public function createChart($trabajadores) {
+        $dataset = collect();
+        foreach ($trabajadores as $trabajador) {
+            $temp = [
+                'genero' => $trabajador->genero->nombre,
+                'plan' => $trabajador->plandegestionderiesgos->nombre
+            ];
+            $dataset->push($temp);
+        }
+        $dataset = $dataset->groupBy('genero');
+        $dataset = $dataset->map(function ($item) {
+            return $item->groupBy('plan')->map(function ($item2){
+                return $item2->count('genero');
+            });
+        });
+        $labels = $dataset->collapse()->toArray();
+        $labels = array_fill_keys(array_keys($labels), 0);
+
+        $dataset = $dataset->toArray();
+        $chart = new DefaultChart;
+        foreach ($dataset as $key => $item) {
+            $chart->dataset($key, 'column', array_values(array_merge($labels,$item)));
+        }
+        $chart->labels(array_keys($labels));
+        $chart->title('Total de Trabajadores por Plan de Gestión de Riesgos');
+        $chart->label("Cantidad de Trabajadores");
+        return $chart;
+
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Charts\DefaultChart;
 use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreatePlanDeGestionDeRiesgosRequest;
 use App\Http\Requests\UpdatePlanDeGestionDeRiesgosRequest;
@@ -42,7 +43,8 @@ class PlanDeGestionDeRiesgosController extends AppBaseController
         $planDeGestionDeRiesgos = $this->planDeGestionDeRiesgosRepository->all();
 
         return view('plan_de_gestion_de_riesgos.index')
-            ->with('planDeGestionDeRiesgos', $planDeGestionDeRiesgos);
+            ->with('planDeGestionDeRiesgos', $planDeGestionDeRiesgos)->with('chart',$this->createChart($planDeGestionDeRiesgos))
+            ->with('chart2',$this->createChart2($planDeGestionDeRiesgos))->with('chart3',$this->createChart3($planDeGestionDeRiesgos));
     }
 
     /**
@@ -252,6 +254,7 @@ class PlanDeGestionDeRiesgosController extends AppBaseController
         $planriesgos->agriculturas()->detach($id);
         return redirect(url('planDeGestionDeRiesgos/' . $planriesgos->id));
     }
+
     public function planGestionRiesgosHTMLPDF(Request $request)
     {
         $productos = $this->planDeGestionDeRiesgosRepository->all();//OBTENGO TODOS MIS PRODUCTO
@@ -261,5 +264,113 @@ class PlanDeGestionDeRiesgosController extends AppBaseController
             return $pdf->download('PlanGestionRiesgos.pdf');//SUGERIR NOMBRE A DESCARGAR
         }
         return view('planGestionRiesgos-pdf');//RETORNO A MI VISTA
+
+
+    public function createChart($planDeGestionDeRiesgos) {
+
+      $preprocessedDataset = $planDeGestionDeRiesgos->sortBy('nombre');
+
+      $dataset = collect();
+      foreach ($preprocessedDataset as $plandegestionderiesgos) {
+        $temp = [
+          'nombre' => (string)$plandegestionderiesgos->nombre,
+          'tipoabono' =>(string) $plandegestionderiesgos->tipoabono->nombre,
+          'tipocontrolplaga' =>(string)$plandegestionderiesgos->tipocontrolplaga->nombre,
+          'tipocultivos' =>(string)$plandegestionderiesgos->tipocultivos->nombre
+
+        ];
+        $dataset->push($temp);
+      }
+      $dataset = $dataset->groupBy('tipoabono');
+      $dataset = $dataset->map(function ($item) {
+        return $item->groupBy('tipoabono')->map(function ($item2){
+          return $item2->count('nombre');
+        });
+      });
+      //dd($asociacions);
+      $labels = $dataset->collapse()->toArray();
+      $dataset = $dataset->toArray();
+      $labels = array_fill_keys(array_keys($labels), 0);
+      $chart = new DefaultChart;
+      foreach ($dataset as $key => $item) {
+        $chart->dataset($key, 'column', array_values(array_merge($labels,$item)));
+      }
+      $chart->labels(array_keys($labels));
+      $chart->title('Tipos de abonos por Plan de Riesgos');
+      $chart->label("Número de Planes de Riesgo");
+      return $chart;
+    }
+
+
+    public function createChart2($planDeGestionDeRiesgos) {
+
+      $preprocessedDataset = $planDeGestionDeRiesgos->sortBy('nombre');
+
+      $dataset = collect();
+      foreach ($preprocessedDataset as $plandegestionderiesgos) {
+        $temp = [
+          'nombre' => (string)$plandegestionderiesgos->nombre,
+          'tipoabono' =>(string) $plandegestionderiesgos->tipoabono->nombre,
+          'tipocontrolplaga' =>(string)$plandegestionderiesgos->tipocontrolplaga->nombre,
+          'tipocultivos' =>(string)$plandegestionderiesgos->tipocultivos->nombre
+
+        ];
+        $dataset->push($temp);
+      }
+      $dataset = $dataset->groupBy('tipocontrolplaga');
+      $dataset = $dataset->map(function ($item) {
+        return $item->groupBy('tipocontrolplaga')->map(function ($item2){
+          return $item2->count('nombre');
+        });
+      });
+      //dd($asociacions);
+      $labels = $dataset->collapse()->toArray();
+      $dataset = $dataset->toArray();
+      $labels = array_fill_keys(array_keys($labels), 0);
+      $chart2 = new DefaultChart;
+      foreach ($dataset as $key => $item) {
+        $chart2->dataset($key, 'column', array_values(array_merge($labels,$item)));
+      }
+      $chart2->labels(array_keys($labels));
+      $chart2->title('Tipos de control de plaga por Plan de Riesgos');
+      $chart2->label("Número de Planes de Riesgo");
+      return $chart2;
+    }
+
+
+    public function createChart3($planDeGestionDeRiesgos) {
+
+      $preprocessedDataset = $planDeGestionDeRiesgos->sortBy('nombre');
+
+      $dataset = collect();
+      foreach ($preprocessedDataset as $plandegestionderiesgos) {
+        $temp = [
+          'nombre' => (string)$plandegestionderiesgos->nombre,
+          'tipoabono' =>(string) $plandegestionderiesgos->tipoabono->nombre,
+          'tipocontrolplaga' =>(string)$plandegestionderiesgos->tipocontrolplaga->nombre,
+          'tipocultivos' =>(string)$plandegestionderiesgos->tipocultivos->nombre
+
+        ];
+        $dataset->push($temp);
+      }
+      $dataset = $dataset->groupBy('tipocultivos');
+      $dataset = $dataset->map(function ($item) {
+        return $item->groupBy('tipocultivos')->map(function ($item2){
+          return $item2->count('nombre');
+        });
+      });
+      //dd($asociacions);
+      $labels = $dataset->collapse()->toArray();
+      $dataset = $dataset->toArray();
+      $labels = array_fill_keys(array_keys($labels), 0);
+      $chart3 = new DefaultChart;
+      foreach ($dataset as $key => $item) {
+        $chart3->dataset($key, 'column', array_values(array_merge($labels,$item)));
+      }
+      $chart3->labels(array_keys($labels));
+      $chart3->title('Tipos de cultivo por Plan de Riesgos');
+      $chart3->label("Número de Planes de Riesgo");
+      return $chart3;
+
     }
 }

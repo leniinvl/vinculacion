@@ -88,6 +88,17 @@
                 @endif
             </div>
 
+            <div class="form-group has-feedback{{ $errors->has('tipousuario_id') ? ' has-error' : '' }}">
+                <input type="label" name="tipousuario_id" class="form-control" value="2" placeholder="tipousuario_id">
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+
+                @if ($errors->has('tipousuario_id'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('tipousuario_id') }}</strong>
+                    </span>
+                @endif
+            </div>
+
             <div class="row">
                 <div class="col-xs-8">
                     

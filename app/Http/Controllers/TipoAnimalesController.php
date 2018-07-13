@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Charts\DefaultChart;
 use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreateTipoAnimalesRequest;
 use App\Http\Requests\UpdateTipoAnimalesRequest;
@@ -37,7 +38,9 @@ class TipoAnimalesController extends AppBaseController
         $tipoAnimales = $this->tipoAnimalesRepository->all();
 
         return view('tipo_animales.index')
-            ->with('tipoAnimales', $tipoAnimales);
+            ->with('tipoAnimales', $tipoAnimales)
+            ->with('chart',$this->createChart($tipoAnimales))
+            ->with('chart2',$this->createChart2($tipoAnimales));
     }
 
     /**
@@ -173,6 +176,7 @@ class TipoAnimalesController extends AppBaseController
 
         return redirect(route('tipoAnimales.index'));
     }
+
     public function tipoAnimalesHTMLPDF(Request $request)
     {
         $productos = $this->tipoAnimalesRepository->all();//OBTENGO TODOS MIS PRODUCTO
@@ -182,5 +186,76 @@ class TipoAnimalesController extends AppBaseController
             return $pdf->download('tipoAnimales.pdf');//SUGERIR NOMBRE A DESCARGAR
         }
         return view('tipoAnimales-pdf');//RETORNO A MI VISTA
+
+
+    public function createChart($tipoAnimales) {
+
+      $preprocessedDataset = $tipoAnimales->sortBy('nombre');
+
+      $dataset = collect();
+      foreach ($preprocessedDataset as $tipoanimales) {
+        $temp = [
+          'nombre' => (string)$tipoanimales->nombre,
+          'pecuaria' =>(string) $tipoanimales->precuaria->nombre,
+          'tipoUnidad' =>(string)$tipoanimales->tipounidad->nombre,
+          'tipoProduccion' =>(string)$tipoanimales->tipoproduccion->nombre,
+          'destino' =>(string)$tipoanimales->destino->nombre
+        ];
+        $dataset->push($temp);
+      }
+      $dataset = $dataset->groupBy('pecuaria');
+      $dataset = $dataset->map(function ($item) {
+        return $item->groupBy('tipoProduccion')->map(function ($item2){
+          return $item2->count('nombre');
+        });
+      });
+
+      $labels = $dataset->collapse()->toArray();
+      $dataset = $dataset->toArray();
+      $labels = array_fill_keys(array_keys($labels), 0);
+      $chart = new DefaultChart;
+      foreach ($dataset as $key => $item) {
+        $chart->dataset($key, 'column', array_values(array_merge($labels,$item)));
+      }
+      $chart->labels(array_keys($labels));
+      $chart->title('Cantidad de Tipos de Animales por Tipo de Producción y Pecuaria');
+      $chart->label("Cantidad de Tipo de Producción");
+      return $chart;
+    }
+
+    public function createChart2($tipoAnimales) {
+
+      $preprocessedDataset = $tipoAnimales->sortBy('nombre');
+
+      $dataset = collect();
+      foreach ($preprocessedDataset as $tipoanimales) {
+        $temp = [
+          'nombre' => (string)$tipoanimales->nombre,
+          'pecuaria' =>(string) $tipoanimales->precuaria->nombre,
+          'tipoUnidad' =>(string)$tipoanimales->tipounidad->nombre,
+          'tipoProduccion' =>(string)$tipoanimales->tipoproduccion->nombre,
+          'destino' =>(string)$tipoanimales->destino->nombre
+        ];
+        $dataset->push($temp);
+      }
+      $dataset = $dataset->groupBy('pecuaria');
+      $dataset = $dataset->map(function ($item) {
+        return $item->groupBy('destino')->map(function ($item2){
+          return $item2->count('nombre');
+        });
+      });
+
+      $labels = $dataset->collapse()->toArray();
+      $dataset = $dataset->toArray();
+      $labels = array_fill_keys(array_keys($labels), 0);
+      $chart = new DefaultChart;
+      foreach ($dataset as $key => $item) {
+        $chart->dataset($key, 'column', array_values(array_merge($labels,$item)));
+      }
+      $chart->labels(array_keys($labels));
+      $chart->title('Cantidad de Tipos de Animales por Destino y Pecuaria');
+      $chart->label("Cantidad de Tipo de Producción");
+      return $chart;
+
     }
 }

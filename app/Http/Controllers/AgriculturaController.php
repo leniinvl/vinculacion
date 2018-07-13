@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Charts\DefaultChart;
 use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreateAgriculturaRequest;
 use App\Http\Requests\UpdateAgriculturaRequest;
@@ -35,7 +36,8 @@ class AgriculturaController extends AppBaseController
         $agriculturas = $this->agriculturaRepository->all();
 
         return view('agriculturas.index')
-            ->with('agriculturas', $agriculturas);
+            ->with('agriculturas', $agriculturas)
+            ->with('chart',$this->createChart($agriculturas));
     }
 
     /**
@@ -159,6 +161,7 @@ class AgriculturaController extends AppBaseController
 
         return redirect(route('agriculturas.index'));
     }
+
     public function AgriculturaHTMLPDF(Request $request)
     {
         $productos = $this->agriculturaRepository->all();//OBTENGO TODOS MIS PRODUCTO
@@ -168,5 +171,39 @@ class AgriculturaController extends AppBaseController
             return $pdf->download('Agriculturas.pdf');//SUGERIR NOMBRE A DESCARGAR
         }
         return view('Agricultura-pdf');//RETORNO A MI VISTA
+
+
+    public function createChart($agriculturas) {
+
+      $preprocessedDataset = $agriculturas->sortBy('nombre');
+
+      $dataset = collect();
+      foreach ($preprocessedDataset as $agricultura) {
+        $temp = [
+          'nombre' => (string)$agricultura->nombre,
+          'unidadProduccion' =>(string) $agricultura->unidadproduccion->nombre,
+          'usoSuelo' =>(string)$agricultura->usosuelo->nombre
+        ];
+        $dataset->push($temp);
+      }
+      $dataset = $dataset->groupBy('unidadProduccion');
+      $dataset = $dataset->map(function ($item) {
+        return $item->groupBy('usoSuelo')->map(function ($item2){
+          return $item2->count('nombre');
+        });
+      });
+
+      $labels = $dataset->collapse()->toArray();
+      $dataset = $dataset->toArray();
+      $labels = array_fill_keys(array_keys($labels), 0);
+      $chart = new DefaultChart;
+      foreach ($dataset as $key => $item) {
+        $chart->dataset($key, 'column', array_values(array_merge($labels,$item)));
+      }
+      $chart->labels(array_keys($labels));
+      $chart->title('Agriculturas por Unidades de Producción y Uso de Suelo');
+      $chart->label("Unidades de Producción");
+      return $chart;
+
     }
 }
