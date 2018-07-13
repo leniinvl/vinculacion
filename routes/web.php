@@ -268,3 +268,9 @@ Route::resource('agriculturas', 'AgriculturaController');
 Route::resource('pais', 'PaisController');
 
 Route::resource('trabajadores', 'TrabajadoresController');
+
+
+
+Route::resource('tipousuarios', 'tipousuarioController');
+
+Route::resource('users', 'usersController');
