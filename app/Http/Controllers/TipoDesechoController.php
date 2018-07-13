@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Charts\DefaultChart;
 use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreateTipodesechoRequest;
 use App\Http\Requests\UpdateTipodesechoRequest;
@@ -33,7 +35,8 @@ class TipodesechoController extends AppBaseController
         $tipodesechos = $this->tipodesechoRepository->all();
 
         return view('tipodesechos.index')
-            ->with('tipodesechos', $tipodesechos);
+            ->with('tipodesechos', $tipodesechos)
+            ->with('chart',$this->createChart($tipodesechos));
     }
 
     /**
@@ -152,5 +155,37 @@ guardado exitosamente.');
         Flash::success('Tipodesecho deleted successfully.');
 
         return redirect(route('tipodesechos.index'));
+    }
+
+    public function createChart($tipodesechos) {
+
+      $preprocessedDataset = $tipodesechos->sortBy('nombre');
+
+      $dataset = collect();
+      foreach ($preprocessedDataset as $tipodesecho) {
+        $temp = [
+          'nombre' => (string)$tipodesecho->nombre,
+          'descripcion' =>(string) $tipodesecho->descripcion
+        ];
+        $dataset->push($temp);
+      }
+      $dataset = $dataset->groupBy('nombre');
+      $dataset = $dataset->map(function ($item) {
+        return $item->groupBy('descripcion')->map(function ($item2){
+          return $item2->count('nombre');
+        });
+      });
+
+      $labels = $dataset->collapse()->toArray();
+      $dataset = $dataset->toArray();
+      $labels = array_fill_keys(array_keys($labels), 0);
+      $chart = new DefaultChart;
+      foreach ($dataset as $key => $item) {
+        $chart->dataset($key, 'area', array_values(array_merge($labels,$item)));
+      }
+      $chart->labels(array_keys($labels));
+      $chart->title('Tipos de desechos');
+      $chart->label("Cantidad");
+      return $chart;
     }
 }

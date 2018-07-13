@@ -11,6 +11,7 @@ use Flash;
 use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class ProductoController extends AppBaseController
 {
@@ -157,5 +158,30 @@ guardado exitosamente.');
         Flash::success('Producto deleted successfully.');
 
         return redirect(route('productos.index'));
+    }
+ /*
+	public function pdf()
+    {        
+        /**
+         * toma en cuenta que para ver los mismos 
+         * datos debemos hacer la misma consulta
+        **/
+        /*
+        $products =  $this->productoRepository->all();
+        
+        $pdf = PDF::loadView('productos.table',compact($products));
+        dd($pdf);
+        return $pdf->download('listado.pdf');
+    }
+    */
+    public function vistaHTMLPDF(Request $request)
+    {
+        $productos = $this->productoRepository->all();//OBTENGO TODOS MIS PRODUCTO
+        view()->share('productos',$productos);//VARIABLE GLOBAL PRODUCTOS
+        if($request->has('descargar')){
+            $pdf = PDF::loadView('pdf.tablaProductos',compact('productos'));//CARGO LA VISTA
+            return $pdf->download('productos.pdf');//SUGERIR NOMBRE A DESCARGAR
+        }
+        return view('productos-pdf');//RETORNO A MI VISTA
     }
 }

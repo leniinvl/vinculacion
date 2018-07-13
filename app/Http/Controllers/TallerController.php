@@ -12,7 +12,7 @@ use Validator;
 use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
-
+use Barryvdh\DomPDF\Facade as PDF;
 class TallerController extends AppBaseController
 {
     /** @var  TallerRepository */
@@ -170,5 +170,15 @@ class TallerController extends AppBaseController
         $this->tallerRepository->delete($id);
         Flash::success('Eliminado Correctamente.');
         return redirect(route('tallers.index'));
+    }
+    public function tallerHTMLPDF(Request $request)
+    {
+        $productos = $this->tallerRepository->all();//OBTENGO TODOS MIS PRODUCTO
+        view()->share('tallers',$productos);//VARIABLE GLOBAL PRODUCTOS
+        if($request->has('descargar')){
+            $pdf = PDF::loadView('pdf.tablaTalleres',compact('productos'));//CARGO LA VISTA
+            return $pdf->download('Taller.pdf');//SUGERIR NOMBRE A DESCARGAR
+        }
+        return view('taller-pdf');//RETORNO A MI VISTA
     }
 }
