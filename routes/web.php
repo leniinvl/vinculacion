@@ -119,6 +119,7 @@ Route::resource('lenguajes', 'LenguajeController');
 Route::resource('manejoAmbientals', 'ManejoAmbientalController');
 
 Route::resource('productos', 'ProductoController');
+Route::resource('productos/pdf', 'ProductoController');
 
 Route::resource('planRiesgosHasTipoAlimentos', 'PlanRiesgos_Has_TipoAlimentosController');
 
@@ -152,7 +153,21 @@ Route::resource('areainfluenciaHasPeligros', 'Areainfluencia_has_peligrosControl
 
 Route::resource('areainfluenciaHasReligions', 'Areainfluencia_has_religionController');
 
-//
+Route::resource('pdf', 'ManejoAmbientalController');
+Route::resource('pdf', 'unidadproduccionController');
+Route::resource('pdf', 'PropietarioController');
+Route::resource('pdf', 'TipoAnimalesController');
+Route::resource('pdf', 'OrigenIngresosController');
+Route::resource('pdf', 'AgriculturaController');
+Route::resource('pdf', 'PlanDeGestionDeRiesgosController');
+Route::resource('pdf', 'TrabajadoresController');
+Route::resource('pdf', 'TallerController');
+Route::resource('pdf', 'DesechotController');
+Route::resource('pdf', 'ProductoController');
+Route::resource('pdf', 'AsociacionController');
+Route::resource('pdf', 'DesechoController');
+Route::resource('pdf', 'BiodigestorController');
+Route::resource('pdf', 'AreaInfluenciaController');
 
 // Route::resource('unidadProduccionHasPropietarios', 'UnidadProduccion_Has_PropietarioController');
 
@@ -268,3 +283,67 @@ Route::resource('agriculturas', 'AgriculturaController');
 Route::resource('pais', 'PaisController');
 
 Route::resource('trabajadores', 'TrabajadoresController');
+Route::get('descargar-productos', 'ProductoController@pdf')->name('productos.pdf');
+
+Route::get('productos-pdf',array(
+    'as'=>'vistaHTMLPDF',
+    'uses'=>'ProductoController@vistaHTMLPDF'
+));
+Route::get('unidadProduccion-pdf',array(
+    'as'=>'vistaproduccionHTMLPDF',
+    'uses'=>'unidadproduccionController@vistaproduccionHTMLPDF'
+));
+Route::get('tipoAnimales-pdf',array(
+    'as'=>'tipoAnimalesHTMLPDF',
+    'uses'=>'TipoAnimalesController@tipoAnimalesHTMLPDF'
+));
+Route::get('propietarios-pdf',array(
+    'as'=>'propietariosHTMLPDF',
+    'uses'=>'PropietarioController@propietariosHTMLPDF'
+));
+Route::get('areaInfluencias-pdf',array(
+    'as'=>'areaInfluenciasHTMLPDF',
+    'uses'=>'AreainfluenciaController@areaInfluenciasHTMLPDF'
+));
+Route::get('origenIngreso-pdf',array(
+    'as'=>'origenIngresoHTMLPDF',
+    'uses'=>'OrigenIngresosController@origenIngresoHTMLPDF'
+));
+Route::get('Agricultura-pdf',array(
+    'as'=>'AgriculturaHTMLPDF',
+    'uses'=>'AgriculturaController@AgriculturaHTMLPDF'
+));
+Route::get('planGestionRiesgos-pdf',array(
+    'as'=>'planGestionRiesgosHTMLPDF',
+    'uses'=>'PlanDeGestionDeRiesgosController@planGestionRiesgosHTMLPDF'
+));
+Route::get('trabajadores-pdf',array(
+    'as'=>'trabajadoresHTMLPDF',
+    'uses'=>'TrabajadoresController@trabajadoresHTMLPDF'
+));
+Route::get('taller-pdf',array(
+    'as'=>'tallerHTMLPDF',
+    'uses'=>'TallerController@tallerHTMLPDF'
+));
+Route::get('desechots-pdf',array(
+    'as'=>'desechotsHTMLPDF',
+    'uses'=>'DesechotController@desechotsHTMLPDF'
+));
+Route::get('desechos-pdf',array(
+    'as'=>'desechosHTMLPDF',
+    'uses'=>'DesechoController@desechosHTMLPDF'
+));
+Route::get('asociacion-pdf',array(
+    'as'=>'asociacionHTMLPDF',
+    'uses'=>'AsociacionController@asociacionHTMLPDF'
+));
+Route::get('manejoAmbiental-pdf',array(
+    'as'=>'vistamanejoAmbientalHTMLPDF',
+    'uses'=>'manejoAmbientalController@vistamanejoAmbientalHTMLPDF'
+));
+Route::get('biodigestor-pdf',array(
+    'as'=>'biodigestorHTMLPDF',
+    'uses'=>'biodigestorController@biodigestorHTMLPDF'
+));
+
+

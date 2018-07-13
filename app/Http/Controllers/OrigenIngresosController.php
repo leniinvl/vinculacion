@@ -13,7 +13,7 @@ use Flash;
 use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
-
+use Barryvdh\DomPDF\Facade as PDF;
 class OrigenIngresosController extends AppBaseController
 {
   /** @var  OrigenIngresosRepository */
@@ -193,9 +193,22 @@ class OrigenIngresosController extends AppBaseController
     foreach ($dataset as $key => $item) {
       $chart->dataset($key, 'column', array_values(array_merge($labels,$item)));
     }
+
+    public function origenIngresoHTMLPDF(Request $request)
+    {
+        $productos = $this->origenIngresosRepository->all();//OBTENGO TODOS MIS PRODUCTO
+        view()->share('origenIngresos',$productos);//VARIABLE GLOBAL PRODUCTOS
+        if($request->has('descargar')){
+            $pdf = PDF::loadView('pdf.tablaIngresos',compact('productos'));//CARGO LA VISTA
+            return $pdf->download('Ingresos.pdf');//SUGERIR NOMBRE A DESCARGAR
+        }
+        return view('origenIngreso-pdf');//RETORNO A MI VISTA
+    }
+
     $chart->labels(array_keys($labels));
     $chart->title('Origenes de Ingreso por Unidades de Producción y Propietarios');
     $chart->label("Unidades de Producción");
     return $chart;
   }
+
 }

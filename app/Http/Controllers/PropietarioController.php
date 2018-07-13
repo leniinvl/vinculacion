@@ -11,7 +11,7 @@ use Flash;
 use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
-
+use Barryvdh\DomPDF\Facade as PDF;
 class PropietarioController extends AppBaseController
 {
     /** @var  PropietarioRepository */
@@ -154,5 +154,15 @@ class PropietarioController extends AppBaseController
         Flash::success('Propietario deleted successfully.');
 
         return redirect(route('propietarios.index'));
+    }
+    public function propietariosHTMLPDF(Request $request)
+    {
+        $productos = $this->propietarioRepository->all();//OBTENGO TODOS MIS PRODUCTO
+        view()->share('propietarios',$productos);//VARIABLE GLOBAL PRODUCTOS
+        if($request->has('descargar')){
+            $pdf = PDF::loadView('pdf.tablaPropietarios',compact('productos'));//CARGO LA VISTA
+            return $pdf->download('propietarios.pdf');//SUGERIR NOMBRE A DESCARGAR
+        }
+        return view('propietarios-pdf');//RETORNO A MI VISTA
     }
 }

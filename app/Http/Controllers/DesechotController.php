@@ -12,6 +12,7 @@ use Flash;
 use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class DesechotController extends AppBaseController
 {
@@ -163,5 +164,15 @@ class DesechotController extends AppBaseController
         Flash::success('Eliminado exitosamente.');
 
         return redirect(route('desechots.index'));
+    }
+    public function desechotsHTMLPDF(Request $request)
+    {
+        $productos = $this->desechotRepository->all();//OBTENGO TODOS MIS PRODUCTO
+        view()->share('desechots',$productos);//VARIABLE GLOBAL PRODUCTOS
+        if($request->has('descargar')){
+            $pdf = PDF::loadView('pdf.tablaDesechosT',compact('productos'));//CARGO LA VISTA
+            return $pdf->download('DesechosT.pdf');//SUGERIR NOMBRE A DESCARGAR
+        }
+        return view('desechots-pdf');//RETORNO A MI VISTA
     }
 }

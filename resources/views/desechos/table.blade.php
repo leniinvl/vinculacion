@@ -21,6 +21,7 @@
                     @if(Auth::user()->tipousuario_id===1)
                     <a href="{!! route('desechos.show', [$desecho->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
                     <a href="{!! route('desechos.edit', [$desecho->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
+                    <a href="{{ route('desechosHTMLPDF',['descargar'=>'pdf']) }}" class="btn btn-default btn-xs">Descargar PDF</a>
                     {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                     @else
                     <a href="{!! route('desechos.show', [$desecho->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>

@@ -152,4 +152,14 @@ class PrecuariaController extends AppBaseController
 
         return redirect(route('precuarias.index'));
     }
+    public function vistaHTMLPDF(Request $request)
+    {
+        $productos = $this->precuariaRepository->all();//OBTENGO TODOS MIS PRODUCTO
+        view()->share('productos',$productos);//VARIABLE GLOBAL PRODUCTOS
+        if($request->has('descargar')){
+            $pdf = PDF::loadView('precuaria.table',compact('productos'));//CARGO LA VISTA
+            return $pdf->download('precuaria.pdf');//SUGERIR NOMBRE A DESCARGAR
+        }
+        return view('vista-html-pdf');//RETORNO A MI VISTA
+    }
 }

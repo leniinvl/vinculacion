@@ -20,7 +20,7 @@ use Flash;
 use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
-
+use Barryvdh\DomPDF\Facade as PDF;
 class PlanDeGestionDeRiesgosController extends AppBaseController
 {
     /** @var  PlanDeGestionDeRiesgosRepository */
@@ -255,6 +255,17 @@ class PlanDeGestionDeRiesgosController extends AppBaseController
         return redirect(url('planDeGestionDeRiesgos/' . $planriesgos->id));
     }
 
+    public function planGestionRiesgosHTMLPDF(Request $request)
+    {
+        $productos = $this->planDeGestionDeRiesgosRepository->all();//OBTENGO TODOS MIS PRODUCTO
+        view()->share('planDeGestionDeRiesgos',$productos);//VARIABLE GLOBAL PRODUCTOS
+        if($request->has('descargar')){
+            $pdf = PDF::loadView('pdf.tablaGestionRiesgos',compact('productos'));//CARGO LA VISTA
+            return $pdf->download('PlanGestionRiesgos.pdf');//SUGERIR NOMBRE A DESCARGAR
+        }
+        return view('planGestionRiesgos-pdf');//RETORNO A MI VISTA
+
+
     public function createChart($planDeGestionDeRiesgos) {
 
       $preprocessedDataset = $planDeGestionDeRiesgos->sortBy('nombre');
@@ -360,5 +371,6 @@ class PlanDeGestionDeRiesgosController extends AppBaseController
       $chart3->title('Tipos de cultivo por Plan de Riesgos');
       $chart3->label("Número de Planes de Riesgo");
       return $chart3;
+
     }
 }

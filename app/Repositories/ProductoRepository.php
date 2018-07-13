@@ -13,6 +13,7 @@ use InfyOm\Generator\Common\BaseRepository;
  * @method Producto findWithoutFail($id, $columns = ['*'])
  * @method Producto find($id, $columns = ['*'])
  * @method Producto first($columns = ['*'])
+ * @method Producto generatepdf()
 */
 class ProductoRepository extends BaseRepository
 {

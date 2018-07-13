@@ -33,7 +33,7 @@
         <th>Descripción de tipo de fuentes </th>
         <th>Ruido</th>
         <th>Precipitaciones</th>
-            <th colspan="3">Acciones</th>
+            
         </tr>
     </thead>
     <tbody>
@@ -88,22 +88,7 @@
             <td>{!! $areaInfluencia->tipoFuentesDescripcion !!}</td>
             <td>{!! $areaInfluencia->ruido !!}</td>
             <td>{!! $areaInfluencia->precipitaciones !!}</td>
-            <td>
-                {!! Form::open(['route' => ['areaInfluencias.destroy', $areaInfluencia->id], 'method' => 'delete']) !!}
-                <div class='btn-group'>
-                    @if(Auth::user()->tipousuario_id===1)
-                    <a href="{!! route('areaInfluencias.show', [$areaInfluencia->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
-                    <a href="{!! route('areaInfluencias.edit', [$areaInfluencia->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
-                    <a href="{{ route('areaInfluenciasHTMLPDF',['descargar'=>'pdf']) }}" class="btn btn-default btn-xs">Descargar PDF</a>
-                    {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
-                    @else
-                     <a href="{!! route('areaInfluencias.show', [$areaInfluencia->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
-                    <a href="{!! route('areaInfluencias.edit', [$areaInfluencia->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
-                    @endif 
-                    
-                </div>
-                {!! Form::close() !!}
-            </td>
+            
         </tr>
     @endforeach
     </tbody>
