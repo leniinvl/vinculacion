@@ -10,6 +10,7 @@ use Flash;
 use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use Auth;
 
 class AmenazasController extends AppBaseController
 {
@@ -29,6 +30,7 @@ class AmenazasController extends AppBaseController
      */
     public function index(Request $request)
     {
+        
         $this->amenazasRepository->pushCriteria(new RequestCriteria($request));
         $amenazas = $this->amenazasRepository->all();
 
