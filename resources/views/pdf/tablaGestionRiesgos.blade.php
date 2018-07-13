@@ -1,3 +1,38 @@
+<style>
+table {     
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 12px;    
+	margin: 45px;     
+	width: 480px; 
+	text-align: left;    
+	border-collapse: collapse; }
+
+th {     
+	font-size: 13px;     
+	font-weight: normal;     
+	padding: 8px;     
+	background: #b9c9fe;
+    border-top: 4px solid #aabcfe;    
+	border-bottom: 1px solid #fff; 
+	color: #039; }
+
+td {    
+	padding: 8px;     
+	background: #e8edff;     
+	border-bottom: 1px solid #fff;
+    color: #669;    
+	border-top: 1px solid transparent; }
+
+tr:hover td { 
+	background: #d0dafd; 
+	color: #339; 
+	}
+h1 {   
+	font-size:1.7em;
+	font-weight: normal;
+}
+</style>
+<h1>Reporte de Gestion de Riesgos</h1>
 <table class="table table-responsive" id="planDeGestionDeRiesgos-table">
     <thead>
         <tr>
@@ -10,7 +45,7 @@
         <th>Agricultura</th>
         <th>Amenazas</th>
         <th>Vulnerabilidades</th>
-            <th colspan="3">Acciones</th>
+         
         </tr>
     </thead>
     <tbody>
@@ -45,16 +80,7 @@
                     <p>{!! $planRiesgosHasVulnerabilidades->nombre !!}</p>
               @endforeach
             </td>
-            <td>
-                {!! Form::open(['route' => ['planDeGestionDeRiesgos.destroy', $planDeGestionDeRiesgos->id], 'method' => 'delete']) !!}
-                <div class='btn-group'>
-                    <a href="{!! route('planDeGestionDeRiesgos.show', [$planDeGestionDeRiesgos->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
-                    <a href="{!! route('planDeGestionDeRiesgos.edit', [$planDeGestionDeRiesgos->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
-                    <a href="{{ route('planGestionRiesgosHTMLPDF',['descargar'=>'pdf']) }}" class="btn btn-default btn-xs">Descargar PDF</a>
-                    {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
-                </div>
-                {!! Form::close() !!}
-            </td>
+            
         </tr>
     @endforeach
     </tbody>

@@ -13,6 +13,7 @@ use Flash;
 use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class ManejoAmbientalController extends AppBaseController
 {
@@ -166,5 +167,15 @@ guardado exitosamente.');
         Flash::success('Manejo Ambiental deleted successfully.');
 
         return redirect(route('manejoAmbientals.index'));
+    }
+    public function vistamanejoAmbientalHTMLPDF(Request $request)
+    {
+        $productos = $this->manejoAmbientalRepository->all();//OBTENGO TODOS MIS PRODUCTO
+        view()->share('manejoAmbientals',$productos);//VARIABLE GLOBAL PRODUCTOS
+        if($request->has('descargar')){
+            $pdf = PDF::loadView('pdf.tablaAmbientals',compact('productos'));//CARGO LA VISTA
+            return $pdf->download('manejoambiental.pdf');//SUGERIR NOMBRE A DESCARGAR
+        }
+        return view('manejoAmbiental-pdf');//RETORNO A MI VISTA
     }
 }

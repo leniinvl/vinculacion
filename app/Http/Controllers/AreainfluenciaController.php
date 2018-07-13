@@ -152,4 +152,14 @@ class AreaInfluenciaController extends AppBaseController
 
         return redirect(route('areaInfluencias.index'));
     }
+    public function areaInfluenciasHTMLPDF(Request $request)
+    {
+        $productos = $this->areaInfluenciaRepository->all();//OBTENGO TODOS MIS PRODUCTO
+        view()->share('areainfluencias',$productos);//VARIABLE GLOBAL PRODUCTOS
+        if($request->has('descargar')){
+            $pdf = PDF::loadView('pdf.tablaInfluencias',compact('productos'));//CARGO LA VISTA
+            return $pdf->download('areaInfluencias.pdf');//SUGERIR NOMBRE A DESCARGAR
+        }
+        return view('areaInfluencias-pdf');//RETORNO A MI VISTA
+    }
 }

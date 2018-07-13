@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class BiodigestorController extends AppBaseController
 {
@@ -219,5 +220,15 @@ class BiodigestorController extends AppBaseController
         Flash::success('Biodigestor deleted successfully.');
 
         return redirect(route('biodigestors.index'));
+    }
+	public function biodigestorHTMLPDF(Request $request)
+    {
+		$productos = $this->biodigestorRepository->all();//OBTENGO TODOS MIS PRODUCTO
+        view()->share('biodigestors',$productos);//VARIABLE GLOBAL PRODUCTOS
+        if($request->has('descargar')){
+			$pdf = PDF::loadView('pdf.tablaBiodigestor',compact('productos'))->setPaper('a4', 'landscape');//CARGO LA VISTA
+			return $pdf->download('Biodigestor.pdf');//SUGERIR NOMBRE A DESCARGAR
+        }
+        return view('biodigestor-pdf');//RETORNO A MI VISTA
     }
 }

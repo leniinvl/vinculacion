@@ -14,7 +14,7 @@ use Flash;
 use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
-
+use Barryvdh\DomPDF\Facade as PDF;
 class TipoAnimalesController extends AppBaseController
 {
     /** @var  TipoAnimalesRepository */
@@ -172,5 +172,15 @@ class TipoAnimalesController extends AppBaseController
         Flash::success('Tipo Animales deleted successfully.');
 
         return redirect(route('tipoAnimales.index'));
+    }
+    public function tipoAnimalesHTMLPDF(Request $request)
+    {
+        $productos = $this->tipoAnimalesRepository->all();//OBTENGO TODOS MIS PRODUCTO
+        view()->share('tipoAnimales',$productos);//VARIABLE GLOBAL PRODUCTOS
+        if($request->has('descargar')){
+            $pdf = PDF::loadView('pdf.tablaAnimales',compact('productos'));//CARGO LA VISTA
+            return $pdf->download('tipoAnimales.pdf');//SUGERIR NOMBRE A DESCARGAR
+        }
+        return view('tipoAnimales-pdf');//RETORNO A MI VISTA
     }
 }

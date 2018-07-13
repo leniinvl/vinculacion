@@ -1,3 +1,4 @@
+<h1>Reportes de Origen de ingresos</h1>
 <table class="table table-responsive" id="origenIngresos-table">
     <thead>
         <tr>
@@ -18,6 +19,7 @@
                 <div class='btn-group'>
                     <a href="{!! route('origenIngresos.show', [$origenIngresos->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
                     <a href="{!! route('origenIngresos.edit', [$origenIngresos->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
+                    <a href="{{ route('origenIngresoHTMLPDF',['descargar'=>'pdf']) }}" class="btn btn-default btn-xs">Descargar PDF</a>
                     {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                 </div>
                 {!! Form::close() !!}

@@ -12,7 +12,7 @@ use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use \App\Models\unidadproduccion;
 use \App\Models\UsoSuelo;
-
+use Barryvdh\DomPDF\Facade as PDF;
 class AgriculturaController extends AppBaseController
 {
     /** @var  AgriculturaRepository */
@@ -158,5 +158,15 @@ class AgriculturaController extends AppBaseController
         Flash::success('Agricultura deleted successfully.');
 
         return redirect(route('agriculturas.index'));
+    }
+    public function AgriculturaHTMLPDF(Request $request)
+    {
+        $productos = $this->agriculturaRepository->all();//OBTENGO TODOS MIS PRODUCTO
+        view()->share('agriculturas',$productos);//VARIABLE GLOBAL PRODUCTOS
+        if($request->has('descargar')){
+            $pdf = PDF::loadView('pdf.tablaAgricultura',compact('productos'));//CARGO LA VISTA
+            return $pdf->download('Agriculturas.pdf');//SUGERIR NOMBRE A DESCARGAR
+        }
+        return view('Agricultura-pdf');//RETORNO A MI VISTA
     }
 }

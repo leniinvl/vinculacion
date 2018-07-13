@@ -1,11 +1,44 @@
 <div style="overflow-x:auto;">
+<style>
+table {     
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 12px;    
+	margin: 45px;     
+	width: 480px; 
+	text-align: left;    
+	border-collapse: collapse; }
+
+th {     
+	font-size: 13px;     
+	font-weight: normal;     
+	padding: 8px;     
+	background: #b9c9fe;
+    border-top: 4px solid #aabcfe;    
+	border-bottom: 1px solid #fff; 
+	color: #039; }
+
+td {    
+	padding: 8px;     
+	background: #e8edff;     
+	border-bottom: 1px solid #fff;
+    color: #669;    
+	border-top: 1px solid transparent; }
+
+tr:hover td { 
+	background: #d0dafd; 
+	color: #339; 
+	}
+h1 {   
+	font-size:1.7em;
+	font-weight: normal;
+}
+</style>
+<h1>Reporte Biodigestor</h1>
 <table class="table table-responsive" id="biodigestors-table">
     <thead>
         <tr>
             <th>Nombre</th>
             <th>Tamaño Propiedad (m^2)</th>
-            <th>Imagen</th>
-            <th>Video</th>
             <th>Ancho Biodigestor (m)</th>
             <th>Altura Biodigestor (m)</th>
             <th>Radio Biodigestor (m)</th>
@@ -17,7 +50,7 @@
             <th>Volumen Caja AD (m^3)</th>
             <th>Temperatura (°C)</th>
             <th>Unidad de Producción</th>
-            <th colspan="3">Acciones</th>
+           
         </tr>
     </thead>
     <tbody>
@@ -25,8 +58,6 @@
         <tr>
             <td>{!! $biodigestor->ubicacion !!}</td>
             <td>{!! $biodigestor->tamañoPropiedad !!}</td>
-            <td><img width="50px" src="{{ Storage::url($biodigestor->imagen) }}"/></td>
-            <td>{!! $biodigestor->video !!}</td>
             <td>{!! $biodigestor->anchoBio !!}</td>
             <td>{!! $biodigestor->largoBio !!}</td>
             <td>{!! $biodigestor->profundBio/2 !!}</td>
@@ -38,16 +69,7 @@
             <td>{!! $biodigestor->anchoCaja * $biodigestor->largoCaja * $biodigestor->profundCaja !!}</td>
             <td>{!! $biodigestor->temperatura !!}</td>
             <td>{!! $biodigestor->unidadproduccion->nombre !!}</td>
-            <td>
-                {!! Form::open(['route' => ['biodigestors.destroy', $biodigestor->id], 'method' => 'delete']) !!}
-                <div class='btn-group'>
-                    <a href="{!! route('biodigestors.show', [$biodigestor->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
-                    <a href="{!! route('biodigestors.edit', [$biodigestor->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
-					<a href="{{ route('biodigestorHTMLPDF',['descargar'=>'pdf']) }}" class="btn btn-default btn-xs">Descargar PDF</a>
-				    {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
-                </div>
-                {!! Form::close() !!}
-            </td>
+            
         </tr>
     @endforeach
     </tbody>

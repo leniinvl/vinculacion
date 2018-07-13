@@ -1,3 +1,38 @@
+<style>
+table {     
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 12px;    
+	margin: 45px;     
+	width: 480px; 
+	text-align: left;    
+	border-collapse: collapse; }
+
+th {     
+	font-size: 13px;     
+	font-weight: normal;     
+	padding: 8px;     
+	background: #b9c9fe;
+    border-top: 4px solid #aabcfe;    
+	border-bottom: 1px solid #fff; 
+	color: #039; }
+
+td {    
+	padding: 8px;     
+	background: #e8edff;     
+	border-bottom: 1px solid #fff;
+    color: #669;    
+	border-top: 1px solid transparent; }
+
+tr:hover td { 
+	background: #d0dafd; 
+	color: #339; 
+	}
+h1 {  
+	font-size:1.7em;
+	font-weight: normal;
+}
+</style>
+<h1>Reporte de Talleres</h1>
 <table class="table table-responsive" id="tallers-table">
     <thead>
         <tr>
@@ -7,7 +42,7 @@
         <th width="20%">Imágen</th>
         <th>Video</th>
         <th>Unidad de producción</th>
-            <th colspan="3">Acciones</th>
+            
         </tr>
     </thead>
     <tbody>
@@ -27,16 +62,7 @@
             </td>
             <td>{!! $taller->video !!}</td>
             <td>{!! $taller->unidadproduccion->nombre !!}</td>
-            <td>
-                {!! Form::open(['route' => ['tallers.destroy', $taller->id], 'method' => 'delete']) !!}
-                <div class='btn-group'>
-                    <a href="{!! route('tallers.show', [$taller->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
-                    <a href="{!! route('tallers.edit', [$taller->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
-                    <a href="{{ route('tallerHTMLPDF',['descargar'=>'pdf']) }}" class="btn btn-default btn-xs">Descargar PDF</a>
-                    {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Esta seguro de eliminar?')"]) !!}
-                </div>
-                {!! Form::close() !!}
-            </td>
+         
         </tr>
     @endforeach
     </tbody>

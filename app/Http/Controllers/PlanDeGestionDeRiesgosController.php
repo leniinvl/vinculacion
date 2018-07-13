@@ -19,7 +19,7 @@ use Flash;
 use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
-
+use Barryvdh\DomPDF\Facade as PDF;
 class PlanDeGestionDeRiesgosController extends AppBaseController
 {
     /** @var  PlanDeGestionDeRiesgosRepository */
@@ -251,5 +251,15 @@ class PlanDeGestionDeRiesgosController extends AppBaseController
         $planriesgos = PlanDeGestionDeRiesgos::find($idplanriesgos);
         $planriesgos->agriculturas()->detach($id);
         return redirect(url('planDeGestionDeRiesgos/' . $planriesgos->id));
+    }
+    public function planGestionRiesgosHTMLPDF(Request $request)
+    {
+        $productos = $this->planDeGestionDeRiesgosRepository->all();//OBTENGO TODOS MIS PRODUCTO
+        view()->share('planDeGestionDeRiesgos',$productos);//VARIABLE GLOBAL PRODUCTOS
+        if($request->has('descargar')){
+            $pdf = PDF::loadView('pdf.tablaGestionRiesgos',compact('productos'));//CARGO LA VISTA
+            return $pdf->download('PlanGestionRiesgos.pdf');//SUGERIR NOMBRE A DESCARGAR
+        }
+        return view('planGestionRiesgos-pdf');//RETORNO A MI VISTA
     }
 }
