@@ -39,8 +39,12 @@ class AgriculturaController extends AppBaseController
             ->with('agriculturas', $agriculturas)
             ->with('chart',$this->createChart($agriculturas));
     }
-
-    /**
+    
+	
+	
+	
+	
+	/**
      * Show the form for creating a new Agricultura.
      *
      * @return Response
@@ -168,11 +172,11 @@ class AgriculturaController extends AppBaseController
         view()->share('agriculturas',$productos);//VARIABLE GLOBAL PRODUCTOS
         if($request->has('descargar')){
             $pdf = PDF::loadView('pdf.tablaAgricultura',compact('productos'));//CARGO LA VISTA
-            return $pdf->download('Agriculturas.pdf');//SUGERIR NOMBRE A DESCARGAR
+            return $pdf->stream('Agriculturas.pdf');//SUGERIR NOMBRE A DESCARGAR
         }
         return view('Agricultura-pdf');//RETORNO A MI VISTA
 
-
+    }
     public function createChart($agriculturas) {
 
       $preprocessedDataset = $agriculturas->sortBy('nombre');

@@ -171,7 +171,7 @@ class DesechotController extends AppBaseController
         view()->share('desechots',$productos);//VARIABLE GLOBAL PRODUCTOS
         if($request->has('descargar')){
             $pdf = PDF::loadView('pdf.tablaDesechosT',compact('productos'));//CARGO LA VISTA
-            return $pdf->download('DesechosT.pdf');//SUGERIR NOMBRE A DESCARGAR
+            return $pdf->stream('DesechosT.pdf');//SUGERIR NOMBRE A DESCARGAR
         }
         return view('desechots-pdf');//RETORNO A MI VISTA
     }

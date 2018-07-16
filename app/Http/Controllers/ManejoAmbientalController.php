@@ -174,7 +174,7 @@ guardado exitosamente.');
         view()->share('manejoAmbientals',$productos);//VARIABLE GLOBAL PRODUCTOS
         if($request->has('descargar')){
             $pdf = PDF::loadView('pdf.tablaAmbientals',compact('productos'));//CARGO LA VISTA
-            return $pdf->download('manejoambiental.pdf');//SUGERIR NOMBRE A DESCARGAR
+            return $pdf->stream('manejoambiental.pdf');//SUGERIR NOMBRE A DESCARGAR
         }
         return view('manejoAmbiental-pdf');//RETORNO A MI VISTA
     }

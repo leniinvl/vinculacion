@@ -177,7 +177,7 @@ class TallerController extends AppBaseController
         view()->share('tallers',$productos);//VARIABLE GLOBAL PRODUCTOS
         if($request->has('descargar')){
             $pdf = PDF::loadView('pdf.tablaTalleres',compact('productos'));//CARGO LA VISTA
-            return $pdf->download('Taller.pdf');//SUGERIR NOMBRE A DESCARGAR
+            return $pdf->stream('Taller.pdf');//SUGERIR NOMBRE A DESCARGAR
         }
         return view('taller-pdf');//RETORNO A MI VISTA
     }

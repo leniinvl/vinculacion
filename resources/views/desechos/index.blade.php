@@ -7,7 +7,9 @@
            <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('desechos.create') !!}">Agregar Nuevo</a>
         </h1>
     </section>
-
+    <section>
+    <a href="{{ route('desechosHTMLPDF',['descargar'=>'pdf']) }}" target="_blank" class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px">Ver PDF</a>
+    </section>
 
         {!! Form::open(['route' => 'desechos.index', 'method' => 'GET','class' => 'navbar-form navbar-left pull-right', 'role' => 'search']) !!}
           <div class="form-group">

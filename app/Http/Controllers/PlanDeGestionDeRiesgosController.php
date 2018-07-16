@@ -261,10 +261,10 @@ class PlanDeGestionDeRiesgosController extends AppBaseController
         view()->share('planDeGestionDeRiesgos',$productos);//VARIABLE GLOBAL PRODUCTOS
         if($request->has('descargar')){
             $pdf = PDF::loadView('pdf.tablaGestionRiesgos',compact('productos'));//CARGO LA VISTA
-            return $pdf->download('PlanGestionRiesgos.pdf');//SUGERIR NOMBRE A DESCARGAR
+            return $pdf->stream('PlanGestionRiesgos.pdf');//SUGERIR NOMBRE A DESCARGAR
         }
         return view('planGestionRiesgos-pdf');//RETORNO A MI VISTA
-
+    }
 
     public function createChart($planDeGestionDeRiesgos) {
 
@@ -300,6 +300,7 @@ class PlanDeGestionDeRiesgosController extends AppBaseController
       $chart->label("Número de Planes de Riesgo");
       return $chart;
     }
+
 
 
     public function createChart2($planDeGestionDeRiesgos) {

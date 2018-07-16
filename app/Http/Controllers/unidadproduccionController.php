@@ -168,7 +168,7 @@ guardado exitosamente.');
         view()->share('unidadproduccions',$productos);//VARIABLE GLOBAL PRODUCTOS
         if($request->has('descargar')){
             $pdf = PDF::loadView('pdf.tablaUnidad',compact('productos'));//CARGO LA VISTA
-            return $pdf->download('unidadproduccion.pdf');//SUGERIR NOMBRE A DESCARGAR
+            return $pdf->stream('unidadproduccion.pdf');//SUGERIR NOMBRE A DESCARGAR
         }
         return view('unidadProduccion-pdf');//RETORNO A MI VISTA
     }

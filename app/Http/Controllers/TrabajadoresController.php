@@ -170,11 +170,11 @@ class TrabajadoresController extends AppBaseController
         view()->share('trabajadores',$productos);//VARIABLE GLOBAL PRODUCTOS
         if($request->has('descargar')){
             $pdf = PDF::loadView('pdf.tablaTrabajadores',compact('productos'));//CARGO LA VISTA
-            return $pdf->download('Trabajadores.pdf');//SUGERIR NOMBRE A DESCARGAR
+            return $pdf->stream('Trabajadores.pdf');//SUGERIR NOMBRE A DESCARGAR
         }
         return view('trabajadores-pdf');//RETORNO A MI VISTA
 
-
+    }
     public function createChart($trabajadores) {
         $dataset = collect();
         foreach ($trabajadores as $trabajador) {
