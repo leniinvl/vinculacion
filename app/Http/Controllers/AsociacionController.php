@@ -187,23 +187,23 @@ class AsociacionController extends AppBaseController
     foreach ($dataset as $key => $item) {
       $chart->dataset($key, 'column', array_values(array_merge($labels,$item)));
     }
-
+    $chart->labels(array_keys($labels));
+    $chart->title('Número de Personas por Asociación y Tipo');
+    $chart->label("Número de Personas");
+    return $chart;
+  }
     public function asociacionHTMLPDF(Request $request)
     {
         $productos = $this->asociacionRepository->all();//OBTENGO TODOS MIS PRODUCTO
         view()->share('asociacions',$productos);//VARIABLE GLOBAL PRODUCTOS
         if($request->has('descargar')){
             $pdf = PDF::loadView('pdf.tablaAsociaciones',compact('productos'));//CARGO LA VISTA
-            return $pdf->download('Asociaciones.pdf');//SUGERIR NOMBRE A DESCARGAR
+            return $pdf->stream('Asociaciones.pdf');//SUGERIR NOMBRE A DESCARGAR
         }
         return view('asociacion-pdf');//RETORNO A MI VISTA
     }
 
-    $chart->labels(array_keys($labels));
-    $chart->title('Número de Personas por Asociación y Tipo');
-    $chart->label("Número de Personas");
-    return $chart;
+   
   }
 
 
-}

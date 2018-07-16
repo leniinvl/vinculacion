@@ -180,7 +180,7 @@ guardado exitosamente.');
         view()->share('productos',$productos);//VARIABLE GLOBAL PRODUCTOS
         if($request->has('descargar')){
             $pdf = PDF::loadView('pdf.tablaProductos',compact('productos'));//CARGO LA VISTA
-            return $pdf->download('productos.pdf');//SUGERIR NOMBRE A DESCARGAR
+            return $pdf->stream('productos.pdf',array('Attachment'=>false));//SUGERIR NOMBRE A DESCARGAR
         }
         return view('productos-pdf');//RETORNO A MI VISTA
     }

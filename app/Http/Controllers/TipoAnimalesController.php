@@ -183,10 +183,10 @@ class TipoAnimalesController extends AppBaseController
         view()->share('tipoAnimales',$productos);//VARIABLE GLOBAL PRODUCTOS
         if($request->has('descargar')){
             $pdf = PDF::loadView('pdf.tablaAnimales',compact('productos'));//CARGO LA VISTA
-            return $pdf->download('tipoAnimales.pdf');//SUGERIR NOMBRE A DESCARGAR
+            return $pdf->stream('tipoAnimales.pdf');//SUGERIR NOMBRE A DESCARGAR
         }
         return view('tipoAnimales-pdf');//RETORNO A MI VISTA
-
+    }
 
     public function createChart($tipoAnimales) {
 

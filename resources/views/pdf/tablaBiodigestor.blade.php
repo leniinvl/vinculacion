@@ -11,14 +11,14 @@ table {
 th {     
 	font-size: 13px;     
 	font-weight: normal;     
-	padding: 8px;     
+	padding: 2px;     
 	background: #b9c9fe;
     border-top: 4px solid #aabcfe;    
 	border-bottom: 1px solid #fff; 
 	color: #039; }
 
 td {    
-	padding: 8px;     
+	padding: 2px;     
 	background: #e8edff;     
 	border-bottom: 1px solid #fff;
     color: #669;    

@@ -229,7 +229,7 @@ class BiodigestorController extends AppBaseController
         view()->share('biodigestors',$productos);//VARIABLE GLOBAL PRODUCTOS
         if($request->has('descargar')){
 			$pdf = PDF::loadView('pdf.tablaBiodigestor',compact('productos'))->setPaper('a4', 'landscape');//CARGO LA VISTA
-			return $pdf->download('Biodigestor.pdf');//SUGERIR NOMBRE A DESCARGAR
+			return $pdf->stream('Biodigestor.pdf');//SUGERIR NOMBRE A DESCARGAR
         }
         return view('biodigestor-pdf');//RETORNO A MI VISTA
     }

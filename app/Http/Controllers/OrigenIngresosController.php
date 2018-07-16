@@ -193,6 +193,11 @@ class OrigenIngresosController extends AppBaseController
     foreach ($dataset as $key => $item) {
       $chart->dataset($key, 'column', array_values(array_merge($labels,$item)));
     }
+    $chart->labels(array_keys($labels));
+    $chart->title('Origenes de Ingreso por Unidades de Producción y Propietarios');
+    $chart->label("Unidades de Producción");
+    return $chart;
+  }
 
     public function origenIngresoHTMLPDF(Request $request)
     {
@@ -200,15 +205,11 @@ class OrigenIngresosController extends AppBaseController
         view()->share('origenIngresos',$productos);//VARIABLE GLOBAL PRODUCTOS
         if($request->has('descargar')){
             $pdf = PDF::loadView('pdf.tablaIngresos',compact('productos'));//CARGO LA VISTA
-            return $pdf->download('Ingresos.pdf');//SUGERIR NOMBRE A DESCARGAR
+            return $pdf->stream('Ingresos.pdf');//SUGERIR NOMBRE A DESCARGAR
         }
         return view('origenIngreso-pdf');//RETORNO A MI VISTA
     }
 
-    $chart->labels(array_keys($labels));
-    $chart->title('Origenes de Ingreso por Unidades de Producción y Propietarios');
-    $chart->label("Unidades de Producción");
-    return $chart;
-  }
+  
 
 }

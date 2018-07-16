@@ -283,14 +283,6 @@ Route::resource('agriculturas', 'AgriculturaController');
 Route::resource('pais', 'PaisController');
 
 Route::resource('trabajadores', 'TrabajadoresController');
-
-
-
-
-Route::resource('tipousuarios', 'tipousuarioController');
-
-Route::resource('users', 'usersController');
-
 Route::get('descargar-productos', 'ProductoController@pdf')->name('productos.pdf');
 
 Route::get('productos-pdf',array(
@@ -353,6 +345,5 @@ Route::get('biodigestor-pdf',array(
     'as'=>'biodigestorHTMLPDF',
     'uses'=>'biodigestorController@biodigestorHTMLPDF'
 ));
-
 
 

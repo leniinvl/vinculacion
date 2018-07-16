@@ -170,7 +170,7 @@ guardado exitosamente.');
         view()->share('desechos',$productos);//VARIABLE GLOBAL PRODUCTOS
         if($request->has('descargar')){
             $pdf = PDF::loadView('pdf.tablaDesechos',compact('productos'));//CARGO LA VISTA
-            return $pdf->download('Desechos.pdf');//SUGERIR NOMBRE A DESCARGAR
+            return $pdf->stream('Desechos.pdf');//SUGERIR NOMBRE A DESCARGAR
         }
         return view('desechos-pdf');//RETORNO A MI VISTA
     }

@@ -161,7 +161,7 @@ class PropietarioController extends AppBaseController
         view()->share('propietarios',$productos);//VARIABLE GLOBAL PRODUCTOS
         if($request->has('descargar')){
             $pdf = PDF::loadView('pdf.tablaPropietarios',compact('productos'));//CARGO LA VISTA
-            return $pdf->download('propietarios.pdf');//SUGERIR NOMBRE A DESCARGAR
+            return $pdf->stream('propietarios.pdf');//SUGERIR NOMBRE A DESCARGAR
         }
         return view('propietarios-pdf');//RETORNO A MI VISTA
     }

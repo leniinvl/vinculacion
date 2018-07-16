@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
-
+use Barryvdh\DomPDF\Facade as PDF;
 class AreaInfluenciaController extends AppBaseController
 {
     /** @var  AreaInfluenciaRepository */
@@ -158,7 +158,7 @@ class AreaInfluenciaController extends AppBaseController
         view()->share('areainfluencias',$productos);//VARIABLE GLOBAL PRODUCTOS
         if($request->has('descargar')){
             $pdf = PDF::loadView('pdf.tablaInfluencias',compact('productos'));//CARGO LA VISTA
-            return $pdf->download('areaInfluencias.pdf');//SUGERIR NOMBRE A DESCARGAR
+            return $pdf->stream('areaInfluencias.pdf');//SUGERIR NOMBRE A DESCARGAR
         }
         return view('areaInfluencias-pdf');//RETORNO A MI VISTA
     }
