@@ -12,7 +12,7 @@ use Flash;
 use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
-
+use Barryvdh\DomPDF\Facade as PDF;
 class AsociacionController extends AppBaseController
 {
   /** @var  AsociacionRepository */
@@ -192,5 +192,18 @@ class AsociacionController extends AppBaseController
     $chart->label("Número de Personas");
     return $chart;
   }
+    public function asociacionHTMLPDF(Request $request)
+    {
+        $productos = $this->asociacionRepository->all();//OBTENGO TODOS MIS PRODUCTO
+        view()->share('asociacions',$productos);//VARIABLE GLOBAL PRODUCTOS
+        if($request->has('descargar')){
+            $pdf = PDF::loadView('pdf.tablaAsociaciones',compact('productos'));//CARGO LA VISTA
+            return $pdf->stream('Asociaciones.pdf');//SUGERIR NOMBRE A DESCARGAR
+        }
+        return view('asociacion-pdf');//RETORNO A MI VISTA
+    }
 
-}
+   
+  }
+
+

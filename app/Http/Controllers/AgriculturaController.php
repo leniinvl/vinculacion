@@ -13,7 +13,7 @@ use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use \App\Models\unidadproduccion;
 use \App\Models\UsoSuelo;
-
+use Barryvdh\DomPDF\Facade as PDF;
 class AgriculturaController extends AppBaseController
 {
     /** @var  AgriculturaRepository */
@@ -39,8 +39,12 @@ class AgriculturaController extends AppBaseController
             ->with('agriculturas', $agriculturas)
             ->with('chart',$this->createChart($agriculturas));
     }
-
-    /**
+    
+	
+	
+	
+	
+	/**
      * Show the form for creating a new Agricultura.
      *
      * @return Response
@@ -162,6 +166,17 @@ class AgriculturaController extends AppBaseController
         return redirect(route('agriculturas.index'));
     }
 
+    public function AgriculturaHTMLPDF(Request $request)
+    {
+        $productos = $this->agriculturaRepository->all();//OBTENGO TODOS MIS PRODUCTO
+        view()->share('agriculturas',$productos);//VARIABLE GLOBAL PRODUCTOS
+        if($request->has('descargar')){
+            $pdf = PDF::loadView('pdf.tablaAgricultura',compact('productos'));//CARGO LA VISTA
+            return $pdf->stream('Agriculturas.pdf');//SUGERIR NOMBRE A DESCARGAR
+        }
+        return view('Agricultura-pdf');//RETORNO A MI VISTA
+
+    }
     public function createChart($agriculturas) {
 
       $preprocessedDataset = $agriculturas->sortBy('nombre');
@@ -193,5 +208,6 @@ class AgriculturaController extends AppBaseController
       $chart->title('Agriculturas por Unidades de Producción y Uso de Suelo');
       $chart->label("Unidades de Producción");
       return $chart;
+
     }
 }

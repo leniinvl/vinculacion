@@ -16,9 +16,15 @@
             <td>
                 {!! Form::open(['route' => ['paisajes.destroy', $paisaje->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
+                    @if(Auth::user()->tipousuario_id===1)
                     <a href="{!! route('paisajes.show', [$paisaje->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
                     <a href="{!! route('paisajes.edit', [$paisaje->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
                     {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                    @else
+                    <a href="{!! route('paisajes.show', [$paisaje->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
+                    <a href="{!! route('paisajes.edit', [$paisaje->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
+                    @endif 
+                    
                 </div>
                 {!! Form::close() !!}
             </td>

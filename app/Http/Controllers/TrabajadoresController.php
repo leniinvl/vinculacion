@@ -14,7 +14,7 @@ use Flash;
 use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
-
+use Barryvdh\DomPDF\Facade as PDF;
 class TrabajadoresController extends AppBaseController
 {
     /** @var  TrabajadoresRepository */
@@ -164,6 +164,17 @@ class TrabajadoresController extends AppBaseController
         return redirect(route('trabajadores.index'));
     }
 
+    public function trabajadoresHTMLPDF(Request $request)
+    {
+        $productos = $this->trabajadoresRepository->all();//OBTENGO TODOS MIS PRODUCTO
+        view()->share('trabajadores',$productos);//VARIABLE GLOBAL PRODUCTOS
+        if($request->has('descargar')){
+            $pdf = PDF::loadView('pdf.tablaTrabajadores',compact('productos'));//CARGO LA VISTA
+            return $pdf->stream('Trabajadores.pdf');//SUGERIR NOMBRE A DESCARGAR
+        }
+        return view('trabajadores-pdf');//RETORNO A MI VISTA
+
+    }
     public function createChart($trabajadores) {
         $dataset = collect();
         foreach ($trabajadores as $trabajador) {
@@ -191,5 +202,6 @@ class TrabajadoresController extends AppBaseController
         $chart->title('Total de Trabajadores por Plan de Gestión de Riesgos');
         $chart->label("Cantidad de Trabajadores");
         return $chart;
+
     }
 }

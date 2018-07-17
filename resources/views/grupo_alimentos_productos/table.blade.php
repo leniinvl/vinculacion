@@ -12,9 +12,15 @@
             <td>
                 {!! Form::open(['route' => ['grupoAlimentosProductos.destroy', $grupoAlimentosProductos->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
+                    @if(Auth::user()->tipousuario_id===1)
                     <a href="{!! route('grupoAlimentosProductos.show', [$grupoAlimentosProductos->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
                     <a href="{!! route('grupoAlimentosProductos.edit', [$grupoAlimentosProductos->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
                     {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                    @else
+                    <a href="{!! route('grupoAlimentosProductos.show', [$grupoAlimentosProductos->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
+                    <a href="{!! route('grupoAlimentosProductos.edit', [$grupoAlimentosProductos->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
+                    @endif 
+                    
                 </div>
                 {!! Form::close() !!}
             </td>
