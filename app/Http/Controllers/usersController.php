@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use App\Http\Requests\CreateusersRequest;
 use App\Http\Requests\UpdateusersRequest;
 use App\Repositories\usersRepository;
@@ -7,16 +9,18 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
-use App\Models\tipousuario;
 use Response;
+
 class usersController extends AppBaseController
 {
     /** @var  usersRepository */
     private $usersRepository;
+
     public function __construct(usersRepository $usersRepo)
     {
         $this->usersRepository = $usersRepo;
     }
+
     /**
      * Display a listing of the users.
      *
@@ -27,9 +31,11 @@ class usersController extends AppBaseController
     {
         $this->usersRepository->pushCriteria(new RequestCriteria($request));
         $users = $this->usersRepository->all();
+
         return view('users.index')
             ->with('users', $users);
     }
+
     /**
      * Show the form for creating a new users.
      *
@@ -37,9 +43,9 @@ class usersController extends AppBaseController
      */
     public function create()
     {
-        $tipousuarios=tipousuario::all()->pluck('nombre','id');
-        return view('users.create',['tipousuarios'=>$tipousuarios]);
+        return view('users.create');
     }
+
     /**
      * Store a newly created users in storage.
      *
@@ -50,10 +56,14 @@ class usersController extends AppBaseController
     public function store(CreateusersRequest $request)
     {
         $input = $request->all();
+
         $users = $this->usersRepository->create($input);
+
         Flash::success('Users saved successfully.');
+
         return redirect(route('users.index'));
     }
+
     /**
      * Display the specified users.
      *
@@ -64,12 +74,16 @@ class usersController extends AppBaseController
     public function show($id)
     {
         $users = $this->usersRepository->findWithoutFail($id);
+
         if (empty($users)) {
             Flash::error('Users not found');
+
             return redirect(route('users.index'));
         }
+
         return view('users.show')->with('users', $users);
     }
+
     /**
      * Show the form for editing the specified users.
      *
@@ -80,13 +94,16 @@ class usersController extends AppBaseController
     public function edit($id)
     {
         $users = $this->usersRepository->findWithoutFail($id);
-        $tipousuarios=tipousuario::all()->pluck('nombre','id');
+
         if (empty($users)) {
             Flash::error('Users not found');
+
             return redirect(route('users.index'));
         }
-        return view('users.edit')->with('users', $users)->with('tipousuarios', $tipousuarios);
+
+        return view('users.edit')->with('users', $users);
     }
+
     /**
      * Update the specified users in storage.
      *
@@ -98,19 +115,20 @@ class usersController extends AppBaseController
     public function update($id, UpdateusersRequest $request)
     {
         $users = $this->usersRepository->findWithoutFail($id);
- 
+
         if (empty($users)) {
             Flash::error('Users not found');
+
             return redirect(route('users.index'));
         }
+
         $users = $this->usersRepository->update($request->all(), $id);
-        
-        $users->password = bcrypt($request->password);
-   
-        $users->save();
+
         Flash::success('Users updated successfully.');
+
         return redirect(route('users.index'));
     }
+
     /**
      * Remove the specified users from storage.
      *
@@ -121,12 +139,17 @@ class usersController extends AppBaseController
     public function destroy($id)
     {
         $users = $this->usersRepository->findWithoutFail($id);
+
         if (empty($users)) {
             Flash::error('Users not found');
+
             return redirect(route('users.index'));
         }
+
         $this->usersRepository->delete($id);
+
         Flash::success('Users deleted successfully.');
+
         return redirect(route('users.index'));
     }
 }

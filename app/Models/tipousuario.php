@@ -1,11 +1,14 @@
 <?php
+
 namespace App\Models;
+
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+
 /**
  * Class tipousuario
  * @package App\Models
- * @version July 13, 2018, 12:41 am UTC
+ * @version July 18, 2018, 5:41 am UTC
  *
  * @property \Illuminate\Database\Eloquent\Collection agricultura
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasLenguaje
@@ -27,14 +30,20 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class tipousuario extends Model
 {
     use SoftDeletes;
+
     public $table = 'tipousuario';
     
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
+
+
     protected $dates = ['deleted_at'];
+
+
     public $fillable = [
         'nombre'
     ];
+
     /**
      * The attributes that should be casted to native types.
      *
@@ -44,6 +53,7 @@ class tipousuario extends Model
         'id' => 'integer',
         'nombre' => 'string'
     ];
+
     /**
      * Validation rules
      *
@@ -52,6 +62,7 @@ class tipousuario extends Model
     public static $rules = [
         
     ];
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      **/
