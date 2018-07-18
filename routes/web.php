@@ -284,9 +284,9 @@ Route::resource('pais', 'PaisController');
 
 Route::resource('trabajadores', 'TrabajadoresController');
 
-Route::resource('tipousuarios', 'tipousuarioController');
 
-Route::resource('users', 'usersController');
+
+
 
 Route::get('descargar-productos', 'ProductoController@pdf')->name('productos.pdf');
 
@@ -352,3 +352,14 @@ Route::get('biodigestor-pdf',array(
 ));
 
 
+
+
+
+
+Route::resource('users', 'usersController');
+
+Route::resource('tipousuarios', 'tipousuarioController');
+
+Route::resource('tipousuarios', 'tipousuarioController');
+
+Route::resource('users', 'usersController');
