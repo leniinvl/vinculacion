@@ -48,7 +48,7 @@
 
 
 
-<!-- Manejoambiental Id Field -->
+<!-- Manejoambiental Id Field prueba  -->
 <div class="form-group col-sm-6">
     {!! Form::label('ManejoAmbiental_id', 'Manejo Ambiental:') !!}
     <a href="{{route('manejoAmbientals.index')}}">(Añadir Nueva)</a>
