@@ -48,7 +48,6 @@
 
 <!-- Tipousuario Id Field -->
 <div class="form-group">
-    {!! Form::label('tipousuario_id', 'Tipousuario Id:') !!}
-    <p>{!! $users->tipousuario_id !!}</p>
+    {!! Form::label('tipousuario_id', 'Tipousuario:') !!}
+    <p>{!! $users->tipousuario->nombre !!}</p>
 </div>
-

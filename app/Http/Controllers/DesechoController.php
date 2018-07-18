@@ -39,7 +39,9 @@ class DesechoController extends AppBaseController
         $desechos = Desecho::name($request->get('name'))->date($request->get('date1'))->date1($request->get('date2'))->orderBy('id', 'DESC')->paginate();
 
         return view('desechos.index')
-            ->with('desechos', $desechos)->with('biodigestor', $biodigestor)->with('chart',$this->createChart($desechos));
+            ->with('desechos', $desechos)
+            ->with('biodigestor', $biodigestor)
+            ->with('chart',$this->createChart($desechos));
     }
 
     /**
@@ -176,8 +178,6 @@ guardado exitosamente.');
     }
 
     public function createChart($desechos) {
-//dd($desechos);
-
         $preprocessedDataset = $desechos->sortBy('fecha');
         $preprocessedDataset = $preprocessedDataset->filter(function ($item) {
             return $item->fecha->diffInMonths(Carbon::now()) <= 12;
@@ -207,7 +207,7 @@ guardado exitosamente.');
             $chart->dataset($key, 'column', array_values(array_merge($labels,$item)));
         }
         $chart->labels(array_keys($labels));
-        $chart->title('Total de Desechos Generados por Ubicación');
+        $chart->title('Total de Desechos Generados por Ubicación en los Últimos 12 Meses');
         $chart->label("Cantidad de Desechos (Kg)");
         return $chart;
     }

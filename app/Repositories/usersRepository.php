@@ -1,14 +1,11 @@
 <?php
-
 namespace App\Repositories;
-
 use App\Models\users;
 use InfyOm\Generator\Common\BaseRepository;
-
 /**
  * Class usersRepository
  * @package App\Repositories
- * @version July 18, 2018, 5:42 am UTC
+ * @version July 13, 2018, 12:46 am UTC
  *
  * @method users findWithoutFail($id, $columns = ['*'])
  * @method users find($id, $columns = ['*'])
@@ -26,7 +23,6 @@ class usersRepository extends BaseRepository
         'remember_token',
         'tipousuario_id'
     ];
-
     /**
      * Configure the Model
      **/

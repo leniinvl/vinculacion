@@ -31,7 +31,6 @@
                 <div role="tabpanel" class="tab-pane" id="graph">
                     <div>{!! $chart->container() !!}</div>
                     <div id="container"></div>
-                    <script src="//cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.6/highcharts.js" charset="utf-8"></script>
                     {!! $chart->script() !!}
                 </div>
                 @endif

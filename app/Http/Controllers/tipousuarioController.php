@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Http\Requests\CreatetipousuarioRequest;
 use App\Http\Requests\UpdatetipousuarioRequest;
 use App\Repositories\tipousuarioRepository;
@@ -10,17 +8,14 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
-
 class tipousuarioController extends AppBaseController
 {
     /** @var  tipousuarioRepository */
     private $tipousuarioRepository;
-
     public function __construct(tipousuarioRepository $tipousuarioRepo)
     {
         $this->tipousuarioRepository = $tipousuarioRepo;
     }
-
     /**
      * Display a listing of the tipousuario.
      *
@@ -31,11 +26,9 @@ class tipousuarioController extends AppBaseController
     {
         $this->tipousuarioRepository->pushCriteria(new RequestCriteria($request));
         $tipousuarios = $this->tipousuarioRepository->all();
-
         return view('tipousuarios.index')
             ->with('tipousuarios', $tipousuarios);
     }
-
     /**
      * Show the form for creating a new tipousuario.
      *
@@ -45,7 +38,6 @@ class tipousuarioController extends AppBaseController
     {
         return view('tipousuarios.create');
     }
-
     /**
      * Store a newly created tipousuario in storage.
      *
@@ -56,14 +48,10 @@ class tipousuarioController extends AppBaseController
     public function store(CreatetipousuarioRequest $request)
     {
         $input = $request->all();
-
         $tipousuario = $this->tipousuarioRepository->create($input);
-
         Flash::success('Tipousuario saved successfully.');
-
         return redirect(route('tipousuarios.index'));
     }
-
     /**
      * Display the specified tipousuario.
      *
@@ -74,16 +62,12 @@ class tipousuarioController extends AppBaseController
     public function show($id)
     {
         $tipousuario = $this->tipousuarioRepository->findWithoutFail($id);
-
         if (empty($tipousuario)) {
             Flash::error('Tipousuario not found');
-
             return redirect(route('tipousuarios.index'));
         }
-
         return view('tipousuarios.show')->with('tipousuario', $tipousuario);
     }
-
     /**
      * Show the form for editing the specified tipousuario.
      *
@@ -94,16 +78,12 @@ class tipousuarioController extends AppBaseController
     public function edit($id)
     {
         $tipousuario = $this->tipousuarioRepository->findWithoutFail($id);
-
         if (empty($tipousuario)) {
             Flash::error('Tipousuario not found');
-
             return redirect(route('tipousuarios.index'));
         }
-
         return view('tipousuarios.edit')->with('tipousuario', $tipousuario);
     }
-
     /**
      * Update the specified tipousuario in storage.
      *
@@ -115,20 +95,14 @@ class tipousuarioController extends AppBaseController
     public function update($id, UpdatetipousuarioRequest $request)
     {
         $tipousuario = $this->tipousuarioRepository->findWithoutFail($id);
-
         if (empty($tipousuario)) {
             Flash::error('Tipousuario not found');
-
             return redirect(route('tipousuarios.index'));
         }
-
         $tipousuario = $this->tipousuarioRepository->update($request->all(), $id);
-
         Flash::success('Tipousuario updated successfully.');
-
         return redirect(route('tipousuarios.index'));
     }
-
     /**
      * Remove the specified tipousuario from storage.
      *
@@ -139,17 +113,12 @@ class tipousuarioController extends AppBaseController
     public function destroy($id)
     {
         $tipousuario = $this->tipousuarioRepository->findWithoutFail($id);
-
         if (empty($tipousuario)) {
             Flash::error('Tipousuario not found');
-
             return redirect(route('tipousuarios.index'));
         }
-
         $this->tipousuarioRepository->delete($id);
-
         Flash::success('Tipousuario deleted successfully.');
-
         return redirect(route('tipousuarios.index'));
     }
 }

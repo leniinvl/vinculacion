@@ -16,16 +16,10 @@
     {!! Form::password('password', ['class' => 'form-control']) !!}
 </div>
 
-<!-- Remember Token Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('remember_token', 'Remember Token:') !!}
-    {!! Form::text('remember_token', null, ['class' => 'form-control']) !!}
-</div>
-
 <!-- Tipousuario Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('tipousuario_id', 'Tipousuario Id:') !!}
-    {!! Form::number('tipousuario_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('tipousuario_id',$tipousuarios ,null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->

@@ -1,14 +1,11 @@
 <?php
-
 namespace App\Models;
-
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
 /**
  * Class users
  * @package App\Models
- * @version July 18, 2018, 5:42 am UTC
+ * @version July 13, 2018, 12:46 am UTC
  *
  * @property \App\Models\Tipousuario tipousuario
  * @property \Illuminate\Database\Eloquent\Collection agricultura
@@ -34,16 +31,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class users extends Model
 {
     use SoftDeletes;
-
     public $table = 'users';
     
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
-
-
     protected $dates = ['deleted_at'];
-
-
     public $fillable = [
         'name',
         'email',
@@ -51,7 +43,6 @@ class users extends Model
         'remember_token',
         'tipousuario_id'
     ];
-
     /**
      * The attributes that should be casted to native types.
      *
@@ -65,7 +56,6 @@ class users extends Model
         'remember_token' => 'string',
         'tipousuario_id' => 'integer'
     ];
-
     /**
      * Validation rules
      *
@@ -74,7 +64,6 @@ class users extends Model
     public static $rules = [
         
     ];
-
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
