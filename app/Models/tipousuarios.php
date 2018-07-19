@@ -6,11 +6,10 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class users
+ * Class tipousuarios
  * @package App\Models
- * @version July 19, 2018, 4:24 am UTC
+ * @version July 19, 2018, 4:25 am UTC
  *
- * @property \App\Models\Tipousuario tipousuario
  * @property \Illuminate\Database\Eloquent\Collection agricultura
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasLenguaje
  * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasReligion
@@ -25,17 +24,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \Illuminate\Database\Eloquent\Collection plandegestionderiesgosHasVulnerabilidades
  * @property \Illuminate\Database\Eloquent\Collection unidadproduccion
  * @property \Illuminate\Database\Eloquent\Collection unidadproduccionHasPropietario
- * @property string name
- * @property string email
- * @property string password
- * @property string remember_token
- * @property integer tipousuario_id
+ * @property \Illuminate\Database\Eloquent\Collection User
+ * @property string nombre
  */
-class users extends Model
+class tipousuarios extends Model
 {
     use SoftDeletes;
 
-    public $table = 'users';
+    public $table = 'tipousuario';
     
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
@@ -45,11 +41,7 @@ class users extends Model
 
 
     public $fillable = [
-        'name',
-        'email',
-        'password',
-        'remember_token',
-        'tipousuario_id'
+        'nombre'
     ];
 
     /**
@@ -59,11 +51,7 @@ class users extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'name' => 'string',
-        'email' => 'string',
-        'password' => 'string',
-        'remember_token' => 'string',
-        'tipousuario_id' => 'integer'
+        'nombre' => 'string'
     ];
 
     /**
@@ -76,10 +64,10 @@ class users extends Model
     ];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      **/
-    public function tipousuario()
+    public function users()
     {
-        return $this->belongsTo(\App\Models\Tipousuario::class);
+        return $this->hasMany(\App\Models\User::class);
     }
 }
