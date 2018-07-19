@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Charts\DefaultChart;
 use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreateDesechoRequest;
 use App\Http\Requests\UpdateDesechoRequest;
@@ -9,11 +10,12 @@ use App\Models\Biodigestor;
 use App\Models\Desecho;
 use App\Models\TipoDesecho;
 use App\Repositories\DesechoRepository;
+use Carbon\Carbon;
 use Flash;
 use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
-
+use Barryvdh\DomPDF\Facade as PDF;
 class DesechoController extends AppBaseController
 {
     /** @var  DesechoRepository */
@@ -37,7 +39,9 @@ class DesechoController extends AppBaseController
         $desechos = Desecho::name($request->get('name'))->date($request->get('date1'))->date1($request->get('date2'))->orderBy('id', 'DESC')->paginate();
 
         return view('desechos.index')
-            ->with('desechos', $desechos)->with('biodigestor', $biodigestor);
+            ->with('desechos', $desechos)
+            ->with('biodigestor', $biodigestor)
+            ->with('chart',$this->createChart($desechos));
     }
 
     /**
@@ -161,6 +165,51 @@ guardado exitosamente.');
         Flash::success('Desecho deleted successfully.');
 
         return redirect(route('desechos.index'));
+    }
+    public function desechosHTMLPDF(Request $request)
+    {
+        $productos = $this->desechoRepository->all();//OBTENGO TODOS MIS PRODUCTO
+        view()->share('desechos',$productos);//VARIABLE GLOBAL PRODUCTOS
+        if($request->has('descargar')){
+            $pdf = PDF::loadView('pdf.tablaDesechos',compact('productos'));//CARGO LA VISTA
+            return $pdf->stream('Desechos.pdf');//SUGERIR NOMBRE A DESCARGAR
+        }
+        return view('desechos-pdf');//RETORNO A MI VISTA
+    }
+
+    public function createChart($desechos) {
+        $preprocessedDataset = $desechos->sortBy('fecha');
+        $preprocessedDataset = $preprocessedDataset->filter(function ($item) {
+            return $item->fecha->diffInMonths(Carbon::now()) <= 12;
+        });
+        $dataset = collect();
+        foreach ($preprocessedDataset as $desecho) {
+            $temp = [
+                'peso' => (float)$desecho->peso,
+                'fecha' => Carbon::parse($desecho->fecha)->format('M-Y') ,
+                'ubicacion' => $desecho->biodigestor->ubicacion
+            ];
+            $dataset->push($temp);
+        }
+        $dataset = $dataset->groupBy('ubicacion');
+        $dataset = $dataset->map(function ($item) {
+            return $item->groupBy('fecha')->map(function ($item2){
+                return $item2->sum('peso');
+            });
+        });
+        $labels = $dataset->collapse()->toArray();
+        $labels = array_fill_keys(array_keys($labels), 0);
+
+        $dataset = $dataset->toArray();
+
+        $chart = new DefaultChart;
+        foreach ($dataset as $key => $item) {
+            $chart->dataset($key, 'column', array_values(array_merge($labels,$item)));
+        }
+        $chart->labels(array_keys($labels));
+        $chart->title('Total de Desechos Generados por Ubicación en los Últimos 12 Meses');
+        $chart->label("Cantidad de Desechos (Kg)");
+        return $chart;
     }
 
 }

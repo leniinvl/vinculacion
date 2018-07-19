@@ -12,7 +12,7 @@ use Flash;
 use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
-
+use Barryvdh\DomPDF\Facade as PDF;
 class unidadproduccionController extends AppBaseController
 {
     /** @var  unidadproduccionRepository */
@@ -161,5 +161,15 @@ guardado exitosamente.');
         Flash::success('Unidadproduccion deleted successfully.');
 
         return redirect(route('unidadproduccions.index'));
+    }
+    public function vistaproduccionHTMLPDF(Request $request)
+    {
+        $productos = $this->unidadproduccionRepository->all();//OBTENGO TODOS MIS PRODUCTO
+        view()->share('unidadproduccions',$productos);//VARIABLE GLOBAL PRODUCTOS
+        if($request->has('descargar')){
+            $pdf = PDF::loadView('pdf.tablaUnidad',compact('productos'));//CARGO LA VISTA
+            return $pdf->stream('unidadproduccion.pdf');//SUGERIR NOMBRE A DESCARGAR
+        }
+        return view('unidadProduccion-pdf');//RETORNO A MI VISTA
     }
 }
