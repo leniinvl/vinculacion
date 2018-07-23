@@ -1,4 +1,34 @@
 <div style="overflow-x:auto;">
+<style>
+table {     
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 6px;     
+	text-align: left; 
+	border-collapse: collapse; }
+
+th {     
+	font-size: 6px;     
+	background: #b9c9fe;
+    border-top: 4px solid #aabcfe;    
+	border-bottom: 1px solid #fff; 
+	color: #039; }
+
+td {    
+	background: #e8edff;     
+	border-bottom: 1px solid #fff;
+    color: #669;    
+	border-top: 1px solid transparent; }
+
+tr:hover td { 
+	background: #d0dafd; 
+	color: #339; 
+	}
+h1 {   
+	font-size:1.7em;
+	font-weight: normal;
+}
+</style>
+<h1>Reporte Area Influencias</h1>
 <table class="table table-responsive" id="areaInfluencias-table">
     <thead>
         <tr>
