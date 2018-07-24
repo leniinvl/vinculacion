@@ -89,4 +89,30 @@ class Desechot extends Model
     {
         return $this->belongsTo(\App\Models\Tipodesechot::class, 'TipoDesechoT_id');
     }
+
+    public function scopeName($query, $name)
+    {
+        if ($name != "") {
+            $query->where('Taller_id', $name);
+        }
+
+    }
+
+    public function scopeDate($query, $date1)
+    {
+
+        if ($date1 != "") {
+            $query->where('fecha', '>=', $date1);
+        }
+
+    }
+
+    public function scopeDate1($query, $date2)
+    {
+
+        if ($date2 != "") {
+            $query->where('fecha', '<=', $date2);
+        }
+
+    }
 }

@@ -6,6 +6,7 @@ use App\Charts\DefaultChart;
 use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreateDesechotRequest;
 use App\Http\Requests\UpdateDesechotRequest;
+use App\Models\Desechot;
 use App\Models\Taller;
 use App\Models\TipoDesechot;
 use App\Repositories\DesechotRepository;
@@ -33,14 +34,16 @@ class DesechotController extends AppBaseController
      */
     public function index(Request $request)
     {
+        $taller       = Taller::all()->pluck('nombre', 'id');
         $tipodesechot = TipoDesechot::all()->pluck('nombre', 'id');
         $this->desechotRepository->pushCriteria(new RequestCriteria($request));
-        $desechots = $this->desechotRepository->all();
+        $desechots = Desechot::name($request->get('name'))->date($request->get('date1'))->date1($request->get('date2'))->orderBy('id', 'DESC')->paginate();
 
         return view('desechots.index')
             ->with('desechots', $desechots)
             ->with('tipodesechot', $tipodesechot)
-            ->with('chart',$this->createChart($desechots));
+            ->with('taller',$taller)
+            ->with('chart',$this->createChart($desechots, $request->get('date1'), $request->get('date2')));
     }
 
     /**
@@ -170,12 +173,13 @@ class DesechotController extends AppBaseController
         return redirect(route('desechots.index'));
     }
 
-    public function createChart($desechos) {
+    public function createChart($desechos, $date1, $date2) {
         $preprocessedDataset = $desechos->sortBy('fecha');
-        $preprocessedDataset = $preprocessedDataset->filter(function ($item) {
-            return $item->fecha->diffInMonths(Carbon::now()) <= 12;
-        });
-
+        if(empty($date1) && empty($date2)) {
+            $preprocessedDataset = $preprocessedDataset->filter(function ($item) {
+                return $item->fecha->diffInMonths(Carbon::now()) <= 12;
+            });
+        }
         $dataset = collect();
         foreach ($preprocessedDataset as $desecho) {
             $temp = [
@@ -201,7 +205,12 @@ class DesechotController extends AppBaseController
             $chart->dataset($key, 'column', array_values(array_merge($labels,$item)));
         }
         $chart->labels(array_keys($labels));
-        $chart->title('Total de Desechos Generados por Taller en los Últimos 12 Meses');
+        if(empty($date1) && empty($date2)) {
+            $chart->title('Total de Desechos Generados por Taller en los Últimos 12 Meses');
+        }
+        else {
+            $chart->title('Total de Desechos Generados por Taller en el Periodo '.Carbon::parse($date1)->format('d/m/Y').' - '.Carbon::parse($date2)->format('d/m/Y'));
+        }
         $chart->label("Cantidad de Desechos (Kg)");
         return $chart;
     }
