@@ -1,13 +1,14 @@
 <div class="card text-center">
     <div class="card-header">
         <nav class="navbar navbar-dark bg-primary">
-            <a class="navbar-brand" href="#">
-                <img src="http://pacto.gob.ec/images/logo-727945605.png"
-                     class="d-inline-block align-top" alt="">
+            <a class="navbar-brand " href="#">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/UTE_new_logo.jpg" class="img-rounded" alt="Cinque Terre" width="60" height="60">
+                <img src="http://www.pichincha.gob.ec/images/logo/logo2.png" class="img-rounded" alt="Cinque Terre">
+                <img src="http://www.devbrain-it.net/wp-content/uploads/2018/07/logoPacto-1.jpg" class="img-rounded" alt="Cinque Terre"  height="40" >
             </a>
         </nav>
     </div>
-    <div style="overflow-x:auto;">
+    <div style="overflow-x:auto;">`
         <style>
             table {
                 font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
