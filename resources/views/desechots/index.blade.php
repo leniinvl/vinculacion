@@ -7,6 +7,19 @@
            <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('desechots.create') !!}">Agregar</a>
         </h1>
     </section>
+
+    {!! Form::open(['route' => 'desechots.index', 'method' => 'GET','class' => 'navbar-form navbar-left pull-right', 'role' => 'search']) !!}
+    <div class="form-group">
+        {!! Form::label('peso', 'Fecha Inicio:') !!}
+        {!! Form::date('date1',null, ['class' => 'form-control','placeholder'=>'Fecha Inicio']) !!}
+        {!! Form::label('peso', 'Fecha Fin:') !!}
+        {!! Form::date('date2', null, ['class' => 'form-control']) !!}
+        {!! Form::select('name', $taller ,null, ['class' => 'form-control', 'placeholder'=>'Selecciona un Taller']) !!}
+    </div>
+
+    <button type="submit" class="btn btn-default">Buscar</button>
+    {!! Form::close() !!}
+
     <section>
     <a href="{{ route('desechotsHTMLPDF',['descargar'=>'pdf']) }}" target="_blank" class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px">Ver PDF</a>
     </section>

@@ -41,7 +41,7 @@ class DesechoController extends AppBaseController
         return view('desechos.index')
             ->with('desechos', $desechos)
             ->with('biodigestor', $biodigestor)
-            ->with('chart',$this->createChart($desechos));
+            ->with('chart',$this->createChart($desechos, $request->get('date1'), $request->get('date2')));
     }
 
     /**
@@ -177,11 +177,13 @@ guardado exitosamente.');
         return view('desechos-pdf');//RETORNO A MI VISTA
     }
 
-    public function createChart($desechos) {
+    public function createChart($desechos, $date1, $date2) {
         $preprocessedDataset = $desechos->sortBy('fecha');
-        $preprocessedDataset = $preprocessedDataset->filter(function ($item) {
-            return $item->fecha->diffInMonths(Carbon::now()) <= 12;
-        });
+        if(empty($date1) && empty($date2)) {
+            $preprocessedDataset = $preprocessedDataset->filter(function ($item) {
+                return $item->fecha->diffInMonths(Carbon::now()) <= 12;
+            });
+        }
         $dataset = collect();
         foreach ($preprocessedDataset as $desecho) {
             $temp = [
@@ -207,7 +209,12 @@ guardado exitosamente.');
             $chart->dataset($key, 'column', array_values(array_merge($labels,$item)));
         }
         $chart->labels(array_keys($labels));
-        $chart->title('Total de Desechos Generados por Ubicación en los Últimos 12 Meses');
+        if(empty($date1) && empty($date2)) {
+            $chart->title('Total de Desechos Generados por Biodigestor en los Últimos 12 Meses');
+        }
+        else {
+            $chart->title('Total de Desechos Generados por Biodigestor en el Periodo '.Carbon::parse($date1)->format('d/m/Y').' - '.Carbon::parse($date2)->format('d/m/Y'));
+        }
         $chart->label("Cantidad de Desechos (Kg)");
         return $chart;
     }

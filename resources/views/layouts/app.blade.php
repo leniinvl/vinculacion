@@ -176,6 +176,8 @@
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/offline-exporting.js"></script>
 
+    <script src="/js/custom.js"></script>
+
     @yield('scripts')
 </body>
 </html>
