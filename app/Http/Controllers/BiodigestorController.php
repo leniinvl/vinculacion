@@ -36,9 +36,13 @@ class BiodigestorController extends AppBaseController
     {
         $this->biodigestorRepository->pushCriteria(new RequestCriteria($request));
         $biodigestors = $this->biodigestorRepository->all();
+        $biodigestorSelect = $this->biodigestorRepository->all()->pluck('ubicacion', 'id');
+
+        
         return view('biodigestors.index')
             ->with('biodigestors', $biodigestors)
-            ->with('chart',$this->createChart($biodigestors));
+            ->with('biodigestorSelect', $biodigestorSelect)
+            ->with('chart',$this->createChart($biodigestors, $request->get('selectBio')));
     }
 
     /**
@@ -235,33 +239,72 @@ class BiodigestorController extends AppBaseController
     }
 
 
-    public function createChart($biodigestors) {
+    public function createChart($biodigestors , $tipoVariable) {
         $dataset = collect();
         foreach ($biodigestors as $biodigestor) {
             $temp = [
                 'ubicacion' => $biodigestor->ubicacion,
-                'profundBio' => $biodigestor->profundBio,   
+                'tamañoPropiedad' => $biodigestor->tamañoPropiedad,
+                'profundBio'  => $biodigestor->profundBio,
+                'anchoBio'  => $biodigestor->anchoBio
             ];
             $dataset->push($temp);
         }
-        $dataset = $dataset->groupBy('ubicacion');
-        $dataset = $dataset->map(function ($item) {
-            return $item->groupBy('profundBio')->map(function ($item2){
-                return $item2->count('ubicacion');
-            });
-        });
+        switch ($tipoVariable) {
+            case '0':
+                $dataset = $dataset->groupBy('ubicacion');
+                $dataset = $dataset->map(function ($item) {
+                    return $item->groupBy('ubicacion')->map(function ($item2){
+                        return $item2->sum('tamañoPropiedad');
+                    });
+                });
+                $labelHorizontal="Dimensión de la propiedad";
+                break;
+            
+            case '1':
+                $dataset = $dataset->groupBy('ubicacion');
+                $dataset = $dataset->map(function ($item) {
+                    return $item->groupBy('ubicacion')->map(function ($item2){
+                        return $item2->sum('profundBio');
+                    });
+                });
+                $labelHorizontal="Profundidad del Biodigestor";
+                break;
+
+            case '2':
+                $dataset = $dataset->groupBy('ubicacion');
+                $dataset = $dataset->map(function ($item) {
+                    return $item->groupBy('ubicacion')->map(function ($item2){
+                        return $item2->sum('anchoBio');
+                    });
+                });
+                $labelHorizontal="Ancho del Biodigestor";
+                break;
+
+            default:
+                # code...
+                $dataset = $dataset->groupBy('ubicacion');
+                $dataset = $dataset->map(function ($item) {
+                    return $item->groupBy('ubicacion')->map(function ($item2){
+                        return $item2->sum('tamañoPropiedad');
+                    });
+                });
+                $labelHorizontal="Dimensión de la propiedad";
+                break;
+        }
+
         $labels = $dataset->collapse()->toArray();
         $labels = array_fill_keys(array_keys($labels), 0);
 
         $dataset = $dataset->toArray();
         $chart = new DefaultChart;
         foreach ($dataset as $key => $item) {
-            $chart->dataset($key, 'bar', array_values(array_merge($labels,$item)));
+            $chart->dataset($key, 'column', array_values(array_merge($labels,$item)));
         }
 
         $chart->labels(array_keys($labels));
-        $chart->title('Dimensiones del Biodigestor');
-        $chart->label("Profundidad del Biodigestor m");
+        $chart->title('Gráfica de detalles del Biodigestor');
+        $chart->label($labelHorizontal);
         return $chart;
     }
 

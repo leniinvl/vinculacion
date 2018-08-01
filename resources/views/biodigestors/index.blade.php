@@ -10,6 +10,9 @@
     <section>
     <a href="{{ route('biodigestorHTMLPDF',['descargar'=>'pdf']) }}" target="_blank" class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px">Ver PDF</a>
     </section>
+
+
+
     <div class="content">
         <div class="clearfix"></div>
 
@@ -29,6 +32,14 @@
                 </div>
                 @if (!empty($chart) and  !empty($chart->datasets))
                 <div role="tabpanel" class="tab-pane" id="graph">
+
+                    {!! Form::open(['route' => 'biodigestors.index', 'method' => 'GET','class' => 'navbar-form navbar-left pull-right', 'role' => 'search', 'id' => 'biodigestorForm']) !!}
+                      <div class="form-group">
+                        {!! Form::select('selectBio', ['Tamaño de la propiedad','Profundidad del Biodigestor','Ancho del Biodigestor'] ,null, ['class' => 'form-control', 'placeholder'=>'Seleccione un parámetro', 'id' => 'mySelect']) !!}
+                      </div>
+
+                    {!! Form::close() !!}
+
                     <div>{!! $chart->container() !!}</div>
                     <div id="container"></div>
                    <script src="//cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.6/highcharts.js" charset="utf-8"></script>
@@ -43,3 +54,14 @@
     </div>
 @endsection
 
+@section('scripts')
+<script>
+
+    $('#mySelect').change(function(e) {
+
+        $( "#biodigestorForm" ).submit();
+        e.preventDefault();
+   });
+
+</script>
+@endsection
