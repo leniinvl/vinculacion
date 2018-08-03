@@ -22,12 +22,6 @@
       @if (!empty($chart) and  !empty($chart->datasets))
       <li role="presentation"><a href="#graph" aria-controls="graph" role="tab" data-toggle="tab">Gráfico</a></li>
       @endif
-      @if (!empty($chart2) and  !empty($chart2->datasets))
-      <li role="presentation"><a href="#graph2" aria-controls="graph" role="tab" data-toggle="tab">Gráfico</a></li>
-      @endif
-      @if (!empty($chart3) and  !empty($chart3->datasets))
-      <li role="presentation"><a href="#graph3" aria-controls="graph" role="tab" data-toggle="tab">Gráfico</a></li>
-      @endif
     </ul>
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane active" id="list">
@@ -37,26 +31,20 @@
       </div>
       @if (!empty($chart) and  !empty($chart->datasets))
       <div role="tabpanel" class="tab-pane" id="graph">
+
+        {!! Form::open(['route' => 'planDeGestionDeRiesgos.index', 'method' => 'GET','class' => 'navbar-form navbar-left pull-right', 'role' => 'search', 'id' => 'plangestionForm']) !!}
+                        <div class="form-group">
+                          {!! Form::select('selectPlanGestion', ['Tipos de abonos','Tipos de control de plaga','Tipos de cultivo'] ,null, ['class' => 'form-control', 'placeholder'=>'Seleccione un parámetro', 'id' => 'mySelect']) !!}
+                        </div>
+
+        {!! Form::close() !!}
+
+
+
         <div>{!! $chart->container() !!}</div>
         <div id="container"></div>
         <script src="//cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.6/highcharts.js" charset="utf-8"></script>
         {!! $chart->script() !!}
-      </div>
-      @endif
-      @if (!empty($chart2) and  !empty($chart2->datasets))
-      <div role="tabpanel" class="tab-pane" id="graph2">
-        <div>{!! $chart2->container() !!}</div>
-        <div id="container"></div>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.6/highcharts.js" charset="utf-8"></script>
-        {!! $chart2->script() !!}
-      </div>
-      @endif
-      @if (!empty($chart3) and  !empty($chart3->datasets))
-      <div role="tabpanel" class="tab-pane" id="graph3">
-        <div>{!! $chart3->container() !!}</div>
-        <div id="container"></div>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.6/highcharts.js" charset="utf-8"></script>
-        {!! $chart3->script() !!}
       </div>
       @endif
 
@@ -66,4 +54,16 @@
 
   </div>
 </div>
+@endsection
+
+@section('scripts')
+<script>
+
+    $('#mySelect').change(function(e) {
+
+        $( "#plangestionForm" ).submit();
+        e.preventDefault();
+   });
+
+</script>
 @endsection

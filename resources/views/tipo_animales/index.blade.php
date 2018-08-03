@@ -34,24 +34,40 @@
       </div>
       @if (!empty($chart) and  !empty($chart->datasets))
       <div role="tabpanel" class="tab-pane" id="graph">
+       
+       
+      {!! Form::open(['route' => 'tipoAnimales.index', 'method' => 'GET','class' => 'navbar-form navbar-left pull-right', 'role' => 'search', 'id' => 'tipoanimalesForm']) !!}
+                        <div class="form-group">
+                          {!! Form::select('selectTipoAnimales', ['Tipos de Producción y Pecuaria','Tipos de Destino y Pecuaria'] ,null, ['class' => 'form-control', 'placeholder'=>'Seleccione un parámetro', 'id' => 'mySelect']) !!}
+                        </div>
+
+        {!! Form::close() !!}
+
+
+       
         <div>{!! $chart->container() !!}</div>
         <div id="container"></div>
         <script src="//cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.6/highcharts.js" charset="utf-8"></script>
         {!! $chart->script() !!}
       </div>
       @endif
-      @if (!empty($chart2) and  !empty($chart2->datasets))
-      <div role="tabpanel" class="tab-pane" id="graph2">
-        <div>{!! $chart2->container() !!}</div>
-        <div id="container"></div>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.6/highcharts.js" charset="utf-8"></script>
-        {!! $chart2->script() !!}
-      </div>
-      @endif
+     
     </div>
   </div>
   <div class="text-center">
 
   </div>
 </div>
+@endsection
+
+@section('scripts')
+<script>
+
+    $('#mySelect').change(function(e) {
+
+        $( "#tipoanimalesForm" ).submit();
+        e.preventDefault();
+   });
+
+</script>
 @endsection
