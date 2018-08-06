@@ -50,7 +50,7 @@
 
                 @if ($errors->has('name'))
                     <span class="help-block">
-                        <strong>{{ $errors->first('name') }}</strong>
+                        <strong>El  Nombre es requerido</strong>
                     </span>
                 @endif
             </div>
@@ -61,7 +61,7 @@
 
                 @if ($errors->has('email'))
                     <span class="help-block">
-                        <strong>{{ $errors->first('email') }}</strong>
+                        <strong>El email es requerido</strong>
                     </span>
                 @endif
             </div>
