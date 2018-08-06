@@ -99,6 +99,7 @@
             disableDoubleClickZoom: true
         });
 
+
         var infowindow = new google.maps.InfoWindow();
         var marker, i;
 
