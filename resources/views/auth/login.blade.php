@@ -50,7 +50,7 @@
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 @if ($errors->has('email'))
                     <span class="help-block">
-                    <strong>{{ $errors->first('email') }}</strong>
+                    <strong>El email es requerido</strong>
                 </span>
                 @endif
             </div>
@@ -60,7 +60,7 @@
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 @if ($errors->has('password'))
                     <span class="help-block">
-                    <strong>{{ $errors->first('password') }}</strong>
+                    <strong>Contraseña requerido</strong>
                 </span>
                 @endif
 
