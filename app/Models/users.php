@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class users
  * @package App\Models
- * @version July 19, 2018, 4:24 am UTC
+ * @version August 6, 2018, 3:49 am UTC
  *
  * @property \App\Models\Tipousuario tipousuario
  * @property \Illuminate\Database\Eloquent\Collection agricultura

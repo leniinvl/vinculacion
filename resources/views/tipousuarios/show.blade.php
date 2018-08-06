@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Tipousuarios
+            Tipou Usuario
         </h1>
     </section>
     <div class="content">
@@ -11,7 +11,7 @@
             <div class="box-body">
                 <div class="row" style="padding-left: 20px">
                     @include('tipousuarios.show_fields')
-                    <a href="{!! route('tipousuarios.index') !!}" class="btn btn-default">Back</a>
+                    <a href="{!! route('tipousuarios.index') !!}" class="btn btn-default">Regresar</a>
                 </div>
             </div>
         </div>

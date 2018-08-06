@@ -606,12 +606,14 @@
         --}}
     </li>
     
- @if(Auth::user()->tipousuario_id===1)
-</ul><li class="{{ Request::is('users*') ? 'active' : '' }}">
-    <a href="{!! route('users.index') !!}"><i class="fa fa-edit"></i><span>Users</span></a>
+  @if(Auth::user()->tipousuario_id===1)
+
+<li class="{{ Request::is('users*') ? 'active' : '' }}">
+    <a href="{!! route('users.index') !!}"><i class="fa fa-edit"></i><span>Usuarios</span></a>
 </li>
 
 <li class="{{ Request::is('tipousuarios*') ? 'active' : '' }}">
     <a href="{!! route('tipousuarios.index') !!}"><i class="fa fa-edit"></i><span>Tipousuarios</span></a>
 </li>
-@endif 
+
+ @endif

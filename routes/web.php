@@ -19,8 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
-
 Route::get('/home', 'HomeController@index');
 
 Route::post('storetipodesecho/{taller}', array('uses' => 'TallerController@storeTipoDesecho', 'as' => 'storeTipoDesecho'));
@@ -284,7 +282,7 @@ Route::resource('pais', 'PaisController');
 
 Route::resource('trabajadores', 'TrabajadoresController');
 
-Route::resource('tipousuarios', 'tipousuarioController');
+
 
 
 
@@ -351,9 +349,6 @@ Route::get('biodigestor-pdf',array(
     'uses'=>'biodigestorController@biodigestorHTMLPDF'
 ));
 
-
-
-
 Route::resource('users', 'usersController');
 
-Route::resource('tipousuarios', 'tipousuariosController');
+Route::resource('tipousuarios', 'tipousuarioController');
