@@ -7,7 +7,7 @@
 <!-- Peso Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('peso', 'Peso:') !!}
-    {!! Form::number('peso', null, ['class' => 'form-control']) !!}
+    {!! Form::number('peso', null, ['class' => 'form-control','min' => '0']) !!}
 </div>
 
 <!-- Taller Id Field -->

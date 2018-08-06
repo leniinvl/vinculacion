@@ -45,13 +45,13 @@
 <!-- Horastrabajo Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('horasTrabajo', 'Horas de Trabajo:') !!}
-    {!! Form::number('horasTrabajo', null, ['class' => 'form-control']) !!}
+    {!! Form::number('horasTrabajo', null, ['class' => 'form-control','min' => '0']) !!}
 </div>
 
 <!-- Salario Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('salario', 'Salario:') !!}
-    {!! Form::number('salario', null, ['class' => 'form-control']) !!}
+    {!! Form::number('salario', null, ['class' => 'form-control','min' => '0']) !!}
 </div>
 
 <!-- Plandegestionderiesgos Id Field -->

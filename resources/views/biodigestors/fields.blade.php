@@ -8,7 +8,7 @@
 <!-- Tamañopropiedad Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('tamañoPropiedad', 'Tamaño de la Propiedad (m^2):') !!}
-    {!! Form::number('tamañoPropiedad', null, ['class' => 'form-control','step'=>'0.01']) !!}
+    {!! Form::number('tamañoPropiedad', null, ['class' => 'form-control','step'=>'1','min' => '0']) !!}
 </div>
 
 <!-- Imagen Field -->
@@ -60,43 +60,43 @@
 <!-- Anchobio Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('anchoBio', 'Ancho del Biodigestor (metros):') !!}
-    {!! Form::number('anchoBio', null, ['class' => 'form-control','step'=>'0.01','required' => 'required']) !!}
+    {!! Form::number('anchoBio', null, ['class' => 'form-control','step'=>'1','required' => 'required','min' => '0']) !!}
 </div>
 
 <!-- Largobio Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('largoBio', 'Altura del Biodigestor (m):') !!}
-    {!! Form::number('largoBio', null, ['class' => 'form-control','step'=>'0.01','required' => 'required']) !!}
+    {!! Form::number('largoBio', null, ['class' => 'form-control','step'=>'1','required' => 'required','min' => '0']) !!}
 </div>
 
 <!-- Profundbio Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('profundBio', 'Profundidad del Biodigestor (m):') !!}
-    {!! Form::number('profundBio', null, ['class' => 'form-control','step'=>'0.01','required' => 'required']) !!}
+    {!! Form::number('profundBio', null, ['class' => 'form-control','step'=>'1','required' => 'required','min' => '0']) !!}
 </div>
 
 <!-- Anchocaja Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('anchoCaja', 'Ancho de la caja de acumulación de desechos (m):') !!}
-    {!! Form::number('anchoCaja', null, ['class' => 'form-control','step'=>'0.01','required' => 'required']) !!}
+    {!! Form::number('anchoCaja', null, ['class' => 'form-control','step'=>'1','required' => 'required','min' => '0']) !!}
 </div>
 
 <!-- Largocaja Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('largoCaja', 'Largo de la caja de acumulación de desechos (m):') !!}
-    {!! Form::number('largoCaja', null, ['class' => 'form-control','step'=>'0.01','required' => 'required']) !!}
+    {!! Form::number('largoCaja', null, ['class' => 'form-control','step'=>'1','required' => 'required','min' => '0']) !!}
 </div>
 
 <!-- Profundcaja Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('profundCaja', 'Profundidad de la caja de acumulación de desechos (m):') !!}
-    {!! Form::number('profundCaja', null, ['class' => 'form-control','step'=>'0.01','required' => 'required']) !!}
+    {!! Form::number('profundCaja', null, ['class' => 'form-control','step'=>'1','required' => 'required','min' => '0']) !!}
 </div>
 
 <!-- Temperatura Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('temperatura', 'Temperatura (°C):') !!}
-    {!! Form::number('temperatura', null, ['class' => 'form-control','step'=>'0.01','required' => 'required']) !!}
+    {!! Form::number('temperatura', null, ['class' => 'form-control','step'=>'1','required' => 'required','min' => '0']) !!}
 </div>
 
 <!-- Unidadproduccion Id Field -->

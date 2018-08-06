@@ -1,7 +1,7 @@
 <!-- Ci Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('ci', 'CI:') !!}
-    {!! Form::number('ci', null, ['class' => 'form-control']) !!}
+    {!! Form::number('ci', null, ['class' => 'form-control','min' => '0']) !!}
 </div>
 
 <!-- Nombre Field -->

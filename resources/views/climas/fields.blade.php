@@ -7,7 +7,7 @@
 <!-- Mnsm Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('mnsm', 'Mnsm:') !!}
-    {!! Form::text('mnsm', null, ['class' => 'form-control']) !!}
+    {!! Form::number('mnsm', null, ['class' => 'form-control','min' => '0']) !!}
 </div>
 
 <!-- Submit Field -->

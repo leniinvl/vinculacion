@@ -173,13 +173,13 @@
 <!-- Ruido Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('ruido', 'Ruido:') !!}
-    {!! Form::number('ruido', null, ['class' => 'form-control']) !!}
+    {!! Form::number('ruido', null, ['class' => 'form-control','min' => '0']) !!}
 </div>
 
 <!-- Precipitaciones Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('precipitaciones', 'Precipitaciones:') !!}
-    {!! Form::number('precipitaciones', null, ['class' => 'form-control']) !!}
+    {!! Form::number('precipitaciones', null, ['class' => 'form-control','min' => '0']) !!}
 </div>
 
 <!-- Submit Field -->

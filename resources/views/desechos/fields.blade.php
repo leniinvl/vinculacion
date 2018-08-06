@@ -7,7 +7,7 @@
 <!-- Peso Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('peso', 'Peso (kg):') !!}
-    {!! Form::number('peso', null, ['class' => 'form-control','step'=>'0.01','required' => 'required']) !!}
+    {!! Form::number('peso', null, ['class' => 'form-control','step'=>'1','required' => 'required','min' => '0']) !!}
 </div>
 
 <!-- Biodigestor Id Field -->
