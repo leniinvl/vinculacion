@@ -1,8 +1,13 @@
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+<div style="overflow-x:auto;">
 <div class="input-group"> <span class="input-group-addon fa fa-search" aria-hidden="true"></span>
     <input id="categoriaProyectos-table" type="text" class="form-control" placeholder="Buscar">
 </div>
+<section>
+    <input type="button" class="btn btn-primary pull-right" style="margin-top: 5px;margin-bottom: 5px" onclick="printDiv('areaImprimir')" value="Generar Reporte" />
+    </section>
+<div id="areaImprimir">
 <table class="table table-responsive" id="categoriaProyectos-table">
     <thead>
         <tr>
@@ -38,6 +43,8 @@
     @endforeach
     </tbody>
 </table>
+</div>
+</div>
 <script>
   $(document).ready(function () {
      $('#categoriaProyectos-table').keyup(function () {
@@ -51,3 +58,16 @@
 
   });
   </script>
+<script>
+function printDiv(nombreDiv) {
+        var contenido= document.getElementById(nombreDiv).innerHTML;
+        var contenidoOriginal= document.body.innerHTML;
+        location.reload();
+        document.body.innerHTML = contenido;
+
+        window.print();
+
+        document.body.innerHTML = contenidoOriginal;
+    }
+
+    </script>

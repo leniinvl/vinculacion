@@ -2,27 +2,20 @@
     <thead>
         <tr>
             <th>Nombre</th>
-            <th colspan="3">Acción</th>
+            <th colspan="3">Action</th>
         </tr>
     </thead>
     <tbody>
-    @foreach($tipousuarios as $tipousuario)
+    @foreach($tipousuarios as $tipousuarios)
         <tr>
-            <td>{!! $tipousuario->nombre !!}</td>
+            <td>{!! $tipousuarios->nombre !!}</td>
             <td>
-                {!! Form::open(['route' => ['tipousuarios.destroy', $tipousuario->id], 'method' => 'delete']) !!}
-                
+                {!! Form::open(['route' => ['tipousuarios.destroy', $tipousuarios->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
-                     @if(Auth::user()->tipousuario_id===1)
-                    <a href="{!! route('tipousuarios.show', [$tipousuario->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
-                    <a href="{!! route('tipousuarios.edit', [$tipousuario->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
-                    @if($tipousuario->id!=1)
-                    {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Está Seguro/a?')"]) !!}
-                    @endif
-                    @else      
-                @endif
+                    <a href="{!! route('tipousuarios.show', [$tipousuarios->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
+                    <a href="{!! route('tipousuarios.edit', [$tipousuarios->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
+                    {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                 </div>
-                
                 {!! Form::close() !!}
             </td>
         </tr>
