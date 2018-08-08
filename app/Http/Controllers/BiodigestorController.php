@@ -258,7 +258,7 @@ class BiodigestorController extends AppBaseController
                         return $item2->sum('tamañoPropiedad');
                     });
                 });
-                $labelHorizontal="Dimensión de la propiedad";
+                $labelHorizontal="Dimensión de la propiedad (m^2)";
                 break;
             
             case '1':
@@ -268,7 +268,7 @@ class BiodigestorController extends AppBaseController
                         return $item2->sum('profundBio');
                     });
                 });
-                $labelHorizontal="Profundidad del Biodigestor";
+                $labelHorizontal="Profundidad del Biodigestor (m)";
                 break;
 
             case '2':
@@ -278,7 +278,7 @@ class BiodigestorController extends AppBaseController
                         return $item2->sum('anchoBio');
                     });
                 });
-                $labelHorizontal="Ancho del Biodigestor";
+                $labelHorizontal="Ancho del Biodigestor (m)";
                 break;
 
             default:
@@ -289,7 +289,7 @@ class BiodigestorController extends AppBaseController
                         return $item2->sum('tamañoPropiedad');
                     });
                 });
-                $labelHorizontal="Dimensión de la propiedad";
+                $labelHorizontal="Dimensión de la propiedad (m^2)";
                 break;
         }
 

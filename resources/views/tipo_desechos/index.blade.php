@@ -16,7 +16,7 @@
         <div class="box box-primary">
             <ul class="nav nav-tabs" role="tablist">
                 <li role="presentation" class="active"><a href="#list" aria-controls="list" role="tab" data-toggle="tab">Lista</a></li>
-                <li role="presentation"><a href="#graph" aria-controls="graph" role="tab" data-toggle="tab">Graficos</a></li>
+                <li role="presentation"><a href="#graph" aria-controls="graph" role="tab" data-toggle="tab">Gráfico</a></li>
             </ul>
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane active" id="list">
@@ -28,7 +28,7 @@
                     <div>$chart->container() </div>
                     <div id="container"></div>
                      <script src="//cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.6/highcharts.js" charset="utf-8"></script>
-                       
+                     {!! $chart->script() !!}
                 </div>
             </div>
         </div>
@@ -37,4 +37,3 @@
         </div>
     </div>
 @endsection
-
