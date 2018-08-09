@@ -349,6 +349,10 @@ Route::get('biodigestor-pdf',array(
     'uses'=>'biodigestorController@biodigestorHTMLPDF'
 ));
 
-Route::resource('users', 'usersController');
+
 
 Route::resource('tipousuarios', 'tipousuarioController');
+
+Route::resource('tipoestados', 'tipoestadoController');
+
+Route::resource('users', 'usersController');

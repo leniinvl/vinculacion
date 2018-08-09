@@ -50,7 +50,7 @@
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 @if ($errors->has('email'))
                     <span class="help-block">
-                    <strong>El email es requerido</strong>
+                    <strong>{{ $errors->first('email') }}</strong>
                 </span>
                 @endif
             </div>
@@ -60,7 +60,7 @@
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 @if ($errors->has('password'))
                     <span class="help-block">
-                    <strong>Contraseña requerido</strong>
+                    <strong>{{ $errors->first('password') }}</strong>
                 </span>
                 @endif
 
@@ -71,13 +71,20 @@
                 </div>
                 <!-- /.col -->
                 <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">Log in</button>
+                
+
+  
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">Ingresar</button>
+         
+
+                   
                 </div>
                 <!-- /.col -->
             </div>
         </form>
 
-
+  
+        <a href="{{ url('/password/reset') }}">Olvidé mi contraseña</a><br>
         <a href="{{ url('/register') }}" class="text-center">Registrar nuevo usuario</a>
 
     </div>

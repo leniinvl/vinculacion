@@ -8,28 +8,16 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class users
  * @package App\Models
- * @version August 6, 2018, 3:49 am UTC
+ * @version August 8, 2018, 6:02 am UTC
  *
+ * @property \App\Models\Tipoestado tipoestado
  * @property \App\Models\Tipousuario tipousuario
- * @property \Illuminate\Database\Eloquent\Collection agricultura
- * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasLenguaje
- * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasReligion
- * @property \Illuminate\Database\Eloquent\Collection areainfluenciaHasTipovegetal
- * @property \Illuminate\Database\Eloquent\Collection desecho
- * @property \Illuminate\Database\Eloquent\Collection desechot
- * @property \Illuminate\Database\Eloquent\Collection origeningresos
- * @property \Illuminate\Database\Eloquent\Collection plandegestionderiesgosHasAgricultura
- * @property \Illuminate\Database\Eloquent\Collection plandegestionderiesgosHasAmenazas
- * @property \Illuminate\Database\Eloquent\Collection plandegestionderiesgosHasOrigeningresos
- * @property \Illuminate\Database\Eloquent\Collection plandegestionderiesgosHasTipoanimales
- * @property \Illuminate\Database\Eloquent\Collection plandegestionderiesgosHasVulnerabilidades
- * @property \Illuminate\Database\Eloquent\Collection unidadproduccion
- * @property \Illuminate\Database\Eloquent\Collection unidadproduccionHasPropietario
  * @property string name
  * @property string email
  * @property string password
  * @property string remember_token
  * @property integer tipousuario_id
+ * @property integer tipoestado_id
  */
 class users extends Model
 {
@@ -49,7 +37,8 @@ class users extends Model
         'email',
         'password',
         'remember_token',
-        'tipousuario_id'
+        'tipousuario_id',
+        'tipoestado_id'
     ];
 
     /**
@@ -63,7 +52,8 @@ class users extends Model
         'email' => 'string',
         'password' => 'string',
         'remember_token' => 'string',
-        'tipousuario_id' => 'integer'
+        'tipousuario_id' => 'integer',
+        'tipoestado_id' => 'integer'
     ];
 
     /**
@@ -74,6 +64,14 @@ class users extends Model
     public static $rules = [
         
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     **/
+    public function tipoestado()
+    {
+        return $this->belongsTo(\App\Models\Tipoestado::class);
+    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

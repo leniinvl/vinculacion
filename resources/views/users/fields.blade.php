@@ -1,6 +1,6 @@
 <!-- Name Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('name', 'Nombre:') !!}
+    {!! Form::label('name', 'Name:') !!}
     {!! Form::text('name', null, ['class' => 'form-control']) !!}
 </div>
 
@@ -10,16 +10,16 @@
     {!! Form::email('email', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Password Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('password', 'Contraseña:') !!}
-    {!! Form::password('password', ['class' => 'form-control', 'required' => 'required']) !!}
-</div>
-
 <!-- Tipousuario Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('tipousuario_id', 'Tipousuario Id:') !!}
     {!! Form::select('tipousuario_id',$tipousuarios ,null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Tipoestado Id Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('tipoestado_id', 'Tipoestado Id:') !!}
+    {!! Form::select('tipoestado_id',$tipoestados, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->

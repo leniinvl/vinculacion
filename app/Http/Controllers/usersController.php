@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use App\Models\tipousuario;
+use App\Models\tipoestado;
+
 use Response;
 
 class usersController extends AppBaseController
@@ -45,8 +47,8 @@ class usersController extends AppBaseController
     public function create()
     {
         $tipousuarios=tipousuario::all()->pluck('nombre','id');
-
-        return view('users.create',['tipousuarios'=>$tipousuarios]);
+        $tipoestados=tipousuario::all()->pluck('nombre','id');
+        return view('users.create',['tipousuarios'=>$tipousuarios],['tipoestados'=>$tipoestados]);
     }
 
     /**
@@ -98,14 +100,14 @@ class usersController extends AppBaseController
     {
         $users = $this->usersRepository->findWithoutFail($id);
         $tipousuarios=tipousuario::all()->pluck('nombre','id');
-
+        $tipoestados=tipoestado::all()->pluck('nombre','id');
         if (empty($users)) {
             Flash::error('Users not found');
 
             return redirect(route('users.index'));
         }
 
-        return view('users.edit')->with('users', $users)->with('tipousuarios', $tipousuarios);
+        return view('users.edit')->with('users', $users)->with('tipousuarios', $tipousuarios)->with('tipoestados', $tipoestados);
     }
 
     /**
@@ -128,7 +130,7 @@ class usersController extends AppBaseController
 
         $users = $this->usersRepository->update($request->all(), $id);
         
-        $users->password = bcrypt($request->password);
+       
    
         $users->save();
         Flash::success('Users updated successfully.');
