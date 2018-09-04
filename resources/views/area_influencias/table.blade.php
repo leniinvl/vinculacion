@@ -1,5 +1,7 @@
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+<link href="http://tablefilter.free.fr/TableFilter/filtergrid.css" rel="stylesheet" >
+    <script src="http://tablefilter.free.fr/TableFilter/tablefilter_all_min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 <div class="input-group"> <span class="input-group-addon fa fa-search" aria-hidden="true"></span>
     <input id="areaInfluencias-table" type="text" class="form-control" placeholder="Buscar">
 </div>
@@ -9,7 +11,7 @@
     </section>
 
 
-<table class="table table-responsive" id="areaInfluencias-table">
+<table class="table table-responsive" id="areaInfluencias-table ">
     <thead>
         <tr>
             <th>Altitud</th>
@@ -123,9 +125,49 @@
     </tbody>
 </table>
 </div>
+
+<script>
+var table2_Props = {
+    col_0: "select",
+    col_1: "select",
+    col_2: "select",
+    col_3: "select",
+    col_4: "select",
+    col_5: "select",
+    col_6: "select",
+    col_7: "select",
+    col_8: "select",
+    col_9: "select",
+    col_10: "select",
+    col_11: "select",
+    col_12: "select",
+    col_13: "select",
+    col_14: "select",
+    col_15: "select",
+    col_16: "select",
+    col_17: "select",
+    col_18: "select",
+    col_19: "select",
+    col_20: "select",
+    col_21: "select",
+    col_22: "select",
+    col_23: "select",
+    col_24: "select",
+    col_25: "select",
+    col_26: "select",
+    col_27: "select",
+    col_28: "select",
+    col_29: "select",
+    col_30: "select",
+    col_31: "none",
+    display_all_text: " [ Seleccionar ] ",
+    sort_select: true
+};
+var tf2 = setFilterGrid("areaInfluencias-table ", table2_Props);
+</script>
 <!-- area de impresion -->
 <div style="display:none;font-size:.5em"  id="areaImprimir" >
-                <img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/UTE_new_logo.jpg" class="img-rounded" alt="Cinque Terre" width="60" height="60">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Logo_UTE.jpg" class="img-rounded" alt="Cinque Terre" width="60" height="60">
                 <img src="http://www.pichincha.gob.ec/images/logo/logo2.png" class="img-rounded" alt="Cinque Terre">
                 <img src="http://www.devbrain-it.net/wp-content/uploads/2018/07/logoPacto-1.jpg" class="img-rounded" alt="Cinque Terre"  height="40" >
     <h3><center>Reporte</center></h3>
