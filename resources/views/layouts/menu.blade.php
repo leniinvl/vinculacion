@@ -121,13 +121,14 @@
           </li>
            <li class="{{ Request::is('caracteristicasEtnicas*') ? 'active' : '' }}">
 
-            <li class="{{ Request::is('tipoProyectos*') ? 'active' : '' }}">
+            {{--<li class="{{ Request::is('tipoProyectos*') ? 'active' : '' }}">
                 <a href="{!! route('tipoProyectos.index') !!}">
                     <i class="fa fa-line-chart">
                     </i>
                     Tipo de Proyectos
                 </a>
             </li>
+            
             <li class="{{ Request::is('categoriaProyectos*') ? 'active' : '' }}">
                 <a href="{!! route('categoriaProyectos.index') !!}">
                     <i class="fa fa-plus">
@@ -135,14 +136,16 @@
                     Categoría de Proyectos
                 </a>
             </li>
+
             <li class="{{ Request::is('tipoSuelos*') ? 'active' : '' }}">
                 <a href="{!! route('tipoSuelos.index') !!}">
                     <i class="fa fa-road">
                     </i>
                     Tipos de Suelo
                 </a>
-            </li>
-            <li class="{{ Request::is('climas*') ? 'active' : '' }}">
+            </li>--}}
+
+            {{--<li class="{{ Request::is('climas*') ? 'active' : '' }}">
                 <a href="{!! route('climas.index') !!}">
                     <i class="fa fa-snowflake-o">
                     </i>
@@ -155,7 +158,8 @@
                     </i>
                     Ecosistema
                 </a>
-            </li>
+            </li>--}}
+
             <li class="{{ Request::is('caracteristicasEtnicas*') ? 'active' : '' }}">
 
                 <a href="{!! route('caracteristicasEtnicas.index') !!}">
@@ -304,7 +308,7 @@
                     <i class="fa fa-book">
                     </i>
                     <span>
-                        Planes de Gestion de Riesgos
+                        Planes de Gestion
                     </span>
                 </a>
             </li>
@@ -345,7 +349,7 @@
                             <i class="fa fa-bug">
                             </i>
                             <span>
-                                Tipos de Control de Plagas
+                                Control de Plagas
                             </span>
                         </a>
                     </li>
@@ -403,7 +407,7 @@
                             </span>
                         </a>
                     </li>
-                    <li class="{{ Request::is('vulnerabilidades*') ? 'active' : '' }}">
+                    {{--<li class="{{ Request::is('vulnerabilidades*') ? 'active' : '' }}">
                         <a href="{!! route('vulnerabilidades.index') !!}">
                             <i class="fa fa-tint">
                             </i>
@@ -411,7 +415,7 @@
                                 Vulnerabilidades
                             </span>
                         </a>
-                    </li>
+                    </li>--}}
                     <li class="{{ Request::is('pais*') ? 'active' : '' }}">
                         <a href="{!! route('pais.index') !!}">
                             <i class="fa fa-globe">
@@ -613,7 +617,7 @@
 </li>
 
 <li class="{{ Request::is('tipousuarios*') ? 'active' : '' }}">
-    <a href="{!! route('tipousuarios.index') !!}"><i class="fa fa-edit"></i><span>Tipousuarios</span></a>
+    <a href="{!! route('tipousuarios.index') !!}"><i class="fa fa-edit"></i><span>Tipo usuarios</span></a>
 </li>
 
  @endif

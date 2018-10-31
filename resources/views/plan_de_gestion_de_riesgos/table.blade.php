@@ -21,7 +21,7 @@
         <th>Orígenes de Ingresos</th>
         <th>Agricultura</th>
         <th>Amenazas</th>
-        <th>Vulnerabilidades</th>
+        {{--<th>Vulnerabilidades</th>--}}
             <th colspan="3">Acciones</th>
         </tr>
     </thead>
@@ -52,11 +52,11 @@
                     <p>{!! $planRiesgosHasAmenazas->nombre !!}</p>
               @endforeach
             </td>
-             <td>
+            {{--<td>
               @foreach($planDeGestionDeRiesgos->vulnerabilidades as $planRiesgosHasVulnerabilidades)
                     <p>{!! $planRiesgosHasVulnerabilidades->nombre !!}</p>
               @endforeach
-            </td>
+            </td>--}}
             <td>
                 {!! Form::open(['route' => ['planDeGestionDeRiesgos.destroy', $planDeGestionDeRiesgos->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
