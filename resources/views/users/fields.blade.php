@@ -19,7 +19,7 @@
 <!-- Tipoestado Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('tipoestado_id', 'Tipoestado Id:') !!}
-    {!! Form::select('tipoestado_id',$tipoestados, null, ['class' => 'form-control']) !!}
+    {!! Form::select('tipoestado_id', $tipoestados, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->
