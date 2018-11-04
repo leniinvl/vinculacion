@@ -190,11 +190,12 @@ class AreaInfluenciaController extends AppBaseController {
     $areainfluencia->lenguajes()->detach($id);
     return redirect(url('areainfluencias/' . $areainfluencia->id));
   }
+
   public function areaInfluenciasHTMLPDF(Request $request) {
     $productos = $this->areaInfluenciaRepository->all();//OBTENGO TODOS MIS PRODUCTO
     view()->share('areaInfluencias',$productos);//VARIABLE GLOBAL PRODUCTOS
     if($request->has('descargar')){
-      $pdf = PDF::loadView('pdf.tablaInfluencias',compact('productos'));//CARGO LA VISTA
+      $pdf = PDF::loadView('pdf.tablaInfluencias',compact('productos'))->setPaper('a4', 'landscape');//CARGO LA VISTA
       return $pdf->stream('areaInfluencias.pdf');//SUGERIR NOMBRE A DESCARGAR
     }
     return view('areaInfluencias-pdf');//RETORNO A MI VISTA

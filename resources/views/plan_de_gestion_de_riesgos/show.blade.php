@@ -17,7 +17,7 @@
                 <div class="form-group col-sm-6">
                     {!! Form::open(['route' => ['storeTipoAnimales', $planDeGestionDeRiesgos->id], 'method' => 'post']) !!}
                         {{ csrf_field() }}
-                        {!! Form::select('TipoAnimales_id', $tipoanimales, null, ['class' => 'form-control']) !!}
+                        {!! Form::select('TipoAnimales_id', $tipoanimales, null, ['class' => 'form-control','required' => 'required']) !!}
                 </div>
                 {!! Form::submit('Agregar', ['class' => 'btn btn-primary']) !!}
                         {!! Form::close() !!}
@@ -28,7 +28,7 @@
                                 Nombre
                             </th>
                             <th colspan="3">
-                                Action
+                            Acciones
                             </th>
                         </tr>
                     </thead>
@@ -58,7 +58,7 @@
                 <div class="form-group col-sm-6">
                     {!! Form::open(['route' => ['storeOrigenIngresos', $planDeGestionDeRiesgos->id], 'method' => 'post']) !!}
                         {{ csrf_field() }}
-                        {!! Form::select('OrigenIngresos_id', $origeningresos, null, ['class' => 'form-control']) !!}
+                        {!! Form::select('OrigenIngresos_id', $origeningresos, null, ['class' => 'form-control','required' => 'required']) !!}
                 </div>
                 {!! Form::submit('Agregar', ['class' => 'btn btn-primary']) !!}
 
@@ -70,7 +70,7 @@
                                 Nombre
                             </th>
                             <th colspan="3">
-                                Action
+                            Acciones
                             </th>
                         </tr>
                     </thead>
@@ -100,7 +100,7 @@
                 <div class="form-group col-sm-6">
                     {!! Form::open(['route' => ['storeAgriculturas', $planDeGestionDeRiesgos->id], 'method' => 'post']) !!}
                         {{ csrf_field() }}
-                        {!! Form::select('agricultura_id', $agriculturas, null, ['class' => 'form-control']) !!}
+                        {!! Form::select('agricultura_id', $agriculturas, null, ['class' => 'form-control','required' => 'required']) !!}
                 </div>
                 {!! Form::submit('Agregar', ['class' => 'btn btn-primary']) !!}
 
@@ -112,7 +112,7 @@
                                 Nombre
                             </th>
                             <th colspan="3">
-                                Action
+                            Acciones
                             </th>
                         </tr>
                     </thead>
@@ -142,7 +142,7 @@
                 <div class="form-group col-sm-6">
                     {!! Form::open(['route' => ['storeAmenazas', $planDeGestionDeRiesgos->id], 'method' => 'post']) !!}
                         {{ csrf_field() }}
-                        {!! Form::select('amenazas_id', $amenazas, null, ['class' => 'form-control']) !!}
+                        {!! Form::select('amenazas_id', $amenazas, null, ['class' => 'form-control','required' => 'required']) !!}
                 </div>
                 {!! Form::submit('Agregar', ['class' => 'btn btn-primary']) !!}
 
@@ -154,7 +154,7 @@
                                 Nombre
                             </th>
                             <th colspan="3">
-                                Action
+                            Acciones
                             </th>
                         </tr>
                     </thead>
@@ -184,7 +184,7 @@
                 <div class="form-group col-sm-6">
                     {!! Form::open(['route' => ['storeVulnerabilidades', $planDeGestionDeRiesgos->id], 'method' => 'post']) !!}
                         {{ csrf_field() }}
-                        {!! Form::select('vulnerabilidades_id', $vulnerabilidades, null, ['class' => 'form-control']) !!}
+                        {!! Form::select('vulnerabilidades_id', $vulnerabilidades, null, ['class' => 'form-control','required' => 'required']) !!}
                 </div>
                 {!! Form::submit('Agregar', ['class' => 'btn btn-primary']) !!}
 
@@ -196,7 +196,7 @@
                                 Nombre
                             </th>
                             <th colspan="3">
-                                Action
+                                Acciones
                             </th>
                         </tr>
                     </thead>
@@ -221,7 +221,7 @@
                     </tbody>
                 </table>
                 <a class="btn btn-default" href="{!! route('planDeGestionDeRiesgos.index') !!}">
-                    Atrás
+                    Volver
                 </a>
             </div>
         </div>

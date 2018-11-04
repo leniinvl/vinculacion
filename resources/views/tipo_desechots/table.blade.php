@@ -27,7 +27,7 @@
                     @if(Auth::user()->tipousuario_id===1)
                      <a href="{!! route('tipoDesechots.show', [$tipoDesechot->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
                     <a href="{!! route('tipoDesechots.edit', [$tipoDesechot->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
-                    {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Esta seguro de eliminar?')"]) !!}
+           {{--     {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Esta seguro de eliminar?')"]) !!}  --}} 
                     @else
 					@if(Auth::user()->tipousuario_id===2)
 				<a href="{!! route('tipoDesechots.show', [$tipoDesechot->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
@@ -70,7 +70,7 @@ var tf2 = setFilterGrid("tipoDesechots-table ", table2_Props);
                 margin-left: auto;
                 margin-right: auto;
                 border: 4px solid #aabcfe;
-                background: #d0dafd">>
+                background: #d0dafd">
     <thead>
     <tr style="font-size: 13px;
                 font-weight: normal;

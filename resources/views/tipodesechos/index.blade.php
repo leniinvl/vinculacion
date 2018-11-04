@@ -17,7 +17,7 @@
             <ul class="nav nav-tabs" role="tablist">
                 <li role="presentation" class="active"><a href="#list" aria-controls="list" role="tab" data-toggle="tab">Lista</a></li>
                 @if (!empty($chart) and  !empty($chart->datasets))<li role="presentation"><a href="#graph" aria-controls="graph" role="tab" data-toggle="tab">Graficos</a></li>@endif
-            </ul>harset
+            </ul>
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane active" id="list">
                     <div class="box-body">

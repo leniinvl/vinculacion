@@ -1,19 +1,19 @@
 <!-- Nombre Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('nombre', 'Nombre:') !!}
-    {!! Form::text('nombre', null, ['class' => 'form-control']) !!}
+    {!! Form::text('nombre', null, ['class' => 'form-control','required' => 'required']) !!}
 </div>
 
 <!-- Lat Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('lat', 'Lat:') !!}
-    {!! Form::text('lat', null, ['class' => 'form-control']) !!}
+    {!! Form::text('lat', null, ['class' => 'form-control','required' => 'required']) !!}
 </div>
 
 <!-- Lng Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('lng', 'Lng:') !!}
-    {!! Form::text('lng', null, ['class' => 'form-control']) !!}
+    {!! Form::text('lng', null, ['class' => 'form-control','required' => 'required']) !!}
 </div>
 
 <div id="map">mapa</div>
@@ -29,14 +29,14 @@
 <div class="form-group col-sm-6">
     {!! Form::label('Asociacion_id', 'Asociacion Id:') !!}
     <a href="{{route('asociacions.index')}}">(Añadir Nueva)</a>
-    {!! Form::select('Asociacion_id', $asociacion, null, ['class' => 'form-control']) !!}
+    {!! Form::select('Asociacion_id', $asociacion, null, ['class' => 'form-control','required' => 'required']) !!}
 </div>
 
 <!-- Producto Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('Producto_id', 'Producto Id:') !!}
     <a href="{{route('productos.index')}}">(Añadir Nueva)</a>
-    {!! Form::select('Producto_id', $producto, null, ['class' => 'form-control']) !!}
+    {!! Form::select('Producto_id', $producto, null, ['class' => 'form-control','required' => 'required']) !!}
 </div>
 
 <!-- Submit Field -->

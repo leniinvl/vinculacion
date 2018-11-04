@@ -1,7 +1,7 @@
 <!-- Nombre Comun Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('nombre_comun', 'Nombre Comun:') !!}
-    {!! Form::text('nombre_comun', null, ['class' => 'form-control']) !!}
+    {!! Form::text('nombre_comun', null, ['class' => 'form-control','required' => 'required']) !!}
 </div>
 
 <!-- Nombre Cientifico Field -->

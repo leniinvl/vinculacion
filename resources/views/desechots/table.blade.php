@@ -17,7 +17,7 @@
 <table class="table table-responsive" id="desechots-table ">
     <thead>
         <tr>
-            <th>Fechaa</th>
+        <th>Fecha</th>
         <th>Peso</th>
         <th>Taller</th>
         <th>Tipo de desecho</th>

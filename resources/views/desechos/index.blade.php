@@ -10,8 +10,7 @@
     <section>
     <a href="{{ route('desechosHTMLPDF',['descargar'=>'pdf']) }}" target="_blank" class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px">Ver PDF</a>
     </section>
-    <section class="content-header">
-    <section class="content-header">
+
         {!! Form::open(['route' => 'desechos.index', 'method' => 'GET','class' => 'navbar-form navbar-left pull-right', 'role' => 'search']) !!}
           <div class="form-group">
             {!! Form::label('peso', 'Fecha Inicio:') !!}
@@ -22,8 +21,7 @@
           </div>
           <button type="submit" class="btn btn-default">  Buscar  </button>
         {!! Form::close() !!}
-    </section>
-    </section>
+
  <div class="content">
         <div class="clearfix"></div>
 

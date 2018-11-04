@@ -7,7 +7,7 @@
 <section>
     <input type="button" class="btn btn-primary pull-right" style="margin-top: 5px;margin-bottom: 5px" onclick="printDiv('areaImprimir')" value="Generar Reporte" />
     </section>
-<div id="areaImprimir">
+
 <table class="table table-responsive" id="categoriaProyectos-table">
     <thead>
         <tr>
@@ -25,7 +25,7 @@
                     @if(Auth::user()->tipousuario_id===1)
                     <a href="{!! route('categoriaProyectos.show', [$categoriaProyecto->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
                     <a href="{!! route('categoriaProyectos.edit', [$categoriaProyecto->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
-                    {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+            {{--        {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!} --}}
                     @else
 					@if(Auth::user()->tipousuario_id===2)
 				<a href="{!! route('categoriaProyectos.show', [$categoriaProyecto->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
@@ -44,7 +44,66 @@
     </tbody>
 </table>
 </div>
+
+
+
+<!-- area de impresion -->
+<div style="display:none;font-size:.5em"  id="areaImprimir" >
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Logo_UTE.jpg" class="img-rounded" alt="Cinque Terre" width="60" height="60">
+                <img src="http://www.pichincha.gob.ec/images/logo/logo2.png" class="img-rounded" alt="Cinque Terre">
+                <img src="http://www.devbrain-it.net/wp-content/uploads/2018/07/logoPacto-1.jpg" class="img-rounded" alt="Cinque Terre"  height="40" >
+<h3><center>Categorias de Proyectos</center></h3>
+<table id="categoriaProyectos-table" style="font-family: Lucida Sans Unicode, Lucida Grande, Sans-Serif;
+                font-size: 12px;
+                width: 480px;
+                margin-left: auto;
+                margin-right: auto;
+                border: 4px solid #aabcfe;
+                background: #d0dafd">
+    <thead>
+        <tr style="font-size: 13px;
+                font-weight: normal;
+                padding: 8px;
+                background: #b9c9fe;
+                border-top: 4px solid #aabcfe;
+                border-bottom: 1px solid #fff;
+                color: #039;">
+            <th style="background: #d0dafd;
+                color: #339;">Nombre</th>
+            
+        </tr>
+    </thead>
+    <tbody class="contenidobusqueda">
+    @foreach($categoriaProyectos as $categoriaProyecto)
+        <tr style="font-size: 13px;
+                font-weight: normal;
+                padding: 8px;
+                background: #b9c9fe;
+                border-top: 4px solid #aabcfe;
+                border-bottom: 1px solid #fff;
+                color: #039;">
+            <td style=" padding: 8px;
+                background: #e8edff;
+                border-bottom: 1px solid #fff;
+                color: #669;
+                border-top: 1px solid transparent;">{!! $categoriaProyecto->nombre !!}</td>
+            
+        </tr>
+    @endforeach
+    </tbody>
+</table>
+        <div class="card-footer text-muted footer" style="position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 40px;">
+        <footer class="main-footer" style="max-height: 100px;text-align: center; ">
+            <strong>Copyright © 2018 <a href="#">UTE</a>.</strong> All rights reserved.
+        </footer>
+    </div>
 </div>
+
+
+
 <script>
   $(document).ready(function () {
      $('#categoriaProyectos-table').keyup(function () {
@@ -69,5 +128,20 @@ function printDiv(nombreDiv) {
 
         document.body.innerHTML = contenidoOriginal;
     }
+
+    </script>
+
+    <script>
+   function cambiaVisibilidad() {
+       var div1 = document.getElementById('categoriaProyectos-table');
+       var div2 = document.getElementById('areaImprimir');
+       if(div2.style.display == 'block'){
+           div2.style.display = 'none';
+           div1.style.display = 'block';
+       }else{
+          div2.style.display = 'block';
+          div1.style.display = 'none';
+         }
+   }
 
     </script>

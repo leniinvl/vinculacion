@@ -261,7 +261,7 @@ class PlanDeGestionDeRiesgosController extends AppBaseController
         $productos = $this->planDeGestionDeRiesgosRepository->all(); //OBTENGO TODOS MIS PRODUCTO
         view()->share('planDeGestionDeRiesgos', $productos); //VARIABLE GLOBAL PRODUCTOS
         if ($request->has('descargar')) {
-            $pdf = PDF::loadView('pdf.tablaGestionRiesgos', compact('productos')); //CARGO LA VISTA
+            $pdf = PDF::loadView('pdf.tablaGestionRiesgos', compact('productos'))->setPaper('a4', 'landscape');//CARGO LA VISTA
             return $pdf->stream('PlanGestionRiesgos.pdf'); //SUGERIR NOMBRE A DESCARGAR
         }
         return view('planGestionRiesgos-pdf'); //RETORNO A MI VISTA

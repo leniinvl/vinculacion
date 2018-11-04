@@ -33,7 +33,7 @@
         </thead>
         <tbody class="contenidobusqueda">
 
-        @foreach($biodigestors as $biodigestor)
+        @foreach($biodigestors as $biodigestor) 
             <tr>
                 <td>{!! $biodigestor->ubicacion !!}</td>
                 <td>{!! $biodigestor->tamañoPropiedad !!}</td>
@@ -58,7 +58,7 @@
                         <a href="{!! route('biodigestors.edit', [$biodigestor->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
 
 
-                        {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                    {{--   {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!} --}}
 
 
                         @else
@@ -79,29 +79,29 @@
         @endforeach
         </tbody>
     </table>
-        
+
 <script>
-var table2_Props = {
-    col_0: "select",
-    col_1: "select",
-    col_2: "none",
-    col_3: "none",
-    col_4: "select",
-    col_5: "select",
-    col_6: "select",
-    col_7: "select",
-    col_8: "select",
-    col_9: "select",
-    col_10: "select",
-    col_11: "select",
-    col_12: "select",
-    col_13: "select",
-    col_14: "select",
-    col_15: "none",
-    display_all_text: " [ Seleccionar ] ",
-    sort_select: true
-};
-var tf2 = setFilterGrid("biodigestors-table ", table2_Props);
+    var table2_Props = {
+        col_0: "select",
+        col_1: "select",
+        col_2: "none",
+        col_3: "none",
+        col_4: "select",
+        col_5: "select",
+        col_6: "select",
+        col_7: "select",
+        col_8: "select",
+        col_9: "select",
+        col_10: "select",
+        col_11: "select",
+        col_12: "select",
+        col_13: "select",
+        col_14: "select",
+        col_15: "none",
+        display_all_text: " [ Seleccionar ] ",
+        sort_select: true
+    };
+    var tf2 = setFilterGrid("biodigestors-table ", table2_Props);
 </script>
 
 
@@ -243,7 +243,7 @@ var tf2 = setFilterGrid("biodigestors-table ", table2_Props);
         </footer>
     </div>
     </div>
-  
+
 
     <script>
     $(document).ready(function () {

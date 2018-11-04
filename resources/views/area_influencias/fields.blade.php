@@ -1,7 +1,7 @@
 <!-- Altitud Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('altitud', 'Altitud:') !!}
-    {!! Form::number('altitud', null, ['class' => 'form-control']) !!}
+    {!! Form::number('altitud', null, ['class' => 'form-control','required' => 'required']) !!}
 </div>
 
 <!-- Tipoterrenodescripcion Field -->
@@ -31,13 +31,13 @@
 <!-- Lat Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('lat', 'Lat:') !!}
-    {!! Form::text('lat', null, ['class' => 'form-control']) !!}
+    {!! Form::text('lat', null, ['class' => 'form-control','required' => 'required']) !!}
 </div>
 
 <!-- Long Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('long', 'Long:') !!}
-    {!! Form::text('long', null, ['class' => 'form-control']) !!}
+    {!! Form::text('long', null, ['class' => 'form-control','required' => 'required']) !!}
 </div>
 
 
@@ -52,56 +52,56 @@
 <div class="form-group col-sm-6">
     {!! Form::label('ManejoAmbiental_id', 'Manejo Ambiental:') !!}
     <a href="{{route('manejoAmbientals.index')}}">(Añadir Nueva)</a>
-    {!! Form::select('ManejoAmbiental_id', $manejoambiental, null, ['class' => 'form-control']) !!}
+    {!! Form::select('ManejoAmbiental_id', $manejoambiental, null, ['class' => 'form-control','required' => 'required']) !!}
 </div>
 
 <!-- Usosuelo Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('UsoSuelo_id', 'Uso de Suelo:') !!}
     <a href="{{route('usoSuelos.index')}}">(Añadir Nueva)</a>
-    {!! Form::select('UsoSuelo_id', $usosuelo, null, ['class' => 'form-control']) !!}
+    {!! Form::select('UsoSuelo_id', $usosuelo, null, ['class' => 'form-control','required' => 'required']) !!}
 </div>
 
 <!-- Tiposuelo Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('TipoSuelo_id', 'Tipo de Suelo:') !!}
     <a href="{{route('tipoSuelos.index')}}">(Añadir Nueva)</a>
-    {!! Form::select('TipoSuelo_id', $tiposuelo, null, ['class' => 'form-control']) !!}
+    {!! Form::select('TipoSuelo_id', $tiposuelo, null, ['class' => 'form-control','required' => 'required']) !!}
 </div>
 
 <!-- Permeabilidadsuelo Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('PermeabilidadSuelo_id', 'Permeabilidad del Suelo:') !!}
     <a href="{{route('permeabilidadSuelos.index')}}">(Añadir Nueva)</a>
-    {!! Form::select('PermeabilidadSuelo_id', $permeabilidadsuelo, null, ['class' => 'form-control']) !!}
+    {!! Form::select('PermeabilidadSuelo_id', $permeabilidadsuelo, null, ['class' => 'form-control','required' => 'required']) !!}
 </div>
 
 <!-- Clima Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('Clima_id', 'Clima:') !!}
     <a href="{{route('climas.index')}}">(Añadir Nueva)</a>
-    {!! Form::select('Clima_id', $clima, null, ['class' => 'form-control']) !!}
+    {!! Form::select('Clima_id', $clima, null, ['class' => 'form-control','required' => 'required']) !!}
 </div>
 
 <!-- Condicionesdrenaje Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('CondicionesDrenaje_id', 'Condiciones de Drenaje:') !!}
     <a href="{{route('condicionesDrenajes.index')}}">(Añadir Nueva)</a>
-    {!! Form::select('CondicionesDrenaje_id', $condicionesdrenaje, null, ['class' => 'form-control']) !!}
+    {!! Form::select('CondicionesDrenaje_id', $condicionesdrenaje, null, ['class' => 'form-control','required' => 'required']) !!}
 </div>
 
 <!-- Ecosistema Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('Ecosistema_id', 'Ecosistema:') !!}
     <a href="{{route('ecosistemas.index')}}">(Añadir Nueva)</a>
-    {!! Form::select('Ecosistema_id', $ecosistema, null, ['class' => 'form-control']) !!}
+    {!! Form::select('Ecosistema_id', $ecosistema, null, ['class' => 'form-control','required' => 'required']) !!}
 </div>
 
 <!-- Caracteristicasetnicas Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('CaracteristicasEtnicas_id', 'Características Étnicas:') !!}
     <a href="{{route('caracteristicasEtnicas.index')}}">(Añadir Nueva)</a>
-    {!! Form::select('CaracteristicasEtnicas_id',  $caracteristicasetnicas, null, ['class' => 'form-control']) !!}
+    {!! Form::select('CaracteristicasEtnicas_id',  $caracteristicasetnicas, null, ['class' => 'form-control','required' => 'required']) !!}
 </div>
 
 <!-- Niveltraficodescripcion Field -->

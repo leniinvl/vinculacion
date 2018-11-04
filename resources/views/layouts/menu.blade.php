@@ -4,7 +4,7 @@
 }
 </style>
 <ul class="sidebar-menu tree" data-widget="tree">
-    <li class="header">
+    <li align="center"; class="header" >
         NAVEGADOR
     </li>
     {{--****Biodigestor****--}}
@@ -407,7 +407,7 @@
                             </span>
                         </a>
                     </li>
-                    {{--<li class="{{ Request::is('vulnerabilidades*') ? 'active' : '' }}">
+                    <li class="{{ Request::is('vulnerabilidades*') ? 'active' : '' }}">
                         <a href="{!! route('vulnerabilidades.index') !!}">
                             <i class="fa fa-tint">
                             </i>
@@ -415,7 +415,7 @@
                                 Vulnerabilidades
                             </span>
                         </a>
-                    </li>--}}
+                    </li>
                     <li class="{{ Request::is('pais*') ? 'active' : '' }}">
                         <a href="{!! route('pais.index') !!}">
                             <i class="fa fa-globe">

@@ -14,14 +14,14 @@
 <div class="form-group col-sm-6">
     {!! Form::label('Biodigestor_id', 'Biodigestor:') !!}
      <a href="{{route('biodigestors.index')}}">(Añadir Nueva)</a>
-    {!! Form::select('Biodigestor_id', $biodigestor ,null, ['class' => 'form-control']) !!}
+    {!! Form::select('Biodigestor_id', $biodigestor ,null, ['class' => 'form-control','required' => 'required']) !!}
 </div>
 
 <!-- Tipodesecho Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('TipoDesecho_id', 'Tipo de Desecho:') !!}
      <a href="{{route('tipodesechos.index')}}">(Añadir Nueva)</a>
-    {!! Form::select('TipoDesecho_id', $tipodesecho ,null, ['class' => 'form-control']) !!}
+    {!! Form::select('TipoDesecho_id', $tipodesecho ,null, ['class' => 'form-control','required' => 'required']) !!}
 </div>
 
 <!-- Submit Field -->

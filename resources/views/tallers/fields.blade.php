@@ -1,7 +1,7 @@
 <!-- Nombre Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('nombre', 'Nombre:') !!}
-    {!! Form::text('nombre', null, ['class' => 'form-control']) !!}
+    {!! Form::text('nombre', null, ['class' => 'form-control','required' => 'required']) !!}
 </div>
 
 <!-- Descripcion Field -->
@@ -31,7 +31,7 @@
 <div class="form-group col-sm-6">
     {!! Form::label('UnidadProduccion_id', 'Unidad de Producción:') !!}
     <a href="{{route('unidadproduccions.create')}}">(Añadir)</a>
-    {!! Form::select('UnidadProduccion_id', $unidadproduccion ,null, ['class' => 'form-control']) !!}
+    {!! Form::select('UnidadProduccion_id', $unidadproduccion ,null, ['class' => 'form-control','required' => 'required']) !!}
 </div>
 
 <!-- Submit Field -->

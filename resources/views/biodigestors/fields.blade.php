@@ -8,7 +8,7 @@
 <!-- Tamañopropiedad Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('tamañoPropiedad', 'Tamaño de la Propiedad (m^2):') !!}
-    {!! Form::number('tamañoPropiedad', null, ['class' => 'form-control','step'=>'1','min' => '0']) !!}
+    {!! Form::number('tamañoPropiedad', null, ['class' => 'form-control','step'=>'1','min' => '0','required' => 'required']) !!}
 </div>
 
 <!-- Imagen Field -->
@@ -103,7 +103,7 @@
 <div class="form-group col-sm-6">
     {!! Form::label('UnidadProduccion_id', 'Unidad de Producción:') !!}
      <a href="{{route('unidadproduccions.index')}}">(Añadir Nueva)</a>
-    {!! Form::select('UnidadProduccion_id', $unidadproduccion,null, ['class' => 'form-control']) !!}
+    {!! Form::select('UnidadProduccion_id', $unidadproduccion,null, ['class' => 'form-control','required' => 'required']) !!}
 </div>
 
 <!-- Submit Field -->

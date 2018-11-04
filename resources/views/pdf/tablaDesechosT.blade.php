@@ -83,7 +83,6 @@
                     <th>Peso</th>
                     <th>Taller</th>
                     <th>Tipo de desecho</th>
-
                 </tr>
                 </thead>
                 <tbody>

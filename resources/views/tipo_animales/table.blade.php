@@ -6,9 +6,9 @@
 <div class="input-group"> <span class="input-group-addon fa fa-search" aria-hidden="true"></span>
     <input id="tipoAnimales-table" type="text" class="form-control" placeholder="Buscar">
 </div>
-<section>
+{{--<section>
     <input type="button" class="btn btn-primary pull-right" style="margin-top: 5px;margin-bottom: 5px" onclick="printDiv('areaImprimir')" value="Generar Reporte" />
-    </section>
+    </section>--}}
 <div id="areaImprimir">
 <table class="table table-responsive" id="tipoAnimales-table ">
     <thead>
@@ -36,7 +36,7 @@
                     <a href="{!! route('tipoAnimales.show', [$tipoAnimales->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
                     <a href="{!! route('tipoAnimales.edit', [$tipoAnimales->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
                     
-                    {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+            {{--    {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!} --}}  
                     @else
 					@if(Auth::user()->tipousuario_id===2)
 				<a href="{!! route('tipoAnimales.show', [$tipoAnimales->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>

@@ -202,7 +202,7 @@ class AsociacionController extends AppBaseController
         }
         return view('asociacion-pdf');//RETORNO A MI VISTA
     }
-
+ 
    
   }
 

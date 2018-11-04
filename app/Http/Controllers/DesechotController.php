@@ -174,6 +174,19 @@ class DesechotController extends AppBaseController
     return redirect(route('desechots.index'));
   }
 
+
+  public function desechotsHTMLPDF(Request $request)
+  {
+      $productos = $this->desechotRepository->all();//OBTENGO TODOS MIS PRODUCTO
+      view()->share('desechots',$productos);//VARIABLE GLOBAL PRODUCTOS
+      if($request->has('descargar')){
+          $pdf = PDF::loadView('pdf.tablaDesechosT',compact('productos'));//CARGO LA VISTA
+          return $pdf->stream('Desechost.pdf');//SUGERIR NOMBRE A DESCARGAR
+      }
+      return view('desechots-pdf');//RETORNO A MI VISTA
+  }
+
+
     public function createChart($desechos, $date1, $date2) {
         $preprocessedDataset = $desechos->sortBy('fecha');
         if(empty($date1) && empty($date2)) {

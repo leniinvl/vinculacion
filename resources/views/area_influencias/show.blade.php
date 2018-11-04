@@ -19,7 +19,7 @@
 
                         {!! Form::open(['route' => ['storeTipoVegetal', $areaInfluencia->id], 'method' => 'post']) !!}
                         {{ csrf_field() }}
-                        {!! Form::select('TipoVegetal_id', $tipovegetal, null, ['class' => 'form-control']) !!}
+                        {!! Form::select('TipoVegetal_id', $tipovegetal, null, ['class' => 'form-control','required' => 'required']) !!}
 
                     </div>
                         {!! Form::submit('Agregar', ['class' => 'btn btn-primary']) !!}
@@ -58,7 +58,7 @@
 
                       {!! Form::open(['route' => ['storeReligion', $areaInfluencia->id], 'method' => 'post']) !!}
                       {{ csrf_field() }}
-                      {!! Form::select('Religion_id', $religion, null, ['class' => 'form-control']) !!}
+                      {!! Form::select('Religion_id', $religion, null, ['class' => 'form-control','required' => 'required']) !!}
 
                     </div>
                     {!! Form::submit('Agregar', ['class' => 'btn btn-primary']) !!}
@@ -96,7 +96,7 @@
 
                         {!! Form::open(['route' => ['storeLenguaje', $areaInfluencia->id], 'method' => 'post']) !!}
                         {{ csrf_field() }}
-                        {!! Form::select('Lenguaje_id', $lenguaje, null, ['class' => 'form-control']) !!}
+                        {!! Form::select('Lenguaje_id', $lenguaje, null, ['class' => 'form-control','required' => 'required']) !!}
 
                     </div>
                         {!! Form::submit('Agregar', ['class' => 'btn btn-primary']) !!}
@@ -129,7 +129,7 @@
                     </table>
 
 
-                    <a href="{!! route('areaInfluencias.index') !!}" class="btn btn-default">Atrás</a>
+                    <a href="{!! route('areaInfluencias.index') !!}" class="btn btn-default">Volver</a>
                 </div>
             </div>
         </div>

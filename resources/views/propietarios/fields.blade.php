@@ -7,13 +7,13 @@
 <!-- Nombre Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('nombre', 'Nombre:') !!}
-    {!! Form::text('nombre', null, ['class' => 'form-control']) !!}
+    {!! Form::text('nombre', null, ['class' => 'form-control','required' => 'required']) !!}
 </div>
 
 <!-- Genero Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('Genero_id', 'Género:') !!}
-    {!! Form::select('Genero_id', $generos, null, ['class' => 'form-control']) !!}
+    {!! Form::select('Genero_id', $generos, null, ['class' => 'form-control','required' => 'required']) !!}
 </div>
 
 <!-- Correo Field -->

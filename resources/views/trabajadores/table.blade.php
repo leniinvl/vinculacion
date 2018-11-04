@@ -6,9 +6,9 @@
 <div class="input-group"> <span class="input-group-addon fa fa-search" aria-hidden="true"></span>
     <input id="trabajadores-table" type="text" class="form-control" placeholder="Buscar">
 </div>
-<section>
+{{--<section>
     <input type="button" class="btn btn-primary pull-right" style="margin-top: 5px;margin-bottom: 5px" onclick="printDiv('areaImprimir')" value="Generar Reporte" />
-    </section>
+    </section>--}}
 <div id="areaImprimir">
 <table class="table table-responsive" id="trabajadores-table ">
     <thead>

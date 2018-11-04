@@ -88,9 +88,9 @@
                     <th>Agricultura</th>
                     <th>Amenazas</th>
                     <th>Vulnerabilidades</th>
-
                 </tr>
                 </thead>
+
                 <tbody>
                 @foreach($planDeGestionDeRiesgos as $planDeGestionDeRiesgos)
                     <tr>

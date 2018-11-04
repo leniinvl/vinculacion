@@ -6,12 +6,14 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="http://infyom.com/images/logo/blue_logo_150x150.jpg" class="img-circle"
+                <img src="https://icon-icons.com/icons2/827/PNG/256/user_icon-icons.com_66546.png" class="img-circle"
                      alt="User Image"/>
+                {{--<img src="http://infyom.com/images/logo/blue_logo_150x150.jpg" class="img-circle"
+                     alt="User Image"/>--}}     
             </div>
             <div class="pull-left info">
                 @if (Auth::guest())
-                <p>SISGEO</p>
+                <p>SICGEO</p>
                 @else
                     <p>{{ Auth::user()->name}}</p>
                 @endif

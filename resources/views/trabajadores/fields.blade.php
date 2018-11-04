@@ -1,13 +1,13 @@
 <!-- Nombre Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('nombre', 'Nombre:') !!}
-    {!! Form::text('nombre', null, ['class' => 'form-control']) !!}
+    {!! Form::text('nombre', null, ['class' => 'form-control','required' => 'required']) !!}
 </div>
 
 <!-- Apellido Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('apellido', 'Apellido:') !!}
-    {!! Form::text('apellido', null, ['class' => 'form-control']) !!}
+    {!! Form::text('apellido', null, ['class' => 'form-control','required' => 'required']) !!}
 </div>
 
 <!-- Fechadenacimiento Field -->
@@ -19,20 +19,20 @@
 <!-- Genero Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('Genero_id', 'Género:') !!}
-    {!! Form::select('Genero_id', $generos, null, ['class' => 'form-control']) !!}
+    {!! Form::select('Genero_id', $generos, null, ['class' => 'form-control','required' => 'required']) !!}
 </div>
 
 <!-- Pais Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('Pais_id', 'País:') !!}
     <a href="{{route('pais.index')}}">(Añadir Nuevo)</a>
-    {!! Form::select('Pais_id', $paises, null, ['class' => 'form-control']) !!}
+    {!! Form::select('Pais_id', $paises, null, ['class' => 'form-control','required' => 'required']) !!}
 </div>
 
 <!-- Nacionalidad Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('nacionalidad', 'Nacionalidad:') !!}
-    {!! Form::text('nacionalidad', null, ['class' => 'form-control']) !!}
+    {!! Form::text('nacionalidad', null, ['class' => 'form-control','required' => 'required']) !!}
 </div>
 
 
@@ -45,7 +45,7 @@
 <!-- Horastrabajo Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('horasTrabajo', 'Horas de Trabajo:') !!}
-    {!! Form::number('horasTrabajo', null, ['class' => 'form-control','min' => '0']) !!}
+    {!! Form::number('horasTrabajo', null, ['class' => 'form-control','min' => '0','required' => 'required']) !!}
 </div>
 
 <!-- Salario Field -->
@@ -58,7 +58,7 @@
 <div class="form-group col-sm-6">
     {!! Form::label('PlanDeGestionDeRiesgos_id', 'Plan de Gestión de Riesgos:') !!}
     <a href="{{route('planDeGestionDeRiesgos.index')}}">(Añadir Nuevo)</a>
-    {!! Form::select('PlanDeGestionDeRiesgos_id', $plandegestionderiesgos, null, ['class' => 'form-control']) !!}
+    {!! Form::select('PlanDeGestionDeRiesgos_id', $plandegestionderiesgos, null, ['class' => 'form-control','required' => 'required']) !!}
 </div>
 
 <!-- Submit Field -->

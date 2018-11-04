@@ -23,26 +23,28 @@
       <li role="presentation"><a href="#graph" aria-controls="graph" role="tab" data-toggle="tab">Gráfico</a></li>
       @endif
     </ul>
+
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane active" id="list">
         <div class="box-body">
                     @include('area_influencias.table')
         </div>
       </div>
+
       @if (!empty($chart) and  !empty($chart->datasets))
-      <div role="tabpanel" class="tab-pane" id="graph">
+        <div role="tabpanel" class="tab-pane" id="graph">
 
-        {!! Form::open(['route' => 'areaInfluencias.index', 'method' => 'GET','class' => 'navbar-form navbar-left pull-right', 'role' => 'search', 'id' => 'areaInfuenciaForm']) !!}
-                        <div class="form-group">
-                          {!! Form::select('selectareaInfluencias', ['Manejo Ambiental','Permeabilidad del suelo','Clima','Condicion de Drenaje','Ecosistema'] ,null, ['class' => 'form-control', 'placeholder'=>'Seleccione un parámetro', 'id' => 'mySelect']) !!}
-                        </div>
-        {!! Form::close() !!}
+                {!! Form::open(['route' => 'areaInfluencias.index', 'method' => 'GET','class' => 'navbar-form navbar-left pull-right', 'role' => 'search', 'id' => 'areaInfuenciaForm']) !!}
+                                <div class="form-group">
+                                {!! Form::select('selectareaInfluencias', ['Manejo Ambiental','Permeabilidad del suelo','Clima','Condicion de Drenaje','Ecosistema'] ,null, ['class' => 'form-control', 'placeholder'=>'Seleccione un parámetro', 'id' => 'mySelect']) !!}
+                                </div>
+                {!! Form::close() !!}
 
-        <div>{!! $chart->container() !!}</div>
-        <div id="container"></div>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.6/highcharts.js" charset="utf-8"></script>
-        {!! $chart->script() !!}
-      </div>
+                <div>{!! $chart->container() !!}</div>
+                <div id="container"></div>
+                <script src="//cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.6/highcharts.js" charset="utf-8"></script>
+                {!! $chart->script() !!}
+        </div>
       @endif
 
     </div>

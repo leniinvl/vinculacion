@@ -1,14 +1,14 @@
 <!-- Nombre Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('nombre', 'Nombre:') !!}
-    {!! Form::text('nombre', null, ['class' => 'form-control']) !!}
+    {!! Form::text('nombre', null, ['class' => 'form-control','required' => 'required']) !!}
 </div>
 
 <!-- Tipoproducto Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('TipoProducto_id', 'Tipo Producto:') !!}
     <a href="{{route('tipoProductos.index')}}">(Añadir Nueva)</a>
-    {!! Form::select('TipoProducto_id', $tiposproducto, null, ['class' => 'form-control']) !!}
+    {!! Form::select('TipoProducto_id', $tiposproducto, null, ['class' => 'form-control','required' => 'required']) !!}
 </div>
 
 <!-- Submit Field -->

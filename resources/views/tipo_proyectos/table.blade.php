@@ -25,7 +25,7 @@
                     @if(Auth::user()->tipousuario_id===1)
                      <a href="{!! route('tipoProyectos.show', [$tipoProyecto->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
                     <a href="{!! route('tipoProyectos.edit', [$tipoProyecto->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
-                    {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+            {{--      {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!} --}}  
                     @else
 					@if(Auth::user()->tipousuario_id===2)
 				<a href="{!! route('tipoProyectos.show', [$tipoProyecto->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
@@ -44,7 +44,7 @@
     @endforeach
     </tbody>
 </table>
-
+ 
 </div>
 <!-- area de impresion -->
 <div style="display:none;font-size:.5em"  id="areaImprimir" >

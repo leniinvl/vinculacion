@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers; 
 
 use App\Charts\DefaultChart;
 use App\Http\Controllers\AppBaseController;
@@ -99,7 +99,7 @@ class BiodigestorController extends AppBaseController
             $biodigestor->UnidadProduccion_id = $request->get('UnidadProduccion_id');
             $biodigestor->imagen              = $request->imagen->store('public/imagenes');
             $biodigestor->save();
-           
+            
         }
         Flash::success('Biodigestor guardado exitosamente.');
 
