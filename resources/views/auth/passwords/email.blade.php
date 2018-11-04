@@ -3,10 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>InfyOm Laravel Generator</title>
+    <title>SICGEO</title>
 
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+    <link rel="shortcut icon" type="image/png" href="https://cdn.icon-icons.com/icons2/550/PNG/512/business-color_books_icon-icons.com_53474.png" />    
 
     <!-- Bootstrap 3.3.7 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -64,7 +66,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <button type="submit" class="btn btn-primary pull-right">
-                        <i class="fa fa-btn fa-envelope"></i>Enviar link para restablecer contraseña
+                        <i class="fa fa-btn fa-envelope"></i> Enviar link para restablecer contraseña
                     </button>
                 </div>
             </div>
