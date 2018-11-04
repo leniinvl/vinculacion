@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>SICGEO</title>
 
+    <link rel="shortcut icon" type="image/png" href="https://cdn.icon-icons.com/icons2/550/PNG/512/business-color_books_icon-icons.com_53474.png" />
+
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
