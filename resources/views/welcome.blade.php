@@ -5,16 +5,18 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>SICGEO</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
+        <link rel="shortcut icon" type="image/png" href="https://cdn.icon-icons.com/icons2/550/PNG/512/business-color_books_icon-icons.com_53474.png" />
+
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
-                color: #636b6f;
+                background-color: #D6DBDF;
+                color: #585F62;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
                 height: 100vh;
@@ -46,22 +48,28 @@
             }
 
             .title {
-                font-size: 84px;
+                font-size: 150px;
             }
 
             .links > a {
                 color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
+                padding: 0 30px;
+                font-size: 15px;
                 font-weight: 600;
                 letter-spacing: .1rem;
                 text-decoration: none;
                 text-transform: uppercase;
             }
 
-            .m-b-md {
-                margin-bottom: 30px;
+            p{
+                font-size: 35px;  
             }
+
+            .m-b-md {
+                margin-bottom: 10px;
+            }
+
+
         </style>
     </head>
     <body>
@@ -79,15 +87,12 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    <b>SIC</b>GEO
                 </div>
-
+                <p>Sistema Geográfico de Información Centralizada de Pacto</p>
                 <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="http://pacto.gob.ec/" target="_blank">G.A.D. PARROQUIA PACTO</a>
+                    <a href="https://www.ute.edu.ec/" target="_blank"> UTE</a>
                 </div>
             </div>
         </div>
